@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSD Advies — Opdrachten Dashboard</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d0d1a;color:#e8e8f0;min-height:100vh;font-size:13px}
+
+header{background:linear-gradient(135deg,#A795EB,#5a4a9e);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+header h1{font-size:1.1rem;font-weight:800;color:#fff}
+header p{font-size:.7rem;color:rgba(255,255,255,.8);margin-top:2px}
+#datum{font-size:.72rem;color:rgba(255,255,255,.88);text-align:right;line-height:1.6}
+
+.tabs{display:flex;background:#0d0d1a;border-bottom:2px solid #1e1e30}
+.tab{padding:9px 16px;font-size:.76rem;font-weight:600;color:#444;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:color .15s}
+.tab:hover{color:#A795EB}
+.tab.active{color:#A795EB;border-bottom-color:#A795EB}
+
+.view{display:none;padding:14px 16px}
+.view.active{display:block}
+
+/* FILTER BAR */
+.filter-bar{background:#141428;border:1px solid #22223a;border-radius:8px;padding:10px 14px;margin-bottom:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.fb-group{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.fb-label{font-size:.63rem;text-transform:uppercase;letter-spacing:.06em;color:#444;white-space:nowrap}
+.pill{padding:4px 11px;border-radius:20px;font-size:.69rem;font-weight:700;cursor:pointer;border:1px solid;transition:all .15s;white-space:nowrap;user-select:none}
+.pill-zzp{color:#4caf50;border-color:#4caf5055;background:#4caf5010}.pill-zzp.on{background:#4caf5030;border-color:#4caf50;box-shadow:0 0 7px #4caf5040}
+.pill-mid{color:#8bc34a;border-color:#8bc34a55;background:#8bc34a10}.pill-mid.on{background:#8bc34a30;border-color:#8bc34a}
+.pill-pay{color:#ff8c42;border-color:#ff8c4255;background:#ff8c4210}.pill-pay.on{background:#ff8c4230;border-color:#ff8c42}
+.pill-loon{color:#888;border-color:#33333355;background:#11111110}.pill-loon.on{background:#ef535020;border-color:#ef5350;color:#ef5350}
+.pill-onsite{color:#7986cb;border-color:#7986cb55;background:#7986cb10}.pill-onsite.on{background:#7986cb30;border-color:#7986cb}
+.pill-hybrid{color:#42a5f5;border-color:#42a5f555;background:#42a5f510}.pill-hybrid.on{background:#42a5f530;border-color:#42a5f5}
+.pill-remote{color:#66bb6a;border-color:#66bb6a55;background:#66bb6a10}.pill-remote.on{background:#66bb6a30;border-color:#66bb6a}
+.fb-div{width:1px;height:18px;background:#22223a;flex-shrink:0}
+#fcount{font-size:.64rem;color:#333}
+
+/* MAIN LAYOUT */
+.main-layout{display:grid;grid-template-columns:400px 1fr;gap:12px;margin-bottom:12px}
+@media(max-width:860px){.main-layout{grid-template-columns:1fr}}
+
+/* MAP */
+.map-panel{background:#141428;border:1px solid #22223a;border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.map-title{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:#A795EB;margin-bottom:4px}
+#map{height:460px;border-radius:6px;border:1px solid #1a1a2c;z-index:1}
+.map-legend{display:flex;flex-wrap:wrap;gap:5px 12px}
+.ml-item{display:flex;align-items:center;gap:5px;font-size:.63rem;color:#555}
+.ml-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+
+/* MATCHES */
+.matches-panel{background:#141428;border:1px solid #A795EB22;border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.matches-hdr{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px}
+.matches-title{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:#A795EB}
+#mcount{font-size:.65rem;color:#444}
+.mscroll{overflow-y:auto;max-height:420px;padding-right:2px}
+.mscroll::-webkit-scrollbar{width:4px}
+.mscroll::-webkit-scrollbar-thumb{background:#2a2a4a;border-radius:2px}
+
+/* MATCH CARD */
+.mcard{background:#0d0d1a;border-radius:7px;padding:10px 12px;margin-bottom:7px;border-left:3px solid #A795EB;display:flex;flex-direction:column;gap:5px}
+.mcard.top{border-left-color:#4caf50}.mcard.good{border-left-color:#ff8c42}
+.mcard-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
+.mcard-title{font-size:.8rem;font-weight:700;color:#fff;flex:1}
+.obtn{background:#A795EB;color:#0d0d1a;border:none;border-radius:4px;font-size:.62rem;font-weight:800;padding:3px 8px;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-block;flex-shrink:0}
+.obtn:hover{background:#7c6abf;color:#fff}
+.obtn.sm{background:#1a1a2e;color:#A795EB;border:1px solid #A795EB44}
+.obtn.sm:hover{background:#A795EB22}
+.mcard-meta{font-size:.69rem;color:#555;line-height:1.5}
+.mcard-badges{display:flex;flex-wrap:wrap;gap:4px}
+.mcard-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px}
+.mcard-contact{font-size:.64rem;color:#A795EB;flex:1}
+.status-sel{background:#0d0d1a;border:1px solid #2a2a3a;border-radius:4px;color:#888;font-size:.63rem;padding:2px 5px;cursor:pointer;outline:none}
+.s-nieuw{color:#42a5f5;border-color:#42a5f544}
+.s-gereageerd{color:#A795EB;border-color:#A795EB44}
+.s-interview{color:#ff8c42;border-color:#ff8c4244}
+.s-afgewezen{color:#ef5350;border-color:#ef535044}
+.s-aangenomen{color:#4caf50;border-color:#4caf5044}
+
+/* BADGES */
+.b{font-size:.6rem;font-weight:700;padding:2px 6px;border-radius:9px;white-space:nowrap}
+.b-zzp{background:#4caf5015;color:#4caf50;border:1px solid #4caf5044}
+.b-mid{background:#8bc34a15;color:#8bc34a;border:1px solid #8bc34a44}
+.b-pay{background:#ff8c4215;color:#ff8c42;border:1px solid #ff8c4244}
+.b-loon{background:#ef535015;color:#ef5350;border:1px solid #ef535044}
+.b-onsite{background:#7986cb15;color:#7986cb;border:1px solid #7986cb44}
+.b-hybrid{background:#42a5f515;color:#42a5f5;border:1px solid #42a5f544}
+.b-remote{background:#66bb6a15;color:#66bb6a;border:1px solid #66bb6a44}
+.b-city{background:#4a148c15;color:#ce93d8;border:1px solid #4a148c44}
+.b-src{background:#1a1a2e;color:#555;border:1px solid #2a2a3a}
+.b-date{background:#1a1a2e;color:#333;border:1px solid #22223a}
+.no-matches{text-align:center;padding:30px;color:#333;font-size:.8rem;line-height:1.8}
+
+/* PLATFORMS ACCORDION */
+.plat-section{background:#141428;border:1px solid #22223a;border-radius:8px;overflow:hidden;margin-bottom:12px}
+.plat-hdr{padding:10px 14px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none}
+.plat-hdr:hover{background:#1a1a28}
+.plat-hdr-title{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:#A795EB;display:flex;align-items:center;gap:8px}
+#plat-summary{font-size:.62rem;color:#444;font-weight:normal;text-transform:none;letter-spacing:0}
+.plat-arrow{color:#A795EB;transition:transform .2s}
+.plat-arrow.open{transform:rotate(180deg)}
+.plat-body{display:none;padding:12px 14px;border-top:1px solid #22223a}
+.plat-body.open{display:block}
+.plat-cat-hdr{font-size:.61rem;text-transform:uppercase;letter-spacing:.06em;color:#2a2a4a;margin:10px 0 4px;padding-left:2px}
+.plat-cat-hdr:first-child{margin-top:0}
+.plat-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid #0f0f1f}
+.plat-row:last-of-type{border-bottom:none}
+.plat-chk{accent-color:#A795EB;width:13px;height:13px;cursor:pointer;flex-shrink:0}
+.plat-lbl{flex:1;font-size:.75rem;color:#bbb}
+.role-tag{font-size:.59rem;font-weight:700;padding:2px 5px;border-radius:9px;white-space:nowrap;flex-shrink:0}
+.tp{background:#A795EB15;color:#A795EB;border:1px solid #A795EB33}
+.ts{background:#2E7D3215;color:#66bb6a;border:1px solid #2E7D3233}
+.td{background:#e6510015;color:#ff8c42;border:1px solid #e6510033}
+.tc{background:#c6282815;color:#ef5350;border:1px solid #c6282833}
+.tl{background:#1565c015;color:#42a5f5;border:1px solid #1565c033}
+.ta{background:#4a148c15;color:#ce93d8;border:1px solid #4a148c33}
+.plat-open-btn{background:transparent;border:1px solid #2a2a3a;border-radius:4px;color:#444;font-size:.63rem;padding:2px 7px;cursor:pointer}
+.plat-open-btn:hover{border-color:#A795EB;color:#A795EB}
+.open-panel{background:#0d0d1a;border:1px solid #A795EB33;border-radius:6px;padding:10px 12px;margin-top:10px}
+.open-panel-title{font-size:.68rem;color:#A795EB;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.open-links{display:flex;flex-direction:column;gap:4px;max-height:220px;overflow-y:auto}
+.open-link-row{display:flex;align-items:center;gap:8px;padding:5px 8px;background:#141428;border-radius:5px;border:1px solid #1e1e30}
+.open-link-row a.ll{color:#bbb;text-decoration:none;font-size:.73rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.open-link-row a.ll:hover{color:#A795EB}
+.open-note{font-size:.62rem;color:#333;margin-top:8px;line-height:1.7}
+.plat-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:center}
+
+/* EDITOR */
+.ed-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+@media(max-width:700px){.ed-grid{grid-template-columns:1fr}}
+.epanel{background:#141428;border:1px solid #22223a;border-radius:8px;padding:13px;margin-bottom:12px}
+.epanel h2{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:#A795EB;margin-bottom:11px;display:flex;justify-content:space-between;align-items:center;gap:6px}
+.add-btn{background:#A795EB20;color:#A795EB;border:1px solid #A795EB44;border-radius:5px;font-size:.66rem;font-weight:700;padding:3px 9px;cursor:pointer;white-space:nowrap}
+.add-btn:hover{background:#A795EB33}
+.ci-item{display:flex;align-items:center;gap:6px;background:#0d0d1a;border:1px solid #1a1a2c;border-radius:5px;padding:6px 8px;margin-bottom:4px}
+.ci-label{flex:1;font-size:.75rem;color:#ccc;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ci-edit{background:transparent;border:1px solid #2a2a3a;border-radius:4px;color:#555;font-size:.62rem;padding:2px 5px;cursor:pointer;flex-shrink:0}
+.ci-edit:hover{border-color:#A795EB;color:#A795EB}
+.ci-del{background:transparent;border:none;color:#1e1e2e;font-size:.85rem;cursor:pointer;padding:0 2px;line-height:1;flex-shrink:0}
+.ci-del:hover{color:#ef5350}
+.saved{font-size:.64rem;color:#4caf50;opacity:0;transition:opacity .3s}
+.saved.on{opacity:1}
+.reset-btn{background:#ef535015;color:#ef5350;border:1px solid #ef535044;border-radius:5px;font-size:.68rem;padding:5px 12px;cursor:pointer;width:100%;margin-top:6px}
+.reset-btn:hover{background:#ef535030}
+
+/* MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:1000;align-items:center;justify-content:center}
+.overlay.open{display:flex}
+.modal{background:#141428;border:1px solid #A795EB55;border-radius:10px;padding:18px;width:min(520px,92vw);max-height:88vh;overflow-y:auto}
+.modal h3{font-size:.86rem;font-weight:700;color:#A795EB;margin-bottom:13px}
+.fg{margin-bottom:10px}
+.fg label{display:block;font-size:.65rem;color:#555;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em}
+.fg input,.fg select,.fg textarea{width:100%;background:#0d0d1a;border:1px solid #2a2a3a;border-radius:5px;color:#eee;font-size:.78rem;padding:7px 9px;outline:none;font-family:inherit}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:#A795EB}
+.fg select option{background:#141428}
+.fg textarea{resize:vertical;min-height:52px}
+.ck-group{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.ck-group label{display:flex;align-items:center;gap:4px;font-size:.73rem;color:#bbb;cursor:pointer;text-transform:none;letter-spacing:0}
+.ck-group input[type=checkbox]{accent-color:#A795EB;width:13px;height:13px}
+.modal-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
+.m-save{background:#A795EB;color:#0d0d1a;border:none;border-radius:5px;font-size:.76rem;font-weight:700;padding:7px 15px;cursor:pointer}
+.m-save:hover{background:#7c6abf;color:#fff}
+.m-cancel{background:#1a1a2e;color:#666;border:1px solid #2a2a3a;border-radius:5px;font-size:.76rem;padding:7px 12px;cursor:pointer}
+.m-cancel:hover{color:#ccc}
+
+/* Leaflet dark popup */
+.leaflet-popup-content-wrapper{background:#141428;border:1px solid #A795EB55;border-radius:8px;color:#e8e8f0;box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.leaflet-popup-tip{background:#141428}
+.leaflet-popup-content{margin:10px 14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.leaflet-control-zoom a{background:#141428!important;color:#A795EB!important;border-color:#2a2a4a!important}
+.leaflet-control-zoom a:hover{background:#1e1e38!important}
+
+footer{text-align:center;padding:12px;color:#1e1e2a;font-size:.64rem;border-top:1px solid #1a1a2a;margin-top:6px}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>BSD Advies — Opdrachten Dashboard</h1>
+    <p>IT Procesmanager · IT Servicemanager · Service Delivery Manager · ITSM/SIAM Consultant</p>
+  </div>
+  <div id="datum"></div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('scan')">🔎 Dagelijkse Scan</div>
+  <div class="tab" onclick="showTab('editor')">⚙️ Bewerken</div>
+</div>
+
+<!-- ══════════ SCAN TAB ══════════ -->
+<div id="tab-scan" class="view active">
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="fb-group">
+      <span class="fb-label">Contract:</span>
+      <span class="pill pill-zzp on"  onclick="togglePill(this,'zzp')"   title="ZZP / Freelance">ZZP ✅</span>
+      <span class="pill pill-mid on"  onclick="togglePill(this,'mid')"   title="Midlance / Interlance">Midlance</span>
+      <span class="pill pill-pay"     onclick="togglePill(this,'pay')"   title="Payroll verloning">Payroll</span>
+      <span class="pill pill-loon"    onclick="togglePill(this,'loon')"  title="Loondienst — standaard verborgen">Loondienst</span>
+    </div>
+    <div class="fb-div"></div>
+    <div class="fb-group">
+      <span class="fb-label">Werkwijze:</span>
+      <span class="pill pill-onsite on" onclick="togglePill(this,'onsite')">Op locatie</span>
+      <span class="pill pill-hybrid on" onclick="togglePill(this,'hybrid')">Hybride</span>
+      <span class="pill pill-remote on" onclick="togglePill(this,'remote')">Remote</span>
+    </div>
+    <div class="fb-div"></div>
+    <span id="fcount"></span>
+  </div>
+
+  <div class="main-layout">
+
+    <!-- MAP -->
+    <div class="map-panel">
+      <div class="map-title">📍 Standplaatsen <span style="font-size:.62rem;color:#333;font-weight:normal">— scroll=zoom, sleep=pannen, klik pin=details</span></div>
+      <div id="map"></div>
+      <div class="map-legend">
+        <div class="ml-item"><div class="ml-dot" style="background:#A795EB;border:2px solid #A795EB"></div>Haarlem (thuis)</div>
+        <div class="ml-item"><div class="ml-dot" style="background:#4caf50"></div>ZZP</div>
+        <div class="ml-item"><div class="ml-dot" style="background:#8bc34a"></div>Midlance</div>
+        <div class="ml-item"><div class="ml-dot" style="background:#ff8c42"></div>Payroll</div>
+        <div class="ml-item"><div class="ml-dot" style="background:#ef5350;opacity:.6"></div>Loondienst</div>
+      </div>
+    </div>
+
+    <!-- MATCHES -->
+    <div class="matches-panel">
+      <div class="matches-hdr">
+        <span class="matches-title">Opdrachten</span>
+        <span id="mcount"></span>
+      </div>
+      <div class="mscroll" id="match-list"></div>
+    </div>
+  </div>
+
+  <!-- PLATFORMS ACCORDION -->
+  <div class="plat-section">
+    <div class="plat-hdr" onclick="togglePlat()">
+      <span class="plat-hdr-title">🔗 Platforms &amp; Bronnen <span id="plat-summary"></span></span>
+      <span class="plat-arrow" id="plat-arrow">▼</span>
+    </div>
+    <div class="plat-body" id="plat-body">
+      <div id="plat-list"></div>
+      <div class="plat-actions">
+        <button class="obtn" onclick="checkAll(true)">Alles selecteren</button>
+        <button class="obtn sm" onclick="checkAll(false)">Alles deselecteren</button>
+        <button class="obtn" onclick="openSelected()" style="margin-left:auto">▶ Open geselecteerde</button>
+      </div>
+      <div id="open-panel" class="open-panel" style="display:none">
+        <div class="open-panel-title">
+          <span>Klik → naast elke link om te openen</span>
+          <button class="obtn sm" onclick="document.getElementById('open-panel').style.display='none'">✕</button>
+        </div>
+        <div class="open-links" id="open-links-list"></div>
+        <div class="open-note">💡 Browsers blokkeren automatisch openen. Klik elke → handmatig, of sta popups toe voor deze pagina.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    BSD Advies &amp; Interim · Dietwin Betlem · Haarlem &nbsp;|&nbsp;
+    Harvey Nash: 📞 0346-581070 · <a href="/cdn-cgi/l/email-protection#0674677f6728676a2b6c677c676f747f466e677470637f6867756e2865696b" style="color:#A795EB;text-decoration:none"><span class="__cf_email__" data-cfemail="7a081b031b541b1657101b001b1308033a121b080c1f03141b091254191517">[email&#160;protected]</span></a>
+  </footer>
+</div>
+
+<!-- ══════════ EDITOR TAB ══════════ -->
+<div id="tab-editor" class="view">
+  <div class="ed-grid">
+    <div class="epanel">
+      <h2>Opdrachten <div style="display:flex;align-items:center;gap:5px"><span class="saved" id="s-m">✓ Opgeslagen</span><button class="add-btn" onclick="openMM(-1)">+ Toevoegen</button></div></h2>
+      <div id="match-ed"></div>
+    </div>
+    <div class="epanel">
+      <h2>Platform Links <div style="display:flex;align-items:center;gap:5px"><span class="saved" id="s-l">✓ Opgeslagen</span><button class="add-btn" onclick="openLM(-1)">+ Toevoegen</button></div></h2>
+      <div id="link-ed"></div>
+    </div>
+  </div>
+  <div class="ed-grid">
+    <div class="epanel">
+      <h2>✅ Altijd reageren <button class="add-btn" style="margin-left:auto" onclick="addF('yes')">+ Toevoegen</button></h2>
+      <div id="fyes"></div>
+    </div>
+    <div class="epanel">
+      <h2>✗ Afvallen <button class="add-btn" style="margin-left:auto" onclick="addF('no')">+ Toevoegen</button></h2>
+      <div id="fno"></div>
+    </div>
+  </div>
+  <div class="epanel">
+    <h2>⚠️ Beheer</h2>
+    <button class="reset-btn" onclick="resetAll()">🔄 Reset alle data naar standaard (localStorage wissen)</button>
+  </div>
+</div>
+
+<!-- ══════════ MODALS ══════════ -->
+<div class="overlay" id="mm-overlay">
+  <div class="modal">
+    <h3 id="mm-title">Opdracht toevoegen</h3>
+    <input type="hidden" id="mm-idx" value="-1">
+    <div class="fg"><label>Functietitel</label><input id="mm-t" placeholder="bijv. IT Procesmanager — Univé"></div>
+    <div class="fg"><label>Details</label><textarea id="mm-m" rows="2"></textarea></div>
+    <div class="fg"><label>Contact</label><input id="mm-c" placeholder="naam@bureau.nl · 0346-581070"></div>
+    <div class="fg"><label>Bron / platform</label><input id="mm-src" placeholder="bijv. Harvey Nash · IT-Contracts"></div>
+    <div class="fg"><label>URL</label><input id="mm-u" placeholder="https://..."></div>
+    <div class="fg"><label>Stad (standplaats)</label><input id="mm-city" placeholder="bijv. Zwolle"></div>
+    <div class="fg"><label>Kaartlocatie — kies stad of voer lat,lon in</label>
+      <select id="mm-cp" onchange="document.getElementById('mm-ll').value=this.value">
+        <option value="">— Kies stad —</option>
+        <option value="52.381,4.636">Haarlem</option>
+        <option value="52.370,4.895">Amsterdam</option>
+        <option value="52.090,5.121">Utrecht</option>
+        <option value="52.070,4.297">Den Haag</option>
+        <option value="51.925,4.477">Rotterdam</option>
+        <option value="52.516,6.083">Zwolle</option>
+        <option value="52.213,5.966">Apeldoorn</option>
+        <option value="51.982,5.898">Arnhem</option>
+        <option value="51.442,5.478">Eindhoven</option>
+        <option value="53.219,6.572">Groningen</option>
+        <option value="51.689,5.304">Den Bosch</option>
+        <option value="50.851,5.688">Maastricht</option>
+        <option value="52.992,6.564">Assen</option>
+        <option value="52.220,6.894">Enschede</option>
+        <option value="51.560,5.091">Tilburg</option>
+        <option value="52.156,5.387">Amersfoort</option>
+        <option value="51.843,5.853">Nijmegen</option>
+        <option value="52.374,4.899">Schiphol / Haarlemmermeer</option>
+      </select>
+      <input id="mm-ll" placeholder="52.516,6.083" style="margin-top:5px">
+    </div>
+    <div class="fg"><label>Werkwijze</label>
+      <div class="ck-group">
+        <label><input type="checkbox" id="mm-onsite"> Op locatie</label>
+        <label><input type="checkbox" id="mm-hybrid"> Hybride</label>
+        <label><input type="checkbox" id="mm-remote"> Remote</label>
+      </div>
+    </div>
+    <div class="fg"><label>Contract types</label>
+      <div class="ck-group">
+        <label><input type="checkbox" id="mm-zzp"> ZZP</label>
+        <label><input type="checkbox" id="mm-mid"> Midlance/Interlance</label>
+        <label><input type="checkbox" id="mm-pay"> Payroll</label>
+        <label><input type="checkbox" id="mm-loon"> Loondienst</label>
+      </div>
+    </div>
+    <div class="fg"><label>Prioriteit</label>
+      <select id="mm-p"><option value="top">⭐⭐⭐ Top match</option><option value="good" selected>⭐⭐ Goede match</option><option value="normal">⭐ Raakvlak</option></select>
+    </div>
+    <div class="fg"><label>Status</label>
+      <select id="mm-st"><option value="nieuw">Nieuw</option><option value="gereageerd">Gereageerd</option><option value="interview">Interview</option><option value="afgewezen">Afgewezen</option><option value="aangenomen">Aangenomen</option></select>
+    </div>
+    <div class="modal-btns">
+      <button class="m-cancel" onclick="closeModal('mm-overlay')">Annuleren</button>
+      <button class="m-save" onclick="saveMatch()">Opslaan</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="lm-overlay">
+  <div class="modal">
+    <h3 id="lm-title">Link toevoegen</h3>
+    <input type="hidden" id="lm-idx" value="-1">
+    <div class="fg"><label>Label</label><input id="lm-l" placeholder="bijv. Service Delivery Manager — Freep"></div>
+    <div class="fg"><label>URL</label><input id="lm-u" placeholder="https://..."></div>
+    <div class="fg"><label>Categorie</label>
+      <select id="lm-c">
+        <option value="itcontracts">IT-Contracts.nl</option>
+        <option value="aggregators">Aggregators</option>
+        <option value="zzp">ZZP Platforms</option>
+        <option value="bureaus">Bureaus</option>
+        <option value="linkedin">LinkedIn</option>
+        <option value="extra">Extra</option>
+      </select>
+    </div>
+    <div class="fg"><label>Type</label>
+      <select id="lm-t"><option value="tp">Procesmanager</option><option value="ts">Servicemanager</option><option value="td">Service Delivery</option><option value="tc">Consultant</option><option value="tl">LinkedIn</option><option value="ta">Aggregator</option></select>
+    </div>
+    <div class="modal-btns">
+      <button class="m-cancel" onclick="closeModal('lm-overlay')">Annuleren</button>
+      <button class="m-save" onclick="saveLink()">Opslaan</button>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ══════════════════════════════════════════
+//  STATE & DEFAULTS
+// ══════════════════════════════════════════
+const SK = 'bsd_v6';
+
+const CITY_LL = {
+  'Haarlem':[52.381,4.636],'Amsterdam':[52.370,4.895],'Utrecht':[52.090,5.121],
+  'Den Haag':[52.070,4.297],'Rotterdam':[51.925,4.477],'Zwolle':[52.516,6.083],
+  'Apeldoorn':[52.213,5.966],'Arnhem':[51.982,5.898],'Eindhoven':[51.442,5.478],
+  'Groningen':[53.219,6.572],'Den Bosch':[51.689,5.304],'Maastricht':[50.851,5.688],
+  'Assen':[52.992,6.564],'Enschede':[52.220,6.894],'Tilburg':[51.560,5.091],
+  'Amersfoort':[52.156,5.387],'Nijmegen':[51.843,5.853],'Breda':[51.589,4.776],
+  'Leiden':[52.160,4.497],'Delft':[52.011,4.357],'Dordrecht':[51.814,4.669]
+};
+
+const DEF = {
+  matches:[
+    {id:1,title:'IT Procesmanager — Univé, Zwolle',meta:'Harvey Nash · ZZP · 6 mnd + verlenging · 38u/wk · ITIL v4 herinrichting: Incident, Change, Problem, Event, CMDB',contact:'raya.al-jazairy@harveynash.com · Ref: ITC-BBBH119568 · 0346-581070',src:'Harvey Nash · IT-Contracts',url:'https://www.it-contracts.nl/vacature_IT_Procesmanager__287128',city:'Zwolle',latlng:'52.516,6.083',work:['hybrid'],contract:['zzp'],prio:'top',status:'nieuw',date:'2026-03-09'},
+    {id:2,title:'IT Servicemanager — Univé, Zwolle/Assen',meta:'Harvey Nash · ZZP · 3 mnd + verlenging · 38u/wk · SLA-beheer, leveranciers, kwaliteit, compliance · 12 diensten',contact:'Ricardo Heijveld · Harvey Nash · Ref: ITC-BBBH119567 · 0346-581070',src:'Harvey Nash · IT-Contracts',url:'https://www.it-contracts.nl/vacature_IT_Servicemanager_287127',city:'Zwolle/Assen',latlng:'52.516,6.083',work:['hybrid'],contract:['zzp'],prio:'top',status:'nieuw',date:'2026-03-09'},
+    {id:3,title:'Procesmanager Service Integratie',meta:'ZZP-Opdrachten.nl · ZZP · ITIL + SIAM + multi-vendor · Regieorganisatie in opbouw · ITSM-tooling in aanbesteding',contact:'Via ZZP-Opdrachten.nl — opdrachtgever onbekend',src:'ZZP-Opdrachten.nl',url:'https://www.zzp-opdrachten.nl/vacatures/vacature-procesmanager-service-integratie-643204/',city:'Onbekend',latlng:'52.090,5.121',work:['hybrid'],contract:['zzp'],prio:'good',status:'nieuw',date:'2025-08-09'},
+    {id:4,title:'IT Procesmanager Operationeel — Kadaster',meta:'Freep.nl · ZZP · ITIL v4 + ServiceNow + Agile/DevOps teams · Aanbestedingstraject',contact:'Via Freep.nl',src:'Freep.nl',url:'https://www.freep.nl/zzp/procesmanager',city:'Apeldoorn',latlng:'52.213,5.966',work:['hybrid'],contract:['zzp'],prio:'good',status:'nieuw',date:'2026-03-27'},
+  ],
+  links:[
+    {id:10,label:'Servicemanager opdrachten',url:'https://www.it-contracts.nl/freelance-ict-opdrachten-management-servicemanager',cat:'itcontracts',type:'ts',checked:true},
+    {id:11,label:'Procesmanager opdrachten',url:'https://www.it-contracts.nl/freelance-ict-opdrachten-management-procesmanager',cat:'itcontracts',type:'tp',checked:true},
+    {id:12,label:'Service Delivery Manager',url:'https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/service+delivery+manager/from/',cat:'itcontracts',type:'td',checked:true},
+    {id:13,label:'ITIL opdrachten',url:'https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/ITIL/from/',cat:'itcontracts',type:'tp',checked:true},
+    {id:14,label:'ITSM Consultant',url:'https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/ITSM+consultant/from/',cat:'itcontracts',type:'tc',checked:true},
+    {id:15,label:'SIAM opdrachten',url:'https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/SIAM/from/',cat:'itcontracts',type:'tp',checked:true},
+    {id:20,label:'Funle — Service Delivery Manager',url:'https://funle.nl/opdrachten?q=service+delivery+manager',cat:'aggregators',type:'ta',checked:true},
+    {id:21,label:'Funle — Procesmanager ITIL',url:'https://funle.nl/opdrachten?q=procesmanager+ITIL',cat:'aggregators',type:'ta',checked:true},
+    {id:22,label:'Planet Interim — Procesmanager',url:'https://planetinterim.nl/interim-procesmanager/280009/p13/default.html',cat:'aggregators',type:'ta',checked:true},
+    {id:23,label:'Planet Interim — ITIL Service Manager',url:'https://planetinterim.nl/itil-service-manager-ai/474674/p13/default.html',cat:'aggregators',type:'ta',checked:true},
+    {id:30,label:'Freep — Procesmanager (categorie)',url:'https://www.freep.nl/zzp/procesmanager',cat:'zzp',type:'tp',checked:true},
+    {id:31,label:'Freep — Servicemanager (categorie)',url:'https://www.freep.nl/zzp/servicemanager',cat:'zzp',type:'ts',checked:true},
+    {id:32,label:'ZZP-Opdrachten — ITIL procesmanager',url:'https://www.zzp-opdrachten.nl/vacatures/?s=ITIL+procesmanager',cat:'zzp',type:'tp',checked:true},
+    {id:33,label:'ZZP-Opdrachten — Service Delivery Manager',url:'https://www.zzp-opdrachten.nl/vacatures/?s=service+delivery+manager',cat:'zzp',type:'td',checked:true},
+    {id:34,label:'ZZP-Opdrachten — ITSM consultant',url:'https://www.zzp-opdrachten.nl/vacatures/?s=ITSM+consultant',cat:'zzp',type:'tc',checked:true},
+    {id:40,label:'Harvey Nash vacatures',url:'https://www.harveynash.nl/vacatures',cat:'bureaus',type:'ts',checked:true},
+    {id:41,label:'Malt Strategy',url:'https://www.malt.nl/c/companies',cat:'bureaus',type:'tc',checked:true},
+    {id:42,label:'YER Interim Management',url:'https://www.yer.nl/interim-managementvacatures/',cat:'bureaus',type:'ts',checked:true},
+    {id:43,label:'Jellow opdrachten',url:'https://www.jellow.nl/opdrachten',cat:'bureaus',type:'tp',checked:true},
+    {id:44,label:'IPmarktplaats',url:'https://www.ipmarktplaats.nl/',cat:'bureaus',type:'ta',checked:true},
+    {id:50,label:'LI — Procesmanager/Servicemanager ITIL (24u)',url:'https://www.linkedin.com/jobs/search/?keywords=procesmanager%20servicemanager%20ITIL&f_TPR=r86400&location=Nederland',cat:'linkedin',type:'tl',checked:true},
+    {id:51,label:'LI — Service Delivery Manager contract (24u)',url:'https://www.linkedin.com/jobs/search/?keywords=%22service+delivery+manager%22+ITIL&f_TPR=r86400&location=Nederland&f_JT=C%2CT',cat:'linkedin',type:'tl',checked:true},
+    {id:52,label:'LI — ITSM/SIAM Consultant (24u)',url:'https://www.linkedin.com/jobs/search/?keywords=ITSM%20SIAM%20consultant%20interim&f_TPR=r86400&location=Nederland',cat:'linkedin',type:'tl',checked:true},
+    {id:53,label:'LI — Open voor werk instellen',url:'https://www.linkedin.com/jobs/application-settings/',cat:'linkedin',type:'tl',checked:false},
+    {id:54,label:'LI — Profielbezoekers',url:'https://www.linkedin.com/analytics/profile-views/',cat:'linkedin',type:'tl',checked:false},
+    {id:60,label:'Jobhob — ITSM procesmanager',url:'https://jobhob.nl/zzp-opdrachten/?s=ITSM+procesmanager',cat:'extra',type:'tp',checked:true},
+    {id:61,label:'Google — nieuwe ZZP opdrachten (24u)',url:'https://www.google.nl/search?q=%22service+delivery+manager%22+OR+%22procesmanager+ITIL%22+%22ZZP%22&tbs=qdr:d',cat:'extra',type:'td',checked:true},
+    {id:62,label:'ZZP-ICT-Opdrachten.nl',url:'http://www.zzp-ict-opdrachten.nl/',cat:'extra',type:'tp',checked:true},
+  ],
+  filtersYes:[
+    'ZZP / freelance / midlance / interlance expliciet vermeld',
+    'Procesverbetering, ITIL-inrichting, herinrichting processen',
+    'Service Delivery Management bij privaat bedrijf',
+    'Leveranciersregie, SIAM, multi-vendor omgeving',
+    'ITSM/SIAM consultant opdracht',
+    'Duur 3–12 maanden + optie verlenging',
+    'Tarief onbekend of tarief in overleg',
+    'Hybride of remote werkwijze',
+  ],
+  filtersNo:[
+    'Expliciet "alleen detachering" of "ZZP niet mogelijk"',
+    '"Delivery management" zonder "service" — is project/supply chain, niet SDM',
+    'Knock-out: alleen G4 gemeente ervaring vereist',
+    'Knock-out: alleen overheid 1500+ FTE als eis',
+    'Tooling-specialist (ServiceNow developer, geen management)',
+    'Tarief onder €90/uur expliciet vermeld',
+  ]
+};
+
+function loadST(){ try{ const s=localStorage.getItem(SK); return s?JSON.parse(s):JSON.parse(JSON.stringify(DEF)); }catch(e){ return JSON.parse(JSON.stringify(DEF)); } }
+let ST = loadST();
+function saveST(ind){ localStorage.setItem(SK,JSON.stringify(ST)); flash(ind); }
+function flash(id){ if(!id)return; const e=document.getElementById(id); if(!e)return; e.classList.add('on'); setTimeout(()=>e.classList.remove('on'),2200); }
+
+// ══════════════════════════════════════════
+//  DATUM
+// ══════════════════════════════════════════
+const _d=new Date();
+const _DN=['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
+const _MN=['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+document.getElementById('datum').innerHTML=`${_DN[_d.getDay()]}<br>${_d.getDate()} ${_MN[_d.getMonth()]} ${_d.getFullYear()}`;
+
+// ══════════════════════════════════════════
+//  TABS
+// ══════════════════════════════════════════
+function showTab(t){
+  document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',['scan','editor'][i]===t));
+  document.getElementById('tab-scan').classList.toggle('active',t==='scan');
+  document.getElementById('tab-editor').classList.toggle('active',t==='editor');
+  if(t==='editor') renderEditor();
+}
+
+// ══════════════════════════════════════════
+//  FILTER STATE
+// ══════════════════════════════════════════
+const AF = {zzp:true,mid:true,pay:false,loon:false,onsite:true,hybrid:true,remote:true};
+
+function togglePill(el,key){
+  AF[key]=!AF[key];
+  el.classList.toggle('on',AF[key]);
+  renderMatches();
+}
+
+function matchVisible(m){
+  const ct=m.contract||[];
+  const wt=m.work||[];
+  const cOK=ct.length===0||(AF.zzp&&ct.includes('zzp'))||(AF.mid&&ct.includes('mid'))||(AF.pay&&ct.includes('pay'))||(AF.loon&&ct.includes('loon'));
+  const wOK=wt.length===0||(AF.onsite&&wt.includes('onsite'))||(AF.hybrid&&wt.includes('hybrid'))||(AF.remote&&wt.includes('remote'));
+  return cOK&&wOK;
+}
+
+// ══════════════════════════════════════════
+//  BADGES
+// ══════════════════════════════════════════
+const CT_MAP={zzp:{cls:'b-zzp',lbl:'ZZP ✅'},mid:{cls:'b-mid',lbl:'Midlance'},pay:{cls:'b-pay',lbl:'Payroll'},loon:{cls:'b-loon',lbl:'Loondienst'}};
+const WT_MAP={onsite:{cls:'b-onsite',lbl:'Op locatie'},hybrid:{cls:'b-hybrid',lbl:'Hybride'},remote:{cls:'b-remote',lbl:'Remote'}};
+const PRIO={top:{border:'#4caf50',stars:'⭐⭐⭐'},good:{border:'#ff8c42',stars:'⭐⭐'},normal:{border:'#A795EB',stars:'⭐'}};
+const STAT_CLS={nieuw:'s-nieuw',gereageerd:'s-gereageerd',interview:'s-interview',afgewezen:'s-afgewezen',aangenomen:'s-aangenomen'};
+const TAG_LBL={tp:'Proces',ts:'Service',td:'Delivery',tc:'Consult',tl:'LI',ta:'Aggr'};
+const CAT_LBL={itcontracts:'IT-Contracts.nl',aggregators:'Aggregators',zzp:'ZZP Platforms',bureaus:'Bureaus',linkedin:'LinkedIn',extra:'Extra'};
+
+function cBadges(types){
+  let h=(types||[]).map(t=>CT_MAP[t]?`<span class="b ${CT_MAP[t].cls}">${CT_MAP[t].lbl}</span>`:'').join('');
+  if((types||[]).includes('zzp')){
+    if(!(types||[]).includes('mid')) h+=`<span class="b b-mid" style="opacity:.3" title="Midlance ook mogelijk als ZZP kan">Midlance ↔</span>`;
+    if(!(types||[]).includes('pay')) h+=`<span class="b b-pay" style="opacity:.3" title="Payroll ook mogelijk als ZZP kan">Payroll ↔</span>`;
+  }
+  return h;
+}
+function wBadges(types){ return (types||[]).map(t=>WT_MAP[t]?`<span class="b ${WT_MAP[t].cls}">${WT_MAP[t].lbl}</span>`:'').join(''); }
+
+// ══════════════════════════════════════════
+//  KAART — LEAFLET
+// ══════════════════════════════════════════
+let _map=null, _markers=[];
+
+function initMap(){
+  _map = L.map('map',{center:[52.25,5.3],zoom:7,zoomControl:true,attributionControl:false});
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+    subdomains:'abcd', maxZoom:19
+  }).addTo(_map);
+
+  // Haarlem home pin
+  L.marker([52.381,4.636],{icon:L.divIcon({
+    className:'',
+    html:`<div style="width:30px;height:30px;border-radius:50%;background:#A795EB33;border:2.5px solid #A795EB;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 0 12px #A795EB88;transform:translate(-50%,-50%)">🏠</div>`,
+    iconSize:[0,0],iconAnchor:[0,0]
+  })}).addTo(_map).bindPopup('<b>Haarlem</b><br>Jouw locatie (BSD Advies)');
+}
+
+function getLL(m){
+  if(m.latlng){ const p=m.latlng.split(',').map(Number); if(p.length===2&&!isNaN(p[0])) return p; }
+  if(m.city){
+    const parts=(m.city||'').split(/[\/,]/);
+    for(const p of parts){ const t=p.trim(); if(CITY_LL[t]) return CITY_LL[t]; }
+  }
+  return null;
+}
+
+function renderMarkers(){
+  _markers.forEach(m=>m.remove()); _markers=[];
+  if(!_map) return;
+  const PIN_COL={zzp:'#4caf50',mid:'#8bc34a',pay:'#ff8c42',loon:'#ef5350'};
+  ST.matches.forEach(m=>{
+    if(!matchVisible(m)) return;
+    const ll=getLL(m); if(!ll) return;
+    const col=PIN_COL[(m.contract||['zzp'])[0]]||'#A795EB';
+    const mk=L.marker(ll,{icon:L.divIcon({
+      className:'',
+      html:`<div style="width:18px;height:18px;border-radius:50%;background:${col};border:2px solid #0d0d1a;box-shadow:0 0 8px ${col}88;transform:translate(-50%,-50%)"></div>`,
+      iconSize:[0,0],iconAnchor:[0,0]
+    })}).addTo(_map).bindPopup(`
+      <div style="font-size:12px;min-width:180px">
+        <b>${m.title}</b><br>
+        <span style="color:#888">📍 ${m.city||'?'} &nbsp;</span>
+        <span style="color:${col};font-weight:700">${(m.contract||[]).join('/').toUpperCase()}</span><br>
+        <span style="color:#aaa">${(m.work||[]).join(' · ')}</span><br>
+        <a href="${m.url}" target="_blank" style="color:#A795EB">Open opdracht →</a>
+      </div>`);
+    _markers.push(mk);
+  });
+}
+
+// ══════════════════════════════════════════
+//  RENDER MATCHES
+// ══════════════════════════════════════════
+function renderMatches(){
+  const c=document.getElementById('match-list');
+  c.innerHTML='';
+  let shown=0;
+  ST.matches.forEach((m,i)=>{
+    if(!matchVisible(m)) return;
+    shown++;
+    const p=PRIO[m.prio||'normal'];
+    const div=document.createElement('div');
+    div.className=`mcard ${m.prio||'normal'}`;
+    div.style.borderLeftColor=p.border;
+    div.innerHTML=`
+      <div class="mcard-top">
+        <span style="font-size:.66rem;color:${p.border}">${p.stars}</span>
+        <a class="obtn" href="${m.url}" target="_blank">Open →</a>
+      </div>
+      <div class="mcard-title">${m.title}</div>
+      <div class="mcard-meta">${m.meta||''}</div>
+      <div class="mcard-badges">
+        ${m.city?`<span class="b b-city">📍 ${m.city}</span>`:''}
+        ${wBadges(m.work)}
+        ${cBadges(m.contract)}
+        ${m.src?`<span class="b b-src">🔗 ${m.src}</span>`:''}
+        ${m.date?`<span class="b b-date">📅 ${m.date}</span>`:''}
+      </div>
+      <div class="mcard-footer">
+        <div class="mcard-contact">${m.contact||''}</div>
+        <select class="status-sel ${STAT_CLS[m.status||'nieuw']}" onchange="updStatus(${i},this)">
+          <option value="nieuw" ${(m.status||'nieuw')==='nieuw'?'selected':''}>Nieuw</option>
+          <option value="gereageerd" ${m.status==='gereageerd'?'selected':''}>Gereageerd</option>
+          <option value="interview" ${m.status==='interview'?'selected':''}>Interview</option>
+          <option value="afgewezen" ${m.status==='afgewezen'?'selected':''}>Afgewezen</option>
+          <option value="aangenomen" ${m.status==='aangenomen'?'selected':''}>Aangenomen</option>
+        </select>
+      </div>`;
+    c.appendChild(div);
+  });
+  document.getElementById('mcount').textContent=`${shown} van ${ST.matches.length} zichtbaar`;
+  document.getElementById('fcount').textContent=shown===ST.matches.length?'Alle zichtbaar':`${ST.matches.length-shown} verborgen`;
+  if(!shown) c.innerHTML='<div class="no-matches">Geen opdrachten zichtbaar.<br>Pas de filters hierboven aan.</div>';
+  renderMarkers();
+}
+
+function updStatus(i,sel){
+  ST.matches[i].status=sel.value;
+  sel.className=`status-sel ${STAT_CLS[sel.value]}`;
+  saveST('s-m');
+}
+
+// ══════════════════════════════════════════
+//  PLATFORMS ACCORDION
+// ══════════════════════════════════════════
+function renderPlat(){
+  const el=document.getElementById('plat-list');
+  el.innerHTML='';
+  Object.entries(CAT_LBL).forEach(([cat,lbl])=>{
+    const items=ST.links.filter(l=>l.cat===cat);
+    if(!items.length) return;
+    el.innerHTML+=`<div class="plat-cat-hdr">${lbl}</div>`;
+    items.forEach(l=>{
+      el.innerHTML+=`<div class="plat-row">
+        <input type="checkbox" class="plat-chk" ${l.checked?'checked':''} onchange="toggleLinkChk(${l.id},this.checked)">
+        <span class="plat-lbl">${l.label}</span>
+        <span class="role-tag ${l.type}">${TAG_LBL[l.type]||l.type}</span>
+        <button class="plat-open-btn" onclick="window.open('${l.url}','_blank')">→</button>
+      </div>`;
+    });
+  });
+  const n=ST.links.filter(l=>l.checked).length;
+  document.getElementById('plat-summary').textContent=`${n} van ${ST.links.length} geselecteerd`;
+}
+
+function toggleLinkChk(id,val){
+  const l=ST.links.find(x=>x.id===id); if(l) l.checked=val;
+  saveST(null);
+  document.getElementById('plat-summary').textContent=`${ST.links.filter(x=>x.checked).length} van ${ST.links.length} geselecteerd`;
+}
+function checkAll(val){ ST.links.forEach(l=>l.checked=val); saveST(null); renderPlat(); }
+function togglePlat(){
+  const b=document.getElementById('plat-body'), a=document.getElementById('plat-arrow');
+  const open=b.classList.toggle('open');
+  a.classList.toggle('open',open);
+  if(open) renderPlat();
+}
+function openSelected(){
+  const sel=ST.links.filter(l=>l.checked);
+  if(!sel.length){ alert('Geen links geselecteerd.'); return; }
+  const p=document.getElementById('open-panel'), ll=document.getElementById('open-links-list');
+  ll.innerHTML=sel.map(l=>`<div class="open-link-row"><a class="ll" href="${l.url}" target="_blank">${l.label}</a><a class="obtn" href="${l.url}" target="_blank">→</a></div>`).join('');
+  p.style.display='block';
+  sel.forEach((l,i)=>setTimeout(()=>window.open(l.url,'_blank'),i*150));
+}
+
+// ══════════════════════════════════════════
+//  EDITOR
+// ══════════════════════════════════════════
+function renderEditor(){
+  document.getElementById('match-ed').innerHTML=ST.matches.map((m,i)=>`
+    <div class="ci-item">
+      <span class="ci-label">${m.title}</span>
+      <span class="b b-src" style="font-size:.58rem">${m.src||''}</span>
+      <button class="ci-edit" onclick="openMM(${i})">Bewerk</button>
+      <button class="ci-del" onclick="delMatch(${i})">×</button>
+    </div>`).join('');
+
+  let lh='';
+  Object.entries(CAT_LBL).forEach(([cat,lbl])=>{
+    const items=ST.links.map((l,i)=>({...l,idx:i})).filter(l=>l.cat===cat);
+    if(!items.length) return;
+    lh+=`<div class="plat-cat-hdr">${lbl}</div>`;
+    lh+=items.map(l=>`<div class="ci-item"><span class="ci-label">${l.label}</span><button class="ci-del" onclick="delLink(${l.idx})">×</button></div>`).join('');
+  });
+  document.getElementById('link-ed').innerHTML=lh;
+
+  document.getElementById('fyes').innerHTML=ST.filtersYes.map((r,i)=>`<div class="ci-item"><span class="ci-label">${r}</span><button class="ci-del" onclick="delF('yes',${i})">×</button></div>`).join('');
+  document.getElementById('fno').innerHTML=ST.filtersNo.map((r,i)=>`<div class="ci-item"><span class="ci-label">${r}</span><button class="ci-del" onclick="delF('no',${i})">×</button></div>`).join('');
+}
+
+// ── Match CRUD ──
+function openMM(idx){
+  const m=idx===-1?{}:ST.matches[idx];
+  document.getElementById('mm-idx').value=idx;
+  document.getElementById('mm-title').textContent=idx===-1?'Opdracht toevoegen':'Opdracht bewerken';
+  document.getElementById('mm-t').value=m.title||'';
+  document.getElementById('mm-m').value=m.meta||'';
+  document.getElementById('mm-c').value=m.contact||'';
+  document.getElementById('mm-src').value=m.src||'';
+  document.getElementById('mm-u').value=m.url||'';
+  document.getElementById('mm-city').value=m.city||'';
+  document.getElementById('mm-ll').value=m.latlng||'';
+  document.getElementById('mm-cp').value='';
+  document.getElementById('mm-p').value=m.prio||'good';
+  document.getElementById('mm-st').value=m.status||'nieuw';
+  ['onsite','hybrid','remote'].forEach(t=>document.getElementById(`mm-${t}`).checked=(m.work||[]).includes(t));
+  ['zzp','mid','pay','loon'].forEach(t=>document.getElementById(`mm-${t}`).checked=(m.contract||[]).includes(t));
+  openModal('mm-overlay');
+}
+function saveMatch(){
+  const idx=+document.getElementById('mm-idx').value;
+  const o={
+    id:idx===-1?Date.now():(ST.matches[idx]||{}).id||Date.now(),
+    title:document.getElementById('mm-t').value.trim(),
+    meta:document.getElementById('mm-m').value.trim(),
+    contact:document.getElementById('mm-c').value.trim(),
+    src:document.getElementById('mm-src').value.trim(),
+    url:document.getElementById('mm-u').value.trim(),
+    city:document.getElementById('mm-city').value.trim(),
+    latlng:document.getElementById('mm-ll').value.trim(),
+    prio:document.getElementById('mm-p').value,
+    status:document.getElementById('mm-st').value,
+    work:['onsite','hybrid','remote'].filter(t=>document.getElementById(`mm-${t}`).checked),
+    contract:['zzp','mid','pay','loon'].filter(t=>document.getElementById(`mm-${t}`).checked),
+    date:new Date().toISOString().slice(0,10)
+  };
+  if(!o.title) return;
+  if(idx===-1) ST.matches.push(o); else ST.matches[idx]=o;
+  saveST('s-m'); closeModal('mm-overlay'); renderMatches(); renderEditor();
+}
+function delMatch(i){ if(!confirm('Verwijderen?'))return; ST.matches.splice(i,1); saveST('s-m'); renderMatches(); renderEditor(); }
+
+// ── Link CRUD ──
+function openLM(idx){
+  const l=idx===-1?{}:ST.links[idx];
+  document.getElementById('lm-idx').value=idx;
+  document.getElementById('lm-title').textContent=idx===-1?'Link toevoegen':'Link bewerken';
+  document.getElementById('lm-l').value=l.label||'';
+  document.getElementById('lm-u').value=l.url||'';
+  document.getElementById('lm-c').value=l.cat||'itcontracts';
+  document.getElementById('lm-t').value=l.type||'tp';
+  openModal('lm-overlay');
+}
+function saveLink(){
+  const idx=+document.getElementById('lm-idx').value;
+  const o={id:idx===-1?Date.now():(ST.links[idx]||{}).id||Date.now(),label:document.getElementById('lm-l').value.trim(),url:document.getElementById('lm-u').value.trim(),cat:document.getElementById('lm-c').value,type:document.getElementById('lm-t').value,checked:true};
+  if(!o.label||!o.url) return;
+  if(idx===-1) ST.links.push(o); else ST.links[idx]=o;
+  saveST('s-l'); closeModal('lm-overlay'); renderEditor();
+}
+function delLink(i){ if(!confirm('Verwijderen?'))return; ST.links.splice(i,1); saveST('s-l'); renderEditor(); }
+
+// ── Filter CRUD ──
+function addF(t){ const r=prompt('Nieuwe filterregel:'); if(!r||!r.trim())return; if(t==='yes')ST.filtersYes.push(r.trim()); else ST.filtersNo.push(r.trim()); saveST('s-m'); renderEditor(); }
+function delF(t,i){ if(t==='yes')ST.filtersYes.splice(i,1); else ST.filtersNo.splice(i,1); saveST('s-m'); renderEditor(); }
+
+// ── Reset ──
+function resetAll(){ if(!confirm('Alle data resetten? Dit kan niet ongedaan worden.'))return; localStorage.removeItem(SK); ST=JSON.parse(JSON.stringify(DEF)); renderMatches(); renderEditor(); }
+
+// ── Modal helpers ──
+function openModal(id){ document.getElementById(id).classList.add('open'); }
+function closeModal(id){ document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{ if(e.target===o) o.classList.remove('open'); }));
+
+// ═══════════════════════

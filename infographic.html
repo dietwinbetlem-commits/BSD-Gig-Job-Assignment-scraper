@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSD Opdrachten Dashboard — Infographic</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --p: #A795EB;
+    --p2: #7c6abf;
+    --bg: #0a0a14;
+    --bg2: #111122;
+    --bg3: #181830;
+    --txt: #e8e8f0;
+    --muted: #444466;
+    --zzp: #4caf50;
+    --mid: #8bc34a;
+    --pay: #ff8c42;
+    --loon: #ef5350;
+    --hybrid: #42a5f5;
+    --remote: #66bb6a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Syne', sans-serif;
+    background: var(--bg);
+    color: var(--txt);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 200px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: .5;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    margin-bottom: 72px;
+    position: relative;
+  }
+  .hero::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--p), transparent);
+    margin: 32px auto 0;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .18em;
+    color: var(--p);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    background: linear-gradient(135deg, #fff 30%, var(--p));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
+  .hero p {
+    font-size: 1rem;
+    color: #888;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  /* STAT ROW */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+  @media(max-width:600px){ .stats{ grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: var(--bg2);
+    border: 1px solid #1e1e38;
+    border-radius: 12px;
+    padding: 24px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .2s, transform .2s;
+  }
+  .stat:hover { border-color: var(--p); transform: translateY(-3px); }
+  .stat::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--p2), var(--p));
+  }
+  .stat-n {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--p);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-l {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .14em;
+    color: var(--p);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #1e1e38;
+  }
+
+  /* CONTRACT TYPES */
+  .contract-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 64px;
+  }
+  @media(max-width:600px){ .contract-grid{ grid-template-columns: 1fr; } }
+  .ct-card {
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .ct-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .ct-body {}
+  .ct-name { font-weight: 700; font-size: .9rem; margin-bottom: 4px; }
+  .ct-desc { font-size: .74rem; color: #666; line-height: 1.6; }
+  .ct-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-top: 8px;
+    display: inline-block;
+  }
+
+  .ct-zzp  { background: #4caf5010; border-color: #4caf5044; }
+  .ct-zzp .ct-name { color: var(--zzp); }
+  .ct-zzp .ct-dot  { background: var(--zzp); box-shadow: 0 0 8px #4caf5055; }
+  .ct-zzp .ct-badge{ background: #4caf5020; color: var(--zzp); border: 1px solid #4caf5044; }
+
+  .ct-mid  { background: #8bc34a10; border-color: #8bc34a44; }
+  .ct-mid .ct-name { color: var(--mid); }
+  .ct-mid .ct-dot  { background: var(--mid); }
+  .ct-mid .ct-badge{ background: #8bc34a20; color: var(--mid); border: 1px solid #8bc34a44; }
+
+  .ct-pay  { background: #ff8c4210; border-color: #ff8c4244; }
+  .ct-pay .ct-name { color: var(--pay); }
+  .ct-pay .ct-dot  { background: var(--pay); }
+  .ct-pay .ct-badge{ background: #ff8c4220; color: var(--pay); border: 1px solid #ff8c4244; }
+
+  .ct-loon { background: #ef535010; border-color: #ef535044; }
+  .ct-loon .ct-name { color: var(--loon); }
+  .ct-loon .ct-dot  { background: var(--ef5350); opacity: .7; }
+  .ct-loon .ct-badge{ background: #ef535020; color: var(--loon); border: 1px solid #ef535044; }
+
+  /* FEATURES GRID */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 64px;
+  }
+  @media(max-width:700px){ .features{ grid-template-columns: 1fr 1fr; } }
+  @media(max-width:440px){ .features{ grid-template-columns: 1fr; } }
+  .feat {
+    background: var(--bg2);
+    border: 1px solid #1e1e38;
+    border-radius: 10px;
+    padding: 20px;
+    transition: border-color .2s;
+  }
+  .feat:hover { border-color: var(--p); }
+  .feat-icon { font-size: 1.4rem; margin-bottom: 10px; display: block; }
+  .feat-title { font-size: .84rem; font-weight: 700; margin-bottom: 6px; }
+  .feat-desc { font-size: .71rem; color: #555; line-height: 1.65; }
+
+  /* PLATFORM CATEGORIES */
+  .platforms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 64px;
+  }
+  .plat-pill {
+    background: var(--bg3);
+    border: 1px solid #1e1e38;
+    border-radius: 20px;
+    padding: 7px 15px;
+    font-size: .75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: border-color .2s;
+  }
+  .plat-pill:hover { border-color: var(--p); }
+  .plat-pill .n {
+    background: var(--p);
+    color: #0a0a14;
+    border-radius: 50%;
+    width: 18px; height: 18px;
+    font-size: .62rem;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* WORKFLOW */
+  .workflow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 64px;
+    position: relative;
+  }
+  .workflow::before {
+    content: '';
+    position: absolute;
+    left: 19px; top: 20px; bottom: 20px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--p), transparent);
+  }
+  .wf-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 16px 0;
+  }
+  .wf-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--bg2);
+    border: 2px solid var(--p);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: .8rem;
+    color: var(--p);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .wf-body { padding-top: 8px; }
+  .wf-title { font-size: .88rem; font-weight: 700; margin-bottom: 4px; }
+  .wf-desc { font-size: .72rem; color: #555; line-height: 1.6; }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid #1e1e38;
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-brand { font-weight: 800; font-size: .9rem; }
+  .footer-brand span { color: var(--p); }
+  .footer-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* GLOW BG BLOBS */
+  .blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .08;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .blob1 { width: 400px; height: 400px; background: var(--p); top: -100px; left: -100px; }
+  .blob2 { width: 300px; height: 300px; background: #42a5f5; bottom: 100px; right: -80px; }
+</style>
+</head>
+<body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">BSD Advies &amp; Interim · Haarlem</div>
+    <h1>Dagelijks Opdrachten<br>Dashboard</h1>
+    <p>Eén tool voor het dagelijks scannen van alle relevante platforms, filteren op contractvorm en werkwijze, en bijhouden van actieve sollicitaties.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="section-title">Overzicht</div>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-n">30+</div>
+      <div class="stat-l">Bronnen & Platforms</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">4</div>
+      <div class="stat-l">Zoekrollen</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">6</div>
+      <div class="stat-l">Categorieën</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">100%</div>
+      <div class="stat-l">Lokaal opgeslagen</div>
+    </div>
+  </div>
+
+  <!-- CONTRACT TYPES -->
+  <div class="section-title">Contract-type logica</div>
+  <div class="contract-grid">
+    <div class="ct-card ct-zzp">
+      <div class="ct-dot"></div>
+      <div class="ct-body">
+        <div class="ct-name">ZZP / Freelance</div>
+        <div class="ct-desc">Directe opdracht als zelfstandige. Standaard actief in het filter. Als ZZP mogelijk is, zijn Midlance en Payroll impliciet ook opties.</div>
+        <span class="ct-badge">Altijd zichtbaar</span>
+      </div>
+    </div>
+    <div class="ct-card ct-mid">
+      <div class="ct-dot"></div>
+      <div class="ct-body">
+        <div class="ct-name">Midlance / Interlance</div>
+        <div class="ct-desc">ZZP via een tussenpartij met lichte administratieve laag. Vergelijkbaar met direct ZZP, iets minder vrijheid.</div>
+        <span class="ct-badge">Standaard aan</span>
+      </div>
+    </div>
+    <div class="ct-card ct-pay">
+      <div class="ct-dot"></div>
+      <div class="ct-body">
+        <div class="ct-name">Payroll</div>
+        <div class="ct-desc">Verloning via een payroll-bureau. Minder ideaal — hogere overhead, minder zelfstandigheid. Standaard uitgeschakeld.</div>
+        <span class="ct-badge">Standaard uit</span>
+      </div>
+    </div>
+    <div class="ct-card ct-loon">
+      <div class="ct-dot"></div>
+      <div class="ct-body">
+        <div class="ct-name">Loondienst</div>
+        <div class="ct-desc">Vaste aanstelling. Wordt standaard verborgen via de toggle-knop. Tonen op verzoek via de Loondienst-pill.</div>
+        <span class="ct-badge">Standaard verborgen</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="section-title">Functionaliteit</div>
+  <div class="features">
+    <div class="feat">
+      <span class="feat-icon">🗺️</span>
+      <div class="feat-title">Interactieve kaart</div>
+      <div class="feat-desc">CartoDB dark tiles via Leaflet.js. Gekleurde pins per contracttype, klikbaar met opdrachtdetails.</div>
+    </div>
+    <div class="feat">
+      <span class="feat-icon">🔘</span>
+      <div class="feat-title">Filter pills</div>
+      <div class="feat-desc">Toggle contract- en werkwijze-filters. Matches verdwijnen en pins updaten live bij elke klik.</div>
+    </div>
+    <div class="feat">
+      <span class="feat-icon">📋</span>
+      <div class="feat-title">Status tracking</div>
+      <div class="feat-desc">Per opdracht: Nieuw → Gereageerd → Interview → Afgewezen → Aangenomen. Opgeslagen in localStorage.</div>
+    </div>
+    <div class="feat">
+      <span class="feat-icon">🔗</span>
+      <div class="feat-title">Platform accordion</div>
+      <div class="feat-desc">Selecteer platforms met checkboxes. "Open geselecteerde" toont alle links in een klikbaar panel.</div>
+    </div>
+    <div class="feat">
+      <span class="feat-icon">⚙️</span>
+      <div class="feat-title">Volledig bewerkbaar</div>
+      <div class="feat-desc">Editor tab: opdrachten, links, filterregels toevoegen, bewerken en verwijderen via modals.</div>
+    </div>
+    <div class="feat">
+      <span class="feat-icon">💾</span>
+      <div class="feat-title">Offline bruikbaar</div>
+      <div class="feat-desc">Alle data lokaal in de browser. Geen server, geen account. Kaart vereist internetverbinding.</div>
+    </div>
+  </div>
+
+  <!-- PLATFORMS -->
+  <div class="section-title">Platform categorieën</div>
+  <div class="platforms">
+    <div class="plat-pill"><span class="n">6</span> IT-Contracts.nl</div>
+    <div class="plat-pill"><span class="n">4</span> Aggregators (Funle, Planet)</div>
+    <div class="plat-pill"><span class="n">5</span> ZZP Platforms (Freep, ZZP-Opdrachten)</div>
+    <div class="plat-pill"><span class="n">5</span> Bureaus (Harvey Nash, YER, Malt, Jellow)</div>
+    <div class="plat-pill"><span class="n">5</span> LinkedIn (zoeklinks + profielbeheer)</div>
+    <div class="plat-pill"><span class="n">3</span> Extra (Jobhob, Google, ZZP-ICT)</div>
+  </div>
+
+  <!-- WERKWIJZE -->
+  <div class="section-title">Dagelijkse werkwijze</div>
+  <div class="workflow">
+    <div class="wf-step">
+      <div class="wf-num">1</div>
+      <div class="wf-body">
+        <div class="wf-title">Open dashboard · selecteer platforms</div>
+        <div class="wf-desc">Vink relevante platforms aan in het accordion en klik "Open geselecteerde" voor de dagelijkse scan.</div>
+      </div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-num">2</div>
+      <div class="wf-body">
+        <div class="wf-title">Filter op contract &amp; werkwijze</div>
+        <div class="wf-desc">Gebruik de pills om snel te focussen. Loondienst-only opdrachten standaard verborgen — bewust zichtbaar maken indien gewenst.</div>
+      </div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-num">3</div>
+      <div class="wf-body">
+        <div class="wf-title">Nieuwe match gevonden? Toevoegen via editor</div>
+        <div class="wf-desc">Editor tab → Opdracht toevoegen. Stad kiezen → pin verschijnt automatisch op de kaart op de juiste locatie.</div>
+      </div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-num">4</div>
+      <div class="wf-body">
+        <div class="wf-title">Reageren → status bijhouden</div>
+        <div class="wf-desc">Zet de status op "Gereageerd" direct na het insturen. Volg het proces tot Aangenomen of Afgewezen.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">BSD <span>Advies &amp; Interim</span></div>
+    <div class="footer-meta">
+      IT Governance · ITSM/SIAM · Digital Transformation<br>
+      Haarlem · bsd-advies.nl
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
