@@ -262,6 +262,21 @@ footer{text-align:center;padding:12px;color:#1e1e2a;font-size:.64rem;border-top:
     </div>
   </div>
 
+  <!-- SCRAPED RESULTS -->
+  <div class="plat-section" style="border-color:#A795EB33">
+    <div class="plat-hdr" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.plat-arrow').classList.toggle('open')">
+      <span class="plat-hdr-title">
+        🤖 Automatisch gevonden opdrachten
+        <span id="scraped-badge" style="background:#A795EB;color:#0a0a14;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800">…</span>
+      </span>
+      <span class="plat-arrow open">▼</span>
+    </div>
+    <div class="plat-body open" style="border-color:#A795EB22">
+      <div id="scraped-status" style="font-size:.66rem;color:#444;margin-bottom:10px">Laden…</div>
+      <div id="scraped-list"></div>
+    </div>
+  </div>
+
   <footer>
     BSD Advies &amp; Interim · Dietwin Betlem · Haarlem &nbsp;|&nbsp;
     Harvey Nash: 📞 0346-581070 · <a href="/cdn-cgi/l/email-protection#0674677f6728676a2b6c677c676f747f466e677470637f6867756e2865696b" style="color:#A795EB;text-decoration:none"><span class="__cf_email__" data-cfemail="7a081b031b541b1657101b001b1308033a121b080c1f03141b091254191517">[email&#160;protected]</span></a>
@@ -767,4 +782,92 @@ function openModal(id){ document.getElementById(id).classList.add('open'); }
 function closeModal(id){ document.getElementById(id).classList.remove('open'); }
 document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{ if(e.target===o) o.classList.remove('open'); }));
 
-// ═══════════════════════
+// ══════════════════════════════════════════
+//  SCRAPED RESULTS — laad van GitHub raw
+// ══════════════════════════════════════════
+const RAW_JSON = 'https://raw.githubusercontent.com/dietwinbetlem-commits/BSD-Gig-Job-Assignment-scraper/main/data/results.json';
+
+let scrapedData = null;
+
+async function fetchScraped() {
+  const el = document.getElementById('scraped-status');
+  if(el) el.textContent = 'Laden…';
+  try {
+    const r = await fetch(RAW_JSON + '?t=' + Date.now());
+    if(!r.ok) throw new Error(`HTTP ${r.status}`);
+    scrapedData = await r.json();
+    renderScraped();
+  } catch(e) {
+    if(el) el.textContent = 'Niet beschikbaar (controleer internetverbinding)';
+    console.warn('Scraped results:', e);
+  }
+}
+
+function scrapedVisible(m) {
+  const ct = m.contract||[];
+  const wt = m.work||[];
+  const cOK = ct.length===0||(AF.zzp&&ct.includes('zzp'))||(AF.mid&&ct.includes('mid'))||(AF.pay&&ct.includes('pay'))||(AF.loon&&ct.includes('loon'));
+  const wOK = wt.length===0||(AF.onsite&&wt.includes('onsite'))||(AF.hybrid&&wt.includes('hybrid'))||(AF.remote&&wt.includes('remote'));
+  return cOK && wOK;
+}
+
+function renderScraped() {
+  const container = document.getElementById('scraped-list');
+  const status = document.getElementById('scraped-status');
+  const badge = document.getElementById('scraped-badge');
+  if(!container || !scrapedData) return;
+
+  const results = (scrapedData.results||[]).filter(scrapedVisible);
+  const total = results.length;
+
+  if(status) status.textContent = `Laatste scan: ${scrapedData.scraped_at_nl||'onbekend'} · ${scrapedData.total_relevant||0} relevant van ${scrapedData.total_found||0} gevonden`;
+  if(badge) badge.textContent = total;
+
+  if(!total){
+    container.innerHTML = '<div class="no-matches">Geen automatisch gevonden resultaten die voldoen aan de huidige filters.<br>Filters aanpassen of wacht op de volgende dagelijkse scan.</div>';
+    return;
+  }
+
+  container.innerHTML = '';
+  results.forEach(m => {
+    const ct = (m.contract||['zzp']);
+    const pinCol = {zzp:'#4caf50',mid:'#8bc34a',pay:'#ff8c42',loon:'#ef5350'}[ct[0]]||'#A795EB';
+    const div = document.createElement('div');
+    div.className = 'mcard';
+    div.style.borderLeftColor = pinCol;
+    div.innerHTML = `
+      <div class="mcard-top">
+        <span style="font-size:.66rem;color:${pinCol}">🤖 Automatisch gevonden</span>
+        <a class="obtn" href="${m.url}" target="_blank">Open →</a>
+      </div>
+      <div class="mcard-title">${m.title}</div>
+      ${m.description ? `<div class="mcard-meta">${m.description}</div>` : ''}
+      <div class="mcard-badges">
+        ${m.location ? `<span class="b b-city">📍 ${m.location}</span>` : ''}
+        ${wBadges(m.work)}
+        ${cBadges(m.contract)}
+        <span class="b b-src">🔗 ${m.source}</span>
+        ${m.tarief ? `<span class="b b-date">€ ${m.tarief}</span>` : ''}
+        ${m.duration ? `<span class="b b-date">⏱ ${m.duration}</span>` : ''}
+      </div>`;
+    container.appendChild(div);
+  });
+}
+
+// Herrender scraped results als filter verandert
+const _origToggle = togglePill;
+// eslint-disable-next-line no-global-assign
+function togglePill(el, key) {
+  AF[key] = !AF[key];
+  el.classList.toggle('on', AF[key]);
+  renderMatches();
+  if(scrapedData) renderScraped();
+}
+
+// ══════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════
+initMap();
+renderMatches();
+renderPlat();
+fetchScraped();
