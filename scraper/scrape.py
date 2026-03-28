@@ -81,6 +81,41 @@ WORK_SIGNALS = {
 }
 
 
+def extract_date(soup):
+    """Probeer publicatiedatum te extraheren uit diverse HTML patronen."""
+    # Meta tags
+    for meta in ['article:published_time', 'datePublished', 'date', 'pubdate']:
+        el = soup.find('meta', attrs={'property': meta}) or soup.find('meta', attrs={'name': meta})
+        if el and el.get('content'):
+            return el['content'][:10]
+
+    # Time tags
+    time_el = soup.find('time', attrs={'datetime': True})
+    if time_el:
+        return time_el['datetime'][:10]
+
+    # Klasse-gebaseerde datum velden
+    for cls in ['date', 'datum', 'published', 'publicatiedatum', 'publicatie-datum',
+                'post-date', 'entry-date', 'created', 'geplaatst']:
+        el = soup.find(class_=re.compile(cls, re.I))
+        if el:
+            txt = el.get_text().strip()
+            # Zoek datumpatroon dd-mm-yyyy of yyyy-mm-dd
+            m = re.search(r'(\d{1,2}[-/]\d{1,2}[-/]\d{2,4}|\d{4}[-/]\d{2}[-/]\d{2})', txt)
+            if m:
+                return m.group(1)
+
+    # Zoek in gewone tekst naar datumpatronen
+    text = soup.get_text()
+    m = re.search(r'(\d{1,2}[-/]\d{1,2}[-/]\d{4})', text)
+    if m:
+        return m.group(1)
+
+    return ''
+
+
+
+
 def clean(text):
     """Schoon tekst op — verwijder extra whitespace."""
     if not text:
@@ -92,7 +127,25 @@ def text_lower(text):
     return clean(text).lower()
 
 
-def detect_zzp(text):
+def extract_date(soup):
+    """Probeer publicatiedatum te extraheren."""
+    for meta in ['article:published_time', 'datePublished', 'date', 'pubdate']:
+        el = soup.find('meta', attrs={'property': meta}) or soup.find('meta', attrs={'name': meta})
+        if el and el.get('content'):
+            return el['content'][:10]
+    time_el = soup.find('time', attrs={'datetime': True})
+    if time_el:
+        return time_el['datetime'][:10]
+    for cls in ['date', 'datum', 'published', 'publicatiedatum', 'post-date', 'entry-date', 'geplaatst']:
+        el = soup.find(class_=re.compile(cls, re.I))
+        if el:
+            txt = el.get_text().strip()
+            m = re.search(r'(\d{1,2}[-/]\d{1,2}[-/]\d{2,4}|\d{4}[-/]\d{2}[-/]\d{2})', txt)
+            if m:
+                return m.group(1)
+    return ''
+
+
     tl = text_lower(text)
     return [s for s in ZZP_SIGNALS if s in tl]
 

@@ -833,6 +833,8 @@ function renderScraped() {
   results.forEach(m => {
     const ct = (m.contract||['zzp']);
     const pinCol = {zzp:'#4caf50',mid:'#8bc34a',pay:'#ff8c42',loon:'#ef5350'}[ct[0]]||'#A795EB';
+    const scrapedDate = m.scraped_at ? new Date(m.scraped_at).toLocaleDateString('nl-NL', {day:'numeric',month:'short',year:'numeric'}) : null;
+    const publishedDate = m.published ? m.published : null;
     const div = document.createElement('div');
     div.className = 'mcard';
     div.style.borderLeftColor = pinCol;
@@ -848,8 +850,13 @@ function renderScraped() {
         ${wBadges(m.work)}
         ${cBadges(m.contract)}
         <span class="b b-src">🔗 ${m.source}</span>
-        ${m.tarief ? `<span class="b b-date">€ ${m.tarief}</span>` : ''}
+        ${m.tarief ? `<span class="b b-date">💶 ${m.tarief}</span>` : ''}
         ${m.duration ? `<span class="b b-date">⏱ ${m.duration}</span>` : ''}
+        ${m.hours ? `<span class="b b-date">🕐 ${m.hours}</span>` : ''}
+      </div>
+      <div style="display:flex;gap:10px;margin-top:4px;flex-wrap:wrap">
+        ${publishedDate ? `<span style="font-size:.62rem;color:#555">📅 Geplaatst: <span style="color:#888">${publishedDate}</span></span>` : ''}
+        ${scrapedDate ? `<span style="font-size:.62rem;color:#555">🔍 Gevonden: <span style="color:#888">${scrapedDate}</span></span>` : ''}
       </div>`;
     container.appendChild(div);
   });
