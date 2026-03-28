@@ -821,7 +821,7 @@ function renderScraped() {
   const results = (scrapedData.results||[]).filter(scrapedVisible);
   const total = results.length;
 
-  if(status) status.textContent = `Laatste scan: ${scrapedData.scraped_at_nl||'onbekend'} · ${scrapedData.total_relevant||0} relevant van ${scrapedData.total_found||0} gevonden`;
+  if(status) status.textContent = `Laatste scan: ${scrapedData.scraped_at_nl||'onbekend'} · ${scrapedData.total_open||0} ✅ open · ${scrapedData.total_unknown||0} ❓ onbekend · ${scrapedData.total_closed||0} ❌ gesloten weggefilterd`;
   if(badge) badge.textContent = total;
 
   if(!total){
@@ -850,6 +850,7 @@ function renderScraped() {
         ${wBadges(m.work)}
         ${cBadges(m.contract)}
         <span class="b b-src">🔗 ${m.source}</span>
+        ${m.vacancy_status === 'unknown' ? `<span class="b" style="background:#ff8c4215;color:#ff8c42;border:1px solid #ff8c4244">❓ Onbekend</span>` : ''}
         ${m.tarief ? `<span class="b b-date">💶 ${m.tarief}</span>` : ''}
         ${m.duration ? `<span class="b b-date">⏱ ${m.duration}</span>` : ''}
         ${m.hours ? `<span class="b b-date">🕐 ${m.hours}</span>` : ''}

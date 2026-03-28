@@ -678,6 +678,97 @@ def deduplicate(results):
 # MAIN
 # ─────────────────────────────────────────────────────────────────────────────
 
+
+# ─────────────────────────────────────────────────────────────────────────────
+# VACATURE VALIDATIE
+# Controleer of een individuele vacature-URL nog actief is
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Signalen dat een vacature GESLOTEN is
+CLOSED_SIGNALS = [
+    # Nederlands
+    'vacature is gesloten', 'opdracht is gesloten', 'opdracht gesloten',
+    'niet meer beschikbaar', 'niet meer actief', 'verlopen', 'vervallen',
+    'vacature vervallen', 'opdracht vervallen', 'inschrijving gesloten',
+    'sluitingsdatum verstreken', 'deadline verstreken', 'al ingevuld',
+    'positie is ingevuld', 'is ingevuld', 'geen reacties meer mogelijk',
+    'reageren is niet meer mogelijk', 'helaas', 'deze vacature bestaat niet',
+    'vacature bestaat niet meer', 'pagina bestaat niet',
+    'opdracht bestaat niet meer', 'gevonden wat we zochten',
+    'is niet langer beschikbaar', 'niet langer actief',
+    '404', 'pagina niet gevonden', 'niet gevonden',
+    # Engels
+    'job is closed', 'position has been filled', 'no longer available',
+    'vacancy closed', 'application closed', 'expired', 'this job',
+    'page not found', 'does not exist',
+]
+
+# Signalen dat een vacature NOG OPEN is (hoge zekerheid)
+OPEN_SIGNALS = [
+    'reageer', 'solliciteer', 'reactie sturen', 'aanmelden',
+    'kandidaat aanbieden', 'offerte', 'sluitingsdatum',
+    'startdatum', 'inzenden', 'apply', 'submit',
+    'reageren kan', 'uren per week', 'uurtarief',
+]
+
+# Platforms waarbij we NIET valideren (te traag / bot-detectie)
+SKIP_VALIDATION_DOMAINS = [
+    'funle.nl',       # JS-heavy
+    'google.nl',      # geen directe vacature URL
+    'google.com',
+]
+
+
+def validate_vacancy(result):
+    """
+    Controleer of een vacature-URL nog actief is.
+    Geeft (status, reden) terug:
+      'open'    — actief
+      'closed'  — gesloten of verlopen
+      'unknown' — kon niet controleren
+    """
+    url = result.get('url', '')
+    if not url or not url.startswith('http'):
+        return 'unknown', 'Geen geldige URL'
+
+    # Skip bepaalde platforms
+    domain = urlparse(url).netloc.replace('www.', '')
+    if any(skip in domain for skip in SKIP_VALIDATION_DOMAINS):
+        return 'unknown', f'Validatie overgeslagen voor {domain}'
+
+    try:
+        log.info(f'  Valideer: {url[:80]}')
+        r = SESSION.get(url, timeout=12, allow_redirects=True)
+        status_code = r.status_code
+
+        if status_code == 404:
+            return 'closed', '404 — pagina bestaat niet meer'
+        if status_code == 410:
+            return 'closed', '410 — vacature permanent verwijderd'
+        if status_code >= 400:
+            return 'unknown', f'HTTP {status_code}'
+
+        text_low = r.text.lower()
+
+        # Check gesloten signalen
+        for signal in CLOSED_SIGNALS:
+            if signal in text_low:
+                return 'closed', f'Gesloten signaal: "{signal}"'
+
+        # Check open signalen — extra zekerheid
+        open_hits = sum(1 for s in OPEN_SIGNALS if s in text_low)
+        if open_hits >= 2:
+            return 'open', f'{open_hits} open-signalen gevonden'
+
+        # Geen duidelijk signaal — aanname: open
+        return 'open', 'Geen gesloten signalen gevonden'
+
+    except requests.exceptions.Timeout:
+        return 'unknown', 'Timeout bij validatie'
+    except Exception as e:
+        return 'unknown', f'Fout: {str(e)[:60]}'
+
+
 def run():
     all_results = []
     errors = []
@@ -722,37 +813,72 @@ def run():
     all_results = deduplicate(all_results)
     log.info(f'Totaal na deduplicatie: {len(all_results)}')
 
-    # Splits in gefilterd en niet-gefilterd
+    # Filter op relevantie
     filtered_in = [r for r in all_results if r['filtered_in']]
     filtered_out = [r for r in all_results if not r['filtered_in']]
-
     log.info(f'Gefilterd IN: {len(filtered_in)} | Gefilterd UIT: {len(filtered_out)}')
 
-    # Sorteer — gefilterd_in eerst, dan op bron
-    filtered_in.sort(key=lambda x: x.get('source', ''))
-    filtered_out.sort(key=lambda x: x.get('source', ''))
+    # ── VALIDATIE ──
+    log.info('Start vacature validatie…')
+    validated = []
+    closed_count = 0
+    unknown_count = 0
+
+    for r in filtered_in:
+        status, reason = validate_vacancy(r)
+        r['vacancy_status'] = status
+        r['vacancy_status_reason'] = reason
+
+        if status == 'closed':
+            closed_count += 1
+            log.info(f'  ❌ GESLOTEN: {r["title"][:50]} — {reason}')
+        elif status == 'unknown':
+            unknown_count += 1
+            log.info(f'  ❓ ONBEKEND: {r["title"][:50]} — {reason}')
+        else:
+            log.info(f'  ✅ OPEN: {r["title"][:50]}')
+
+        validated.append(r)
+        time.sleep(DELAY)
+
+    # Splits op validatiestatus
+    open_results    = [r for r in validated if r['vacancy_status'] == 'open']
+    unknown_results = [r for r in validated if r['vacancy_status'] == 'unknown']
+    closed_results  = [r for r in validated if r['vacancy_status'] == 'closed']
+
+    log.info(f'Validatie: {len(open_results)} open | {unknown_count} onbekend | {closed_count} gesloten')
+
+    # Resultatenlijst: open eerst, dan onbekend, gesloten weggefilterd
+    final_results = open_results + unknown_results
+
+    # Sorteer op bron
+    final_results.sort(key=lambda x: (x['vacancy_status'] != 'open', x.get('source', '')))
 
     output = {
         'scraped_at': datetime.now(timezone.utc).isoformat(),
         'scraped_at_nl': datetime.now().strftime('%d %B %Y om %H:%M'),
         'total_found': len(all_results),
         'total_relevant': len(filtered_in),
+        'total_open': len(open_results),
+        'total_unknown': len(unknown_results),
+        'total_closed': closed_count,
         'total_filtered_out': len(filtered_out),
         'sources_scraped': len(SOURCES),
         'errors': errors,
-        'results': filtered_in,
-        'filtered_out': filtered_out[:20],  # max 20 voor debug
+        'results': final_results,
+        'closed': closed_results[:10],   # voor debug
+        'filtered_out': filtered_out[:10],
     }
 
-    # Schrijf naar data/results.json
     import os
     os.makedirs('data', exist_ok=True)
     with open('data/results.json', 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    log.info(f'✅ Geschreven naar data/results.json — {len(filtered_in)} relevante opdrachten')
+    log.info(f'✅ Geschreven naar data/results.json — {len(open_results)} open, {len(unknown_results)} onbekend, {closed_count} gesloten weggefilterd')
     return output
 
 
 if __name__ == '__main__':
     run()
+
