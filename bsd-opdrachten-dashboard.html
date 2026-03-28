@@ -505,6 +505,7 @@ function togglePill(el,key){
   AF[key]=!AF[key];
   el.classList.toggle('on',AF[key]);
   renderMatches();
+  if(scrapedData) renderScraped();
 }
 
 function matchVisible(m){
@@ -854,15 +855,7 @@ function renderScraped() {
   });
 }
 
-// Herrender scraped results als filter verandert
-const _origToggle = togglePill;
-// eslint-disable-next-line no-global-assign
-function togglePill(el, key) {
-  AF[key] = !AF[key];
-  el.classList.toggle('on', AF[key]);
-  renderMatches();
-  if(scrapedData) renderScraped();
-}
+// Herrender scraped results als filter verandert — geïntegreerd in hoofdfunctie
 
 // ══════════════════════════════════════════
 //  INIT
