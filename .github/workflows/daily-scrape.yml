@@ -2,11 +2,11 @@ name: Dagelijkse Opdrachten Scraper
 
 on:
   schedule:
-    # Elke werkdag om 06:00 Amsterdam tijd (= 05:00 UTC zomer, 04:00 UTC winter)
-    # Cron gebruikt UTC — 05:00 UTC = 07:00 CEST (zomertijd)
     - cron: '0 5 * * 1-5'
   workflow_dispatch:
-    # Ook handmatig te starten via GitHub UI → Actions → Run workflow
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   scrape:
