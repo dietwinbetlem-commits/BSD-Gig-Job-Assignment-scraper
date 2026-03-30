@@ -1,23 +1,530 @@
 {
-  "scraped_at": "2026-03-30T09:01:21.878440+00:00",
-  "scraped_at_nl": "30 March 2026 om 09:01",
-  "total_found": 0,
-  "total_relevant": 0,
-  "total_open": 0,
+  "scraped_at": "2026-03-30T10:09:03.181939+00:00",
+  "scraped_at_nl": "30 March 2026 om 10:09",
+  "total_found": 57,
+  "total_relevant": 19,
+  "total_open": 2,
   "total_unknown": 0,
-  "total_closed": 0,
-  "total_filtered_out": 0,
+  "total_closed": 17,
+  "total_filtered_out": 38,
   "sources_scraped": 15,
-  "errors": [
-    "IT-Contracts — Servicemanager: name 'detect_zzp' is not defined",
-    "IT-Contracts — Procesmanager: name 'detect_zzp' is not defined",
-    "IT-Contracts — Service Delivery Manager: name 'detect_zzp' is not defined",
-    "IT-Contracts — ITIL: name 'detect_zzp' is not defined",
-    "IT-Contracts — ITSM Consultant: name 'detect_zzp' is not defined",
-    "IT-Contracts — SIAM: name 'detect_zzp' is not defined",
-    "Freep — Procesmanager: name 'detect_zzp' is not defined"
+  "errors": [],
+  "results": [
+    {
+      "title": "Voor DCMR Milieudienst Rijnmond zijn wij op zoek naar een IT Operational Servicemanager/ Adviseur & Software-Assetbeheer. NB. In het kader van de wDBA kan deze opdracht alleen op basis van “detachering” worden uitgevoerd. ICQ Groep biedt hiervoor diverse mogelijkheden. Hierbij kun je rekenen op een aantrekkelijk salaris en uitstekende arbeidsvoorwaarden. Geïnteresseerd in de mogelijkheden die wij daarvoor bieden? Ga dan naar https://www.icq-groep.nl/over-icq/nieuws/actueel/u pdate-wet-dba-wij-zijn-er-klaar-voor-jij-ook Op dracht: De I...",
+      "url": "https://www.it-contracts.nl/vacature_IT_Operational_Servicemanager_Adviseur_%26amp%3B_Software-Assetbeheer_287205/search/management+procesmanager/from/0",
+      "source": "IT-Contracts — Procesmanager",
+      "category": "itcontracts",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [
+        "opdracht"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "scraped_at": "2026-03-30T10:07:31.071939+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "7 open-signalen gevonden"
+    },
+    {
+      "title": "IT Operational Servicemanager/ Adviseur & Software-Assetbe...",
+      "url": "https://www.it-contracts.nl/vacature_IT_Operational_Servicemanager_Adviseur_%26amp%3B_Software-Assetbeheer_287205/search/management+servicemanager/from/0",
+      "source": "IT-Contracts — Servicemanager",
+      "category": "itcontracts",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "scraped_at": "2026-03-30T10:07:28.732949+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "7 open-signalen gevonden"
+    }
   ],
-  "results": [],
-  "closed": [],
-  "filtered_out": []
+  "closed": [
+    {
+      "title": "Procesmanager stationsontwikkelingGemeente Culemborg",
+      "url": "https://www.freep.nl/opdracht/procesmanager-stationsontwikkeling",
+      "source": "Freep — Procesmanager",
+      "category": "zzp",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "scraped_at": "2026-03-30T10:07:44.582515+00:00",
+      "vacancy_status": "closed",
+      "vacancy_status_reason": "Gesloten signaal: \"opdracht is gesloten\""
+    },
+    {
+      "title": "ProcesmanagerWaterschap Rijn en IJssel",
+      "url": "https://www.freep.nl/opdracht/procesmanager-24",
+      "source": "Freep — Procesmanager",
+      "category": "zzp",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "scraped_at": "2026-03-30T10:07:44.582650+00:00",
+      "vacancy_status": "closed",
+      "vacancy_status_reason": "Gesloten signaal: \"opdracht is gesloten\""
+    },
+    {
+      "title": "Procesmanager gripWaterschap Vechtstromen",
+      "url": "https://www.freep.nl/opdracht/procesmanager-grip",
+      "source": "Freep — Procesmanager",
+      "category": "zzp",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "scraped_at": "2026-03-30T10:07:44.582768+00:00",
+      "vacancy_status": "closed",
+      "vacancy_status_reason": "Gesloten signaal: \"opdracht is gesloten\""
+    },
+    {
+      "title": "ProcesmanagerLogius",
+      "url": "https://www.freep.nl/opdracht/procesmanager-23",
+      "source": "Freep — Procesmanager",
+      "category": "zzp",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "scraped_at": "2026-03-30T10:07:44.582878+00:00",
+      "vacancy_status": "closed",
+      "vacancy_status_reason": "Gesloten signaal: \"opdracht is gesloten\""
+    },
+    {
+      "title": "Procesmanager transformatie recreatiewoningenDe Ronde Venen",
+      "url": "https://www.freep.nl/opdracht/procesmanager-transformatie-recreatiewoningen-1",
+      "source": "Freep — Procesmanager",
+      "category": "zzp",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "scraped_at": "2026-03-30T10:07:44.582994+00:00",
+      "vacancy_status": "closed",
+      "vacancy_status_reason": "Gesloten signaal: \"opdracht is gesloten\""
+    },
+    {
+      "title": "Procesmanager borReinigingsbedrijf Midden Nederland",
+      "url": "https://www.freep.nl/opdracht/procesmanager-bor",
+      "source": "Freep — Procesmanager",
+      "category": "zzp",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "scraped_at": "2026-03-30T10:07:44.583106+00:00",
+      "vacancy_status": "closed",
+      "vacancy_status_reason": "Gesloten signaal: \"opdracht is gesloten\""
+    },
+    {
+      "title": "Procesmanager uitvoering brabantse ontwikkelaanpak stikstofProvincie Noord-Brabant",
+      "url": "https://www.freep.nl/opdracht/procesmanager-uitvoering-brabantse-ontwikkelaanpak-stikstof",
+      "source": "Freep — Procesmanager",
+      "category": "zzp",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "scraped_at": "2026-03-30T10:07:44.583361+00:00",
+      "vacancy_status": "closed",
+      "vacancy_status_reason": "Gesloten signaal: \"opdracht is gesloten\""
+    },
+    {
+      "title": "Procesmanager srbt-woontafelGemeente Breda",
+      "url": "https://www.freep.nl/opdracht/procesmanager-srbt-woontafel-2",
+      "source": "Freep — Procesmanager",
+      "category": "zzp",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "scraped_at": "2026-03-30T10:07:44.583472+00:00",
+      "vacancy_status": "closed",
+      "vacancy_status_reason": "Gesloten signaal: \"opdracht is gesloten\""
+    },
+    {
+      "title": "Interim procesmanager vervoerGemeente Lochem",
+      "url": "https://www.freep.nl/opdracht/interim-procesmanager-vervoer",
+      "source": "Freep — Procesmanager",
+      "category": "zzp",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [
+        "interim"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "scraped_at": "2026-03-30T10:07:44.583586+00:00",
+      "vacancy_status": "closed",
+      "vacancy_status_reason": "Gesloten signaal: \"opdracht is gesloten\""
+    },
+    {
+      "title": "Strategisch procesmanager mobiliteitshubGemeente Zwolle",
+      "url": "https://www.freep.nl/opdracht/strategisch-procesmanager-mobiliteitshub",
+      "source": "Freep — Procesmanager",
+      "category": "zzp",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "scraped_at": "2026-03-30T10:07:44.583913+00:00",
+      "vacancy_status": "closed",
+      "vacancy_status_reason": "Gesloten signaal: \"opdracht is gesloten\""
+    }
+  ],
+  "filtered_out": [
+    {
+      "title": "lid worden?",
+      "url": "https://www.it-contracts.nl/registreren/return_page/seo_pages/from//search/management servicemanager",
+      "source": "IT-Contracts — Servicemanager",
+      "category": "itcontracts",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": false,
+      "filter_reason": "Geen relevante zoekterm gevonden",
+      "scraped_at": "2026-03-30T10:07:28.732874+00:00"
+    },
+    {
+      "title": "Servicenow IRM Transformation specialist",
+      "url": "https://www.it-contracts.nl/vacature_Servicenow_IRM_Transformation_specialist__287216/search/management+servicemanager/from/0",
+      "source": "IT-Contracts — Servicemanager",
+      "category": "itcontracts",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": false,
+      "filter_reason": "Geen relevante zoekterm gevonden",
+      "scraped_at": "2026-03-30T10:07:28.733243+00:00"
+    },
+    {
+      "title": "Programma Coördinator AI Act",
+      "url": "https://www.it-contracts.nl/vacature_Programma_Co%C3%B6rdinator_AI_Act_287209/search/management+servicemanager/from/0",
+      "source": "IT-Contracts — Servicemanager",
+      "category": "itcontracts",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": false,
+      "filter_reason": "Geen relevante zoekterm gevonden",
+      "scraped_at": "2026-03-30T10:07:28.733474+00:00"
+    },
+    {
+      "title": "Senior Back-end ontwikkelaar",
+      "url": "https://www.it-contracts.nl/vacature_Senior_Back-end_ontwikkelaar_287204/search/management+servicemanager/from/0",
+      "source": "IT-Contracts — Servicemanager",
+      "category": "itcontracts",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": false,
+      "filter_reason": "Geen relevante zoekterm gevonden",
+      "scraped_at": "2026-03-30T10:07:28.733721+00:00"
+    },
+    {
+      "title": "Integratie Architect (Solutions Architect)",
+      "url": "https://www.it-contracts.nl/vacature_Integratie_Architect_%28Solutions_Architect%29_287202/search/management+servicemanager/from/0",
+      "source": "IT-Contracts — Servicemanager",
+      "category": "itcontracts",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": false,
+      "filter_reason": "Geen relevante zoekterm gevonden",
+      "scraped_at": "2026-03-30T10:07:28.733972+00:00"
+    },
+    {
+      "title": "Sr. Expert Interne Beheersing Non IT",
+      "url": "https://www.it-contracts.nl/vacature_Sr._Expert_Interne_Beheersing_Non_IT_287223/search/LAST%3A50/from/",
+      "source": "IT-Contracts — Servicemanager",
+      "category": "itcontracts",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": false,
+      "filter_reason": "Geen relevante zoekterm gevonden",
+      "scraped_at": "2026-03-30T10:07:28.734292+00:00"
+    },
+    {
+      "title": "Solution Architect",
+      "url": "https://www.it-contracts.nl/vacature_Solution_Architect_287221/search/LAST%3A50/from/",
+      "source": "IT-Contracts — Servicemanager",
+      "category": "itcontracts",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": false,
+      "filter_reason": "Geen relevante zoekterm gevonden",
+      "scraped_at": "2026-03-30T10:07:28.734329+00:00"
+    },
+    {
+      "title": "Senior Management­assistent",
+      "url": "https://www.it-contracts.nl/vacature_Senior_Managementassistent_287219/search/LAST%3A50/from/",
+      "source": "IT-Contracts — Servicemanager",
+      "category": "itcontracts",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": false,
+      "filter_reason": "Geen relevante zoekterm gevonden",
+      "scraped_at": "2026-03-30T10:07:28.734372+00:00"
+    },
+    {
+      "title": "Projectman­ager",
+      "url": "https://www.it-contracts.nl/vacature_Projectmanager_287218/search/LAST%3A50/from/",
+      "source": "IT-Contracts — Servicemanager",
+      "category": "itcontracts",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": false,
+      "filter_reason": "Geen relevante zoekterm gevonden",
+      "scraped_at": "2026-03-30T10:07:28.734406+00:00"
+    },
+    {
+      "title": "OutSystems developer WebAPI migratie 2 FTE",
+      "url": "https://www.it-contracts.nl/vacature_OutSystems_developer_WebAPI_migratie_2_FTE_287217/search/LAST%3A50/from/",
+      "source": "IT-Contracts — Servicemanager",
+      "category": "itcontracts",
+      "location": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_signals": [],
+      "filtered_in": false,
+      "filter_reason": "Geen relevante zoekterm gevonden",
+      "scraped_at": "2026-03-30T10:07:28.734447+00:00"
+    }
+  ]
 }
