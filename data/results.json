@@ -1,15 +1,525 @@
 {
-  "scraped_at": "2026-03-30T15:47:32.033265+00:00",
-  "scraped_at_nl": "30 March 2026 om 15:47",
-  "total_found": 64,
+  "scraped_at": "2026-03-30T15:56:39.954320+00:00",
+  "scraped_at_nl": "30 March 2026 om 15:56",
+  "total_found": 53,
   "total_relevant": 18,
   "total_open": 1,
-  "total_unknown": 0,
-  "total_closed": 17,
-  "total_filtered_out": 46,
+  "total_unknown": 17,
+  "total_closed": 0,
+  "total_filtered_out": 35,
   "platforms_scraped": 11,
   "errors": [],
   "results": [
+    {
+      "title": "Procesmanager stationsontwikkelingGemeente Culemborg",
+      "url": "https://www.freep.nl/opdracht/procesmanager-stationsontwikkeling",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "329fe4e0d5c9",
+      "scraped_at": "2026-03-30T15:54:32.954472+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "ProcesmanagerWaterschap Rijn en IJssel",
+      "url": "https://www.freep.nl/opdracht/procesmanager-24",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "ef758400fa4b",
+      "scraped_at": "2026-03-30T15:54:32.954654+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager gripWaterschap Vechtstromen",
+      "url": "https://www.freep.nl/opdracht/procesmanager-grip",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "954f3fb644f1",
+      "scraped_at": "2026-03-30T15:54:32.954812+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "ProcesmanagerLogius",
+      "url": "https://www.freep.nl/opdracht/procesmanager-23",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "940b66872893",
+      "scraped_at": "2026-03-30T15:54:32.954958+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager transformatie recreatiewoningenDe Ronde Venen",
+      "url": "https://www.freep.nl/opdracht/procesmanager-transformatie-recreatiewoningen-1",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "9a12e89f6922",
+      "scraped_at": "2026-03-30T15:54:32.955114+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager borReinigingsbedrijf Midden Nederland",
+      "url": "https://www.freep.nl/opdracht/procesmanager-bor",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "f81cfc409093",
+      "scraped_at": "2026-03-30T15:54:32.955293+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager uitvoering brabantse ontwikkelaanpak stikstofProvincie Noord-Brabant",
+      "url": "https://www.freep.nl/opdracht/procesmanager-uitvoering-brabantse-ontwikkelaanpak-stikstof",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "8707f96c0ec4",
+      "scraped_at": "2026-03-30T15:54:32.955609+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager srbt-woontafelGemeente Breda",
+      "url": "https://www.freep.nl/opdracht/procesmanager-srbt-woontafel-2",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "2cb27c33e807",
+      "scraped_at": "2026-03-30T15:54:32.955758+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Interim procesmanager vervoerGemeente Lochem",
+      "url": "https://www.freep.nl/opdracht/interim-procesmanager-vervoer",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "1505b2232818",
+      "scraped_at": "2026-03-30T15:54:32.955910+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Strategisch procesmanager mobiliteitshubGemeente Zwolle",
+      "url": "https://www.freep.nl/opdracht/strategisch-procesmanager-mobiliteitshub",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "6ea540066195",
+      "scraped_at": "2026-03-30T15:54:32.956378+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Senior procesmanager governance natuurbrandpreventieProvincie Utrecht",
+      "url": "https://www.freep.nl/opdracht/senior-procesmanager-governance-natuurbrandpreventie",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "bb796d42bc19",
+      "scraped_at": "2026-03-30T15:54:32.956530+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager/projectleider migratieNoaberkracht Dinkelland Tubbergen",
+      "url": "https://www.freep.nl/opdracht/procesmanagerprojectleider-migratie",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "fd820a9dfd08",
+      "scraped_at": "2026-03-30T15:54:32.956682+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager campus & facilitiesTechnische Universiteit Eindhoven",
+      "url": "https://www.freep.nl/opdracht/procesmanager-campus-facilities",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "e236c08f0d9e",
+      "scraped_at": "2026-03-30T15:54:32.956833+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Senior procesmanager strategisch bosbeleidProvincie Utrecht",
+      "url": "https://www.freep.nl/opdracht/senior-procesmanager-strategisch-bosbeleid",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "e08dce453086",
+      "scraped_at": "2026-03-30T15:54:32.956983+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Hr procesmanagergemeente Eindhoven",
+      "url": "https://www.freep.nl/opdracht/hr-procesmanager",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "e09f35cd3efb",
+      "scraped_at": "2026-03-30T15:54:32.957130+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager migratieNoaberkracht Dinkelland Tubbergen",
+      "url": "https://www.freep.nl/opdracht/procesmanager-migratie",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "6b6b59f90076",
+      "scraped_at": "2026-03-30T15:54:32.957303+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "ProcesmanagerMinisterie van Sociale Zaken en Werkgelegenheid (SZW)",
+      "url": "https://www.freep.nl/opdracht/procesmanager-20",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "filtered_in": true,
+      "filter_reason": "Match",
+      "content_hash": "69c9e1a921e5",
+      "scraped_at": "2026-03-30T15:54:32.957460+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
     {
       "title": "IT Operational Servicemanager/ Adviseur & Software-Assetbe...",
       "url": "https://www.it-contracts.nl/vacature_IT_Operational_Servicemanager_Adviseur_%26amp%3B_Software-Assetbeheer_287205/search/management+servicemanager/from/0",
@@ -33,7 +543,7 @@
       "filtered_in": true,
       "filter_reason": "Match",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-03-30T15:45:19.416853+00:00",
+      "scraped_at": "2026-03-30T15:54:17.484032+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -41,48 +551,7 @@
       ]
     }
   ],
-  "closed_debug": [
-    {
-      "title": "Procesmanager stationsontwikkelingGemeente Culemborg",
-      "reason": "\"opdracht is gesloten\""
-    },
-    {
-      "title": "ProcesmanagerWaterschap Rijn en IJssel",
-      "reason": "\"opdracht is gesloten\""
-    },
-    {
-      "title": "Procesmanager gripWaterschap Vechtstromen",
-      "reason": "\"opdracht is gesloten\""
-    },
-    {
-      "title": "ProcesmanagerLogius",
-      "reason": "\"opdracht is gesloten\""
-    },
-    {
-      "title": "Procesmanager transformatie recreatiewoningenDe Ronde Venen",
-      "reason": "\"opdracht is gesloten\""
-    },
-    {
-      "title": "Procesmanager borReinigingsbedrijf Midden Nederland",
-      "reason": "\"opdracht is gesloten\""
-    },
-    {
-      "title": "Procesmanager uitvoering brabantse ontwikkelaanpak stikstofProvincie Noord-Brabant",
-      "reason": "\"opdracht is gesloten\""
-    },
-    {
-      "title": "Procesmanager srbt-woontafelGemeente Breda",
-      "reason": "\"opdracht is gesloten\""
-    },
-    {
-      "title": "Interim procesmanager vervoerGemeente Lochem",
-      "reason": "\"opdracht is gesloten\""
-    },
-    {
-      "title": "Strategisch procesmanager mobiliteitshubGemeente Zwolle",
-      "reason": "\"opdracht is gesloten\""
-    }
-  ],
+  "closed_debug": [],
   "filtered_out_debug": [
     {
       "title": "Liever eerst meer informatie over de verschillende interim opdrachten of zzp opdrachten?",
@@ -120,17 +589,17 @@
       "reason": "Geen relevante zoekterm"
     },
     {
-      "title": "Solution Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante zoekterm"
-    },
-    {
       "title": "Senior Management­assistent",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante zoekterm"
     },
     {
       "title": "Projectman­ager",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante zoekterm"
+    },
+    {
+      "title": "OutSystems developer WebAPI migratie 2 FTE",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante zoekterm"
     }
