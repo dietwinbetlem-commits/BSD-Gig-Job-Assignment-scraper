@@ -90,7 +90,7 @@ OPEN_SIGNALS = [
     'reageren kan', 'uren per week', 'uurtarief', 'tarief',
 ]
 
-SKIP_VALIDATION_DOMAINS = ['funle.nl', 'google.nl', 'google.com', 'linkedin.com']
+SKIP_VALIDATION_DOMAINS = ['funle.nl', 'google.nl', 'google.com', 'linkedin.com', 'depubliekepartner.nl', 'striive.com', 'freep.nl']
 
 STEDEN = [
     'Amsterdam', 'Rotterdam', 'Den Haag', 'Utrecht', 'Eindhoven', 'Groningen',
