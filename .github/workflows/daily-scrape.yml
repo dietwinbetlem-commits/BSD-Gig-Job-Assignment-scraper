@@ -2,7 +2,7 @@ name: Dagelijkse Opdrachten Scraper
 
 on:
   schedule:
-    - cron: '0 5 * * 1-5'
+    - cron: '0 5 * * 1-5'   # werkdagen 06:00 NL (05:00 UTC zomer)
   workflow_dispatch:
 
 env:
@@ -12,10 +12,10 @@ jobs:
   scrape:
     name: Scrape platforms & commit resultaten
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     permissions:
-      contents: write  # nodig voor git push
+      contents: write
 
     steps:
       - name: Checkout repo
@@ -33,10 +33,15 @@ jobs:
       - name: Dependencies installeren
         run: pip install -r scraper/requirements.txt
 
+      - name: Playwright browsers installeren
+        run: playwright install chromium --with-deps
+
       - name: Scraper uitvoeren
         run: python scraper/scrape.py
         env:
           PYTHONUNBUFFERED: '1'
+          LINKEDIN_EMAIL:    ${{ secrets.LINKEDIN_EMAIL }}
+          LINKEDIN_PASSWORD: ${{ secrets.LINKEDIN_PASSWORD }}
 
       - name: Controleer of er iets veranderd is
         id: diff
@@ -56,4 +61,4 @@ jobs:
 
       - name: Geen wijzigingen
         if: steps.diff.outputs.changed == 'false'
-        run: echo "Geen nieuwe opdrachten gevonden — geen commit nodig."
+        run: echo "Geen nieuwe opdrachten — geen commit nodig."

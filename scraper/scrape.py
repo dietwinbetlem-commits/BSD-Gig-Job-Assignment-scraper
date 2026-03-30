@@ -1,26 +1,36 @@
 #!/usr/bin/env python3
 """
-BSD Advies — Dagelijkse Opdrachten Scraper
-Scrapt NL ZZP/freelance platforms voor IT Procesmanager / Servicemanager /
-Service Delivery Manager / ITSM/SIAM consultant opdrachten.
-Output: data/results.json
+BSD Advies — Opdrachten Scraper v2
+Config-driven, multi-platform, met LinkedIn authenticatie en deduplicatie op inhoud.
 """
 
-import requests
-from bs4 import BeautifulSoup
-import json
+import os
 import re
+import sys
+import json
 import time
+import hashlib
 import logging
+import requests
+import yaml
+from bs4 import BeautifulSoup
 from datetime import datetime, timezone
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, quote_plus
 
+# ── LOGGING ───────────────────────────────────────────────────────────────────
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s %(levelname)s %(name)s — %(message)s',
-    datefmt='%H:%M:%S'
+    format='%(asctime)s %(levelname)-8s %(message)s',
+    datefmt='%H:%M:%S',
+    stream=sys.stdout
 )
-log = logging.getLogger('bsd-scraper')
+log = logging.getLogger('bsd')
+
+# ── CONSTANTS ─────────────────────────────────────────────────────────────────
+PLATFORMS_FILE = os.path.join(os.path.dirname(__file__), 'platforms.yml')
+OUTPUT_FILE    = os.path.join(os.path.dirname(__file__), '..', 'data', 'results.json')
+REQUEST_DELAY  = 2
+VALIDATE_DELAY = 1
 
 HEADERS = {
     'User-Agent': (
@@ -28,823 +38,682 @@ HEADERS = {
         'AppleWebKit/537.36 (KHTML, like Gecko) '
         'Chrome/122.0.0.0 Safari/537.36'
     ),
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'nl-NL,nl;q=0.9,en;q=0.8',
-    'Accept-Encoding': 'gzip, deflate, br',
-    'Connection': 'keep-alive',
+    'Accept': 'text/html,application/xhtml+xml,*/*;q=0.8',
 }
 
-SESSION = requests.Session()
-SESSION.headers.update(HEADERS)
+# ── FILTER DEFINITIES ─────────────────────────────────────────────────────────
 
-DELAY = 2  # seconden tussen requests
-
-# ─────────────────────────────────────────────────────────────────────────────
-# FILTER LOGICA
-# Gespiegeld met de filterregels in het dashboard
-# ─────────────────────────────────────────────────────────────────────────────
-
-# Zoektermen die we targeten
 TARGET_TERMS = [
-    'procesmanager', 'servicemanager', 'service manager',
+    'procesmanager', 'proces manager', 'process manager',
+    'servicemanager', 'service manager',
     'service delivery manager', 'service delivery',
-    'itsm', 'siam', 'itil', 'it-governance',
-    'leveranciersmanagement', 'leveranciersregie',
-    'regie', 'service integratie', 'service integration',
-    'it procesmanager', 'it servicemanager',
+    'sdm', 'itsm', 'siam', 'itil',
+    'leveranciersregie', 'leveranciersmanagement',
+    'service integratie', 'service integration',
+    'it governance', 'regieorganisatie',
 ]
 
-# Knock-out termen — direct afvallen
-KNOCKOUT_TERMS = [
-    'alleen detachering', 'zzp niet mogelijk', 'geen zzp',
-    'loondienst only', 'vaste dienst only',
-    'delivery management',   # zonder "service" = project/supply chain
+KNOCKOUT_PAIRS = [
+    ('delivery management', ['service delivery', 'it service', 'service management']),
+    ('alleen detachering',  []),
+    ('zzp niet mogelijk',   []),
+    ('geen zzp',            []),
+    ('niet mogelijk als zzp', []),
 ]
 
-# Knock-out termen die OK zijn als ze gecombineerd voorkomen
-KNOCKOUT_UNLESS = {
-    'delivery management': ['service delivery', 'it service', 'service management'],
-}
-
-# ZZP-positieve signalen
-ZZP_SIGNALS = [
-    'zzp', 'freelance', 'zelfstandige', 'interim', 'zelfstandig',
-    'midlance', 'interlance', 'payroll', 'inhuur', 'inhuuropdracht',
-    'opdracht', 'contract',
-]
-
-# Werkwijze signalen
 WORK_SIGNALS = {
-    'onsite': ['op locatie', 'op kantoor', '100% kantoor', 'volledig op locatie'],
-    'hybrid': ['hybride', 'hybrid', 'deels thuis', 'deels op locatie', 'flex', '2 dagen'],
-    'remote': ['volledig remote', '100% remote', 'thuiswerk', 'volledig thuis'],
+    'onsite':  ['100% op locatie', 'volledig op locatie', 'op kantoor', '5 dagen'],
+    'hybrid':  ['hybride', 'hybrid', 'deels thuis', 'deels op locatie', '2 dagen', '3 dagen'],
+    'remote':  ['volledig remote', '100% remote', 'volledig thuis', 'thuiswerk'],
 }
 
+CONTRACT_SIGNALS = {
+    'zzp':  ['zzp', 'freelance', 'zelfstandige', 'inhuuropdracht', 'zelfstandig'],
+    'mid':  ['midlance', 'interlance'],
+    'pay':  ['payroll'],
+    'loon': ['loondienst', 'vaste dienst', 'in dienst', 'dienstverband'],
+}
+
+CLOSED_SIGNALS = [
+    'vacature is gesloten', 'opdracht is gesloten', 'niet meer beschikbaar',
+    'niet meer actief', 'verlopen', 'vervallen', 'inschrijving gesloten',
+    'sluitingsdatum verstreken', 'al ingevuld', 'positie is ingevuld',
+    'geen reacties meer mogelijk', 'deze vacature bestaat niet',
+    'opdracht bestaat niet meer', 'is niet langer beschikbaar',
+    'job is closed', 'position has been filled', 'no longer available',
+]
+
+OPEN_SIGNALS = [
+    'reageer', 'solliciteer', 'reactie sturen', 'aanmelden',
+    'sluitingsdatum', 'startdatum', 'inzenden', 'apply',
+    'reageren kan', 'uren per week', 'uurtarief', 'tarief',
+]
+
+SKIP_VALIDATION_DOMAINS = ['funle.nl', 'google.nl', 'google.com', 'linkedin.com']
+
+STEDEN = [
+    'Amsterdam', 'Rotterdam', 'Den Haag', 'Utrecht', 'Eindhoven', 'Groningen',
+    'Tilburg', 'Almere', 'Breda', 'Nijmegen', 'Apeldoorn', 'Haarlem', 'Arnhem',
+    'Zwolle', 'Zoetermeer', 'Leiden', 'Maastricht', 'Dordrecht', 'Ede', 'Venlo',
+    'Deventer', 'Delft', 'Assen', 'Amersfoort', 'Heerlen', 'Leeuwarden', 'Helmond',
+    'Alkmaar', 'Emmen', 'Enschede', 'Den Bosch', 'Schiedam', 'Maarssen',
+    'Haarlemmermeer', 'Westland', 'Eindhoven',
+]
+
+
+# ── HELPERS ───────────────────────────────────────────────────────────────────
 
 def clean(text):
-    """Schoon tekst op — verwijder extra whitespace."""
     if not text:
         return ''
-    return re.sub(r'\s+', ' ', text.strip())
+    return re.sub(r'\s+', ' ', str(text).strip())
 
 
-def text_lower(text):
+def tl(text):
     return clean(text).lower()
 
 
-def extract_date(soup):
-    """Probeer publicatiedatum te extraheren."""
-    for meta in ['article:published_time', 'datePublished', 'date', 'pubdate']:
-        el = soup.find('meta', attrs={'property': meta}) or soup.find('meta', attrs={'name': meta})
-        if el and el.get('content'):
-            return el['content'][:10]
-    time_el = soup.find('time', attrs={'datetime': True})
-    if time_el:
-        return time_el['datetime'][:10]
-    for cls in ['date', 'datum', 'published', 'publicatiedatum', 'post-date', 'entry-date', 'geplaatst']:
-        el = soup.find(class_=re.compile(cls, re.I))
-        if el:
-            txt = el.get_text().strip()
-            m = re.search(r'(\d{1,2}[-/]\d{1,2}[-/]\d{2,4}|\d{4}[-/]\d{2}[-/]\d{2})', txt)
-            if m:
-                return m.group(1)
+def detect_location(text):
+    for stad in STEDEN:
+        if stad.lower() in text.lower():
+            return stad
     return ''
 
 
-def detect_zzp(text):
-    tl = text_lower(text)
-    return [s for s in ZZP_SIGNALS if s in tl]
-
-
 def detect_work(text):
-    tl = text_lower(text)
-    found = []
-    for wtype, signals in WORK_SIGNALS.items():
-        if any(s in tl for s in signals):
-            found.append(wtype)
-    if not found:
-        found = ['hybrid']  # default aanname
-    return found
+    t = tl(text)
+    found = [wt for wt, signals in WORK_SIGNALS.items() if any(s in t for s in signals)]
+    return found if found else ['hybrid']
+
+
+def detect_contract(text):
+    t = tl(text)
+    found = [ct for ct, signals in CONTRACT_SIGNALS.items() if any(s in t for s in signals)]
+    return found if found else ['zzp']
 
 
 def is_target(title, description=''):
-    """Controleer of een vacature relevant is voor het zoekprofiel."""
-    combined = text_lower(f"{title} {description}")
-
-    # Moet minimaal één target term bevatten
+    combined = tl(f"{title} {description}")
     if not any(t in combined for t in TARGET_TERMS):
-        return False, 'Geen relevante zoekterm gevonden'
-
-    # Knock-out check
-    for ko in KNOCKOUT_TERMS:
+        return False, 'Geen relevante zoekterm'
+    for ko, exceptions in KNOCKOUT_PAIRS:
         if ko in combined:
-            # Check of er een uitzondering is
-            unless = KNOCKOUT_UNLESS.get(ko, [])
-            if unless and any(u in combined for u in unless):
-                continue  # Uitzondering van toepassing
-            return False, f'Knock-out term: "{ko}"'
-
+            if exceptions and any(e in combined for e in exceptions):
+                continue
+            return False, f'Knock-out: "{ko}"'
     return True, 'Match'
 
 
-def infer_contract(title, description=''):
-    """Bepaal contract types op basis van tekst."""
-    combined = text_lower(f"{title} {description}")
-    types = []
-    if any(t in combined for t in ['zzp', 'freelance', 'zelfstandige', 'inhuuropdracht']):
-        types.append('zzp')
-    if any(t in combined for t in ['midlance', 'interlance']):
-        types.append('mid')
-    if 'payroll' in combined:
-        types.append('pay')
-    if any(t in combined for t in ['loondienst', 'vaste dienst', 'in dienst']):
-        types.append('loon')
-    if not types:
-        types = ['zzp']  # default voor ZZP platforms
-    return types
+def content_hash(title, opdrachtgever='', regio='', startdatum=''):
+    def norm(s):
+        s = tl(s)
+        s = re.sub(r'[^a-z0-9 ]', '', s)
+        return re.sub(r'\s+', ' ', s).strip()
+    key = f"{norm(title)}|{norm(opdrachtgever)}|{norm(regio)}|{norm(startdatum)}"
+    return hashlib.md5(key.encode()).hexdigest()[:12]
 
 
-def fetch(url, timeout=15):
-    """Haal URL op met foutafhandeling."""
+def make_result(title, url, source, platform_id, category,
+                location='', description='', tarief='', duration='',
+                hours='', published='', opdrachtgever='', startdatum=''):
+    ok, reason = is_target(title, description)
+    combined = f"{title} {description}"
+    return {
+        'title':                clean(title),
+        'url':                  url,
+        'source':               source,
+        'platform_id':          platform_id,
+        'category':             category,
+        'location':             clean(location) or detect_location(combined),
+        'opdrachtgever':        clean(opdrachtgever),
+        'description':          clean(description)[:300],
+        'tarief':               clean(tarief),
+        'duration':             clean(duration),
+        'hours':                clean(hours),
+        'published':            published,
+        'startdatum':           clean(startdatum),
+        'contract':             detect_contract(combined),
+        'work':                 detect_work(combined),
+        'filtered_in':          ok,
+        'filter_reason':        reason,
+        'content_hash':         content_hash(title, opdrachtgever, location, startdatum),
+        'scraped_at':           datetime.now(timezone.utc).isoformat(),
+        'vacancy_status':       'unknown',
+        'vacancy_status_reason': 'Nog niet gevalideerd',
+        'sources':              [source],
+    }
+
+
+# ── HTTP ──────────────────────────────────────────────────────────────────────
+
+def new_session():
+    s = requests.Session()
+    s.headers.update(HEADERS)
+    return s
+
+
+def fetch(session, url, timeout=15):
     try:
-        log.info(f'  GET {url}')
-        r = SESSION.get(url, timeout=timeout, allow_redirects=True)
+        log.info(f'  GET {url[:90]}')
+        r = session.get(url, timeout=timeout, allow_redirects=True)
         r.raise_for_status()
         return r.text
     except requests.exceptions.HTTPError as e:
-        log.warning(f'  HTTP {e.response.status_code} voor {url}')
-    except requests.exceptions.ConnectionError:
-        log.warning(f'  Verbindingsfout voor {url}')
+        log.warning(f'  HTTP {e.response.status_code}')
     except requests.exceptions.Timeout:
-        log.warning(f'  Timeout voor {url}')
+        log.warning('  Timeout')
     except Exception as e:
-        log.warning(f'  Fout voor {url}: {e}')
+        log.warning(f'  Fout: {e}')
     return None
 
 
-def make_result(title, url, source, category, location='', description='',
-                tarief='', duration='', hours='', published=''):
-    """Maak een genormaliseerd resultaat object."""
-    ok, reason = is_target(title, description)
-    contract = infer_contract(title, description)
-    work = detect_work(description or title)
-    zzp_signals = detect_zzp(title + ' ' + description)
+# ── PARSERS ───────────────────────────────────────────────────────────────────
 
-    return {
-        'title': clean(title),
-        'url': url,
-        'source': source,
-        'category': category,
-        'location': clean(location),
-        'description': clean(description)[:300] if description else '',
-        'tarief': clean(tarief),
-        'duration': clean(duration),
-        'hours': clean(hours),
-        'published': published,
-        'contract': contract,
-        'work': work,
-        'zzp_signals': zzp_signals[:5],
-        'filtered_in': ok,
-        'filter_reason': reason,
-        'scraped_at': datetime.now(timezone.utc).isoformat(),
-    }
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# PLATFORM PARSERS
-# ─────────────────────────────────────────────────────────────────────────────
-
-def parse_itcontracts(html, source_label, base_url):
-    """Parser voor IT-Contracts.nl listing pages."""
-    results = []
-    if not html:
-        return results
+def parse_itcontracts(html, source, pid, url):
+    results, seen = [], set()
+    if not html: return results
     soup = BeautifulSoup(html, 'html.parser')
-
-    # IT-Contracts gebruikt <table> of <div> structuur voor vacatures
-    # Probeer meerdere selectors
-    items = (
-        soup.select('table.vacatureoverzicht tr') or
-        soup.select('.vacature-item') or
-        soup.select('tr.vacature') or
-        soup.select('div.opdracht') or
-        []
-    )
-
-    if not items:
-        # Fallback: zoek alle links die eruitzien als vacature URLs
-        links = soup.find_all('a', href=re.compile(r'/vacature_|/from/|/search/'))
-        for link in links[:30]:
-            title = clean(link.get_text())
-            if len(title) < 10:
-                continue
-            href = link.get('href', '')
-            url = urljoin(base_url, href) if href.startswith('/') else href
-            results.append(make_result(
-                title=title, url=url,
-                source=source_label, category='itcontracts'
-            ))
-        return results
-
-    for item in items:
-        link = item.find('a', href=True)
-        if not link:
-            continue
+    base = 'https://www.it-contracts.nl'
+    for link in soup.find_all('a', href=re.compile(r'/vacature_')):
+        href = link.get('href', '')
+        full = urljoin(base, href)
+        if full in seen: continue
+        seen.add(full)
         title = clean(link.get_text())
-        if len(title) < 8:
-            continue
-        href = link.get('href', '')
-        url = urljoin(base_url, href)
-
-        # Zoek locatie en andere metadata
-        tds = item.find_all('td')
-        location = clean(tds[1].get_text()) if len(tds) > 1 else ''
-        tarief = ''
-        for td in tds:
-            t = td.get_text()
-            if '€' in t or 'tarief' in t.lower() or 'marktconform' in t.lower():
-                tarief = clean(t)
-
-        results.append(make_result(
-            title=title, url=url,
-            source=source_label, category='itcontracts',
-            location=location, tarief=tarief
-        ))
-
-    log.info(f'  → {len(results)} items gevonden')
+        if len(title) < 8: continue
+        row = link.find_parent(['tr', 'div', 'li'])
+        loc = tarief = ''
+        if row:
+            text = row.get_text()
+            loc = detect_location(text)
+            m = re.search(r'(\d{2,3})\s*[-–]\s*(\d{2,3})\s*(per uur|/uur|€)', text)
+            if m: tarief = f"€{m.group(1)}-{m.group(2)}/u"
+        results.append(make_result(title, full, source, pid, 'itcontracts', location=loc, tarief=tarief))
+    log.info(f'  → {len(results)} items')
     return results
 
 
-def parse_freep(html, source_label):
-    """Parser voor Freep.nl categoriepagina's."""
-    results = []
-    if not html:
-        return results
+def parse_freep(html, source, pid, url):
+    results, seen = [], set()
+    if not html: return results
     soup = BeautifulSoup(html, 'html.parser')
-
-    # Freep listings zijn typisch <article> of <div class="opdracht">
-    items = (
-        soup.select('article.opdracht') or
-        soup.select('.opdracht-item') or
-        soup.select('div.vacancy') or
-        soup.select('.list-item') or
-        []
-    )
-
-    if not items:
-        # Fallback: links die verwijzen naar /opdracht/
-        links = soup.find_all('a', href=re.compile(r'/opdracht/'))
-        seen = set()
-        for link in links:
-            href = link.get('href', '')
-            if href in seen:
-                continue
-            seen.add(href)
-            title = clean(link.get_text())
-            if len(title) < 10:
-                continue
-            url = urljoin('https://www.freep.nl', href)
-            # Probeer parent element voor metadata
-            parent = link.find_parent(['li', 'div', 'article', 'tr'])
-            loc = ''
-            if parent:
-                loc_el = parent.find(class_=re.compile(r'locati|location|stad|provincie', re.I))
-                if loc_el:
-                    loc = clean(loc_el.get_text())
-            results.append(make_result(
-                title=title, url=url,
-                source=source_label, category='zzp',
-                location=loc
-            ))
-        log.info(f'  → {len(results)} items (fallback) gevonden')
-        return results
-
-    for item in items:
-        link = item.find('a', href=re.compile(r'/opdracht/'))
-        if not link:
-            link = item.find('a', href=True)
-        if not link:
-            continue
+    for link in soup.find_all('a', href=re.compile(r'/opdracht/')):
+        href = link.get('href', '')
+        full = urljoin('https://www.freep.nl', href)
+        if full in seen: continue
+        seen.add(full)
         title = clean(link.get_text())
-        href = link.get('href', '')
-        url = urljoin('https://www.freep.nl', href)
-        # Locatie
-        loc_el = item.find(class_=re.compile(r'locati|location|stad', re.I))
-        location = clean(loc_el.get_text()) if loc_el else ''
-        # Uren
-        uren_el = item.find(text=re.compile(r'\d+ uur'))
-        hours = clean(uren_el) if uren_el else ''
-
-        results.append(make_result(
-            title=title, url=url,
-            source=source_label, category='zzp',
-            location=location, hours=hours
-        ))
-
-    log.info(f'  → {len(results)} items gevonden')
-    return results
-
-
-def parse_zzpopdrachten(html, source_label, search_url):
-    """Parser voor ZZP-Opdrachten.nl (WordPress gebaseerd)."""
-    results = []
-    if not html:
-        return results
-    soup = BeautifulSoup(html, 'html.parser')
-
-    # WordPress vacature posts
-    items = (
-        soup.select('article.type-vacature') or
-        soup.select('article') or
-        soup.select('.vacature-card') or
-        soup.select('.job-listing') or
-        []
-    )
-
-    if not items:
-        # Fallback
-        links = soup.find_all('a', href=re.compile(r'/vacatures?/'))
-        seen = set()
-        for link in links:
-            href = link.get('href', '')
-            if href in seen or href == search_url:
-                continue
-            seen.add(href)
-            title = clean(link.get_text())
-            if len(title) < 10 or title.lower() in ['lees meer', 'meer info', 'bekijk']:
-                continue
-            results.append(make_result(
-                title=title, url=href,
-                source=source_label, category='zzp'
-            ))
-        log.info(f'  → {len(results)} items (fallback) gevonden')
-        return results
-
-    for item in items:
-        title_el = item.find(['h2', 'h3', 'h4']) or item.find('a')
-        if not title_el:
-            continue
-        title = clean(title_el.get_text())
-        if len(title) < 8:
-            continue
-
-        link = item.find('a', href=True)
-        url = link.get('href', '') if link else ''
-
-        # Metadata
-        desc_el = item.find(class_=re.compile(r'excerpt|summary|omschrijving|description', re.I))
-        description = clean(desc_el.get_text()) if desc_el else ''
-        loc_el = item.find(class_=re.compile(r'locati|location|stad', re.I))
-        location = clean(loc_el.get_text()) if loc_el else ''
-
-        results.append(make_result(
-            title=title, url=url,
-            source=source_label, category='zzp',
-            location=location, description=description
-        ))
-
-    log.info(f'  → {len(results)} items gevonden')
-    return results
-
-
-def parse_planet_interim(html, source_label, base_url):
-    """Parser voor Planet Interim."""
-    results = []
-    if not html:
-        return results
-    soup = BeautifulSoup(html, 'html.parser')
-
-    items = (
-        soup.select('.vacancy-item') or
-        soup.select('.opdracht-card') or
-        soup.select('article') or
-        soup.select('.item') or
-        []
-    )
-
-    if not items:
-        links = soup.find_all('a', href=re.compile(r'planetinterim\.nl'))
-        links += soup.find_all('a', href=re.compile(r'/interim-|/zzp-|/opdracht'))
-        seen = set()
-        for link in links[:25]:
-            href = link.get('href', '')
-            if href in seen:
-                continue
-            seen.add(href)
-            title = clean(link.get_text())
-            if len(title) < 10:
-                continue
-            url = urljoin(base_url, href)
-            results.append(make_result(
-                title=title, url=url,
-                source=source_label, category='aggregators'
-            ))
-        log.info(f'  → {len(results)} items (fallback) gevonden')
-        return results
-
-    for item in items:
-        link = item.find('a', href=True)
-        if not link:
-            continue
-        title = clean(item.find(['h2', 'h3', 'h4', 'strong']).get_text()) if item.find(['h2', 'h3', 'h4', 'strong']) else clean(link.get_text())
-        if len(title) < 8:
-            continue
-        href = link.get('href', '')
-        url = urljoin(base_url, href)
-        loc_el = item.find(class_=re.compile(r'locati|location|stad|regio', re.I))
-        location = clean(loc_el.get_text()) if loc_el else ''
-        results.append(make_result(
-            title=title, url=url,
-            source=source_label, category='aggregators',
-            location=location
-        ))
-
-    log.info(f'  → {len(results)} items gevonden')
-    return results
-
-
-def parse_generic(html, source_label, category, base_url, link_pattern=None):
-    """Generieke parser als fallback voor onbekende site-structuren."""
-    results = []
-    if not html:
-        return results
-    soup = BeautifulSoup(html, 'html.parser')
-
-    # Zoek alle links die er uitzien als vacatures
-    pattern = re.compile(link_pattern) if link_pattern else re.compile(
-        r'/(vacature|opdracht|job|zzp|freelance|interim)/', re.I
-    )
-    links = soup.find_all('a', href=pattern)
-
-    seen = set()
-    for link in links:
-        href = link.get('href', '')
-        full_url = urljoin(base_url, href)
-        if full_url in seen:
-            continue
-        seen.add(full_url)
-        title = clean(link.get_text())
-        if len(title) < 10:
-            continue
-        # Zoek metadata in parent
-        parent = link.find_parent(['li', 'div', 'article', 'tr'])
-        location = ''
+        if len(title) < 8: continue
+        parent = link.find_parent(['li', 'div', 'article'])
+        loc = hours = ''
         if parent:
             text = parent.get_text()
-            # Zoek provincie/stad
-            for stad in ['Amsterdam', 'Utrecht', 'Rotterdam', 'Den Haag', 'Haarlem',
-                         'Zwolle', 'Arnhem', 'Eindhoven', 'Groningen', 'Tilburg',
-                         'Apeldoorn', 'Enschede', 'Den Bosch', 'Maastricht']:
-                if stad.lower() in text.lower():
-                    location = stad
-                    break
-
-        results.append(make_result(
-            title=title, url=full_url,
-            source=source_label, category=category,
-            location=location
-        ))
-
-    log.info(f'  → {len(results)} items (generiek) gevonden')
+            loc = detect_location(text)
+            m = re.search(r'(\d{2,3})\s*uur', text)
+            if m: hours = f"{m.group(1)}u/wk"
+        results.append(make_result(title, full, source, pid, 'zzp', location=loc, hours=hours))
+    log.info(f'  → {len(results)} items')
     return results
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# BRONNEN DEFINITIE
-# ─────────────────────────────────────────────────────────────────────────────
-
-SOURCES = [
-    # IT-Contracts
-    {
-        'label': 'IT-Contracts — Servicemanager',
-        'url': 'https://www.it-contracts.nl/freelance-ict-opdrachten-management-servicemanager',
-        'category': 'itcontracts',
-        'parser': 'itcontracts',
-    },
-    {
-        'label': 'IT-Contracts — Procesmanager',
-        'url': 'https://www.it-contracts.nl/freelance-ict-opdrachten-management-procesmanager',
-        'category': 'itcontracts',
-        'parser': 'itcontracts',
-    },
-    {
-        'label': 'IT-Contracts — Service Delivery Manager',
-        'url': 'https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/service+delivery+manager/from/',
-        'category': 'itcontracts',
-        'parser': 'itcontracts',
-    },
-    {
-        'label': 'IT-Contracts — ITIL',
-        'url': 'https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/ITIL/from/',
-        'category': 'itcontracts',
-        'parser': 'itcontracts',
-    },
-    {
-        'label': 'IT-Contracts — ITSM Consultant',
-        'url': 'https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/ITSM+consultant/from/',
-        'category': 'itcontracts',
-        'parser': 'itcontracts',
-    },
-    {
-        'label': 'IT-Contracts — SIAM',
-        'url': 'https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/SIAM/from/',
-        'category': 'itcontracts',
-        'parser': 'itcontracts',
-    },
-    # Freep
-    {
-        'label': 'Freep — Procesmanager',
-        'url': 'https://www.freep.nl/zzp/procesmanager',
-        'category': 'zzp',
-        'parser': 'freep',
-    },
-    {
-        'label': 'Freep — Servicemanager',
-        'url': 'https://www.freep.nl/zzp/servicemanager',
-        'category': 'zzp',
-        'parser': 'freep',
-    },
-    # ZZP-Opdrachten
-    {
-        'label': 'ZZP-Opdrachten — ITIL procesmanager',
-        'url': 'https://www.zzp-opdrachten.nl/vacatures/?s=ITIL+procesmanager',
-        'category': 'zzp',
-        'parser': 'zzpopdrachten',
-    },
-    {
-        'label': 'ZZP-Opdrachten — Service Delivery Manager',
-        'url': 'https://www.zzp-opdrachten.nl/vacatures/?s=service+delivery+manager',
-        'category': 'zzp',
-        'parser': 'zzpopdrachten',
-    },
-    {
-        'label': 'ZZP-Opdrachten — ITSM consultant',
-        'url': 'https://www.zzp-opdrachten.nl/vacatures/?s=ITSM+consultant',
-        'category': 'zzp',
-        'parser': 'zzpopdrachten',
-    },
-    # Planet Interim
-    {
-        'label': 'Planet Interim — Procesmanager',
-        'url': 'https://planetinterim.nl/interim-procesmanager/280009/p13/default.html',
-        'category': 'aggregators',
-        'parser': 'planet',
-    },
-    {
-        'label': 'Planet Interim — ITIL Service Manager',
-        'url': 'https://planetinterim.nl/itil-service-manager-ai/474674/p13/default.html',
-        'category': 'aggregators',
-        'parser': 'planet',
-    },
-    # Funle (JS-heavy, generieke fallback)
-    {
-        'label': 'Funle — Service Delivery Manager',
-        'url': 'https://funle.nl/opdrachten?q=service+delivery+manager',
-        'category': 'aggregators',
-        'parser': 'generic',
-        'link_pattern': r'/opdrachten?',
-    },
-    {
-        'label': 'Funle — Procesmanager ITIL',
-        'url': 'https://funle.nl/opdrachten?q=procesmanager+ITIL',
-        'category': 'aggregators',
-        'parser': 'generic',
-        'link_pattern': r'/opdrachten?',
-    },
-]
+def parse_zzpopdrachten(html, source, pid, url):
+    results = []
+    if not html: return results
+    soup = BeautifulSoup(html, 'html.parser')
+    for article in soup.select('article') or []:
+        title_el = article.find(['h2', 'h3', 'h4'])
+        link = article.find('a', href=True)
+        if not title_el or not link: continue
+        title = clean(title_el.get_text())
+        href = link.get('href', '')
+        if len(title) < 8: continue
+        desc_el = article.find(class_=re.compile(r'excerpt|summary|description', re.I))
+        desc = clean(desc_el.get_text()) if desc_el else ''
+        loc = detect_location(f"{title} {desc}")
+        results.append(make_result(title, href, source, pid, 'zzp', location=loc, description=desc))
+    if not results:
+        for link in soup.find_all('a', href=re.compile(r'/vacature')):
+            title = clean(link.get_text())
+            if len(title) > 8:
+                results.append(make_result(title, link['href'], source, pid, 'zzp'))
+    log.info(f'  → {len(results)} items')
+    return results
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# DEDUPLICATIE
-# ─────────────────────────────────────────────────────────────────────────────
-
-def deduplicate(results):
-    """Verwijder duplicaten op basis van URL en gelijksoortige titels."""
-    seen_urls = set()
-    seen_titles = set()
-    deduped = []
-
-    for r in results:
-        url = r.get('url', '').rstrip('/')
-        title_key = re.sub(r'\s+', ' ', r.get('title', '').lower()[:60])
-
-        if url in seen_urls:
-            continue
-        if title_key in seen_titles and len(title_key) > 15:
-            continue
-
-        seen_urls.add(url)
-        seen_titles.add(title_key)
-        deduped.append(r)
-
-    return deduped
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# MAIN
-# ─────────────────────────────────────────────────────────────────────────────
+def parse_funle(html, source, pid, url):
+    results, seen = [], set()
+    if not html: return results
+    soup = BeautifulSoup(html, 'html.parser')
+    for el in soup.find_all(class_=re.compile(r'job|opdracht|vacancy|card', re.I)):
+        link = el.find('a', href=True)
+        title_el = el.find(['h2', 'h3', 'h4', 'strong'])
+        if not link or not title_el: continue
+        title = clean(title_el.get_text())
+        href = link.get('href', '')
+        full = urljoin('https://funle.nl', href)
+        if full in seen or len(title) < 8: continue
+        seen.add(full)
+        loc = detect_location(el.get_text())
+        results.append(make_result(title, full, source, pid, 'aggregator', location=loc))
+    if not results:
+        for link in soup.find_all('a', href=re.compile(r'/opdrachten/')):
+            href = link.get('href', '')
+            title = clean(link.get_text())
+            if len(title) > 8 and href not in seen:
+                seen.add(href)
+                results.append(make_result(title, urljoin('https://funle.nl', href), source, pid, 'aggregator'))
+    log.info(f'  → {len(results)} items')
+    return results
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# VACATURE VALIDATIE
-# Controleer of een individuele vacature-URL nog actief is
-# ─────────────────────────────────────────────────────────────────────────────
-
-# Signalen dat een vacature GESLOTEN is
-CLOSED_SIGNALS = [
-    # Nederlands
-    'vacature is gesloten', 'opdracht is gesloten', 'opdracht gesloten',
-    'niet meer beschikbaar', 'niet meer actief', 'verlopen', 'vervallen',
-    'vacature vervallen', 'opdracht vervallen', 'inschrijving gesloten',
-    'sluitingsdatum verstreken', 'deadline verstreken', 'al ingevuld',
-    'positie is ingevuld', 'is ingevuld', 'geen reacties meer mogelijk',
-    'reageren is niet meer mogelijk', 'helaas', 'deze vacature bestaat niet',
-    'vacature bestaat niet meer', 'pagina bestaat niet',
-    'opdracht bestaat niet meer', 'gevonden wat we zochten',
-    'is niet langer beschikbaar', 'niet langer actief',
-    '404', 'pagina niet gevonden', 'niet gevonden',
-    # Engels
-    'job is closed', 'position has been filled', 'no longer available',
-    'vacancy closed', 'application closed', 'expired', 'this job',
-    'page not found', 'does not exist',
-]
-
-# Signalen dat een vacature NOG OPEN is (hoge zekerheid)
-OPEN_SIGNALS = [
-    'reageer', 'solliciteer', 'reactie sturen', 'aanmelden',
-    'kandidaat aanbieden', 'offerte', 'sluitingsdatum',
-    'startdatum', 'inzenden', 'apply', 'submit',
-    'reageren kan', 'uren per week', 'uurtarief',
-]
-
-# Platforms waarbij we NIET valideren (te traag / bot-detectie)
-SKIP_VALIDATION_DOMAINS = [
-    'funle.nl',       # JS-heavy
-    'google.nl',      # geen directe vacature URL
-    'google.com',
-]
+def parse_striive(html, source, pid, url):
+    results, seen = [], set()
+    if not html: return results
+    soup = BeautifulSoup(html, 'html.parser')
+    for el in soup.find_all(class_=re.compile(r'job|opdracht|vacancy|card|result', re.I)):
+        link = el.find('a', href=True)
+        title_el = el.find(['h2', 'h3', 'h4'])
+        if not link or not title_el: continue
+        title = clean(title_el.get_text())
+        href = link.get('href', '')
+        full = urljoin('https://striive.com', href)
+        if full in seen or len(title) < 8: continue
+        seen.add(full)
+        loc = detect_location(el.get_text())
+        results.append(make_result(title, full, source, pid, 'aggregator', location=loc))
+    if not results:
+        for link in soup.find_all('a', href=re.compile(r'/nl/opdrachten/')):
+            href = link.get('href', '')
+            title = clean(link.get_text())
+            if len(title) > 8 and href not in seen:
+                seen.add(href)
+                results.append(make_result(title, urljoin('https://striive.com', href), source, pid, 'aggregator'))
+    log.info(f'  → {len(results)} items')
+    return results
 
 
-def validate_vacancy(result):
-    """
-    Controleer of een vacature-URL nog actief is.
-    Geeft (status, reden) terug:
-      'open'    — actief
-      'closed'  — gesloten of verlopen
-      'unknown' — kon niet controleren
-    """
+def parse_planet(html, source, pid, url):
+    results, seen = [], set()
+    if not html: return results
+    soup = BeautifulSoup(html, 'html.parser')
+    for link in soup.find_all('a', href=re.compile(r'planetinterim\.nl.*\d{5,}')):
+        href = link.get('href', '')
+        full = urljoin('https://planetinterim.nl', href)
+        if full in seen: continue
+        seen.add(full)
+        title = clean(link.get_text())
+        if len(title) < 8: continue
+        parent = link.find_parent(['li', 'div', 'tr'])
+        loc = detect_location(parent.get_text()) if parent else ''
+        results.append(make_result(title, full, source, pid, 'aggregator', location=loc))
+    log.info(f'  → {len(results)} items')
+    return results
+
+
+def parse_publiekepartner(html, source, pid, url):
+    results, seen = [], set()
+    if not html: return results
+    soup = BeautifulSoup(html, 'html.parser')
+    for link in soup.find_all('a', href=re.compile(r'(opdracht|bekijk)', re.I)):
+        href = link.get('href', '')
+        if not href.startswith('http'):
+            href = urljoin('https://depubliekepartner.nl', href)
+        if href in seen: continue
+        seen.add(href)
+        title = clean(link.get_text())
+        if len(title) < 8: continue
+        parent = link.find_parent(['div', 'li', 'article'])
+        loc = tarief = org = ''
+        if parent:
+            text = parent.get_text()
+            loc = detect_location(text)
+            m = re.search(r'Tarief:\s*(\d+)', text)
+            if m: tarief = f"€{m.group(1)}/u"
+            m2 = re.search(r'Organisatie:\s*([^\n]+)', text)
+            if m2: org = clean(m2.group(1))
+        results.append(make_result(title, href, source, pid, 'overheid',
+                                   location=loc, tarief=tarief, opdrachtgever=org))
+    log.info(f'  → {len(results)} items')
+    return results
+
+
+def parse_circle8(html, source, pid, url):
+    results, seen = [], set()
+    if not html: return results
+    soup = BeautifulSoup(html, 'html.parser')
+    for link in soup.find_all('a', href=re.compile(r'(opdracht|vacature)', re.I)):
+        href = link.get('href', '')
+        full = urljoin('https://www.circle8.nl', href)
+        if full in seen: continue
+        seen.add(full)
+        title = clean(link.get_text())
+        if len(title) < 8: continue
+        parent = link.find_parent(['div', 'li', 'article'])
+        loc = detect_location(parent.get_text()) if parent else ''
+        results.append(make_result(title, full, source, pid, 'bureau', location=loc))
+    log.info(f'  → {len(results)} items')
+    return results
+
+
+def parse_freelancenl(html, source, pid, url):
+    results, seen = [], set()
+    if not html: return results
+    soup = BeautifulSoup(html, 'html.parser')
+    for link in soup.find_all('a', href=re.compile(r'/opdracht/\d+')):
+        href = link.get('href', '')
+        full = urljoin('https://www.freelance.nl', href)
+        if full in seen: continue
+        seen.add(full)
+        title = clean(link.get_text())
+        if len(title) < 8: continue
+        parent = link.find_parent(['div', 'li', 'article', 'tr'])
+        loc = detect_location(parent.get_text()) if parent else ''
+        results.append(make_result(title, full, source, pid, 'zzp', location=loc))
+    log.info(f'  → {len(results)} items')
+    return results
+
+
+def parse_generic(html, source, pid, url, base_url=None):
+    results, seen = [], set()
+    if not html: return results
+    soup = BeautifulSoup(html, 'html.parser')
+    base = base_url or f"https://{urlparse(url).netloc}"
+    pattern = re.compile(r'/(vacature|opdracht|job|klus|positie)s?/', re.I)
+    for link in soup.find_all('a', href=pattern):
+        href = link.get('href', '')
+        full = urljoin(base, href) if not href.startswith('http') else href
+        if full in seen: continue
+        seen.add(full)
+        title = clean(link.get_text())
+        if len(title) < 8: continue
+        parent = link.find_parent(['li', 'div', 'article', 'tr'])
+        loc = detect_location(parent.get_text()) if parent else ''
+        results.append(make_result(title, full, source, pid, 'zzp', location=loc))
+    log.info(f'  → {len(results)} items (generiek)')
+    return results
+
+
+# ── LINKEDIN VIA PLAYWRIGHT ───────────────────────────────────────────────────
+
+def scrape_linkedin(platform, results_list):
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        log.warning('Playwright niet beschikbaar — LinkedIn overgeslagen')
+        return
+
+    creds = platform.get('credentials', {})
+    email    = os.environ.get(creds.get('username_secret', ''), '')
+    password = os.environ.get(creds.get('password_secret', ''), '')
+
+    if not email or not password:
+        log.warning('LinkedIn credentials niet gevonden — overgeslagen')
+        return
+
+    pid   = platform['id']
+    label = platform['label']
+    parser_type = platform['parser']
+
+    log.info(f'LinkedIn: browser starten, inloggen als {email}')
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True, args=['--no-sandbox'])
+        ctx  = browser.new_context(user_agent=HEADERS['User-Agent'], locale='nl-NL')
+        page = ctx.new_page()
+        try:
+            page.goto('https://www.linkedin.com/login', timeout=30000)
+            page.fill('#username', email)
+            page.fill('#password', password)
+            page.click('[type=submit]')
+            page.wait_for_load_state('networkidle', timeout=20000)
+
+            if 'checkpoint' in page.url or 'challenge' in page.url:
+                log.warning('LinkedIn: CAPTCHA/verificatie — overgeslagen')
+                return
+
+            log.info('LinkedIn: ingelogd ✓')
+
+            if parser_type == 'linkedin_jobs':
+                _li_jobs(page, platform, pid, label, results_list)
+            elif parser_type == 'linkedin_feed':
+                _li_feed(page, platform, pid, label, results_list)
+
+        except Exception as e:
+            log.error(f'LinkedIn fout: {e}')
+        finally:
+            browser.close()
+
+
+def _li_jobs(page, platform, pid, label, results_list):
+    for search in platform.get('searches', []):
+        term    = search.get('term', '')
+        filters = search.get('filters', '')
+        url     = f"https://www.linkedin.com/jobs/search/?keywords={quote_plus(term)}&{filters}"
+        log.info(f'  LI Jobs: {term}')
+        try:
+            page.goto(url, timeout=20000)
+            page.wait_for_selector('.jobs-search__results-list, .job-card-container', timeout=10000)
+            time.sleep(2)
+            soup = BeautifulSoup(page.content(), 'html.parser')
+            for card in soup.select('.job-card-container, .jobs-search__results-list li'):
+                title_el = card.find(['h3', 'h4'])
+                link = card.find('a', href=re.compile(r'/jobs/view/'))
+                if not title_el or not link: continue
+                title = clean(title_el.get_text())
+                href  = link.get('href', '').split('?')[0]
+                job_url = urljoin('https://www.linkedin.com', href)
+                org_el  = card.find(class_=re.compile(r'company|employer', re.I))
+                org = clean(org_el.get_text()) if org_el else ''
+                loc_el  = card.find(class_=re.compile(r'location|locati', re.I))
+                loc = clean(loc_el.get_text()) if loc_el else detect_location(card.get_text())
+                results_list.append(make_result(title, job_url, label, pid, 'linkedin',
+                                                location=loc, opdrachtgever=org))
+        except Exception as e:
+            log.warning(f'  LI Jobs fout voor "{term}": {e}')
+        time.sleep(REQUEST_DELAY)
+
+
+def _li_feed(page, platform, pid, label, results_list):
+    keywords = platform.get('keywords', [])
+    opp_words = ['opdracht', 'gezocht', 'zoeken naar', 'vacature', 'interim', 'freelance', 'zzp']
+    log.info('  LI Feed: timeline scannen')
+    try:
+        page.goto('https://www.linkedin.com/feed/', timeout=20000)
+        page.wait_for_selector('.feed-shared-update-v2', timeout=10000)
+        for _ in range(3):
+            page.keyboard.press('End')
+            time.sleep(2)
+        soup = BeautifulSoup(page.content(), 'html.parser')
+        found = 0
+        for post in soup.select('.feed-shared-update-v2'):
+            text = clean(post.get_text())
+            tlow = text.lower()
+            if not (any(kw.lower() in tlow for kw in keywords) and
+                    any(ow in tlow for ow in opp_words)):
+                continue
+            link = post.find('a', href=re.compile(r'http'))
+            post_url = link['href'] if link else 'https://www.linkedin.com/feed/'
+            lines = [l.strip() for l in text.split('\n') if len(l.strip()) > 15]
+            title = lines[0][:120] if lines else text[:80]
+            author_el = post.find(class_=re.compile(r'actor|author', re.I))
+            org = clean(author_el.get_text()) if author_el else ''
+            results_list.append(make_result(
+                f"[Feed] {title}", post_url, f"{label} — Feed", pid, 'linkedin',
+                description=text[:300], opdrachtgever=org
+            ))
+            found += 1
+        log.info(f'  → {found} feed-posts met opdracht-signalen')
+    except Exception as e:
+        log.warning(f'  LI Feed fout: {e}')
+
+
+# ── VALIDATIE ─────────────────────────────────────────────────────────────────
+
+def validate_vacancy(result, session):
     url = result.get('url', '')
     if not url or not url.startswith('http'):
         return 'unknown', 'Geen geldige URL'
-
-    # Skip bepaalde platforms
     domain = urlparse(url).netloc.replace('www.', '')
-    if any(skip in domain for skip in SKIP_VALIDATION_DOMAINS):
-        return 'unknown', f'Validatie overgeslagen voor {domain}'
-
+    if any(s in domain for s in SKIP_VALIDATION_DOMAINS):
+        return 'unknown', f'Overgeslagen: {domain}'
     try:
-        log.info(f'  Valideer: {url[:80]}')
-        r = SESSION.get(url, timeout=12, allow_redirects=True)
-        status_code = r.status_code
-
-        if status_code == 404:
-            return 'closed', '404 — pagina bestaat niet meer'
-        if status_code == 410:
-            return 'closed', '410 — vacature permanent verwijderd'
-        if status_code >= 400:
-            return 'unknown', f'HTTP {status_code}'
-
-        text_low = r.text.lower()
-
-        # Check gesloten signalen
-        for signal in CLOSED_SIGNALS:
-            if signal in text_low:
-                return 'closed', f'Gesloten signaal: "{signal}"'
-
-        # Check open signalen — extra zekerheid
-        open_hits = sum(1 for s in OPEN_SIGNALS if s in text_low)
+        r = session.get(url, timeout=12, allow_redirects=True)
+        if r.status_code in (404, 410):
+            return 'closed', f'HTTP {r.status_code}'
+        if r.status_code >= 400:
+            return 'unknown', f'HTTP {r.status_code}'
+        tlow = r.text.lower()
+        for sig in CLOSED_SIGNALS:
+            if sig in tlow:
+                return 'closed', f'"{sig}"'
+        open_hits = sum(1 for s in OPEN_SIGNALS if s in tlow)
         if open_hits >= 2:
-            return 'open', f'{open_hits} open-signalen gevonden'
-
-        # Geen duidelijk signaal — aanname: open
-        return 'open', 'Geen gesloten signalen gevonden'
-
-    except requests.exceptions.Timeout:
-        return 'unknown', 'Timeout bij validatie'
+            return 'open', f'{open_hits} open-signalen'
+        return 'open', 'Geen gesloten signalen'
     except Exception as e:
-        return 'unknown', f'Fout: {str(e)[:60]}'
+        return 'unknown', str(e)[:60]
 
+
+# ── DEDUPLICATIE ──────────────────────────────────────────────────────────────
+
+def deduplicate(results):
+    seen = {}
+    for r in results:
+        h = r['content_hash']
+        if h not in seen:
+            seen[h] = r
+        else:
+            ex = seen[h]
+            if r['source'] not in ex['sources']:
+                ex['sources'].append(r['source'])
+            if len(r.get('description', '')) > len(ex.get('description', '')):
+                ex['description'] = r['description']
+            for field in ['tarief', 'location', 'opdrachtgever', 'hours']:
+                if r.get(field) and not ex.get(field):
+                    ex[field] = r[field]
+    return list(seen.values())
+
+
+# ── PARSER MAP ────────────────────────────────────────────────────────────────
+
+PARSERS = {
+    'itcontracts':     parse_itcontracts,
+    'freep':           parse_freep,
+    'zzpopdrachten':   parse_zzpopdrachten,
+    'funle':           parse_funle,
+    'striive':         parse_striive,
+    'planet':          parse_planet,
+    'publiekepartner': parse_publiekepartner,
+    'circle8':         parse_circle8,
+    'freelancenl':     parse_freelancenl,
+    'generic':         parse_generic,
+}
+
+LINKEDIN_PARSERS = {'linkedin_jobs', 'linkedin_feed'}
+
+
+# ── MAIN ──────────────────────────────────────────────────────────────────────
 
 def run():
+    with open(PLATFORMS_FILE, 'r', encoding='utf-8') as f:
+        platforms = yaml.safe_load(f)['platforms']
+
+    session     = new_session()
     all_results = []
-    errors = []
+    errors      = []
+    n_platforms = 0
 
-    for source in SOURCES:
-        label = source['label']
-        url = source['url']
-        parser_type = source['parser']
-        category = source['category']
+    for plat in platforms:
+        if not plat.get('active', True):
+            log.info(f'Skip: {plat["label"]}')
+            continue
 
-        log.info(f'Scraping: {label}')
-        html = fetch(url)
+        pid         = plat['id']
+        label       = plat['label']
+        parser_type = plat.get('parser', 'generic')
+        searches    = plat.get('searches', [])
 
-        try:
-            if parser_type == 'itcontracts':
-                results = parse_itcontracts(html, label, url)
-            elif parser_type == 'freep':
-                results = parse_freep(html, label)
-            elif parser_type == 'zzpopdrachten':
-                results = parse_zzpopdrachten(html, label, url)
-            elif parser_type == 'planet':
-                results = parse_planet_interim(html, label, url)
-            elif parser_type == 'generic':
-                results = parse_generic(
-                    html, label, category, url,
-                    link_pattern=source.get('link_pattern')
-                )
-            else:
-                results = []
+        # LinkedIn via Playwright
+        if parser_type in LINKEDIN_PARSERS:
+            log.info(f'\nPlatform: {label} [browser]')
+            n_platforms += 1
+            scrape_linkedin(plat, all_results)
+            continue
 
-            all_results.extend(results)
+        parser_fn = PARSERS.get(parser_type)
+        if not parser_fn:
+            log.warning(f'Geen parser voor "{parser_type}" — {label}')
+            continue
 
-        except Exception as e:
-            msg = f'{label}: {e}'
-            log.error(f'  Parser fout — {msg}')
-            errors.append(msg)
+        log.info(f'\nPlatform: {label} [{len(searches)} zoekopdrachten]')
+        n_platforms += 1
 
-        time.sleep(DELAY)
+        for search in searches:
+            url = search.get('url', '')
+            if not url:
+                continue
+            html = fetch(session, url)
+            try:
+                results = parser_fn(html, label, pid, url)
+                all_results.extend(results)
+            except Exception as e:
+                msg = f'{label}: {e}'
+                log.error(f'  Parser fout: {msg}')
+                errors.append(msg)
+            time.sleep(REQUEST_DELAY)
 
-    # Dedupliceer
-    log.info(f'Totaal voor deduplicatie: {len(all_results)}')
+    log.info(f'\n=== Totaal: {len(all_results)} voor deduplicatie ===')
     all_results = deduplicate(all_results)
-    log.info(f'Totaal na deduplicatie: {len(all_results)}')
+    log.info(f'=== Totaal: {len(all_results)} na deduplicatie ===')
 
-    # Filter op relevantie
-    filtered_in = [r for r in all_results if r['filtered_in']]
-    filtered_out = [r for r in all_results if not r['filtered_in']]
-    log.info(f'Gefilterd IN: {len(filtered_in)} | Gefilterd UIT: {len(filtered_out)}')
+    relevant   = [r for r in all_results if r['filtered_in']]
+    irrelevant = [r for r in all_results if not r['filtered_in']]
+    log.info(f'Relevant: {len(relevant)} | Irrelevant: {len(irrelevant)}')
 
-    # ── VALIDATIE ──
-    log.info('Start vacature validatie…')
-    validated = []
-    closed_count = 0
-    unknown_count = 0
-
-    for r in filtered_in:
-        status, reason = validate_vacancy(r)
-        r['vacancy_status'] = status
+    # Validatie
+    log.info('\n=== Vacature validatie ===')
+    open_n = closed_n = unknown_n = 0
+    for r in relevant:
+        status, reason = validate_vacancy(r, session)
+        r['vacancy_status']        = status
         r['vacancy_status_reason'] = reason
+        if status == 'open':    open_n += 1
+        elif status == 'closed': closed_n += 1
+        else:                    unknown_n += 1
+        time.sleep(VALIDATE_DELAY)
 
-        if status == 'closed':
-            closed_count += 1
-            log.info(f'  ❌ GESLOTEN: {r["title"][:50]} — {reason}')
-        elif status == 'unknown':
-            unknown_count += 1
-            log.info(f'  ❓ ONBEKEND: {r["title"][:50]} — {reason}')
-        else:
-            log.info(f'  ✅ OPEN: {r["title"][:50]}')
+    log.info(f'Open: {open_n} | Onbekend: {unknown_n} | Gesloten: {closed_n}')
 
-        validated.append(r)
-        time.sleep(DELAY)
+    open_r    = [r for r in relevant if r['vacancy_status'] == 'open']
+    unknown_r = [r for r in relevant if r['vacancy_status'] == 'unknown']
+    closed_r  = [r for r in relevant if r['vacancy_status'] == 'closed']
 
-    # Splits op validatiestatus
-    open_results    = [r for r in validated if r['vacancy_status'] == 'open']
-    unknown_results = [r for r in validated if r['vacancy_status'] == 'unknown']
-    closed_results  = [r for r in validated if r['vacancy_status'] == 'closed']
-
-    log.info(f'Validatie: {len(open_results)} open | {unknown_count} onbekend | {closed_count} gesloten')
-
-    # Resultatenlijst: open eerst, dan onbekend, gesloten weggefilterd
-    final_results = open_results + unknown_results
-
-    # Sorteer op bron
-    final_results.sort(key=lambda x: (x['vacancy_status'] != 'open', x.get('source', '')))
+    final = sorted(open_r + unknown_r, key=lambda x: x.get('source', ''))
 
     output = {
-        'scraped_at': datetime.now(timezone.utc).isoformat(),
-        'scraped_at_nl': datetime.now().strftime('%d %B %Y om %H:%M'),
-        'total_found': len(all_results),
-        'total_relevant': len(filtered_in),
-        'total_open': len(open_results),
-        'total_unknown': len(unknown_results),
-        'total_closed': closed_count,
-        'total_filtered_out': len(filtered_out),
-        'sources_scraped': len(SOURCES),
-        'errors': errors,
-        'results': final_results,
-        'closed': closed_results[:10],   # voor debug
-        'filtered_out': filtered_out[:10],
+        'scraped_at':          datetime.now(timezone.utc).isoformat(),
+        'scraped_at_nl':       datetime.now().strftime('%d %B %Y om %H:%M'),
+        'total_found':         len(all_results),
+        'total_relevant':      len(relevant),
+        'total_open':          open_n,
+        'total_unknown':       unknown_n,
+        'total_closed':        closed_n,
+        'total_filtered_out':  len(irrelevant),
+        'platforms_scraped':   n_platforms,
+        'errors':              errors,
+        'results':             final,
+        'closed_debug':        [{'title': r['title'], 'reason': r['vacancy_status_reason']} for r in closed_r[:10]],
+        'filtered_out_debug':  [{'title': r['title'], 'source': r['source'], 'reason': r['filter_reason']} for r in irrelevant[:10]],
     }
 
-    import os
-    os.makedirs('data', exist_ok=True)
-    with open('data/results.json', 'w', encoding='utf-8') as f:
+    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    log.info(f'✅ Geschreven naar data/results.json — {len(open_results)} open, {len(unknown_results)} onbekend, {closed_count} gesloten weggefilterd')
+    log.info(f'\n✅ Klaar — geschreven naar {OUTPUT_FILE}')
     return output
 
 
 if __name__ == '__main__':
     run()
-
