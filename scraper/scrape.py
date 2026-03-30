@@ -638,7 +638,11 @@ def run():
         if parser_type in LINKEDIN_PARSERS:
             log.info(f'\nPlatform: {label} [browser]')
             n_platforms += 1
-            scrape_linkedin(plat, all_results)
+            try:
+                scrape_linkedin(plat, all_results)
+            except Exception as e:
+                log.error(f"LinkedIn fout (niet fataal): {e}")
+                errors.append(f"{label}: {e}")
             continue
 
         parser_fn = PARSERS.get(parser_type)

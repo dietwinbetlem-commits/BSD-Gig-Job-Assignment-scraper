@@ -1,32 +1,19 @@
 # ============================================================
 # BSD Advies — Platform Configuratie
 # Nieuwe bron toevoegen = één blok hieronder toevoegen
-#
-# Velden:
-#   id:          unieke sleutel (geen spaties)
-#   label:       weergavenaam in dashboard
-#   category:    aggregator | zzp | bureau | overheid | linkedin
-#   type:        public | authenticated
-#   credentials: (optioneel) secret-namen uit GitHub Secrets
-#   searches:    lijst van zoek-URLs of zoektermen
-#   parser:      funle | itcontracts | freep | zzpopdrachten |
-#                publiekepartner | hoofdkraan | freelancenl |
-#                striive | circle8 | malt | flexspot | generic |
-#                linkedin_jobs | linkedin_groups | linkedin_feed
-#   active:      true | false
-#   note:        (optioneel) toelichting
 # ============================================================
 
 platforms:
 
-  # ── AGGREGATOREN (scrapt zelf al 100+ bronnen) ──────────────
+  # ── AGGREGATOREN ─────────────────────────────────────────────
 
   - id: funle_sdm
-    label: "Funle — Service Delivery Manager"
+    label: "Funle"
     category: aggregator
     type: public
     parser: funle
     active: true
+    note: "JS-heavy, statische HTML heeft beperkte resultaten"
     searches:
       - url: "https://funle.nl/opdrachten?q=service+delivery+manager"
         term: "service delivery manager"
@@ -45,7 +32,6 @@ platforms:
     type: public
     parser: striive
     active: true
-    note: "Grootste NL interim platform, 12.000+ opdrachten/jaar"
     searches:
       - url: "https://striive.com/nl/opdrachten?search=procesmanager+ITIL"
         term: "procesmanager ITIL"
@@ -55,23 +41,19 @@ platforms:
         term: "servicemanager ITIL"
       - url: "https://striive.com/nl/opdrachten?search=ITSM+consultant"
         term: "ITSM consultant"
-      - url: "https://striive.com/nl/opdrachten?search=SIAM"
-        term: "SIAM"
 
   - id: planet_interim
     label: "Planet Interim"
     category: aggregator
     type: public
     parser: planet
-    active: true
-    note: "Direct-sourcing, 2500+ opdrachtgevers, 300+ bemiddelaars"
+    active: false
+    note: "403 — bot-detectie, tijdelijk uitgeschakeld"
     searches:
       - url: "https://planetinterim.nl/interim-procesmanager/280009/p13/default.html"
         term: "procesmanager"
-      - url: "https://planetinterim.nl/itil-service-manager-ai/474674/p13/default.html"
-        term: "ITIL service manager"
 
-  # ── IT-SPECIFIEKE PLATFORMS ──────────────────────────────────
+  # ── IT-SPECIFIEK ─────────────────────────────────────────────
 
   - id: itcontracts
     label: "IT-Contracts.nl"
@@ -102,7 +84,7 @@ platforms:
     searches:
       - url: "https://www.freep.nl/zzp/procesmanager"
         term: "procesmanager"
-      - url: "https://www.freep.nl/zzp/servicemanager"
+      - url: "https://www.freep.nl/zzp/it-servicemanager"
         term: "servicemanager"
 
   - id: zzpopdrachten
@@ -112,28 +94,25 @@ platforms:
     parser: zzpopdrachten
     active: true
     searches:
-      - url: "https://www.zzp-opdrachten.nl/vacatures/?s=ITIL+procesmanager"
+      - url: "https://www.zzp-opdrachten.nl/?s=ITIL+procesmanager"
         term: "ITIL procesmanager"
-      - url: "https://www.zzp-opdrachten.nl/vacatures/?s=service+delivery+manager"
+      - url: "https://www.zzp-opdrachten.nl/?s=service+delivery+manager"
         term: "service delivery manager"
-      - url: "https://www.zzp-opdrachten.nl/vacatures/?s=ITSM+consultant"
+      - url: "https://www.zzp-opdrachten.nl/?s=ITSM+consultant"
         term: "ITSM consultant"
-      - url: "https://www.zzp-opdrachten.nl/vacatures/?s=SIAM"
-        term: "SIAM"
 
-  # ── ZZP / INTERIM MARKTPLAATSEN ─────────────────────────────
+  # ── ZZP MARKTPLAATSEN ────────────────────────────────────────
 
   - id: hoofdkraan
     label: "Hoofdkraan.nl"
     category: zzp
     type: public
     parser: generic
-    active: true
+    active: false
+    note: "403 — bot-detectie, tijdelijk uitgeschakeld"
     searches:
       - url: "https://www.hoofdkraan.nl/opdrachten?q=procesmanager+ITIL"
         term: "procesmanager ITIL"
-      - url: "https://www.hoofdkraan.nl/opdrachten?q=service+delivery+manager"
-        term: "service delivery manager"
 
   - id: freelancenl
     label: "Freelance.nl"
@@ -141,13 +120,12 @@ platforms:
     type: public
     parser: freelancenl
     active: true
-    note: "300.000+ freelancers, 50.000+ opdrachten/jaar"
     searches:
-      - url: "https://www.freelance.nl/opdrachten/zoeken?q=procesmanager+ITIL"
+      - url: "https://www.freelance.nl/opdrachten?zoekterm=procesmanager+ITIL"
         term: "procesmanager ITIL"
-      - url: "https://www.freelance.nl/opdrachten/zoeken?q=service+delivery+manager"
+      - url: "https://www.freelance.nl/opdrachten?zoekterm=service+delivery+manager"
         term: "service delivery manager"
-      - url: "https://www.freelance.nl/opdrachten/zoeken?q=ITSM+consultant"
+      - url: "https://www.freelance.nl/opdrachten?zoekterm=ITSM+consultant"
         term: "ITSM consultant"
 
   - id: flexspot
@@ -159,8 +137,8 @@ platforms:
     searches:
       - url: "https://flexspot.io/functies/procesmanager/"
         term: "procesmanager"
-      - url: "https://flexspot.io/zzp-opdrachten/?q=service+delivery+manager"
-        term: "service delivery manager"
+      - url: "https://flexspot.io/functies/servicemanager/"
+        term: "servicemanager"
 
   - id: jobhob
     label: "Jobhob.nl"
@@ -169,10 +147,10 @@ platforms:
     parser: generic
     active: true
     searches:
-      - url: "https://jobhob.nl/zzp-opdrachten/?s=ITSM+procesmanager"
-        term: "ITSM procesmanager"
-      - url: "https://jobhob.nl/zzp-opdrachten/?s=service+delivery+manager"
-        term: "service delivery manager"
+      - url: "https://jobhob.nl/zzp-opdrachten/procesmanager/"
+        term: "procesmanager"
+      - url: "https://jobhob.nl/zzp-opdrachten/service-manager/"
+        term: "service manager"
 
   # ── OVERHEID ─────────────────────────────────────────────────
 
@@ -182,12 +160,11 @@ platforms:
     type: public
     parser: publiekepartner
     active: true
-    note: "Overheid & publieke sector specialist"
     searches:
       - url: "https://depubliekepartner.nl/rol/zzp-opdrachten-procesmanager/"
         term: "procesmanager"
-      - url: "https://depubliekepartner.nl/?s=servicemanager+ITIL"
-        term: "servicemanager ITIL"
+      - url: "https://depubliekepartner.nl/rol/zzp-opdrachten-servicemanager/"
+        term: "servicemanager"
 
   # ── BUREAUS ──────────────────────────────────────────────────
 
@@ -196,27 +173,24 @@ platforms:
     category: bureau
     type: public
     parser: circle8
-    active: true
-    note: "Groot bij Rijkswaterstaat en gemeenten"
+    active: false
+    note: "429 rate-limit — tijdelijk uitgeschakeld"
     searches:
       - url: "https://www.circle8.nl/opdrachten?q=procesmanager"
         term: "procesmanager"
-      - url: "https://www.circle8.nl/opdrachten?q=servicemanager+ITIL"
-        term: "servicemanager ITIL"
 
   - id: malt
     label: "Malt"
     category: bureau
     type: public
     parser: generic
-    active: true
+    active: false
+    note: "403 — bot-detectie, tijdelijk uitgeschakeld"
     searches:
       - url: "https://www.malt.nl/opdrachten?q=service+delivery+manager"
         term: "service delivery manager"
-      - url: "https://www.malt.nl/opdrachten?q=IT+procesmanager"
-        term: "IT procesmanager"
 
-  # ── LINKEDIN (authenticatie vereist) ─────────────────────────
+  # ── LINKEDIN ─────────────────────────────────────────────────
 
   - id: linkedin_jobs
     label: "LinkedIn — Vacatures"
@@ -246,19 +220,17 @@ platforms:
     credentials:
       username_secret: LINKEDIN_EMAIL
       password_secret: LINKEDIN_PASSWORD
-    note: "Scrapet persoonlijke timeline op opdracht-posts en groeps-updates"
     keywords:
       - "procesmanager"
       - "servicemanager"
       - "service delivery"
       - "ITSM"
       - "SIAM"
-      - "interim"
-      - "freelance"
-      - "ZZP"
-      - "opdracht"
+      - "interim opdracht"
+      - "freelance opdracht"
+      - "ZZP opdracht"
 
-  # ── TEMPLATE voor nieuwe platforms ───────────────────────────
+  # ── TEMPLATE ─────────────────────────────────────────────────
   # - id: nieuw_platform
   #   label: "Naam Platform"
   #   category: zzp | bureau | aggregator | overheid | linkedin
