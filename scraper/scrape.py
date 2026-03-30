@@ -146,6 +146,7 @@ def extract_date(soup):
     return ''
 
 
+def detect_zzp(text):
     tl = text_lower(text)
     return [s for s in ZZP_SIGNALS if s in tl]
 

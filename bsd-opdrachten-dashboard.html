@@ -228,12 +228,13 @@ footer{text-align:center;padding:12px;color:#1e1e2a;font-size:.64rem;border-top:
       </div>
     </div>
 
-    <!-- MATCHES -->
+    <!-- MATCHES — handmatig + automatisch gecombineerd -->
     <div class="matches-panel">
       <div class="matches-hdr">
         <span class="matches-title">Opdrachten</span>
         <span id="mcount"></span>
       </div>
+      <div id="scraped-status" style="font-size:.62rem;color:#444;padding:0 0 6px">Scraper laden…</div>
       <div class="mscroll" id="match-list"></div>
     </div>
   </div>
@@ -259,21 +260,6 @@ footer{text-align:center;padding:12px;color:#1e1e2a;font-size:.64rem;border-top:
         <div class="open-links" id="open-links-list"></div>
         <div class="open-note">💡 Browsers blokkeren automatisch openen. Klik elke → handmatig, of sta popups toe voor deze pagina.</div>
       </div>
-    </div>
-  </div>
-
-  <!-- SCRAPED RESULTS -->
-  <div class="plat-section" style="border-color:#A795EB33">
-    <div class="plat-hdr" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.plat-arrow').classList.toggle('open')">
-      <span class="plat-hdr-title">
-        🤖 Automatisch gevonden opdrachten
-        <span id="scraped-badge" style="background:#A795EB;color:#0a0a14;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800">…</span>
-      </span>
-      <span class="plat-arrow open">▼</span>
-    </div>
-    <div class="plat-body open" style="border-color:#A795EB22">
-      <div id="scraped-status" style="font-size:.66rem;color:#444;margin-bottom:10px">Laden…</div>
-      <div id="scraped-list"></div>
     </div>
   </div>
 
@@ -589,22 +575,25 @@ function renderMarkers(){
 }
 
 // ══════════════════════════════════════════
-//  RENDER MATCHES
+//  RENDER MATCHES — handmatig + scraped gecombineerd
 // ══════════════════════════════════════════
 function renderMatches(){
-  const c=document.getElementById('match-list');
-  c.innerHTML='';
-  let shown=0;
-  ST.matches.forEach((m,i)=>{
+  const c = document.getElementById('match-list');
+  c.innerHTML = '';
+  let shown = 0;
+  const PIN_COL = {zzp:'#4caf50',mid:'#8bc34a',pay:'#ff8c42',loon:'#ef5350'};
+
+  // ── 1. HANDMATIGE MATCHES ──
+  ST.matches.forEach((m,i) => {
     if(!matchVisible(m)) return;
     shown++;
-    const p=PRIO[m.prio||'normal'];
-    const div=document.createElement('div');
-    div.className=`mcard ${m.prio||'normal'}`;
-    div.style.borderLeftColor=p.border;
-    div.innerHTML=`
+    const p = PRIO[m.prio||'normal'];
+    const div = document.createElement('div');
+    div.className = `mcard ${m.prio||'normal'}`;
+    div.style.borderLeftColor = p.border;
+    div.innerHTML = `
       <div class="mcard-top">
-        <span style="font-size:.66rem;color:${p.border}">${p.stars}</span>
+        <span style="font-size:.63rem;color:${p.border}">${p.stars} Handmatig</span>
         <a class="obtn" href="${m.url}" target="_blank">Open →</a>
       </div>
       <div class="mcard-title">${m.title}</div>
@@ -614,7 +603,7 @@ function renderMatches(){
         ${wBadges(m.work)}
         ${cBadges(m.contract)}
         ${m.src?`<span class="b b-src">🔗 ${m.src}</span>`:''}
-        ${m.date?`<span class="b b-date">📅 ${m.date}</span>`:''}
+        ${m.date?`<span style="font-size:.62rem;color:#555">📅 Geplaatst: <span style="color:#888">${m.date}</span></span>`:''}
       </div>
       <div class="mcard-footer">
         <div class="mcard-contact">${m.contact||''}</div>
@@ -628,8 +617,55 @@ function renderMatches(){
       </div>`;
     c.appendChild(div);
   });
-  document.getElementById('mcount').textContent=`${shown} van ${ST.matches.length} zichtbaar`;
-  document.getElementById('fcount').textContent=shown===ST.matches.length?'Alle zichtbaar':`${ST.matches.length-shown} verborgen`;
+
+  // ── 2. SCRAPED MATCHES (zelfde filters) ──
+  if(scrapedData && scrapedData.results && scrapedData.results.length) {
+    const scraped = scrapedData.results.filter(m => {
+      const ct=m.contract||[], wt=m.work||[];
+      const cOK=ct.length===0||(AF.zzp&&ct.includes('zzp'))||(AF.mid&&ct.includes('mid'))||(AF.pay&&ct.includes('pay'))||(AF.loon&&ct.includes('loon'));
+      const wOK=wt.length===0||(AF.onsite&&wt.includes('onsite'))||(AF.hybrid&&wt.includes('hybrid'))||(AF.remote&&wt.includes('remote'));
+      return cOK && wOK;
+    });
+
+    scraped.forEach(m => {
+      shown++;
+      const col = PIN_COL[(m.contract||['zzp'])[0]] || '#A795EB';
+      const scrapedDate = m.scraped_at ? new Date(m.scraped_at).toLocaleDateString('nl-NL',{day:'numeric',month:'short'}) : null;
+      const div = document.createElement('div');
+      div.className = 'mcard';
+      div.style.borderLeftColor = col;
+      div.innerHTML = `
+        <div class="mcard-top">
+          <span style="font-size:.63rem;color:${col}">🤖 Automatisch</span>
+          <a class="obtn" href="${m.url}" target="_blank">Open →</a>
+        </div>
+        <div class="mcard-title">${m.title}</div>
+        ${m.description?`<div class="mcard-meta">${m.description}</div>`:''}
+        <div class="mcard-badges">
+          ${m.location?`<span class="b b-city">📍 ${m.location}</span>`:''}
+          ${wBadges(m.work)}
+          ${cBadges(m.contract)}
+          <span class="b b-src">🔗 ${m.source}</span>
+          ${m.vacancy_status==='unknown'?`<span class="b" style="background:#ff8c4215;color:#ff8c42;border:1px solid #ff8c4244">❓ Onbekend</span>`:''}
+          ${m.tarief?`<span class="b b-date">💶 ${m.tarief}</span>`:''}
+          ${m.hours?`<span class="b b-date">🕐 ${m.hours}</span>`:''}
+        </div>
+        <div style="display:flex;gap:10px;margin-top:4px;flex-wrap:wrap">
+          ${m.published?`<span style="font-size:.62rem;color:#555">📅 Geplaatst: <span style="color:#888">${m.published}</span></span>`:''}
+          ${scrapedDate?`<span style="font-size:.62rem;color:#555">🔍 Gevonden: <span style="color:#888">${scrapedDate}</span></span>`:''}
+        </div>`;
+      c.appendChild(div);
+    });
+  }
+
+  // Status balk
+  const manualCount = ST.matches.filter(matchVisible).length;
+  const scrapedCount = shown - manualCount;
+  document.getElementById('mcount').textContent =
+    `${shown} zichtbaar (${manualCount} handmatig · ${scrapedCount} automatisch)`;
+  document.getElementById('fcount').textContent =
+    shown === ST.matches.length ? 'Alle zichtbaar' : `${ST.matches.length - manualCount} handmatig verborgen`;
+
   if(!shown) c.innerHTML='<div class="no-matches">Geen opdrachten zichtbaar.<br>Pas de filters hierboven aan.</div>';
   renderMarkers();
 }
@@ -640,8 +676,25 @@ function updStatus(i,sel){
   saveST('s-m');
 }
 
-// ══════════════════════════════════════════
-//  PLATFORMS ACCORDION
+// Scraped data ophalen en dan matches herrenderen
+async function fetchScraped() {
+  const status = document.getElementById('scraped-status');
+  try {
+    const r = await fetch(RAW_JSON + '?t=' + Date.now());
+    if(!r.ok) throw new Error(`HTTP ${r.status}`);
+    scrapedData = await r.json();
+    if(status) status.textContent =
+      `Scan: ${scrapedData.scraped_at_nl||'?'} · ${scrapedData.total_open||0} ✅ open · ${scrapedData.total_unknown||0} ❓ onbekend · ${scrapedData.total_closed||0} ❌ gesloten weggefilterd`;
+    renderMatches(); // herteken met scraped data erbij
+    renderMarkers();
+  } catch(e) {
+    if(status) status.textContent = 'Scraper data niet beschikbaar';
+    console.warn('Scraped results:', e);
+  }
+}
+
+// Herrender scraped results als filter verandert — geïntegreerd in hoofdfunctie
+
 // ══════════════════════════════════════════
 function renderPlat(){
   const el=document.getElementById('plat-list');
