@@ -491,7 +491,6 @@ function togglePill(el,key){
   AF[key]=!AF[key];
   el.classList.toggle('on',AF[key]);
   renderMatches();
-  if(scrapedData) renderScraped();
 }
 
 function matchVisible(m){
@@ -676,27 +675,8 @@ function updStatus(i,sel){
   saveST('s-m');
 }
 
-// Scraped data ophalen en dan matches herrenderen
-async function fetchScraped() {
-  const status = document.getElementById('scraped-status');
-  try {
-    const r = await fetch(RAW_JSON + '?t=' + Date.now());
-    if(!r.ok) throw new Error(`HTTP ${r.status}`);
-    scrapedData = await r.json();
-    if(status) status.textContent =
-      `Scan: ${scrapedData.scraped_at_nl||'?'} · ${scrapedData.total_open||0} ✅ open · ${scrapedData.total_unknown||0} ❓ onbekend · ${scrapedData.total_closed||0} ❌ gesloten weggefilterd`;
-    renderMatches(); // herteken met scraped data erbij
-    renderMarkers();
-  } catch(e) {
-    if(status) status.textContent = 'Scraper data niet beschikbaar';
-    console.warn('Scraped results:', e);
-  }
-}
-
-// Herrender scraped results als filter verandert — geïntegreerd in hoofdfunctie
-
 // ══════════════════════════════════════════
-function renderPlat(){
+//  PLATFORMS ACCORDION
   const el=document.getElementById('plat-list');
   el.innerHTML='';
   Object.entries(CAT_LBL).forEach(([cat,lbl])=>{
@@ -845,78 +825,19 @@ let scrapedData = null;
 
 async function fetchScraped() {
   const el = document.getElementById('scraped-status');
-  if(el) el.textContent = 'Laden…';
   try {
     const r = await fetch(RAW_JSON + '?t=' + Date.now());
     if(!r.ok) throw new Error(`HTTP ${r.status}`);
     scrapedData = await r.json();
-    renderScraped();
+    if(el) el.textContent =
+      `Scan: ${scrapedData.scraped_at_nl||'?'} · ${scrapedData.total_open||0} ✅ open · ${scrapedData.total_unknown||0} ❓ onbekend · ${scrapedData.total_closed||0} ❌ gesloten weggefilterd`;
+    renderMatches();
+    renderMarkers();
   } catch(e) {
-    if(el) el.textContent = 'Niet beschikbaar (controleer internetverbinding)';
+    if(el) el.textContent = 'Scraper data niet beschikbaar';
     console.warn('Scraped results:', e);
   }
 }
-
-function scrapedVisible(m) {
-  const ct = m.contract||[];
-  const wt = m.work||[];
-  const cOK = ct.length===0||(AF.zzp&&ct.includes('zzp'))||(AF.mid&&ct.includes('mid'))||(AF.pay&&ct.includes('pay'))||(AF.loon&&ct.includes('loon'));
-  const wOK = wt.length===0||(AF.onsite&&wt.includes('onsite'))||(AF.hybrid&&wt.includes('hybrid'))||(AF.remote&&wt.includes('remote'));
-  return cOK && wOK;
-}
-
-function renderScraped() {
-  const container = document.getElementById('scraped-list');
-  const status = document.getElementById('scraped-status');
-  const badge = document.getElementById('scraped-badge');
-  if(!container || !scrapedData) return;
-
-  const results = (scrapedData.results||[]).filter(scrapedVisible);
-  const total = results.length;
-
-  if(status) status.textContent = `Laatste scan: ${scrapedData.scraped_at_nl||'onbekend'} · ${scrapedData.total_open||0} ✅ open · ${scrapedData.total_unknown||0} ❓ onbekend · ${scrapedData.total_closed||0} ❌ gesloten weggefilterd`;
-  if(badge) badge.textContent = total;
-
-  if(!total){
-    container.innerHTML = '<div class="no-matches">Geen automatisch gevonden resultaten die voldoen aan de huidige filters.<br>Filters aanpassen of wacht op de volgende dagelijkse scan.</div>';
-    return;
-  }
-
-  container.innerHTML = '';
-  results.forEach(m => {
-    const ct = (m.contract||['zzp']);
-    const pinCol = {zzp:'#4caf50',mid:'#8bc34a',pay:'#ff8c42',loon:'#ef5350'}[ct[0]]||'#A795EB';
-    const scrapedDate = m.scraped_at ? new Date(m.scraped_at).toLocaleDateString('nl-NL', {day:'numeric',month:'short',year:'numeric'}) : null;
-    const publishedDate = m.published ? m.published : null;
-    const div = document.createElement('div');
-    div.className = 'mcard';
-    div.style.borderLeftColor = pinCol;
-    div.innerHTML = `
-      <div class="mcard-top">
-        <span style="font-size:.66rem;color:${pinCol}">🤖 Automatisch gevonden</span>
-        <a class="obtn" href="${m.url}" target="_blank">Open →</a>
-      </div>
-      <div class="mcard-title">${m.title}</div>
-      ${m.description ? `<div class="mcard-meta">${m.description}</div>` : ''}
-      <div class="mcard-badges">
-        ${m.location ? `<span class="b b-city">📍 ${m.location}</span>` : ''}
-        ${wBadges(m.work)}
-        ${cBadges(m.contract)}
-        <span class="b b-src">🔗 ${m.source}</span>
-        ${m.vacancy_status === 'unknown' ? `<span class="b" style="background:#ff8c4215;color:#ff8c42;border:1px solid #ff8c4244">❓ Onbekend</span>` : ''}
-        ${m.tarief ? `<span class="b b-date">💶 ${m.tarief}</span>` : ''}
-        ${m.duration ? `<span class="b b-date">⏱ ${m.duration}</span>` : ''}
-        ${m.hours ? `<span class="b b-date">🕐 ${m.hours}</span>` : ''}
-      </div>
-      <div style="display:flex;gap:10px;margin-top:4px;flex-wrap:wrap">
-        ${publishedDate ? `<span style="font-size:.62rem;color:#555">📅 Geplaatst: <span style="color:#888">${publishedDate}</span></span>` : ''}
-        ${scrapedDate ? `<span style="font-size:.62rem;color:#555">🔍 Gevonden: <span style="color:#888">${scrapedDate}</span></span>` : ''}
-      </div>`;
-    container.appendChild(div);
-  });
-}
-
-// Herrender scraped results als filter verandert — geïntegreerd in hoofdfunctie
 
 // ══════════════════════════════════════════
 //  INIT
