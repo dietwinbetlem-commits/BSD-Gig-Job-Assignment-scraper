@@ -1,5 +1,7 @@
 # BSD Opdrachten Dashboard
 
+[![Dagelijkse Opdrachten Scraper](https://github.com/dietwinbetlem-commits/BSD-Gig-Job-Assignment-scraper/actions/workflows/daily-scrape.yml/badge.svg)](https://github.com/dietwinbetlem-commits/BSD-Gig-Job-Assignment-scraper/actions/workflows/daily-scrape.yml)
+
 > Dagelijks opdrachten-scannen voor IT Procesmanager · IT Servicemanager · Service Delivery Manager · ITSM/SIAM Consultant
 
 **BSD Advies & Interim · Dietwin Betlem · Haarlem**
