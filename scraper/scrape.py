@@ -207,30 +207,34 @@ def detect_contract(text):
     if any(s in t for s in ZZP_NEGATIVE): types.append('loon')
     return types if types else ['zzp']  # default aanname voor opdrachten-platforms
 
-def is_target(title, description='', search_term=''):
+def is_target(title, description='', search_term='', it_category=False):
     """
-    search_term: de zoekterm die gebruikt werd om deze vacature te vinden.
-    Als de zoekterm al IT-specifiek is, is minder context in de tekst nodig.
+    Gelaagde filterlogica:
+    1. Knock-out check (altijd)
+    2. Als it_category=True: vertrouw platform-categorie, alleen knock-out check
+    3. IT-specifieke termen in titel/omschrijving: direct match
+    4. Context-afhankelijke termen: IT-synoniem vereist in gecombineerde tekst
     """
     combined = tl(f"{title} {description} {search_term}")
 
-    # Check knock-out termen eerste
+    # Laag 1: Knock-out altijd (ook bij IT-categorie)
     for ko in KNOCKOUT_TERMS:
         if ko in combined:
-            return False, f'Knock-out domein: "{ko}"'
+            return False, f'Knock-out: "{ko}"'
 
-    # IT-specifieke termen: direct match
+    # Laag 2: Platform-categorie is al IT → vertrouw het
+    if it_category:
+        return True, 'IT platform-categorie'
+
+    # Laag 3: IT-specifieke termen → direct match
     if any(t in combined for t in IT_SPECIFIC_TERMS):
         return True, 'IT-specifieke term'
 
-    # Context-afhankelijke termen: IT-context vereist
+    # Laag 4: Context-afhankelijke termen → IT-synoniem vereist
     has_context_term = any(t in combined for t in CONTEXT_DEPENDENT_TERMS)
     if has_context_term:
-        has_it_context = any(c in combined for c in IT_CONTEXT_SIGNALS)
-        if has_it_context:
-            return True, 'Context-afhankelijke term + IT-context'
-        else:
-            return False, 'Geen IT-context bij procesmanager/change/risk term'
+        has_it = any(c in combined for c in IT_CONTEXT_SIGNALS)
+        return (True, 'Context + IT-synoniem') if has_it else (False, 'Geen IT-synoniem')
 
     return False, 'Geen relevante zoekterm'
 
@@ -244,8 +248,9 @@ def content_hash(title, opdrachtgever='', regio='', startdatum=''):
 
 def make_result(title, url, source, platform_id, category,
                 location='', description='', tarief='', duration='',
-                hours='', published='', opdrachtgever='', startdatum=''):
-    ok, reason = is_target(title, description)
+                hours='', published='', opdrachtgever='', startdatum='',
+                search_term='', it_category=False):
+    ok, reason = is_target(title, description, search_term, it_category)
     combined   = f"{title} {description}"
     zzp_tier   = detect_zzp_tier(combined)
     return {
@@ -1158,11 +1163,30 @@ def run():
 
         log.info(f'\nPlatform: {label} [{len(searches)} zoekopdrachten]')
         for search in searches:
-            url = search.get('url', '')
+            url         = search.get('url', '')
+            search_term = search.get('term', '')
+            it_cat      = search.get('it_category', plat.get('it_category', False))
             if not url: continue
             html = fetch(session, url)
             try:
                 items = parser_fn(html, label, pid, url)
+                # Pas search_term en it_category toe op alle items van deze search
+                for item in items:
+                    if search_term and not item.get('description'):
+                        # Herbereken filter met search_term als extra context
+                        ok, reason = is_target(
+                            item['title'], item.get('description', ''),
+                            search_term, it_cat
+                        )
+                        item['filtered_in']  = ok
+                        item['filter_reason'] = reason
+                    elif it_cat:
+                        ok, reason = is_target(
+                            item['title'], item.get('description', ''),
+                            search_term, it_cat
+                        )
+                        item['filtered_in']  = ok
+                        item['filter_reason'] = reason
                 all_results.extend(items)
             except Exception as e:
                 msg = f'{label}: {e}'
