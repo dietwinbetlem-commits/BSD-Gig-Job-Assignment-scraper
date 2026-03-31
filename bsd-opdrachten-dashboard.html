@@ -539,6 +539,9 @@ function initMap(){
     html:`<div style="width:30px;height:30px;border-radius:50%;background:#A795EB33;border:2.5px solid #A795EB;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 0 12px #A795EB88;transform:translate(-50%,-50%)">🏠</div>`,
     iconSize:[0,0],iconAnchor:[0,0]
   })}).addTo(_map).bindPopup('<b>Haarlem</b><br>Jouw locatie (BSD Advies)');
+
+  // Forceer correcte rendering na DOM layout
+  setTimeout(() => { if(_map) _map.invalidateSize(); }, 200);
 }
 
 function getLL(m){

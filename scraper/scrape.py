@@ -234,32 +234,30 @@ def is_target(title, description='', search_term='', it_category=False):
     """
     Gelaagde filterlogica:
     1. Knock-out check (altijd)
-    2. IT-specifieke management termen: direct match
-    3. Context-afhankelijke termen:
-       - it_category=True: skip IT-context check (platform garandeert IT)
-       - it_category=False: IT-synoniem vereist in tekst
+    2. Rol-check op TITEL+BESCHRIJVING (niet zoekterm)
+    3. IT-context check op gecombineerde tekst incl. zoekterm
     """
-    combined = tl(f"{title} {description} {search_term}")
+    title_desc = tl(f"{title} {description}")
+    combined   = tl(f"{title} {description} {search_term}")
 
     # Laag 1: Knock-out altijd
     for ko in KNOCKOUT_TERMS:
         if ko in combined:
             return False, f'Knock-out: "{ko}"'
 
-    # Laag 2: IT-specifieke termen → direct match
-    if any(t in combined for t in IT_SPECIFIC_TERMS):
+    # Laag 2: IT-specifieke management-termen in TITEL → direct match
+    if any(t in title_desc for t in IT_SPECIFIC_TERMS):
         return True, 'IT-specifieke term'
 
-    # Laag 3: Context-afhankelijke termen (management rollen)
-    has_context_term = any(t in combined for t in CONTEXT_DEPENDENT_TERMS)
+    # Laag 3: Context-afhankelijke rol in TITEL
+    has_context_term = any(t in title_desc for t in CONTEXT_DEPENDENT_TERMS)
     if has_context_term:
         if it_category:
-            # Platform garandeert IT-context — vertrouw de categorie
-            return True, 'IT platform-categorie'
+            return True, 'IT platform-categorie + rol match'
         has_it = any(c in combined for c in IT_CONTEXT_SIGNALS)
         return (True, 'Context + IT-synoniem') if has_it else (False, 'Geen IT-synoniem')
 
-    return False, 'Geen relevante zoekterm'
+    return False, 'Geen relevante rol'
 
 def content_hash(title, opdrachtgever='', regio='', startdatum=''):
     def norm(s):
@@ -1199,23 +1197,16 @@ def run():
             html = fetch(session, url)
             try:
                 items = parser_fn(html, label, pid, url)
-                # Pas search_term en it_category toe op alle items van deze search
+                # Herbereken filter met search_term en it_category
                 for item in items:
-                    if search_term and not item.get('description'):
-                        # Herbereken filter met search_term als extra context
-                        ok, reason = is_target(
-                            item['title'], item.get('description', ''),
-                            search_term, it_cat
-                        )
-                        item['filtered_in']  = ok
-                        item['filter_reason'] = reason
-                    elif it_cat:
-                        ok, reason = is_target(
-                            item['title'], item.get('description', ''),
-                            search_term, it_cat
-                        )
-                        item['filtered_in']  = ok
-                        item['filter_reason'] = reason
+                    ok, reason = is_target(
+                        item['title'],
+                        item.get('description', ''),
+                        search_term,
+                        it_cat
+                    )
+                    item['filtered_in']  = ok
+                    item['filter_reason'] = reason
                 all_results.extend(items)
             except Exception as e:
                 msg = f'{label}: {e}'
