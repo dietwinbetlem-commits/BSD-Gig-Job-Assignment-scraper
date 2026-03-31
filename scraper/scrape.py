@@ -1039,7 +1039,63 @@ BROWSER_PARSERS    = {
     'striive_auth':     scrape_striive_auth,
     'freelancenl_auth': scrape_freelancenl_auth,
     'funle_auth':       scrape_funle_auth,
+    'browser':          scrape_browser_public,
 }
+
+
+def scrape_browser_public(platform, results_list):
+    """
+    Generieke Playwright scraper voor publieke platforms met bot-detectie.
+    Geen login nodig — echte browser omzeilt 403/429.
+    """
+    pid   = platform['id']
+    label = platform['label']
+    parser_type_fallback = platform.get('browser_parser', 'generic')
+    searches = platform.get('searches', [])
+
+    log.info(f'Browser (publiek): {label}')
+
+    pw, browser, ctx = get_browser()
+    # Extra headers om meer op een echte browser te lijken
+    ctx.set_extra_http_headers({
+        'Accept-Language': 'nl-NL,nl;q=0.9',
+        'Referer': 'https://www.google.nl/',
+    })
+    page = ctx.new_page()
+
+    try:
+        for search in searches:
+            url  = search.get('url', '')
+            term = search.get('term', '')
+            link_pattern = search.get('link_pattern', r'/(opdracht|vacature)s?/')
+            if not url: continue
+
+            log.info(f'  {label}: {term}')
+            try:
+                page.goto(url, timeout=25000)
+                page.wait_for_load_state('networkidle', timeout=15000)
+                time.sleep(3)
+
+                # Check of we niet een block-pagina zien
+                if any(x in page.content().lower() for x in
+                       ['access denied', 'blocked', 'captcha', 'cloudflare']):
+                    log.warning(f'  {label}: geblokkeerd op {url[:60]}')
+                    continue
+
+                items = _extract_results_from_page(page, label, pid,
+                                                   url, link_pattern)
+                log.info(f'  → {len(items)} items')
+                results_list.extend(items)
+
+            except Exception as e:
+                log.warning(f'  {label} fout voor "{term}": {e}')
+            time.sleep(REQUEST_DELAY)
+
+    except Exception as e:
+        log.error(f'{label} browser fout: {e}')
+    finally:
+        browser.close()
+        pw.stop()
 
 
 # ── MAIN ──────────────────────────────────────────────────────────────────────

@@ -180,27 +180,68 @@ platforms:
 
   # ── BUREAUS ──────────────────────────────────────────────────
 
+  - id: planet_interim
+    label: "Planet Interim"
+    category: aggregator
+    type: public
+    parser: browser
+    active: true
+    note: "Via browser — omzeilt 403 bot-detectie"
+    searches:
+      - url: "https://planetinterim.nl/interim-procesmanager/280009/p13/default.html"
+        term: "procesmanager"
+        link_pattern: "planetinterim\\.nl.*/\\d{5,}"
+      - url: "https://planetinterim.nl/itil-service-manager-ai/474674/p13/default.html"
+        term: "ITIL service manager"
+        link_pattern: "planetinterim\\.nl.*/\\d{5,}"
+
+  - id: hoofdkraan
+    label: "Hoofdkraan.nl"
+    category: zzp
+    type: public
+    parser: browser
+    active: true
+    note: "Via browser — omzeilt 403 bot-detectie"
+    searches:
+      - url: "https://www.hoofdkraan.nl/opdrachten?q=procesmanager+ITIL"
+        term: "procesmanager ITIL"
+        link_pattern: "/opdracht/\\d+"
+      - url: "https://www.hoofdkraan.nl/opdrachten?q=service+delivery+manager"
+        term: "service delivery manager"
+        link_pattern: "/opdracht/\\d+"
+      - url: "https://www.hoofdkraan.nl/opdrachten?q=servicemanager+ITIL"
+        term: "servicemanager ITIL"
+        link_pattern: "/opdracht/\\d+"
+
   - id: circle8
     label: "Circle8"
     category: bureau
     type: public
-    parser: circle8
-    active: false
-    note: "429 rate-limit — tijdelijk uitgeschakeld"
+    parser: browser
+    active: true
+    note: "Via browser — omzeilt 429 rate-limit"
     searches:
       - url: "https://www.circle8.nl/opdrachten?q=procesmanager"
         term: "procesmanager"
+        link_pattern: "/opdracht/|/vacature/"
+      - url: "https://www.circle8.nl/opdrachten?q=servicemanager+ITIL"
+        term: "servicemanager ITIL"
+        link_pattern: "/opdracht/|/vacature/"
 
   - id: malt
     label: "Malt"
     category: bureau
     type: public
-    parser: generic
-    active: false
-    note: "403 bot-detectie — tijdelijk uitgeschakeld"
+    parser: browser
+    active: true
+    note: "Via browser — omzeilt 403 bot-detectie"
     searches:
       - url: "https://www.malt.nl/opdrachten?q=service+delivery+manager"
         term: "service delivery manager"
+        link_pattern: "/profile/|/opdracht/"
+      - url: "https://www.malt.nl/opdrachten?q=IT+procesmanager"
+        term: "IT procesmanager"
+        link_pattern: "/profile/|/opdracht/"
 
   # ── LINKEDIN ─────────────────────────────────────────────────
 
