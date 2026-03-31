@@ -1,19 +1,17 @@
-# ============================================================
-# BSD Advies — Platform Configuratie
-# Nieuwe bron toevoegen = één blok hieronder toevoegen
-# ============================================================
-
 platforms:
 
   # ── AGGREGATOREN ─────────────────────────────────────────────
 
-  - id: funle_sdm
+  - id: funle
     label: "Funle"
     category: aggregator
-    type: public
-    parser: funle
+    type: authenticated
+    parser: funle_auth
     active: true
-    note: "JS-heavy, statische HTML heeft beperkte resultaten"
+    note: "Scrapt 200+ bronnen incl. HeadFirst/Circle8. Login voor gefilterde resultaten."
+    credentials:
+      username_secret: FUNLE_EMAIL
+      password_secret: FUNLE_PASSWORD
     searches:
       - url: "https://funle.nl/opdrachten?q=service+delivery+manager"
         term: "service delivery manager"
@@ -23,15 +21,23 @@ platforms:
         term: "servicemanager ITIL"
       - url: "https://funle.nl/opdrachten?q=ITSM+consultant"
         term: "ITSM consultant"
-      - url: "https://funle.nl/opdrachten?q=SIAM"
-        term: "SIAM"
+      - url: "https://funle.nl/opdrachten?q=SIAM+consultant"
+        term: "SIAM consultant"
+      - url: "https://funle.nl/opdrachten?q=kwartiermaker+IT"
+        term: "kwartiermaker IT"
+      - url: "https://funle.nl/opdrachten?q=change+manager+IT"
+        term: "change manager IT"
 
   - id: striive
     label: "Striive (HeadFirst)"
     category: aggregator
-    type: public
-    parser: striive
+    type: authenticated
+    parser: striive_auth
     active: true
+    note: "Grootste NL interim platform. Login vereist voor volledige resultaten."
+    credentials:
+      username_secret: STRIVE_EMAIL
+      password_secret: STRIVE_PASSWORD
     searches:
       - url: "https://striive.com/nl/opdrachten?search=procesmanager+ITIL"
         term: "procesmanager ITIL"
@@ -41,17 +47,14 @@ platforms:
         term: "servicemanager ITIL"
       - url: "https://striive.com/nl/opdrachten?search=ITSM+consultant"
         term: "ITSM consultant"
-
-  - id: planet_interim
-    label: "Planet Interim"
-    category: aggregator
-    type: public
-    parser: planet
-    active: false
-    note: "403 — bot-detectie, tijdelijk uitgeschakeld"
-    searches:
-      - url: "https://planetinterim.nl/interim-procesmanager/280009/p13/default.html"
-        term: "procesmanager"
+      - url: "https://striive.com/nl/opdrachten?search=SIAM+consultant"
+        term: "SIAM consultant"
+      - url: "https://striive.com/nl/opdrachten?search=kwartiermaker+IT"
+        term: "kwartiermaker IT"
+      - url: "https://striive.com/nl/opdrachten?search=change+manager+IT"
+        term: "change manager IT"
+      - url: "https://striive.com/nl/opdrachten?search=IT+risk+manager"
+        term: "IT risk manager"
 
   # ── IT-SPECIFIEK ─────────────────────────────────────────────
 
@@ -74,6 +77,10 @@ platforms:
         term: "ITSM consultant"
       - url: "https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/SIAM/from/"
         term: "SIAM"
+      - url: "https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/kwartiermaker/from/"
+        term: "kwartiermaker"
+      - url: "https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/change+manager/from/"
+        term: "change manager"
 
   - id: freep
     label: "Freep.nl"
@@ -100,33 +107,38 @@ platforms:
         term: "service delivery manager"
       - url: "https://www.zzp-opdrachten.nl/?s=ITSM+consultant"
         term: "ITSM consultant"
+      - url: "https://www.zzp-opdrachten.nl/?s=SIAM"
+        term: "SIAM"
 
   # ── ZZP MARKTPLAATSEN ────────────────────────────────────────
-
-  - id: hoofdkraan
-    label: "Hoofdkraan.nl"
-    category: zzp
-    type: public
-    parser: generic
-    active: false
-    note: "403 — bot-detectie, tijdelijk uitgeschakeld"
-    searches:
-      - url: "https://www.hoofdkraan.nl/opdrachten?q=procesmanager+ITIL"
-        term: "procesmanager ITIL"
 
   - id: freelancenl
     label: "Freelance.nl"
     category: zzp
-    type: public
-    parser: freelancenl
+    type: authenticated
+    parser: freelancenl_auth
     active: true
+    note: "300.000+ freelancers, 50.000+ opdrachten/jaar. Login voor gefilterde resultaten."
+    credentials:
+      username_secret: FREELANCENL_EMAIL
+      password_secret: FREELANCENL_PASSWORD
     searches:
-      - url: "https://www.freelance.nl/opdrachten?zoekterm=procesmanager+ITIL"
-        term: "procesmanager ITIL"
+      - url: "https://www.freelance.nl/opdrachten?zoekterm=procesmanager+ITIL&categorie=it-ict"
+        term: "procesmanager ITIL (IT)"
       - url: "https://www.freelance.nl/opdrachten?zoekterm=service+delivery+manager"
         term: "service delivery manager"
+      - url: "https://www.freelance.nl/opdrachten?zoekterm=servicemanager+ITIL"
+        term: "servicemanager ITIL"
       - url: "https://www.freelance.nl/opdrachten?zoekterm=ITSM+consultant"
         term: "ITSM consultant"
+      - url: "https://www.freelance.nl/opdrachten?zoekterm=SIAM+consultant"
+        term: "SIAM consultant"
+      - url: "https://www.freelance.nl/opdrachten?zoekterm=kwartiermaker+IT"
+        term: "kwartiermaker IT"
+      - url: "https://www.freelance.nl/opdrachten?zoekterm=change+manager+IT"
+        term: "change manager IT"
+      - url: "https://www.freelance.nl/opdrachten?zoekterm=IT+risk+manager"
+        term: "IT risk manager"
 
   - id: flexspot
     label: "FlexSpot.io"
@@ -185,7 +197,7 @@ platforms:
     type: public
     parser: generic
     active: false
-    note: "403 — bot-detectie, tijdelijk uitgeschakeld"
+    note: "403 bot-detectie — tijdelijk uitgeschakeld"
     searches:
       - url: "https://www.malt.nl/opdrachten?q=service+delivery+manager"
         term: "service delivery manager"
@@ -210,6 +222,12 @@ platforms:
         filters: "f_TPR=r86400&f_JT=C,T&location=Nederland"
       - term: "SIAM consultant interim"
         filters: "f_TPR=r86400&f_JT=C,T&location=Nederland"
+      - term: "kwartiermaker IT interim"
+        filters: "f_TPR=r86400&f_JT=C,T&location=Nederland"
+      - term: "change manager ITIL"
+        filters: "f_TPR=r86400&f_JT=C,T&location=Nederland"
+      - term: "IT risk manager interim"
+        filters: "f_TPR=r86400&f_JT=C,T&location=Nederland"
 
   - id: linkedin_feed
     label: "LinkedIn — Timeline & Groepen"
@@ -226,6 +244,8 @@ platforms:
       - "service delivery"
       - "ITSM"
       - "SIAM"
+      - "kwartiermaker"
+      - "change manager"
       - "interim opdracht"
       - "freelance opdracht"
       - "ZZP opdracht"
@@ -235,7 +255,7 @@ platforms:
   #   label: "Naam Platform"
   #   category: zzp | bureau | aggregator | overheid | linkedin
   #   type: public | authenticated
-  #   parser: generic | itcontracts | freep | ...
+  #   parser: generic | itcontracts | freep | striive_auth | freelancenl_auth | funle_auth
   #   active: true
   #   credentials:           # alleen bij authenticated
   #     username_secret: SECRET_NAAM_GITHUB
