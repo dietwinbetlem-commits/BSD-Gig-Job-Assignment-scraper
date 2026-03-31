@@ -556,6 +556,7 @@ function renderMarkers(){
 
   // ── Handmatige matches — alleen actieve statussen ──
   const ACTIVE_STATUSES = ['nieuw', 'gereageerd', 'interview'];
+const HIDDEN_STATUSES = ['gesloten', 'afgewezen', 'aangenomen'];
   ST.matches.forEach(m=>{
     if(!matchVisible(m)) return;
     if(!ACTIVE_STATUSES.includes(m.status||'nieuw')) return; // geen pin voor afgewezen/aangenomen
@@ -621,15 +622,23 @@ function renderMatches(){
   c.innerHTML = '';
   let shown = 0;
   const PIN_COL = {zzp:'#4caf50',mid:'#8bc34a',pay:'#ff8c42',loon:'#ef5350'};
+  const STATUS_ORDER = {nieuw:0, interview:1, gereageerd:2, afgewezen:9, aangenomen:9, gesloten:9};
 
-  // ── 1. HANDMATIGE MATCHES ──
-  ST.matches.forEach((m,i) => {
-    if(!matchVisible(m)) return;
+  // ── 1. HANDMATIGE MATCHES — gesorteerd, gesloten/afgewezen/aangenomen verborgen ──
+  const visibleMatches = ST.matches
+    .map((m,i) => ({...m, _i:i}))
+    .filter(m => matchVisible(m) && !HIDDEN_STATUSES.includes(m.status||''))
+    .sort((a,b) => (STATUS_ORDER[a.status||'nieuw']||0) - (STATUS_ORDER[b.status||'nieuw']||0));
+
+  visibleMatches.forEach(m => {
+    const i = m._i;
     shown++;
     const p = PRIO[m.prio||'normal'];
     const div = document.createElement('div');
     div.className = `mcard ${m.prio||'normal'}`;
     div.style.borderLeftColor = p.border;
+    // Dim gereageerde opdrachten licht
+    if(m.status === 'gereageerd') div.style.opacity = '0.7';
     div.innerHTML = `
       <div class="mcard-top">
         <span style="font-size:.63rem;color:${p.border}">${p.stars} Handmatig</span>
@@ -646,12 +655,12 @@ function renderMatches(){
       </div>
       <div class="mcard-footer">
         <div class="mcard-contact">${m.contact||''}</div>
-        <select class="status-sel ${STAT_CLS[m.status||'nieuw']}" onchange="updStatus(${i},this)">
+        <select class="status-sel ${STAT_CLS[m.status||'nieuw']}" onchange="updStatus(${m._i},this)">
           <option value="nieuw" ${(m.status||'nieuw')==='nieuw'?'selected':''}>Nieuw</option>
           <option value="gereageerd" ${m.status==='gereageerd'?'selected':''}>Gereageerd</option>
           <option value="interview" ${m.status==='interview'?'selected':''}>Interview</option>
           <option value="afgewezen" ${m.status==='afgewezen'?'selected':''}>Afgewezen</option>
-          <option value="gesloten" ${m.status==='gesloten'?'selected':''}>Gesloten (pin weg)</option>
+          <option value="gesloten" ${m.status==='gesloten'?'selected':''}>Gesloten (verbergen)</option>
           <option value="aangenomen" ${m.status==='aangenomen'?'selected':''}>Aangenomen</option>
         </select>
       </div>`;
@@ -876,7 +885,7 @@ async function fetchScraped() {
     if(el) el.textContent =
       `Scan: ${scrapedData.scraped_at_nl||'?'} · ${scrapedData.total_open||0} ✅ open · ${scrapedData.total_unknown||0} ❓ onbekend · ${scrapedData.total_closed||0} ❌ gesloten weggefilterd`;
     renderMatches();
-    renderMarkers();
+    renderMarkers(); // herrender pins NU scraped data beschikbaar is
   } catch(e) {
     if(el) el.textContent = 'Scraper data niet beschikbaar';
     console.warn('Scraped results:', e);
