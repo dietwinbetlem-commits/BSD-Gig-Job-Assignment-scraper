@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-03-31T17:09:54.780509+00:00",
-  "scraped_at_nl": "31 March 2026 om 17:09",
+  "scraped_at": "2026-03-31T18:37:50.454186+00:00",
+  "scraped_at_nl": "31 March 2026 om 18:37",
   "total_found": 59,
-  "total_relevant": 31,
-  "total_open": 19,
-  "total_unknown": 10,
-  "total_closed": 2,
-  "total_filtered_out": 28,
+  "total_relevant": 1,
+  "total_open": 1,
+  "total_unknown": 0,
+  "total_closed": 0,
+  "total_filtered_out": 58,
   "platforms_scraped": 15,
   "errors": [],
   "results": [
@@ -32,969 +32,92 @@
       ],
       "zzp_tier": 2,
       "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
+      "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-03-31T17:06:39.813687+00:00",
+      "scraped_at": "2026-03-31T18:35:24.669464+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
         "IT-Contracts.nl"
       ]
-    },
+    }
+  ],
+  "closed_debug": [],
+  "filtered_out_debug": [
     {
       "title": "DevOps Engineer Haven+ en Common Ground",
-      "url": "https://www.it-contracts.nl/vacature_DevOps_Engineer_Haven%2B_en_Common_Ground_287228/search/management+servicemanager/from/0",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "deebcbba4244",
-      "scraped_at": "2026-03-31T17:06:39.813842+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Programma Coördinator AI Act",
-      "url": "https://www.it-contracts.nl/vacature_Programma_Co%C3%B6rdinator_AI_Act_287209/search/management+servicemanager/from/0",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "2e8ae2ce0ba5",
-      "scraped_at": "2026-03-31T17:06:39.813966+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Senior Back-end ontwikkelaar",
-      "url": "https://www.it-contracts.nl/vacature_Senior_Back-end_ontwikkelaar_287204/search/management+servicemanager/from/0",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "229ebdf33b74",
-      "scraped_at": "2026-03-31T17:06:39.814089+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Chief Information Security Officer (CISO)",
-      "url": "https://www.it-contracts.nl/vacature_Chief_Information_Security_Officer_%28CISO%29_287199/search/management+servicemanager/from/0",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "637644868455",
-      "scraped_at": "2026-03-31T17:06:39.814207+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "7 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Cyber Security Specialist",
-      "url": "https://www.it-contracts.nl/vacature_Cyber_Security_Specialist_287230/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "fc667d60d4b1",
-      "scraped_at": "2026-03-31T17:06:39.814316+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "5 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "BCM Consultant *33014-1",
-      "url": "https://www.it-contracts.nl/vacature__BCM_Consultant_%2A33014-1_287229/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "fb7f9a8ce02a",
-      "scraped_at": "2026-03-31T17:06:39.814432+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Business consultant",
-      "url": "https://www.it-contracts.nl/vacature_Business_consultant_287227/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "575ea2a494f5",
-      "scraped_at": "2026-03-31T17:06:39.814625+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Data Engineer",
-      "url": "https://www.it-contracts.nl/vacature_Data_Engineer_287226/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "011ef1327c90",
-      "scraped_at": "2026-03-31T17:06:39.814707+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Senior Information Security Officer",
-      "url": "https://www.it-contracts.nl/vacature_Senior_Information_Security_Officer_287225/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "c2ffe2dcdca6",
-      "scraped_at": "2026-03-31T17:06:39.814797+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Projectman­ager ICT Library",
-      "url": "https://www.it-contracts.nl/vacature_Projectmanager_ICT_Library_287224/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "492452f6879a",
-      "scraped_at": "2026-03-31T17:06:39.814887+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Sr. Expert Interne Beheersing Non IT",
-      "url": "https://www.it-contracts.nl/vacature_Sr._Expert_Interne_Beheersing_Non_IT_287223/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "bf468d2a728e",
-      "scraped_at": "2026-03-31T17:06:39.814980+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Architect",
-      "url": "https://www.it-contracts.nl/vacature_Architect_287222/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "5983a6186565",
-      "scraped_at": "2026-03-31T17:06:39.815055+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Projectmanager",
-      "url": "https://www.it-contracts.nl/vacature_Projectmanager_287218/search/management+procesmanager/from/0",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "86e61e4df7cb",
-      "scraped_at": "2026-03-31T17:06:42.117192+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "7 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Meerinzicht Recordmanager",
-      "url": "https://www.it-contracts.nl/vacature_Meerinzicht_Recordmanager_287211/search/management+procesmanager/from/0",
       "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "4b667f02d5b9",
-      "scraped_at": "2026-03-31T17:06:42.117310+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
+      "reason": "Geen relevante managementrol in titel"
     },
-    {
-      "title": "Senior Projectleider Implementatie Microsoft 365 Purview",
-      "url": "https://www.it-contracts.nl/vacature_Senior_Projectleider_Implementatie_Microsoft_365_Purview_287179/search/service+delivery+manager/from/",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "de773a2ff5e1",
-      "scraped_at": "2026-03-31T17:06:44.471966+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "7 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
-    },
-    {
-      "title": "Testcoördinator OSIRIS",
-      "url": "https://www.it-contracts.nl/vacature_Testco%C3%B6rdinator_OSIRIS_287192/search/service+delivery+manager/from/",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "3225f36822b1",
-      "scraped_at": "2026-03-31T17:06:44.472745+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
-    },
-    {
-      "title": "Business Controller IT",
-      "url": "https://www.it-contracts.nl/vacature_Business_Controller_IT_287058/search/ITIL/from/",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "357f901f41c3",
-      "scraped_at": "2026-03-31T17:06:46.724012+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "7 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
-    },
-    {
-      "title": "Senior Verkeerskundige Gemeente Zwartewaterland Overijssel Detachering 115.00 Sluit over 6 dagen",
-      "url": "https://jobhob.nl/jobs/senior-verkeerskundige/",
-      "source": "Jobhob.nl",
-      "platform_id": "jobhob",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Context + IT-synoniem",
-      "content_hash": "ce81c29e55a6",
-      "scraped_at": "2026-03-31T17:07:26.122949+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "Jobhob.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager stationsontwikkelingGemeente Culemborg",
-      "url": "https://www.freep.nl/opdracht/procesmanager-stationsontwikkeling",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "Culemborg",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "659961223c6c",
-      "scraped_at": "2026-03-31T17:06:59.031962+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "ProcesmanagerWaterschap Rijn en IJssel",
-      "url": "https://www.freep.nl/opdracht/procesmanager-24",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "0f83ec3627ea",
-      "scraped_at": "2026-03-31T17:06:59.036522+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager gripWaterschap Vechtstromen",
-      "url": "https://www.freep.nl/opdracht/procesmanager-grip",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "a993b1357393",
-      "scraped_at": "2026-03-31T17:06:59.041022+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "ProcesmanagerLogius",
-      "url": "https://www.freep.nl/opdracht/procesmanager-23",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-03-31T17:06:59.045571+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager borReinigingsbedrijf Midden Nederland",
-      "url": "https://www.freep.nl/opdracht/procesmanager-bor",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "Ede",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "35014a455713",
-      "scraped_at": "2026-03-31T17:06:59.054581+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Interim procesmanager vervoerGemeente Lochem",
-      "url": "https://www.freep.nl/opdracht/interim-procesmanager-vervoer",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "0316880b5013",
-      "scraped_at": "2026-03-31T17:06:59.072548+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager/projectleider migratieNoaberkracht Dinkelland Tubbergen",
-      "url": "https://www.freep.nl/opdracht/procesmanagerprojectleider-migratie",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "a5f51374a3c8",
-      "scraped_at": "2026-03-31T17:06:59.095019+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager migratieNoaberkracht Dinkelland Tubbergen",
-      "url": "https://www.freep.nl/opdracht/procesmanager-migratie",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "6ab8d6adafce",
-      "scraped_at": "2026-03-31T17:06:59.113043+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "ProcesmanagerMinisterie van Sociale Zaken en Werkgelegenheid (SZW)",
-      "url": "https://www.freep.nl/opdracht/procesmanager-20",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie",
-      "content_hash": "b5b8a5b6ce61",
-      "scraped_at": "2026-03-31T17:06:59.117579+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "ICT en Automatisering",
-      "url": "http://depubliekepartner.nl/category/zzp-opdrachten-overheid/ict-en-automatisering/",
-      "source": "De Publieke Partner",
-      "platform_id": "publiekepartner",
-      "category": "overheid",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Context + IT-synoniem",
-      "content_hash": "584dffe37798",
-      "scraped_at": "2026-03-31T17:07:32.289992+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: depubliekepartner.nl",
-      "sources": [
-        "De Publieke Partner"
-      ]
-    }
-  ],
-  "closed_debug": [
     {
       "title": "Senior Managementassistent",
-      "reason": "\"verlopen\""
-    },
-    {
-      "title": "Data Engineer (SQL/Data Migratie)",
-      "reason": "\"verlopen\""
-    }
-  ],
-  "filtered_out_debug": [
-    {
-      "title": "Procesmanager transformatie recreatiewoningenDe Ronde Venen",
-      "source": "Freep.nl",
-      "reason": "Knock-out: \"recreatiewoning\""
-    },
-    {
-      "title": "Procesmanager uitvoering brabantse ontwikkelaanpak stikstofProvincie Noord-Brabant",
-      "source": "Freep.nl",
-      "reason": "Knock-out: \"stikstof\""
-    },
-    {
-      "title": "Procesmanager srbt-woontafelGemeente Breda",
-      "source": "Freep.nl",
-      "reason": "Knock-out: \"woontafel\""
-    },
-    {
-      "title": "Strategisch procesmanager mobiliteitshubGemeente Zwolle",
-      "source": "Freep.nl",
-      "reason": "Knock-out: \"mobiliteitshu\""
-    },
-    {
-      "title": "Senior procesmanager governance natuurbrandpreventieProvincie Utrecht",
-      "source": "Freep.nl",
-      "reason": "Knock-out: \"brandpreventie\""
-    },
-    {
-      "title": "Procesmanager campus & facilitiesTechnische Universiteit Eindhoven",
-      "source": "Freep.nl",
-      "reason": "Knock-out: \"campus & facilit\""
-    },
-    {
-      "title": "Senior procesmanager strategisch bosbeleidProvincie Utrecht",
-      "source": "Freep.nl",
-      "reason": "Knock-out: \"bosbele\""
-    },
-    {
-      "title": "Hr procesmanagergemeente Eindhoven",
-      "source": "Freep.nl",
-      "reason": "Knock-out: \"hr procesmanager\""
-    },
-    {
-      "title": "CareerSpot®",
-      "source": "FlexSpot.io",
-      "reason": "Geen IT-synoniem"
-    },
-    {
-      "title": "Facebook",
-      "source": "Jobhob.nl",
-      "reason": "Geen IT-synoniem"
-    },
-    {
-      "title": "X (Twitter)",
-      "source": "Jobhob.nl",
-      "reason": "Geen IT-synoniem"
-    },
-    {
-      "title": "LinkedIn",
-      "source": "Jobhob.nl",
-      "reason": "Geen IT-synoniem"
-    },
-    {
-      "title": "Deelprojectleider Netcongestie Provincie Gelderland Drenthe Detachering 100.00 - 120.00",
-      "source": "Jobhob.nl",
-      "reason": "Geen IT-synoniem"
-    },
-    {
-      "title": "Manager gebiedsontwikkeling Gemeente Súdwest-Fryslân Friesland Detachering 150.00",
-      "source": "Jobhob.nl",
-      "reason": "Geen IT-synoniem"
-    },
-    {
-      "title": "Low-code developer Gemeente Amsterdam Noord-Holland Detachering",
-      "source": "Jobhob.nl",
-      "reason": "Geen IT-synoniem"
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
     }
   ]
 }
