@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-03-31T15:10:05.104602+00:00",
-  "scraped_at_nl": "31 March 2026 om 15:10",
-  "total_found": 59,
-  "total_relevant": 10,
+  "scraped_at": "2026-03-31T15:26:20.434314+00:00",
+  "scraped_at_nl": "31 March 2026 om 15:26",
+  "total_found": 60,
+  "total_relevant": 1,
   "total_open": 1,
-  "total_unknown": 9,
+  "total_unknown": 0,
   "total_closed": 0,
-  "total_filtered_out": 49,
+  "total_filtered_out": 59,
   "platforms_scraped": 15,
   "errors": [],
   "results": [
@@ -34,290 +34,11 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke term",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-03-31T15:07:50.396235+00:00",
+      "scraped_at": "2026-03-31T15:24:20.843665+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
         "IT-Contracts.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager stationsontwikkelingGemeente Culemborg",
-      "url": "https://www.freep.nl/opdracht/procesmanager-stationsontwikkeling",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "Culemborg",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Context-afhankelijke term + IT-context",
-      "content_hash": "659961223c6c",
-      "scraped_at": "2026-03-31T15:08:09.848210+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager uitvoering brabantse ontwikkelaanpak stikstofProvincie Noord-Brabant",
-      "url": "https://www.freep.nl/opdracht/procesmanager-uitvoering-brabantse-ontwikkelaanpak-stikstof",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Context-afhankelijke term + IT-context",
-      "content_hash": "9b5047913829",
-      "scraped_at": "2026-03-31T15:08:09.879797+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager srbt-woontafelGemeente Breda",
-      "url": "https://www.freep.nl/opdracht/procesmanager-srbt-woontafel-2",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "Breda",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Context-afhankelijke term + IT-context",
-      "content_hash": "2c61e92dd069",
-      "scraped_at": "2026-03-31T15:08:09.884278+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Interim procesmanager vervoerGemeente Lochem",
-      "url": "https://www.freep.nl/opdracht/interim-procesmanager-vervoer",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Context-afhankelijke term + IT-context",
-      "content_hash": "0316880b5013",
-      "scraped_at": "2026-03-31T15:08:09.888755+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Strategisch procesmanager mobiliteitshubGemeente Zwolle",
-      "url": "https://www.freep.nl/opdracht/strategisch-procesmanager-mobiliteitshub",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "Zwolle",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Context-afhankelijke term + IT-context",
-      "content_hash": "4dd0436bd97c",
-      "scraped_at": "2026-03-31T15:08:09.902283+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Senior procesmanager governance natuurbrandpreventieProvincie Utrecht",
-      "url": "https://www.freep.nl/opdracht/senior-procesmanager-governance-natuurbrandpreventie",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Context-afhankelijke term + IT-context",
-      "content_hash": "189b4da225ff",
-      "scraped_at": "2026-03-31T15:08:09.906764+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager campus & facilitiesTechnische Universiteit Eindhoven",
-      "url": "https://www.freep.nl/opdracht/procesmanager-campus-facilities",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "Eindhoven",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Context-afhankelijke term + IT-context",
-      "content_hash": "01bf08aa33de",
-      "scraped_at": "2026-03-31T15:08:09.915867+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Senior procesmanager strategisch bosbeleidProvincie Utrecht",
-      "url": "https://www.freep.nl/opdracht/senior-procesmanager-strategisch-bosbeleid",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Context-afhankelijke term + IT-context",
-      "content_hash": "5e8efecc75a7",
-      "scraped_at": "2026-03-31T15:08:09.920370+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "ProcesmanagerMinisterie van Sociale Zaken en Werkgelegenheid (SZW)",
-      "url": "https://www.freep.nl/opdracht/procesmanager-20",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Context-afhankelijke term + IT-context",
-      "content_hash": "b5b8a5b6ce61",
-      "scraped_at": "2026-03-31T15:08:09.933920+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
       ]
     }
   ],
@@ -340,6 +61,11 @@
     },
     {
       "title": "Chief Information Security Officer (CISO)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante zoekterm"
+    },
+    {
+      "title": "Cyber Security Specialist",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante zoekterm"
     },
@@ -375,11 +101,6 @@
     },
     {
       "title": "Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante zoekterm"
-    },
-    {
-      "title": "Senior Management­assistent",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante zoekterm"
     },
