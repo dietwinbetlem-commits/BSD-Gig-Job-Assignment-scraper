@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-03-31T08:19:17.003195+00:00",
-  "scraped_at_nl": "31 March 2026 om 08:19",
-  "total_found": 50,
-  "total_relevant": 10,
+  "scraped_at": "2026-03-31T11:10:39.749099+00:00",
+  "scraped_at_nl": "31 March 2026 om 11:10",
+  "total_found": 59,
+  "total_relevant": 17,
   "total_open": 1,
-  "total_unknown": 9,
+  "total_unknown": 16,
   "total_closed": 0,
-  "total_filtered_out": 40,
+  "total_filtered_out": 42,
   "platforms_scraped": 11,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke term",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-03-31T08:17:32.665152+00:00",
+      "scraped_at": "2026-03-31T11:09:16.865324+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -49,7 +49,7 @@
       "category": "zzp",
       "location": "Utrecht",
       "opdrachtgever": "",
-      "description": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
       "tarief": "",
       "duration": "",
       "hours": "",
@@ -65,7 +65,162 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "329fe4e0d5c9",
-      "scraped_at": "2026-03-31T08:17:51.747804+00:00",
+      "scraped_at": "2026-03-31T11:09:35.927477+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "ProcesmanagerWaterschap Rijn en IJssel",
+      "url": "https://www.freep.nl/opdracht/procesmanager-24",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "Context-afhankelijke term + IT-context",
+      "content_hash": "ef758400fa4b",
+      "scraped_at": "2026-03-31T11:09:35.928519+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager gripWaterschap Vechtstromen",
+      "url": "https://www.freep.nl/opdracht/procesmanager-grip",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "Context-afhankelijke term + IT-context",
+      "content_hash": "954f3fb644f1",
+      "scraped_at": "2026-03-31T11:09:35.929535+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "ProcesmanagerLogius",
+      "url": "https://www.freep.nl/opdracht/procesmanager-23",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "Context-afhankelijke term + IT-context",
+      "content_hash": "940b66872893",
+      "scraped_at": "2026-03-31T11:09:35.930531+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager transformatie recreatiewoningenDe Ronde Venen",
+      "url": "https://www.freep.nl/opdracht/procesmanager-transformatie-recreatiewoningen-1",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "Context-afhankelijke term + IT-context",
+      "content_hash": "9a12e89f6922",
+      "scraped_at": "2026-03-31T11:09:35.931545+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager borReinigingsbedrijf Midden Nederland",
+      "url": "https://www.freep.nl/opdracht/procesmanager-bor",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "Context-afhankelijke term + IT-context",
+      "content_hash": "f81cfc409093",
+      "scraped_at": "2026-03-31T11:09:35.932551+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -80,7 +235,7 @@
       "category": "zzp",
       "location": "Utrecht",
       "opdrachtgever": "",
-      "description": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
       "tarief": "",
       "duration": "",
       "hours": "",
@@ -96,7 +251,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "8707f96c0ec4",
-      "scraped_at": "2026-03-31T08:17:51.749013+00:00",
+      "scraped_at": "2026-03-31T11:09:35.934554+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -111,7 +266,7 @@
       "category": "zzp",
       "location": "Utrecht",
       "opdrachtgever": "",
-      "description": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
       "tarief": "",
       "duration": "",
       "hours": "",
@@ -127,7 +282,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "2cb27c33e807",
-      "scraped_at": "2026-03-31T08:17:51.749174+00:00",
+      "scraped_at": "2026-03-31T11:09:35.935580+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -142,7 +297,7 @@
       "category": "zzp",
       "location": "Utrecht",
       "opdrachtgever": "",
-      "description": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
       "tarief": "",
       "duration": "",
       "hours": "",
@@ -158,7 +313,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "1505b2232818",
-      "scraped_at": "2026-03-31T08:17:51.749338+00:00",
+      "scraped_at": "2026-03-31T11:09:35.936578+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -173,7 +328,7 @@
       "category": "zzp",
       "location": "Utrecht",
       "opdrachtgever": "",
-      "description": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
       "tarief": "",
       "duration": "",
       "hours": "",
@@ -189,7 +344,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "6ea540066195",
-      "scraped_at": "2026-03-31T08:17:51.749828+00:00",
+      "scraped_at": "2026-03-31T11:09:35.939554+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -204,7 +359,7 @@
       "category": "zzp",
       "location": "Utrecht",
       "opdrachtgever": "",
-      "description": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
       "tarief": "",
       "duration": "",
       "hours": "",
@@ -220,7 +375,38 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "bb796d42bc19",
-      "scraped_at": "2026-03-31T08:17:51.749996+00:00",
+      "scraped_at": "2026-03-31T11:09:35.940577+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager/projectleider migratieNoaberkracht Dinkelland Tubbergen",
+      "url": "https://www.freep.nl/opdracht/procesmanagerprojectleider-migratie",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "Context-afhankelijke term + IT-context",
+      "content_hash": "fd820a9dfd08",
+      "scraped_at": "2026-03-31T11:09:35.941589+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -235,7 +421,7 @@
       "category": "zzp",
       "location": "Utrecht",
       "opdrachtgever": "",
-      "description": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
       "tarief": "",
       "duration": "",
       "hours": "",
@@ -251,7 +437,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "e236c08f0d9e",
-      "scraped_at": "2026-03-31T08:17:51.750320+00:00",
+      "scraped_at": "2026-03-31T11:09:35.942587+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -266,7 +452,7 @@
       "category": "zzp",
       "location": "Utrecht",
       "opdrachtgever": "",
-      "description": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
       "tarief": "",
       "duration": "",
       "hours": "",
@@ -282,7 +468,38 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "e08dce453086",
-      "scraped_at": "2026-03-31T08:17:51.750484+00:00",
+      "scraped_at": "2026-03-31T11:09:35.943586+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager migratieNoaberkracht Dinkelland Tubbergen",
+      "url": "https://www.freep.nl/opdracht/procesmanager-migratie",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "Utrecht",
+      "opdrachtgever": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "Context-afhankelijke term + IT-context",
+      "content_hash": "6b6b59f90076",
+      "scraped_at": "2026-03-31T11:09:35.945558+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -297,7 +514,7 @@
       "category": "zzp",
       "location": "Utrecht",
       "opdrachtgever": "",
-      "description": "",
+      "description": "Opdracht Publicatie Procesmanager stationsontwikkelingGemeente Culemborg18 maart 2026ProcesmanagerWaterschap Rijn en IJssel16 maart 2026Procesmanager gripWaterschap Vechtstromen05 maart 2026Procesmana",
       "tarief": "",
       "duration": "",
       "hours": "",
@@ -313,7 +530,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "69c9e1a921e5",
-      "scraped_at": "2026-03-31T08:17:51.751029+00:00",
+      "scraped_at": "2026-03-31T11:09:35.946577+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -334,12 +551,27 @@
       "reason": "Geen relevante zoekterm"
     },
     {
-      "title": "Integratie Architect (Solutions Architect)",
+      "title": "Chief Information Security Officer (CISO)",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante zoekterm"
     },
     {
-      "title": "Chief Information Security Officer (CISO)",
+      "title": "Senior Projectleider Implementatie Microsoft 365 Purview",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante zoekterm"
+    },
+    {
+      "title": "Data Engineer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante zoekterm"
+    },
+    {
+      "title": "Senior Information Security Officer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante zoekterm"
+    },
+    {
+      "title": "Projectman­ager ICT Library",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante zoekterm"
     },
@@ -374,12 +606,7 @@
       "reason": "Geen relevante zoekterm"
     },
     {
-      "title": "Senior Adviseur informatie­beveiligin­g",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante zoekterm"
-    },
-    {
-      "title": "Meerinzicht Recordmana­ger",
+      "title": "Meerinzicht Recordmanager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante zoekterm"
     },
@@ -387,16 +614,6 @@
       "title": "Programma Manager CBW",
       "source": "IT-Contracts.nl",
       "reason": "Geen IT-context bij procesmanager/change/risk term"
-    },
-    {
-      "title": "Senior Projectmanager",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen IT-context bij procesmanager/change/risk term"
-    },
-    {
-      "title": "Senior Projectleider Implementatie Microsoft 365 Purview",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante zoekterm"
     }
   ]
 }
