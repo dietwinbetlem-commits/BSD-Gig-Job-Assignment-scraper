@@ -149,9 +149,26 @@ def tl(text):
     return clean(text).lower()
 
 def detect_location(text):
-    for stad in STEDEN:
+    """Detecteer stad in tekst. Vermijd provincie-namen die stad overschrijven."""
+    # Specifieke steden eerst (meest specifiek)
+    specific_cities = [
+        'Amsterdam', 'Rotterdam', 'Den Haag', 'Eindhoven', 'Groningen',
+        'Tilburg', 'Almere', 'Breda', 'Nijmegen', 'Apeldoorn', 'Haarlem', 'Arnhem',
+        'Zwolle', 'Zoetermeer', 'Leiden', 'Maastricht', 'Dordrecht', 'Ede', 'Venlo',
+        'Deventer', 'Delft', 'Assen', 'Amersfoort', 'Heerlen', 'Leeuwarden', 'Helmond',
+        'Alkmaar', 'Emmen', 'Enschede', 'Den Bosch', 'Schiedam', 'Maarssen',
+        'Haarlemmermeer', 'Westland', 'Houten', 'Alphen', 'Barendrecht',
+        'Woerden', 'Zeist', 'Nieuwegein', 'Veenendaal', 'Culemborg',
+    ]
+    for stad in specific_cities:
         if stad.lower() in text.lower():
             return stad
+
+    # Utrecht als stad alleen als het niet "Provincie Utrecht" of "Waterschap" is
+    if 'utrecht' in text.lower():
+        if 'provincie utrecht' not in text.lower() and 'waterschap' not in text.lower():
+            return 'Utrecht'
+
     return ''
 
 def detect_work(text):

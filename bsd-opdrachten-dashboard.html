@@ -507,7 +507,7 @@ function matchVisible(m){
 const CT_MAP={zzp:{cls:'b-zzp',lbl:'ZZP ✅'},mid:{cls:'b-mid',lbl:'Midlance'},pay:{cls:'b-pay',lbl:'Payroll'},loon:{cls:'b-loon',lbl:'Loondienst'}};
 const WT_MAP={onsite:{cls:'b-onsite',lbl:'Op locatie'},hybrid:{cls:'b-hybrid',lbl:'Hybride'},remote:{cls:'b-remote',lbl:'Remote'}};
 const PRIO={top:{border:'#4caf50',stars:'⭐⭐⭐'},good:{border:'#ff8c42',stars:'⭐⭐'},normal:{border:'#A795EB',stars:'⭐'}};
-const STAT_CLS={nieuw:'s-nieuw',gereageerd:'s-gereageerd',interview:'s-interview',afgewezen:'s-afgewezen',aangenomen:'s-aangenomen'};
+const STAT_CLS={nieuw:'s-nieuw',gereageerd:'s-gereageerd',interview:'s-interview',afgewezen:'s-afgewezen',aangenomen:'s-aangenomen',gesloten:'s-afgewezen'};
 const TAG_LBL={tp:'Proces',ts:'Service',td:'Delivery',tc:'Consult',tl:'LI',ta:'Aggr'};
 const CAT_LBL={itcontracts:'IT-Contracts.nl',aggregators:'Aggregators',zzp:'ZZP Platforms',bureaus:'Bureaus',linkedin:'LinkedIn',extra:'Extra'};
 
@@ -554,9 +554,11 @@ function renderMarkers(){
   if(!_map) return;
   const PIN_COL={zzp:'#4caf50',mid:'#8bc34a',pay:'#ff8c42',loon:'#ef5350'};
 
-  // ── Handmatige matches ──
+  // ── Handmatige matches — alleen actieve statussen ──
+  const ACTIVE_STATUSES = ['nieuw', 'gereageerd', 'interview'];
   ST.matches.forEach(m=>{
     if(!matchVisible(m)) return;
+    if(!ACTIVE_STATUSES.includes(m.status||'nieuw')) return; // geen pin voor afgewezen/aangenomen
     const ll=getLL(m); if(!ll) return;
     const col=PIN_COL[(m.contract||['zzp'])[0]]||'#A795EB';
     const mk=L.marker(ll,{icon:L.divIcon({
@@ -649,6 +651,7 @@ function renderMatches(){
           <option value="gereageerd" ${m.status==='gereageerd'?'selected':''}>Gereageerd</option>
           <option value="interview" ${m.status==='interview'?'selected':''}>Interview</option>
           <option value="afgewezen" ${m.status==='afgewezen'?'selected':''}>Afgewezen</option>
+          <option value="gesloten" ${m.status==='gesloten'?'selected':''}>Gesloten (pin weg)</option>
           <option value="aangenomen" ${m.status==='aangenomen'?'selected':''}>Aangenomen</option>
         </select>
       </div>`;
@@ -711,6 +714,7 @@ function updStatus(i,sel){
   ST.matches[i].status=sel.value;
   sel.className=`status-sel ${STAT_CLS[sel.value]}`;
   saveST('s-m');
+  renderMarkers(); // pin direct aan/uit na statuswijziging
 }
 
 // ══════════════════════════════════════════
