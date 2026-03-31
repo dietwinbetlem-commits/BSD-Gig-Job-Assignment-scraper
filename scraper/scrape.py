@@ -1035,12 +1035,6 @@ PARSERS = {
 }
 
 LINKEDIN_PARSERS   = {'linkedin_jobs', 'linkedin_feed'}
-BROWSER_PARSERS    = {
-    'striive_auth':     scrape_striive_auth,
-    'freelancenl_auth': scrape_freelancenl_auth,
-    'funle_auth':       scrape_funle_auth,
-    'browser':          scrape_browser_public,
-}
 
 
 def scrape_browser_public(platform, results_list):
@@ -1050,13 +1044,11 @@ def scrape_browser_public(platform, results_list):
     """
     pid   = platform['id']
     label = platform['label']
-    parser_type_fallback = platform.get('browser_parser', 'generic')
     searches = platform.get('searches', [])
 
     log.info(f'Browser (publiek): {label}')
 
     pw, browser, ctx = get_browser()
-    # Extra headers om meer op een echte browser te lijken
     ctx.set_extra_http_headers({
         'Accept-Language': 'nl-NL,nl;q=0.9',
         'Referer': 'https://www.google.nl/',
@@ -1076,7 +1068,6 @@ def scrape_browser_public(platform, results_list):
                 page.wait_for_load_state('networkidle', timeout=15000)
                 time.sleep(3)
 
-                # Check of we niet een block-pagina zien
                 if any(x in page.content().lower() for x in
                        ['access denied', 'blocked', 'captcha', 'cloudflare']):
                     log.warning(f'  {label}: geblokkeerd op {url[:60]}')
@@ -1096,6 +1087,14 @@ def scrape_browser_public(platform, results_list):
     finally:
         browser.close()
         pw.stop()
+
+
+BROWSER_PARSERS    = {
+    'striive_auth':     scrape_striive_auth,
+    'freelancenl_auth': scrape_freelancenl_auth,
+    'funle_auth':       scrape_funle_auth,
+    'browser':          scrape_browser_public,
+}
 
 
 # ── MAIN ──────────────────────────────────────────────────────────────────────
