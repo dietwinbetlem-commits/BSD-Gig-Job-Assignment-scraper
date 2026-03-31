@@ -64,15 +64,14 @@ platforms:
     type: public
     parser: itcontracts
     active: true
-    it_category: true
-    note: "Alle URLs zijn IT-management categorie — category is leidend"
+    note: "Categorieselectie is IT-management maar paginas bevatten ook andere rollen"
     searches:
       - url: "https://www.it-contracts.nl/freelance-ict-opdrachten-management-servicemanager"
         term: "servicemanager"
         it_category: true
       - url: "https://www.it-contracts.nl/freelance-ict-opdrachten-management-procesmanager"
         term: "procesmanager"
-        it_category: true
+        it_category: false
       - url: "https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/service+delivery+manager/from/"
         term: "service delivery manager"
         it_category: true
@@ -86,11 +85,11 @@ platforms:
         term: "SIAM"
         it_category: true
       - url: "https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/kwartiermaker/from/"
-        term: "kwartiermaker"
-        it_category: true
+        term: "kwartiermaker IT"
+        it_category: false
       - url: "https://www.it-contracts.nl/nieuwste-freelance-ict-opdrachten/search/change+manager/from/"
-        term: "change manager"
-        it_category: true
+        term: "change manager IT"
+        it_category: false
 
   - id: freep
     label: "Freep.nl"
@@ -98,11 +97,11 @@ platforms:
     type: public
     parser: freep
     active: true
-    note: "Categorie-URLs zijn al IT-gefilterd door Freep zelf"
+    note: "Categorie-URLs bevatten gemixte rollen — geen it_category override"
     searches:
       - url: "https://www.freep.nl/zzp/procesmanager"
         term: "procesmanager"
-        it_category: true
+        it_category: false
       - url: "https://www.freep.nl/zzp/it-servicemanager"
         term: "servicemanager"
         it_category: true
