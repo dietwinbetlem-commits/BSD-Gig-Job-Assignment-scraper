@@ -553,6 +553,8 @@ function renderMarkers(){
   _markers.forEach(m=>m.remove()); _markers=[];
   if(!_map) return;
   const PIN_COL={zzp:'#4caf50',mid:'#8bc34a',pay:'#ff8c42',loon:'#ef5350'};
+
+  // ── Handmatige matches ──
   ST.matches.forEach(m=>{
     if(!matchVisible(m)) return;
     const ll=getLL(m); if(!ll) return;
@@ -571,6 +573,42 @@ function renderMarkers(){
       </div>`);
     _markers.push(mk);
   });
+
+  // ── Scraped resultaten ──
+  if(scrapedData && scrapedData.results) {
+    scrapedData.results.filter(m => {
+      const ct=m.contract||[], wt=m.work||[];
+      const cOK=ct.length===0||(AF.zzp&&ct.includes('zzp'))||(AF.mid&&ct.includes('mid'))||(AF.pay&&ct.includes('pay'))||(AF.loon&&ct.includes('loon'));
+      const wOK=wt.length===0||(AF.onsite&&wt.includes('onsite'))||(AF.hybrid&&wt.includes('hybrid'))||(AF.remote&&wt.includes('remote'));
+      return cOK && wOK && m.location;
+    }).forEach(m => {
+      const col = PIN_COL[(m.contract||['zzp'])[0]]||'#A795EB';
+      // Zoek coördinaten via CITY_LL
+      const parts = (m.location||'').split(/[\/,]/);
+      let ll = null;
+      for(const p of parts) {
+        const t = p.trim();
+        if(CITY_LL[t]) { ll = CITY_LL[t]; break; }
+      }
+      if(!ll) return;
+
+      // Klein vierkantje ipv cirkel — onderscheid met handmatige pins
+      const mk = L.marker(ll, {icon: L.divIcon({
+        className: '',
+        html: `<div style="width:12px;height:12px;background:${col};border:2px solid #0d0d1a;box-shadow:0 0 6px ${col}66;transform:translate(-50%,-50%);border-radius:2px;opacity:.85"></div>`,
+        iconSize: [0,0], iconAnchor: [0,0]
+      })}).addTo(_map).bindPopup(`
+        <div style="font-size:12px;min-width:180px">
+          <span style="font-size:.65rem;color:${col}">🤖 Automatisch gevonden</span><br>
+          <b>${m.title}</b><br>
+          <span style="color:#888">📍 ${m.location||'?'} &nbsp;</span>
+          <span style="color:${col};font-weight:700">${(m.contract||[]).join('/').toUpperCase()}</span><br>
+          <span style="color:#666;font-size:.7rem">🔗 ${m.source}</span><br>
+          <a href="${m.url}" target="_blank" style="color:#A795EB">Open opdracht →</a>
+        </div>`);
+      _markers.push(mk);
+    });
+  }
 }
 
 // ══════════════════════════════════════════

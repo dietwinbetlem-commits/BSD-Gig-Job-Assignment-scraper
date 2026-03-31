@@ -306,13 +306,21 @@ def parse_freep(html, source, pid, url):
         title = clean(link.get_text())
         if len(title) < 8: continue
         parent = link.find_parent(['li', 'div', 'article'])
-        loc = hours = ''
+        loc = hours = desc = ''
         if parent:
             text = parent.get_text()
             loc = detect_location(text)
             m = re.search(r'(\d{2,3})\s*uur', text)
             if m: hours = f"{m.group(1)}u/wk"
-        results.append(make_result(title, full, source, pid, 'zzp', location=loc, hours=hours))
+            # Pak beschrijving voor IT-context check
+            desc_el = parent.find(class_=re.compile(r'desc|omschrijving|tekst|intro', re.I))
+            if desc_el:
+                desc = clean(desc_el.get_text())
+            else:
+                # Gebruik alle tekst als beschrijving
+                desc = clean(text)[:200]
+        results.append(make_result(title, full, source, pid, 'zzp',
+                                   location=loc, hours=hours, description=desc))
     log.info(f'  → {len(results)} items')
     return results
 
@@ -503,8 +511,102 @@ def parse_page_results(page, source, pid, base_url, link_pattern):
 
 # ── STRIIVE AUTHENTICATED ─────────────────────────────────────────────────────
 
+def _browser_login(page, login_url, email, password, success_check_fn,
+                   label, timeout=30000):
+    """Generieke login helper. Geeft True terug als login geslaagd."""
+    page.goto(login_url, timeout=timeout)
+    page.wait_for_load_state('networkidle', timeout=15000)
+    time.sleep(2)
+
+    # Probeer meerdere selector varianten
+    for sel in ['input[type="email"]', 'input[name="email"]', '#email',
+                'input[name="username"]', '#username']:
+        try:
+            if page.locator(sel).count() > 0:
+                page.fill(sel, email)
+                break
+        except Exception:
+            continue
+
+    for sel in ['input[type="password"]', 'input[name="password"]', '#password']:
+        try:
+            if page.locator(sel).count() > 0:
+                page.fill(sel, password)
+                break
+        except Exception:
+            continue
+
+    for sel in ['button[type="submit"]', 'input[type="submit"]',
+                'button:has-text("Inloggen")', 'button:has-text("Login")',
+                'button:has-text("Aanmelden")']:
+        try:
+            if page.locator(sel).count() > 0:
+                page.click(sel)
+                break
+        except Exception:
+            continue
+
+    page.wait_for_load_state('networkidle', timeout=20000)
+    time.sleep(3)
+
+    if success_check_fn(page):
+        log.info(f'{label}: ingelogd ✓')
+        return True
+    else:
+        log.warning(f'{label}: login mislukt — URL: {page.url[:80]}')
+        return False
+
+
+def _extract_results_from_page(page, source, pid, base_url, link_pattern):
+    """Haal alle opdracht-cards van huidige pagina op."""
+    results = []
+    soup = BeautifulSoup(page.content(), 'html.parser')
+    seen = set()
+
+    # Probeer meerdere card-selectors
+    cards = (soup.select('article') or
+             soup.select('[class*="vacancy"]') or
+             soup.select('[class*="opdracht"]') or
+             soup.select('[class*="job"]') or
+             soup.select('li'))
+
+    for card in cards:
+        link = card.find('a', href=re.compile(link_pattern, re.I))
+        if not link:
+            continue
+        href = link.get('href', '')
+        full = urljoin(base_url, href) if not href.startswith('http') else href
+        if full in seen:
+            continue
+        seen.add(full)
+
+        title_el = card.find(['h2', 'h3', 'h4', 'strong'])
+        title = clean(title_el.get_text()) if title_el else clean(link.get_text())
+        if len(title) < 8:
+            continue
+
+        text = card.get_text()
+        loc = detect_location(text)
+        tarief = ''
+        m = re.search(r'[€]\s*(\d{2,3})', text)
+        if m:
+            tarief = f"€{m.group(1)}/u"
+
+        org_el = card.find(class_=re.compile(r'company|opdrachtgever|client|org', re.I))
+        org = clean(org_el.get_text()) if org_el else ''
+
+        results.append(make_result(title, full, source, pid, 'aggregator',
+                                   location=loc, tarief=tarief, opdrachtgever=org,
+                                   description=text[:200]))
+    return results
+
+
 def scrape_striive_auth(platform, results_list):
-    creds = platform.get('credentials', {})
+    """
+    Striive: login → ga naar opdrachten → scrape 'Aanbevolen' tab.
+    De aanbevolen tab gebruikt jouw opgeslagen profielfilters.
+    """
+    creds    = platform.get('credentials', {})
     email    = os.environ.get(creds.get('username_secret', ''), '')
     password = os.environ.get(creds.get('password_secret', ''), '')
     if not email or not password:
@@ -512,45 +614,66 @@ def scrape_striive_auth(platform, results_list):
         return
 
     pid, label = platform['id'], platform['label']
-    log.info(f'Striive: inloggen als {email}')
+    log.info(f'Striive: browser starten, inloggen als {email}')
 
     pw, browser, ctx = get_browser()
     page = ctx.new_page()
     try:
-        page.goto('https://login.striive.com/', timeout=30000)
-        page.wait_for_load_state('networkidle', timeout=15000)
-        time.sleep(2)
+        # Login
+        ok = _browser_login(
+            page,
+            'https://login.striive.com/',
+            email, password,
+            lambda p: 'login' not in p.url.lower() or 'striive.com' in p.url,
+            label
+        )
+        if not ok:
+            return
 
-        # Vul login in
-        page.fill('input[type="email"], input[name="email"], #email', email)
-        page.fill('input[type="password"], input[name="password"], #password', password)
-        page.click('button[type="submit"], input[type="submit"]')
+        # Navigeer naar opdrachten — Aanbevolen tab
+        log.info('  Striive: navigeer naar Aanbevolen opdrachten')
+        page.goto('https://striive.com/nl/opdrachten', timeout=20000)
         page.wait_for_load_state('networkidle', timeout=15000)
         time.sleep(3)
 
-        if 'login' in page.url.lower() and 'error' in page.content().lower():
-            log.warning('Striive: login mislukt')
-            return
-
-        log.info('Striive: ingelogd ✓')
-
-        for search in platform.get('searches', []):
-            url = search.get('url', '')
-            term = search.get('term', '')
-            if not url: continue
-            log.info(f'  Striive: {term}')
+        # Klik op Aanbevolen tab als die er is
+        for tab_sel in [
+            'button:has-text("Aanbevolen")',
+            'a:has-text("Aanbevolen")',
+            '[data-tab="aanbevolen"]',
+            '[class*="recommended"]',
+        ]:
             try:
-                page.goto(url, timeout=20000)
-                page.wait_for_load_state('networkidle', timeout=10000)
-                time.sleep(2)
-                items = parse_page_results(page, label, pid,
+                if page.locator(tab_sel).count() > 0:
+                    page.click(tab_sel)
+                    time.sleep(2)
+                    log.info('  Striive: Aanbevolen tab geklikt')
+                    break
+            except Exception:
+                continue
+
+        # Scrape alle zichtbare resultaten
+        items = _extract_results_from_page(page, label, pid,
                                            'https://striive.com',
                                            r'/nl/opdrachten/\d+')
-                log.info(f'  → {len(items)} items')
-                results_list.extend(items)
-            except Exception as e:
-                log.warning(f'  Striive zoek fout "{term}": {e}')
-            time.sleep(REQUEST_DELAY)
+        log.info(f'  → {len(items)} items van Striive Aanbevolen')
+        results_list.extend(items)
+
+        # Probeer ook te scrollen voor meer resultaten
+        for _ in range(3):
+            try:
+                page.keyboard.press('End')
+                time.sleep(2)
+                more = _extract_results_from_page(page, label, pid,
+                                                  'https://striive.com',
+                                                  r'/nl/opdrachten/\d+')
+                new = [r for r in more if r['url'] not in
+                       {x['url'] for x in results_list}]
+                results_list.extend(new)
+            except Exception:
+                break
+
+        log.info(f'  → Striive totaal: {sum(1 for r in results_list if r["platform_id"] == pid)} items')
 
     except Exception as e:
         log.error(f'Striive fout: {e}')
@@ -562,7 +685,11 @@ def scrape_striive_auth(platform, results_list):
 # ── FREELANCE.NL AUTHENTICATED ────────────────────────────────────────────────
 
 def scrape_freelancenl_auth(platform, results_list):
-    creds = platform.get('credentials', {})
+    """
+    Freelance.nl: login → Mijn zoekopdrachten → Open zoekopdracht 'Normaal'
+    → scrape de resultaten (22 matches).
+    """
+    creds    = platform.get('credentials', {})
     email    = os.environ.get(creds.get('username_secret', ''), '')
     password = os.environ.get(creds.get('password_secret', ''), '')
     if not email or not password:
@@ -570,44 +697,77 @@ def scrape_freelancenl_auth(platform, results_list):
         return
 
     pid, label = platform['id'], platform['label']
-    log.info(f'Freelance.nl: inloggen als {email}')
+    log.info(f'Freelance.nl: browser starten, inloggen als {email}')
 
     pw, browser, ctx = get_browser()
     page = ctx.new_page()
     try:
-        page.goto('https://www.freelance.nl/inloggen', timeout=30000)
-        page.wait_for_load_state('networkidle', timeout=15000)
-        time.sleep(2)
+        # Login
+        ok = _browser_login(
+            page,
+            'https://www.freelance.nl/inloggen',
+            email, password,
+            lambda p: 'inloggen' not in p.url.lower(),
+            label
+        )
+        if not ok:
+            return
 
-        page.fill('input[type="email"], input[name="email"], #email', email)
-        page.fill('input[type="password"], input[name="password"], #password', password)
-        page.click('button[type="submit"], input[type="submit"]')
+        # Navigeer naar Mijn zoekopdrachten
+        log.info('  Freelance.nl: navigeer naar Mijn zoekopdrachten')
+        page.goto('https://www.freelance.nl/mijn-zoekopdrachten', timeout=20000)
         page.wait_for_load_state('networkidle', timeout=15000)
         time.sleep(3)
 
-        if 'inloggen' in page.url.lower():
-            log.warning('Freelance.nl: login mislukt')
-            return
+        log.info(f'  Freelance.nl URL na navigatie: {page.url}')
 
-        log.info('Freelance.nl: ingelogd ✓')
+        # Klik "Open zoekopdracht" bij de zoekopdracht genaamd "Normaal"
+        # Probeer de knop te vinden bij de "Normaal" zoekopdracht
+        opened = False
+        soup = BeautifulSoup(page.content(), 'html.parser')
 
-        for search in platform.get('searches', []):
-            url = search.get('url', '')
-            term = search.get('term', '')
-            if not url: continue
-            log.info(f'  Freelance.nl: {term}')
+        # Zoek de kaart met "Normaal" in de titel
+        for card in soup.find_all(['div', 'article', 'section']):
+            card_text = card.get_text()
+            if 'normaal' in card_text.lower() or 'nieuwe matches' in card_text.lower():
+                # Zoek "Open zoekopdracht" knop in deze kaart
+                btn = card.find('a', string=re.compile(r'open zoekopdracht', re.I))
+                if not btn:
+                    btn = card.find('a', href=re.compile(r'/opdrachten'))
+                if btn:
+                    href = btn.get('href', '')
+                    url = urljoin('https://www.freelance.nl', href)
+                    log.info(f'  Freelance.nl: open zoekopdracht → {url}')
+                    page.goto(url, timeout=20000)
+                    page.wait_for_load_state('networkidle', timeout=15000)
+                    time.sleep(3)
+                    opened = True
+                    break
+
+        if not opened:
+            # Fallback: klik de eerste "Open zoekopdracht" knop
             try:
-                page.goto(url, timeout=20000)
-                page.wait_for_load_state('networkidle', timeout=10000)
-                time.sleep(2)
-                items = parse_page_results(page, label, pid,
+                page.click('a:has-text("Open zoekopdracht")', timeout=5000)
+                page.wait_for_load_state('networkidle', timeout=15000)
+                time.sleep(3)
+                opened = True
+                log.info('  Freelance.nl: eerste zoekopdracht geopend (fallback)')
+            except Exception:
+                log.warning('  Freelance.nl: kon zoekopdracht niet openen')
+
+        if not opened:
+            # Laatste fallback: scrape opdrachten direct
+            log.info('  Freelance.nl: fallback naar directe opdrachten pagina')
+            page.goto('https://www.freelance.nl/opdrachten', timeout=20000)
+            page.wait_for_load_state('networkidle', timeout=15000)
+            time.sleep(3)
+
+        # Scrape resultaten
+        items = _extract_results_from_page(page, label, pid,
                                            'https://www.freelance.nl',
                                            r'/opdracht/\d+')
-                log.info(f'  → {len(items)} items')
-                results_list.extend(items)
-            except Exception as e:
-                log.warning(f'  Freelance.nl zoek fout "{term}": {e}')
-            time.sleep(REQUEST_DELAY)
+        log.info(f'  → {len(items)} items van Freelance.nl')
+        results_list.extend(items)
 
     except Exception as e:
         log.error(f'Freelance.nl fout: {e}')
@@ -619,12 +779,16 @@ def scrape_freelancenl_auth(platform, results_list):
 # ── FUNLE AUTHENTICATED ───────────────────────────────────────────────────────
 
 def scrape_funle_auth(platform, results_list):
-    creds = platform.get('credentials', {})
+    """
+    Funle: login → navigeer naar opdrachten met zoekterm → scrape JS-rendered resultaten.
+    Fallback naar publieke scrape als credentials ontbreken.
+    """
+    creds    = platform.get('credentials', {})
     email    = os.environ.get(creds.get('username_secret', ''), '')
     password = os.environ.get(creds.get('password_secret', ''), '')
+
     if not email or not password:
-        log.warning('Funle credentials niet gevonden — val terug op publieke parser')
-        # Fallback naar publieke scrape
+        log.warning('Funle credentials niet gevonden — publieke fallback')
         session = new_session()
         for search in platform.get('searches', []):
             url = search.get('url', '')
@@ -636,35 +800,45 @@ def scrape_funle_auth(platform, results_list):
         return
 
     pid, label = platform['id'], platform['label']
-    log.info(f'Funle: inloggen als {email}')
+    log.info(f'Funle: browser starten, inloggen als {email}')
 
     pw, browser, ctx = get_browser()
     page = ctx.new_page()
     try:
-        page.goto('https://funle.nl/inloggen', timeout=30000)
-        page.wait_for_load_state('networkidle', timeout=15000)
-        time.sleep(2)
+        # Login — Funle gebruikt waarschijnlijk een OAuth/SSO flow
+        ok = _browser_login(
+            page,
+            'https://funle.nl/inloggen',
+            email, password,
+            lambda p: 'inloggen' not in p.url.lower() and 'login' not in p.url.lower(),
+            label
+        )
+        if not ok:
+            log.warning('Funle: login mislukt — publieke fallback')
+            session = new_session()
+            for search in platform.get('searches', []):
+                url = search.get('url', '')
+                if not url: continue
+                html = fetch(session, url)
+                items = parse_funle(html, label, pid, url)
+                results_list.extend(items)
+                time.sleep(REQUEST_DELAY)
+            return
 
-        page.fill('input[type="email"], input[name="email"], #email', email)
-        page.fill('input[type="password"], input[name="password"], #password', password)
-        page.click('button[type="submit"], input[type="submit"]')
-        page.wait_for_load_state('networkidle', timeout=15000)
-        time.sleep(3)
-
-        log.info('Funle: ingelogd ✓')
-
+        # Scrape elke zoekopdracht URL
         for search in platform.get('searches', []):
-            url = search.get('url', '')
+            url  = search.get('url', '')
             term = search.get('term', '')
             if not url: continue
             log.info(f'  Funle: {term}')
             try:
                 page.goto(url, timeout=20000)
-                page.wait_for_load_state('networkidle', timeout=10000)
-                time.sleep(3)  # Funle is JS-heavy
-                items = parse_page_results(page, label, pid,
-                                           'https://funle.nl',
-                                           r'/opdrachten/[a-z0-9-]+')
+                page.wait_for_load_state('networkidle', timeout=15000)
+                time.sleep(4)  # Funle is zwaar JS
+
+                items = _extract_results_from_page(page, label, pid,
+                                                   'https://funle.nl',
+                                                   r'/opdrachten/[a-z0-9-]+')
                 log.info(f'  → {len(items)} items')
                 results_list.extend(items)
             except Exception as e:
