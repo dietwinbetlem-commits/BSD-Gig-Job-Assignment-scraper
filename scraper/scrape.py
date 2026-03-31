@@ -234,28 +234,28 @@ def is_target(title, description='', search_term='', it_category=False):
     """
     Gelaagde filterlogica:
     1. Knock-out check (altijd)
-    2. Als it_category=True: vertrouw platform-categorie, alleen knock-out check
-    3. IT-specifieke termen in titel/omschrijving: direct match
-    4. Context-afhankelijke termen: IT-synoniem vereist in gecombineerde tekst
+    2. IT-specifieke management termen: direct match
+    3. Context-afhankelijke termen:
+       - it_category=True: skip IT-context check (platform garandeert IT)
+       - it_category=False: IT-synoniem vereist in tekst
     """
     combined = tl(f"{title} {description} {search_term}")
 
-    # Laag 1: Knock-out altijd (ook bij IT-categorie)
+    # Laag 1: Knock-out altijd
     for ko in KNOCKOUT_TERMS:
         if ko in combined:
             return False, f'Knock-out: "{ko}"'
 
-    # Laag 2: Platform-categorie is al IT → vertrouw het
-    if it_category:
-        return True, 'IT platform-categorie'
-
-    # Laag 3: IT-specifieke termen → direct match
+    # Laag 2: IT-specifieke termen → direct match
     if any(t in combined for t in IT_SPECIFIC_TERMS):
         return True, 'IT-specifieke term'
 
-    # Laag 4: Context-afhankelijke termen → IT-synoniem vereist
+    # Laag 3: Context-afhankelijke termen (management rollen)
     has_context_term = any(t in combined for t in CONTEXT_DEPENDENT_TERMS)
     if has_context_term:
+        if it_category:
+            # Platform garandeert IT-context — vertrouw de categorie
+            return True, 'IT platform-categorie'
         has_it = any(c in combined for c in IT_CONTEXT_SIGNALS)
         return (True, 'Context + IT-synoniem') if has_it else (False, 'Geen IT-synoniem')
 
@@ -343,8 +343,14 @@ def parse_itcontracts(html, source, pid, url):
         row = link.find_parent(['tr', 'div', 'li'])
         loc = tarief = ''
         if row:
-            text = row.get_text()[:300]  # Begrens tot 300 chars
-            loc = detect_location(text)
+            # IT-Contracts tabel: zoek locatie in elke cel afzonderlijk
+            tds = row.find_all(['td', 'span', 'div'])
+            for td in tds:
+                candidate = detect_location(td.get_text()[:100])
+                if candidate:
+                    loc = candidate
+                    break
+            text = row.get_text()[:400]
             m = re.search(r'(\d{2,3})\s*[-–]\s*(\d{2,3})\s*(per uur|/uur|€)', text)
             if m: tarief = f"€{m.group(1)}-{m.group(2)}/u"
         results.append(make_result(title, full, source, pid, 'itcontracts', location=loc, tarief=tarief))
