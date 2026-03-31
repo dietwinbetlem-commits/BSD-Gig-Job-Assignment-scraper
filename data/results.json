@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-03-31T18:37:50.454186+00:00",
-  "scraped_at_nl": "31 March 2026 om 18:37",
+  "scraped_at": "2026-03-31T18:48:04.756597+00:00",
+  "scraped_at_nl": "31 March 2026 om 18:48",
   "total_found": 59,
-  "total_relevant": 1,
-  "total_open": 1,
+  "total_relevant": 2,
+  "total_open": 2,
   "total_unknown": 0,
   "total_closed": 0,
-  "total_filtered_out": 58,
+  "total_filtered_out": 57,
   "platforms_scraped": 15,
   "errors": [],
   "results": [
@@ -34,7 +34,38 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-03-31T18:35:24.669464+00:00",
+      "scraped_at": "2026-03-31T18:45:39.618486+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Projectmanager ICT Library",
+      "url": "https://www.it-contracts.nl/vacature_Projectmanager_ICT_Library_287224/search/LAST%3A50/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT platform-categorie + managementrol",
+      "content_hash": "492452f6879a",
+      "scraped_at": "2026-03-31T18:45:39.619854+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -90,11 +121,6 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectman­ager ICT Library",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Sr. Expert Interne Beheersing Non IT",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -118,6 +144,186 @@
       "title": "Senior Managementassistent",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Projectleider Implementatie Microsoft 365 Purview",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Testcoördinator OSIRIS",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Business Controller IT",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Data Engineer (SQL/Data Migratie)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Procesmanager stationsontwikkelingGemeente Culemborg",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "ProcesmanagerWaterschap Rijn en IJssel",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "Procesmanager gripWaterschap Vechtstromen",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "ProcesmanagerLogius",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "Procesmanager transformatie recreatiewoningenDe Ronde Venen",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"recreatiewoning\""
+    },
+    {
+      "title": "Procesmanager borReinigingsbedrijf Midden Nederland",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "Procesmanager uitvoering brabantse ontwikkelaanpak stikstofProvincie Noord-Brabant",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"stikstof\""
+    },
+    {
+      "title": "Procesmanager srbt-woontafelGemeente Breda",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"woontafel\""
+    },
+    {
+      "title": "Interim procesmanager vervoerGemeente Lochem",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "Strategisch procesmanager mobiliteitshubGemeente Zwolle",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"mobiliteitshu\""
+    },
+    {
+      "title": "Senior procesmanager governance natuurbrandpreventieProvincie Utrecht",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"brandpreventie\""
+    },
+    {
+      "title": "Procesmanager/projectleider migratieNoaberkracht Dinkelland Tubbergen",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "Procesmanager campus & facilitiesTechnische Universiteit Eindhoven",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"campus & facilit\""
+    },
+    {
+      "title": "Senior procesmanager strategisch bosbeleidProvincie Utrecht",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"bosbele\""
+    },
+    {
+      "title": "Hr procesmanagergemeente Eindhoven",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"hr procesmanager\""
+    },
+    {
+      "title": "Procesmanager migratieNoaberkracht Dinkelland Tubbergen",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "ProcesmanagerMinisterie van Sociale Zaken en Werkgelegenheid (SZW)",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "CareerSpot®",
+      "source": "FlexSpot.io",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Facebook",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "X (Twitter)",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "LinkedIn",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Verkeerskundige Gemeente Zwartewaterland Overijssel Detachering 115.00 Sluit over 6 dagen",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Deelprojectleider Netcongestie Provincie Gelderland Drenthe Detachering 100.00 - 120.00",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Manager gebiedsontwikkeling Gemeente Súdwest-Fryslân Friesland Detachering 150.00",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Low-code developer Gemeente Amsterdam Noord-Holland Detachering",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Verpleegkundige bij Spaarne Gasthuis Spaarne Gasthuis Noord-Holland Detachering FWG 4",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Ok assistent – Spaarne Gasthuis (Haarlem & Hoofddorp) detachering Spaarne Gasthuis Noord-Holland Freelance FWG 5",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Beleid en bestuurlijke zaken",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Communicatie en Voorlichting",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Financiën en Economische zaken",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "ICT en Automatisering",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Infrastructuur en Civiele Techniek",
+      "source": "De Publieke Partner",
+      "reason": "Knock-out: \"civiel\""
     }
   ]
 }
