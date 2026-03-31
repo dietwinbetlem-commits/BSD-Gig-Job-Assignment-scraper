@@ -508,6 +508,7 @@ const CT_MAP={zzp:{cls:'b-zzp',lbl:'ZZP ✅'},mid:{cls:'b-mid',lbl:'Midlance'},p
 const WT_MAP={onsite:{cls:'b-onsite',lbl:'Op locatie'},hybrid:{cls:'b-hybrid',lbl:'Hybride'},remote:{cls:'b-remote',lbl:'Remote'}};
 const PRIO={top:{border:'#4caf50',stars:'⭐⭐⭐'},good:{border:'#ff8c42',stars:'⭐⭐'},normal:{border:'#A795EB',stars:'⭐'}};
 const STAT_CLS={nieuw:'s-nieuw',gereageerd:'s-gereageerd',interview:'s-interview',afgewezen:'s-afgewezen',aangenomen:'s-aangenomen',gesloten:'s-afgewezen'};
+const HIDDEN_STATUSES = ['gesloten', 'afgewezen', 'aangenomen'];
 const TAG_LBL={tp:'Proces',ts:'Service',td:'Delivery',tc:'Consult',tl:'LI',ta:'Aggr'};
 const CAT_LBL={itcontracts:'IT-Contracts.nl',aggregators:'Aggregators',zzp:'ZZP Platforms',bureaus:'Bureaus',linkedin:'LinkedIn',extra:'Extra'};
 
@@ -556,7 +557,6 @@ function renderMarkers(){
 
   // ── Handmatige matches — alleen actieve statussen ──
   const ACTIVE_STATUSES = ['nieuw', 'gereageerd', 'interview'];
-const HIDDEN_STATUSES = ['gesloten', 'afgewezen', 'aangenomen'];
   ST.matches.forEach(m=>{
     if(!matchVisible(m)) return;
     if(!ACTIVE_STATUSES.includes(m.status||'nieuw')) return; // geen pin voor afgewezen/aangenomen
