@@ -65,25 +65,29 @@ CONTEXT_DEPENDENT_TERMS = [
 
 # IT-context vereist als combinatie met CONTEXT_DEPENDENT_TERMS
 IT_CONTEXT_SIGNALS = [
-    'it', 'ict', 'digital', 'software', 'systeem', 'system',
-    'applicatie', 'application', 'infra', 'cloud', 'netwerk',
-    'service', 'itsm', 'siam', 'itil', 'agile', 'scrum',
-    'security', 'compliance', 'governance', 'data', 'platform',
-    'outsourc', 'managed', 'technolog', 'automatiser',
+    'it ', 'ict', 'digital', 'software', 'systeem', 'system',
+    'applicatie', 'application', 'infra', 'cloud', 'netwerk', 'network',
+    'itsm', 'siam', 'itil', 'agile', 'scrum', 'devops',
+    'security', 'informatiebeveiliging', 'compliance', 'governance',
+    'platform', 'outsourc', 'managed service', 'technolog', 'automatiser',
     'informatievoorziening', 'informatiemanagement',
-    'rijk', 'rijksoverheid', 'ministerie', 'uitvoering',
-    'belastingdienst', 'duo ', 'rws', 'rijkswaterstaat',
-    'gemeente', 'provincie',  # overheid heeft altijd IT-context
+    'servicedesk', 'helpdesk', 'operations', 'incident management',
+    'change management', 'problem management', 'configuration', 'cmdb',
+    'leveranciersregie', 'leveranciersmanagement', 'sla-beheer',
+    'iso 27001', 'nen 7510', 'cism', 'ciso',
 ]
 
 KNOCKOUT_TERMS = [
     'woningbouw', 'wonen', 'vastgoed', 'ruimtelijke ordening',
-    'civiel', 'infra project',  # bouw/infra procesmanager
-    'jeugd', 'zorg', 'welzijn', 'sociaal domein',  # zorg procesmanager
-    'inkoop procesmanager', 'logistiek',  # supply chain
-    'hr procesmanager', 'personeels',
-    'financieel procesmanager',
+    'civiel', 'infra project',
+    'jeugd', 'zorg', 'welzijn', 'sociaal domein',
+    'inkoop procesmanager', 'logistiek procesmanager',
+    'hr procesmanager', 'personeelsmanager',
+    'financieel procesmanager', 'financiele processen',
     'communicatie procesmanager',
+    'stikstof', 'woontafel', 'mobiliteitshu', 'bosbele',
+    'recreatiewoning', 'campus & facilit', 'vervoer gemeente',
+    'brandpreventie', 'brabantse ontwikkel',
 ]
 
 # ZZP-detectie signalen
