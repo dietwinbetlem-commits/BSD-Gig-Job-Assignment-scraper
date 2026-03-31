@@ -639,7 +639,6 @@ def _extract_results_from_page(page, source, pid, base_url, link_pattern):
 def scrape_striive_auth(platform, results_list):
     """
     Striive: login → ga naar opdrachten → scrape 'Aanbevolen' tab.
-    De aanbevolen tab gebruikt jouw opgeslagen profielfilters.
     """
     creds    = platform.get('credentials', {})
     email    = os.environ.get(creds.get('username_secret', ''), '')
@@ -654,10 +653,8 @@ def scrape_striive_auth(platform, results_list):
     pw, browser, ctx = get_browser()
     page = ctx.new_page()
     try:
-        # Login
         ok = _browser_login(
-            page,
-            'https://login.striive.com/',
+            page, 'https://login.striive.com/',
             email, password,
             lambda p: 'login' not in p.url.lower() or 'striive.com' in p.url,
             label
@@ -665,36 +662,39 @@ def scrape_striive_auth(platform, results_list):
         if not ok:
             return
 
-        # Navigeer naar opdrachten — Aanbevolen tab
-        log.info('  Striive: navigeer naar Aanbevolen opdrachten')
+        log.info(f'  Striive URL na login: {page.url}')
         page.goto('https://striive.com/nl/opdrachten', timeout=20000)
         page.wait_for_load_state('networkidle', timeout=15000)
         time.sleep(3)
+        log.info(f'  Striive URL na navigatie: {page.url}')
 
-        # Klik op Aanbevolen tab als die er is
+        # Log de page title en eerste 500 chars HTML voor debugging
+        log.info(f'  Striive page title: {page.title()}')
+        content_preview = page.content()[:500]
+        log.info(f'  Striive HTML preview: {content_preview[:200]}')
+
+        # Klik op Aanbevolen tab
         for tab_sel in [
-            'button:has-text("Aanbevolen")',
-            'a:has-text("Aanbevolen")',
-            '[data-tab="aanbevolen"]',
-            '[class*="recommended"]',
+            'button:has-text("Aanbevolen")', 'a:has-text("Aanbevolen")',
+            '[data-tab="aanbevolen"]', '[class*="recommended"]',
+            'button:has-text("Matches")', 'a:has-text("Matches")',
         ]:
             try:
                 if page.locator(tab_sel).count() > 0:
                     page.click(tab_sel)
                     time.sleep(2)
-                    log.info('  Striive: Aanbevolen tab geklikt')
+                    log.info(f'  Striive: tab geklikt: {tab_sel}')
                     break
             except Exception:
                 continue
 
-        # Scrape alle zichtbare resultaten
         items = _extract_results_from_page(page, label, pid,
                                            'https://striive.com',
                                            r'/nl/opdrachten/\d+')
-        log.info(f'  → {len(items)} items van Striive Aanbevolen')
+        log.info(f'  → {len(items)} items van Striive')
         results_list.extend(items)
 
-        # Probeer ook te scrollen voor meer resultaten
+        # Scroll voor meer
         for _ in range(3):
             try:
                 page.keyboard.press('End')
@@ -705,10 +705,11 @@ def scrape_striive_auth(platform, results_list):
                 new = [r for r in more if r['url'] not in
                        {x['url'] for x in results_list}]
                 results_list.extend(new)
+                if not new: break
             except Exception:
                 break
 
-        log.info(f'  → Striive totaal: {sum(1 for r in results_list if r["platform_id"] == pid)} items')
+        log.info(f'  → Striive totaal: {sum(1 for r in results_list if r["platform_id"] == pid)}')
 
     except Exception as e:
         log.error(f'Striive fout: {e}')
@@ -722,7 +723,6 @@ def scrape_striive_auth(platform, results_list):
 def scrape_freelancenl_auth(platform, results_list):
     """
     Freelance.nl: login → Mijn zoekopdrachten → Open zoekopdracht 'Normaal'
-    → scrape de resultaten (22 matches).
     """
     creds    = platform.get('credentials', {})
     email    = os.environ.get(creds.get('username_secret', ''), '')
@@ -737,10 +737,8 @@ def scrape_freelancenl_auth(platform, results_list):
     pw, browser, ctx = get_browser()
     page = ctx.new_page()
     try:
-        # Login
         ok = _browser_login(
-            page,
-            'https://www.freelance.nl/inloggen',
+            page, 'https://www.freelance.nl/inloggen',
             email, password,
             lambda p: 'inloggen' not in p.url.lower(),
             label
@@ -748,56 +746,41 @@ def scrape_freelancenl_auth(platform, results_list):
         if not ok:
             return
 
-        # Navigeer naar Mijn zoekopdrachten
-        log.info('  Freelance.nl: navigeer naar Mijn zoekopdrachten')
+        log.info(f'  Freelance.nl URL na login: {page.url}')
+        log.info(f'  Freelance.nl page title: {page.title()}')
+
         page.goto('https://www.freelance.nl/mijn-zoekopdrachten', timeout=20000)
         page.wait_for_load_state('networkidle', timeout=15000)
         time.sleep(3)
-
         log.info(f'  Freelance.nl URL na navigatie: {page.url}')
+        log.info(f'  Freelance.nl page title: {page.title()}')
 
-        # Klik "Open zoekopdracht" bij de zoekopdracht genaamd "Normaal"
-        # Probeer de knop te vinden bij de "Normaal" zoekopdracht
-        opened = False
+        # Log alle links op de pagina voor debugging
         soup = BeautifulSoup(page.content(), 'html.parser')
+        all_links = soup.find_all('a', href=True)
+        log.info(f'  Freelance.nl: {len(all_links)} links op pagina')
+        for lnk in all_links[:10]:
+            log.info(f'    link: {lnk.get("href", "")[:60]} | text: {lnk.get_text()[:30]}')
 
-        # Zoek de kaart met "Normaal" in de titel
-        for card in soup.find_all(['div', 'article', 'section']):
-            card_text = card.get_text()
-            if 'normaal' in card_text.lower() or 'nieuwe matches' in card_text.lower():
-                # Zoek "Open zoekopdracht" knop in deze kaart
-                btn = card.find('a', string=re.compile(r'open zoekopdracht', re.I))
-                if not btn:
-                    btn = card.find('a', href=re.compile(r'/opdrachten'))
-                if btn:
-                    href = btn.get('href', '')
-                    url = urljoin('https://www.freelance.nl', href)
-                    log.info(f'  Freelance.nl: open zoekopdracht → {url}')
-                    page.goto(url, timeout=20000)
-                    page.wait_for_load_state('networkidle', timeout=15000)
-                    time.sleep(3)
-                    opened = True
-                    break
+        opened = False
+        # Klik "Open zoekopdracht" direct via Playwright
+        try:
+            page.click('a:has-text("Open zoekopdracht")', timeout=8000)
+            page.wait_for_load_state('networkidle', timeout=15000)
+            time.sleep(3)
+            opened = True
+            log.info(f'  Freelance.nl: zoekopdracht geopend, URL: {page.url}')
+        except Exception as e:
+            log.warning(f'  Freelance.nl: Open zoekopdracht niet gevonden: {e}')
 
         if not opened:
-            # Fallback: klik de eerste "Open zoekopdracht" knop
-            try:
-                page.click('a:has-text("Open zoekopdracht")', timeout=5000)
-                page.wait_for_load_state('networkidle', timeout=15000)
-                time.sleep(3)
-                opened = True
-                log.info('  Freelance.nl: eerste zoekopdracht geopend (fallback)')
-            except Exception:
-                log.warning('  Freelance.nl: kon zoekopdracht niet openen')
-
-        if not opened:
-            # Laatste fallback: scrape opdrachten direct
-            log.info('  Freelance.nl: fallback naar directe opdrachten pagina')
+            # Fallback: directe opdrachten pagina
+            log.info('  Freelance.nl: fallback naar /opdrachten')
             page.goto('https://www.freelance.nl/opdrachten', timeout=20000)
             page.wait_for_load_state('networkidle', timeout=15000)
             time.sleep(3)
 
-        # Scrape resultaten
+        log.info(f'  Freelance.nl scrape URL: {page.url}')
         items = _extract_results_from_page(page, label, pid,
                                            'https://www.freelance.nl',
                                            r'/opdracht/\d+')
