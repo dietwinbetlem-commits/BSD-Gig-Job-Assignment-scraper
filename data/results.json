@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-03-31T16:15:44.781369+00:00",
-  "scraped_at_nl": "31 March 2026 om 16:15",
+  "scraped_at": "2026-03-31T17:09:54.780509+00:00",
+  "scraped_at_nl": "31 March 2026 om 17:09",
   "total_found": 59,
   "total_relevant": 31,
   "total_open": 19,
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-03-31T16:12:51.125890+00:00",
+      "scraped_at": "2026-03-31T17:06:39.813687+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "deebcbba4244",
-      "scraped_at": "2026-03-31T16:12:51.126069+00:00",
+      "scraped_at": "2026-03-31T17:06:39.813842+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -96,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "2e8ae2ce0ba5",
-      "scraped_at": "2026-03-31T16:12:51.126198+00:00",
+      "scraped_at": "2026-03-31T17:06:39.813966+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -127,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "229ebdf33b74",
-      "scraped_at": "2026-03-31T16:12:51.126313+00:00",
+      "scraped_at": "2026-03-31T17:06:39.814089+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -158,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "637644868455",
-      "scraped_at": "2026-03-31T16:12:51.126430+00:00",
+      "scraped_at": "2026-03-31T17:06:39.814207+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
@@ -189,7 +189,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "fc667d60d4b1",
-      "scraped_at": "2026-03-31T16:12:51.126544+00:00",
+      "scraped_at": "2026-03-31T17:06:39.814316+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "5 open-signalen",
       "sources": [
@@ -220,7 +220,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "fb7f9a8ce02a",
-      "scraped_at": "2026-03-31T16:12:51.126636+00:00",
+      "scraped_at": "2026-03-31T17:06:39.814432+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -251,7 +251,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "575ea2a494f5",
-      "scraped_at": "2026-03-31T16:12:51.126828+00:00",
+      "scraped_at": "2026-03-31T17:06:39.814625+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -282,7 +282,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "011ef1327c90",
-      "scraped_at": "2026-03-31T16:12:51.126909+00:00",
+      "scraped_at": "2026-03-31T17:06:39.814707+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -313,7 +313,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "c2ffe2dcdca6",
-      "scraped_at": "2026-03-31T16:12:51.127004+00:00",
+      "scraped_at": "2026-03-31T17:06:39.814797+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -344,7 +344,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "492452f6879a",
-      "scraped_at": "2026-03-31T16:12:51.127122+00:00",
+      "scraped_at": "2026-03-31T17:06:39.814887+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -375,7 +375,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "bf468d2a728e",
-      "scraped_at": "2026-03-31T16:12:51.127220+00:00",
+      "scraped_at": "2026-03-31T17:06:39.814980+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -406,7 +406,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "5983a6186565",
-      "scraped_at": "2026-03-31T16:12:51.127295+00:00",
+      "scraped_at": "2026-03-31T17:06:39.815055+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -437,7 +437,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "86e61e4df7cb",
-      "scraped_at": "2026-03-31T16:12:53.469698+00:00",
+      "scraped_at": "2026-03-31T17:06:42.117192+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
@@ -468,7 +468,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "4b667f02d5b9",
-      "scraped_at": "2026-03-31T16:12:53.469827+00:00",
+      "scraped_at": "2026-03-31T17:06:42.117310+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -499,7 +499,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "de773a2ff5e1",
-      "scraped_at": "2026-03-31T16:12:55.901344+00:00",
+      "scraped_at": "2026-03-31T17:06:44.471966+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
@@ -530,7 +530,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "3225f36822b1",
-      "scraped_at": "2026-03-31T16:12:55.902107+00:00",
+      "scraped_at": "2026-03-31T17:06:44.472745+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -561,7 +561,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "357f901f41c3",
-      "scraped_at": "2026-03-31T16:12:58.192383+00:00",
+      "scraped_at": "2026-03-31T17:06:46.724012+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
@@ -592,7 +592,7 @@
       "filtered_in": true,
       "filter_reason": "Context + IT-synoniem",
       "content_hash": "ce81c29e55a6",
-      "scraped_at": "2026-03-31T16:13:45.914316+00:00",
+      "scraped_at": "2026-03-31T17:07:26.122949+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -623,7 +623,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "659961223c6c",
-      "scraped_at": "2026-03-31T16:13:11.240269+00:00",
+      "scraped_at": "2026-03-31T17:06:59.031962+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -654,7 +654,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "0f83ec3627ea",
-      "scraped_at": "2026-03-31T16:13:11.244949+00:00",
+      "scraped_at": "2026-03-31T17:06:59.036522+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -685,7 +685,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "a993b1357393",
-      "scraped_at": "2026-03-31T16:13:11.249582+00:00",
+      "scraped_at": "2026-03-31T17:06:59.041022+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -716,7 +716,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-03-31T16:13:11.254182+00:00",
+      "scraped_at": "2026-03-31T17:06:59.045571+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -747,7 +747,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "35014a455713",
-      "scraped_at": "2026-03-31T16:13:11.263381+00:00",
+      "scraped_at": "2026-03-31T17:06:59.054581+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -778,7 +778,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "0316880b5013",
-      "scraped_at": "2026-03-31T16:13:11.281742+00:00",
+      "scraped_at": "2026-03-31T17:06:59.072548+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -809,7 +809,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "a5f51374a3c8",
-      "scraped_at": "2026-03-31T16:13:11.304658+00:00",
+      "scraped_at": "2026-03-31T17:06:59.095019+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -840,7 +840,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "6ab8d6adafce",
-      "scraped_at": "2026-03-31T16:13:11.323106+00:00",
+      "scraped_at": "2026-03-31T17:06:59.113043+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -871,7 +871,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie",
       "content_hash": "b5b8a5b6ce61",
-      "scraped_at": "2026-03-31T16:13:11.327743+00:00",
+      "scraped_at": "2026-03-31T17:06:59.117579+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -902,7 +902,7 @@
       "filtered_in": true,
       "filter_reason": "Context + IT-synoniem",
       "content_hash": "584dffe37798",
-      "scraped_at": "2026-03-31T16:13:52.306428+00:00",
+      "scraped_at": "2026-03-31T17:07:32.289992+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: depubliekepartner.nl",
       "sources": [
