@@ -873,15 +873,26 @@ document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{
 //  SCRAPED RESULTS — laad van GitHub raw
 // ══════════════════════════════════════════
 const RAW_JSON = 'https://raw.githubusercontent.com/dietwinbetlem-commits/BSD-Gig-Job-Assignment-scraper/main/data/results.json';
+const RAW_JSON_FALLBACK = 'https://api.github.com/repos/dietwinbetlem-commits/BSD-Gig-Job-Assignment-scraper/contents/data/results.json';
 
 let scrapedData = null;
 
 async function fetchScraped() {
   const el = document.getElementById('scraped-status');
+  if(el) el.textContent = 'Laden…';
   try {
-    const r = await fetch(RAW_JSON + '?t=' + Date.now());
-    if(!r.ok) throw new Error(`HTTP ${r.status}`);
-    scrapedData = await r.json();
+    // Probeer eerst raw URL
+    let r = await fetch(RAW_JSON + '?t=' + Date.now());
+    if(!r.ok) {
+      // Fallback: GitHub API (geeft base64 encoded content)
+      r = await fetch(RAW_JSON_FALLBACK);
+      if(!r.ok) throw new Error(`HTTP ${r.status}`);
+      const apiData = await r.json();
+      const decoded = atob(apiData.content.replace(/\n/g, ''));
+      scrapedData = JSON.parse(decoded);
+    } else {
+      scrapedData = await r.json();
+    }
     if(el) el.textContent =
       `Scan: ${scrapedData.scraped_at_nl||'?'} · ${scrapedData.total_open||0} ✅ open · ${scrapedData.total_unknown||0} ❓ onbekend · ${scrapedData.total_closed||0} ❌ gesloten weggefilterd`;
     renderMatches();
