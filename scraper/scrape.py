@@ -234,8 +234,8 @@ def is_target(title, description='', search_term='', it_category=False):
     """
     Gelaagde filterlogica:
     1. Knock-out check (altijd)
-    2. Rol-check op TITEL+BESCHRIJVING (niet zoekterm)
-    3. IT-context check op gecombineerde tekst incl. zoekterm
+    2. Rol-check op TITEL — altijd verplicht, ook bij it_category
+    3. IT-context check — alleen nodig als it_category=False
     """
     title_desc = tl(f"{title} {description}")
     combined   = tl(f"{title} {description} {search_term}")
@@ -245,19 +245,23 @@ def is_target(title, description='', search_term='', it_category=False):
         if ko in combined:
             return False, f'Knock-out: "{ko}"'
 
-    # Laag 2: IT-specifieke management-termen in TITEL → direct match
-    if any(t in title_desc for t in IT_SPECIFIC_TERMS):
-        return True, 'IT-specifieke term'
+    # Laag 2: Rol-check — ALTIJD verplicht
+    has_it_role   = any(t in title_desc for t in IT_SPECIFIC_TERMS)
+    has_ctx_role  = any(t in title_desc for t in CONTEXT_DEPENDENT_TERMS)
 
-    # Laag 3: Context-afhankelijke rol in TITEL
-    has_context_term = any(t in title_desc for t in CONTEXT_DEPENDENT_TERMS)
-    if has_context_term:
-        if it_category:
-            return True, 'IT platform-categorie + rol match'
-        has_it = any(c in combined for c in IT_CONTEXT_SIGNALS)
-        return (True, 'Context + IT-synoniem') if has_it else (False, 'Geen IT-synoniem')
+    if not has_it_role and not has_ctx_role:
+        return False, 'Geen relevante managementrol in titel'
 
-    return False, 'Geen relevante rol'
+    # Laag 3: IT-context — alleen nodig als it_category=False
+    if has_it_role:
+        return True, 'IT-specifieke managementrol'
+
+    # has_ctx_role is True
+    if it_category:
+        return True, 'IT platform-categorie + managementrol'
+
+    has_it = any(c in combined for c in IT_CONTEXT_SIGNALS)
+    return (True, 'Managementrol + IT-synoniem') if has_it else (False, 'Geen IT-synoniem bij rol')
 
 def content_hash(title, opdrachtgever='', regio='', startdatum=''):
     def norm(s):
