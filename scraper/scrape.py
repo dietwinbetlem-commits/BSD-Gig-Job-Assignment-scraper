@@ -61,6 +61,8 @@ CONTEXT_DEPENDENT_TERMS = [
     'it risk', 'informatiebeveiliging',
     'projectmanager', 'project manager',
     'programmamanager', 'programma manager',
+    'it adviseur', 'ict adviseur', 'it consultant', 'ict consultant',
+    'service adviseur', 'interim manager',
 ]
 
 # IT-context vereist als combinatie met CONTEXT_DEPENDENT_TERMS
@@ -149,7 +151,9 @@ STEDEN = [
 
 def clean(text):
     if not text: return ''
-    return re.sub(r'\s+', ' ', str(text).strip())
+    # Verwijder zachte koppeltekens (U+00AD) en zero-width spaces
+    text = str(text).replace('\u00ad', '').replace('\u200b', '').replace('\u200c', '')
+    return re.sub(r'\s+', ' ', text.strip())
 
 def tl(text):
     return clean(text).lower()
@@ -1222,9 +1226,23 @@ def run():
     all_results = deduplicate(all_results)
     log.info(f'=== {len(all_results)} na deduplicatie ===')
 
+    # Per-platform statistieken
     relevant   = [r for r in all_results if r['filtered_in']]
     irrelevant = [r for r in all_results if not r['filtered_in']]
     log.info(f'Relevant: {len(relevant)} | Irrelevant: {len(irrelevant)}')
+
+    platform_stats = {}
+    for r in all_results:
+        src = r.get('source', 'unknown')
+        if src not in platform_stats:
+            platform_stats[src] = {'found': 0, 'relevant': 0}
+        platform_stats[src]['found'] += 1
+        if r['filtered_in']:
+            platform_stats[src]['relevant'] += 1
+
+    log.info('\n=== Per-platform ===')
+    for src, stats in platform_stats.items():
+        log.info(f'  {src[:30]:30} gevonden:{stats["found"]:3} relevant:{stats["relevant"]:3}')
 
     # Validatie
     log.info('\n=== Validatie ===')
@@ -1266,7 +1284,7 @@ def run():
         'errors':             errors,
         'results':            final,
         'closed_debug':       [{'title': r['title'], 'reason': r['vacancy_status_reason']} for r in closed_r[:10]],
-        'filtered_out_debug': [{'title': r['title'], 'source': r['source'], 'reason': r['filter_reason']} for r in irrelevant[:15]],
+        'filtered_out_debug': [{'title': r['title'], 'source': r['source'], 'reason': r['filter_reason']} for r in irrelevant[:50]],
     }
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
