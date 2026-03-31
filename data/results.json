@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-03-31T07:47:40.946674+00:00",
-  "scraped_at_nl": "31 March 2026 om 07:47",
-  "total_found": 62,
+  "scraped_at": "2026-03-31T08:19:17.003195+00:00",
+  "scraped_at_nl": "31 March 2026 om 08:19",
+  "total_found": 50,
   "total_relevant": 10,
   "total_open": 1,
   "total_unknown": 9,
   "total_closed": 0,
-  "total_filtered_out": 52,
+  "total_filtered_out": 40,
   "platforms_scraped": 11,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke term",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-03-31T07:46:23.090527+00:00",
+      "scraped_at": "2026-03-31T08:17:32.665152+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "329fe4e0d5c9",
-      "scraped_at": "2026-03-31T07:46:42.324614+00:00",
+      "scraped_at": "2026-03-31T08:17:51.747804+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -96,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "8707f96c0ec4",
-      "scraped_at": "2026-03-31T07:46:42.325811+00:00",
+      "scraped_at": "2026-03-31T08:17:51.749013+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -127,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "2cb27c33e807",
-      "scraped_at": "2026-03-31T07:46:42.325972+00:00",
+      "scraped_at": "2026-03-31T08:17:51.749174+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -158,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "1505b2232818",
-      "scraped_at": "2026-03-31T07:46:42.326132+00:00",
+      "scraped_at": "2026-03-31T08:17:51.749338+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -189,7 +189,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "6ea540066195",
-      "scraped_at": "2026-03-31T07:46:42.326628+00:00",
+      "scraped_at": "2026-03-31T08:17:51.749828+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -220,7 +220,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "bb796d42bc19",
-      "scraped_at": "2026-03-31T07:46:42.326791+00:00",
+      "scraped_at": "2026-03-31T08:17:51.749996+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -251,7 +251,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "e236c08f0d9e",
-      "scraped_at": "2026-03-31T07:46:42.327117+00:00",
+      "scraped_at": "2026-03-31T08:17:51.750320+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -282,7 +282,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "e08dce453086",
-      "scraped_at": "2026-03-31T07:46:42.327329+00:00",
+      "scraped_at": "2026-03-31T08:17:51.750484+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -313,7 +313,7 @@
       "filtered_in": true,
       "filter_reason": "Context-afhankelijke term + IT-context",
       "content_hash": "69c9e1a921e5",
-      "scraped_at": "2026-03-31T07:46:42.327816+00:00",
+      "scraped_at": "2026-03-31T08:17:51.751029+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -323,11 +323,6 @@
   ],
   "closed_debug": [],
   "filtered_out_debug": [
-    {
-      "title": "Servicenow IRM Transformation specialist",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante zoekterm"
-    },
     {
       "title": "Programma Coördinator AI Act",
       "source": "IT-Contracts.nl",
@@ -340,6 +335,11 @@
     },
     {
       "title": "Integratie Architect (Solutions Architect)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante zoekterm"
+    },
+    {
+      "title": "Chief Information Security Officer (CISO)",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante zoekterm"
     },
@@ -379,14 +379,14 @@
       "reason": "Geen relevante zoekterm"
     },
     {
-      "title": "Linux devops engineer",
+      "title": "Meerinzicht Recordmana­ger",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante zoekterm"
     },
     {
-      "title": "Meerinzicht Recordmanager",
+      "title": "Programma Manager CBW",
       "source": "IT-Contracts.nl",
-      "reason": "Geen relevante zoekterm"
+      "reason": "Geen IT-context bij procesmanager/change/risk term"
     },
     {
       "title": "Senior Projectmanager",
@@ -394,9 +394,9 @@
       "reason": "Geen IT-context bij procesmanager/change/risk term"
     },
     {
-      "title": "Programma Manager CBW",
+      "title": "Senior Projectleider Implementatie Microsoft 365 Purview",
       "source": "IT-Contracts.nl",
-      "reason": "Geen IT-context bij procesmanager/change/risk term"
+      "reason": "Geen relevante zoekterm"
     }
   ]
 }
