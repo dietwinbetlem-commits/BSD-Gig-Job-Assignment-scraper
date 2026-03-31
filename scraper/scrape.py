@@ -155,25 +155,48 @@ def tl(text):
     return clean(text).lower()
 
 def detect_location(text):
-    """Detecteer stad in tekst. Vermijd provincie-namen die stad overschrijven."""
-    # Specifieke steden eerst (meest specifiek)
+    """Detecteer stad in tekst. Provincie → hoofdstad als fallback."""
+    t = text.lower()
+
+    # Specifieke steden eerst
     specific_cities = [
         'Amsterdam', 'Rotterdam', 'Den Haag', 'Eindhoven', 'Groningen',
         'Tilburg', 'Almere', 'Breda', 'Nijmegen', 'Apeldoorn', 'Haarlem', 'Arnhem',
         'Zwolle', 'Zoetermeer', 'Leiden', 'Maastricht', 'Dordrecht', 'Ede', 'Venlo',
         'Deventer', 'Delft', 'Assen', 'Amersfoort', 'Heerlen', 'Leeuwarden', 'Helmond',
         'Alkmaar', 'Emmen', 'Enschede', 'Den Bosch', 'Schiedam', 'Maarssen',
-        'Haarlemmermeer', 'Westland', 'Houten', 'Alphen', 'Barendrecht',
+        'Haarlemmermeer', 'Westland', 'Houten', 'Barendrecht',
         'Woerden', 'Zeist', 'Nieuwegein', 'Veenendaal', 'Culemborg',
+        'Middelburg', 'Lelystad', 'Zierikzee',
     ]
     for stad in specific_cities:
-        if stad.lower() in text.lower():
+        if stad.lower() in t:
             return stad
 
-    # Utrecht als stad alleen als het niet "Provincie Utrecht" of "Waterschap" is
-    if 'utrecht' in text.lower():
-        if 'provincie utrecht' not in text.lower() and 'waterschap' not in text.lower():
+    # Utrecht als stad — alleen niet bij provincie/waterschap
+    if 'utrecht' in t:
+        if 'provincie utrecht' not in t and 'waterschap' not in t:
             return 'Utrecht'
+
+    # Provincie → hoofdstad mapping
+    provincie_map = {
+        'provincie noord-holland': 'Haarlem',
+        'provincie zuid-holland':  'Den Haag',
+        'provincie utrecht':       'Utrecht',
+        'provincie gelderland':    'Arnhem',
+        'provincie overijssel':    'Zwolle',
+        'provincie noord-brabant': 'Den Bosch',
+        'provincie limburg':       'Maastricht',
+        'provincie friesland':     'Leeuwarden',
+        'provincie groningen':     'Groningen',
+        'provincie drenthe':       'Assen',
+        'provincie zeeland':       'Middelburg',
+        'provincie flevoland':     'Lelystad',
+        'provincie fryslân':       'Leeuwarden',
+    }
+    for prov, stad in provincie_map.items():
+        if prov in t:
+            return stad
 
     return ''
 
