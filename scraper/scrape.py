@@ -293,6 +293,8 @@ def parse_itcontracts(html, source, pid, url):
     results, seen = [], set()
     if not html: return results
     soup = BeautifulSoup(html, 'html.parser')
+    for tag in soup.find_all(['footer', 'nav', 'aside', 'header']):
+        tag.decompose()
     for link in soup.find_all('a', href=re.compile(r'/vacature_')):
         href = link.get('href', '')
         full = urljoin('https://www.it-contracts.nl', href)
@@ -303,7 +305,7 @@ def parse_itcontracts(html, source, pid, url):
         row = link.find_parent(['tr', 'div', 'li'])
         loc = tarief = ''
         if row:
-            text = row.get_text()
+            text = row.get_text()[:300]  # Begrens tot 300 chars
             loc = detect_location(text)
             m = re.search(r'(\d{2,3})\s*[-–]\s*(\d{2,3})\s*(per uur|/uur|€)', text)
             if m: tarief = f"€{m.group(1)}-{m.group(2)}/u"
@@ -315,6 +317,11 @@ def parse_freep(html, source, pid, url):
     results, seen = [], set()
     if not html: return results
     soup = BeautifulSoup(html, 'html.parser')
+
+    # Verwijder footer/nav/sidebar zodat die locaties niet meegepakt worden
+    for tag in soup.find_all(['footer', 'nav', 'aside', 'header']):
+        tag.decompose()
+
     for link in soup.find_all('a', href=re.compile(r'/opdracht/')):
         href = link.get('href', '')
         full = urljoin('https://www.freep.nl', href)
@@ -322,20 +329,31 @@ def parse_freep(html, source, pid, url):
         seen.add(full)
         title = clean(link.get_text())
         if len(title) < 8: continue
+
         parent = link.find_parent(['li', 'div', 'article'])
         loc = hours = desc = ''
         if parent:
-            text = parent.get_text()
-            loc = detect_location(text)
-            m = re.search(r'(\d{2,3})\s*uur', text)
+            # Locatie alleen uit specifieke elementen
+            for loc_cls in ['locatie', 'location', 'stad', 'city', 'regio', 'plaats']:
+                loc_el = parent.find(class_=re.compile(loc_cls, re.I))
+                if loc_el:
+                    loc = detect_location(loc_el.get_text())
+                    if loc: break
+
+            # Als nog geen locatie: zoek alleen in een korte tekst direct rond de link
+            if not loc:
+                # Zoek locatie in de titel zelf
+                loc = detect_location(title)
+
+            # Uren
+            m = re.search(r'(\d{2,3})\s*uur', parent.get_text()[:200])
             if m: hours = f"{m.group(1)}u/wk"
-            # Pak beschrijving voor IT-context check
-            desc_el = parent.find(class_=re.compile(r'desc|omschrijving|tekst|intro', re.I))
+
+            # Beschrijving — alleen eerste 200 chars van de card
+            desc_el = parent.find(class_=re.compile(r'desc|omschrijving|tekst|intro|summary', re.I))
             if desc_el:
                 desc = clean(desc_el.get_text())
-            else:
-                # Gebruik alle tekst als beschrijving
-                desc = clean(text)[:200]
+
         results.append(make_result(title, full, source, pid, 'zzp',
                                    location=loc, hours=hours, description=desc))
     log.info(f'  → {len(results)} items')
