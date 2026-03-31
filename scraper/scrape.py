@@ -65,7 +65,7 @@ CONTEXT_DEPENDENT_TERMS = [
 
 # IT-context vereist als combinatie met CONTEXT_DEPENDENT_TERMS
 IT_CONTEXT_SIGNALS = [
-    'it ', 'ict', 'digital', 'software', 'systeem', 'system',
+    'it-', 'it ', 'ict', 'ict-', 'digital', 'software', 'systeem', 'system',
     'applicatie', 'application', 'infra', 'cloud', 'netwerk', 'network',
     'itsm', 'siam', 'itil', 'agile', 'scrum', 'devops',
     'security', 'informatiebeveiliging', 'compliance', 'governance',
@@ -75,6 +75,8 @@ IT_CONTEXT_SIGNALS = [
     'change management', 'problem management', 'configuration', 'cmdb',
     'leveranciersregie', 'leveranciersmanagement', 'sla-beheer',
     'iso 27001', 'nen 7510', 'cism', 'ciso',
+    'service integratie', 'service integration', 'service delivery',
+    'servicemanager', 'service management',
 ]
 
 KNOCKOUT_TERMS = [
@@ -205,8 +207,12 @@ def detect_contract(text):
     if any(s in t for s in ZZP_NEGATIVE): types.append('loon')
     return types if types else ['zzp']  # default aanname voor opdrachten-platforms
 
-def is_target(title, description=''):
-    combined = tl(f"{title} {description}")
+def is_target(title, description='', search_term=''):
+    """
+    search_term: de zoekterm die gebruikt werd om deze vacature te vinden.
+    Als de zoekterm al IT-specifiek is, is minder context in de tekst nodig.
+    """
+    combined = tl(f"{title} {description} {search_term}")
 
     # Check knock-out termen eerste
     for ko in KNOCKOUT_TERMS:
