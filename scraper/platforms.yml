@@ -29,8 +29,8 @@ platforms:
   category: aggregator
   type: authenticated
   parser: striive_auth
-  active: true
-  note: Grootste NL interim platform. Login vereist voor volledige resultaten.
+  active: false
+  note: 'Uitgeschakeld: React SPA zonder scrape-baar API endpoint'
   credentials:
     username_secret: STRIVE_EMAIL
     password_secret: STRIVE_PASSWORD
