@@ -805,26 +805,49 @@ def scrape_striive_auth(platform, results_list):
                 pass
 
         time.sleep(2)
-        items = _extract_results_from_page(page, label, pid,
-                                           'https://striive.com',
-                                           r'/nl/opdrachten/\d+')
-        log.info(f'  → {len(items)} items van Striive')
-        results_list.extend(items)
 
-        # Scroll voor meer
-        for _ in range(3):
+        # Gebruik Playwright native DOM querying — BeautifulSoup mist dynamische React links
+        try:
+            # Wacht tot opdracht-links zichtbaar zijn in de live DOM
+            page.wait_for_selector('a[href*="/nl/opdrachten/"]', timeout=10000)
+            log.info('  Striive: opdracht-links gevonden in DOM')
+        except Exception:
+            log.warning('  Striive: geen opdracht-links in DOM na 10s')
+
+        # Haal links direct uit de live DOM via Playwright
+        links = page.query_selector_all('a[href*="/nl/opdrachten/"]')
+        log.info(f'  Striive: {len(links)} links gevonden in DOM')
+
+        seen = set()
+        for link in links:
             try:
-                page.keyboard.press('End')
-                time.sleep(3)
-                more = _extract_results_from_page(page, label, pid,
-                                                  'https://striive.com',
-                                                  r'/nl/opdrachten/\d+')
-                new = [r for r in more if r['url'] not in
-                       {x['url'] for x in results_list}]
-                results_list.extend(new)
-                if not new: break
+                href = link.get_attribute('href') or ''
+                if not href.startswith('http'):
+                    href = 'https://striive.com' + href
+                if href in seen: continue
+                seen.add(href)
+
+                # Zoek titel in parent element
+                parent = link.query_selector('xpath=../..')
+                title = ''
+                if parent:
+                    h_el = parent.query_selector('h2, h3, h4, strong')
+                    title = clean(h_el.inner_text()) if h_el else clean(link.inner_text())
+                else:
+                    title = clean(link.inner_text())
+
+                if len(title) < 8: continue
+
+                text = parent.inner_text() if parent else title
+                loc = detect_location(text)
+                results_list.append(make_result(
+                    title, href, label, pid, 'aggregator',
+                    location=loc, it_category=True
+                ))
             except Exception:
-                break
+                continue
+
+        log.info(f'  → {len([r for r in results_list if r["platform_id"] == pid])} items van Striive')
 
         log.info(f'  → Striive totaal: {sum(1 for r in results_list if r["platform_id"] == pid)}')
 
