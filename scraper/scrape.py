@@ -49,6 +49,11 @@ IT_SPECIFIC_TERMS = [
     'change management', 'problem management',
     'release management', 'configuration management',
     'it sourcing', 'managed services manager',
+    # Security & compliance rollen
+    'chief information security', 'ciso',
+    'information security officer',
+    'bcm consultant', 'business continuity',
+    'business controller it', 'business controller ict',
 ]
 
 # Termen die ALLEEN matchen als ook een IT-context aanwezig is
@@ -490,7 +495,10 @@ def parse_publiekepartner(html, source, pid, url):
 
     # Zoek alle links naar individuele opdrachten
     # Individuele opdrachten hebben slug-URLs (geen /categorie/, /rol/, /pagina/)
-    skip_patterns = re.compile(r'/(categorie|rol|pagina|tag|author|feed|wp-|login)/', re.I)
+    skip_patterns = re.compile(
+        r'/(categorie|rol|pagina|tag|author|feed|wp-|login|nieuwste-opdrachten)/',
+        re.I
+    )
 
     for link in soup.find_all('a', href=re.compile(r'depubliekepartner\.nl/[a-z]', re.I)):
         href = link.get('href', '')
