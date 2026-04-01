@@ -772,12 +772,39 @@ def scrape_striive_auth(platform, results_list):
             try:
                 if page.locator(tab_sel).count() > 0:
                     page.click(tab_sel)
-                    time.sleep(2)
                     log.info(f'  Striive: tab geklikt: {tab_sel}')
                     break
             except Exception:
                 continue
 
+        # Wacht tot SPA content geladen is — probeer meerdere selectors
+        loaded = False
+        for wait_sel in [
+            'a[href*="/nl/opdrachten/"]',
+            '[class*="assignment"]',
+            '[class*="vacancy"]',
+            '[class*="job-card"]',
+            '[class*="opdracht"]',
+            'article',
+        ]:
+            try:
+                page.wait_for_selector(wait_sel, timeout=8000)
+                log.info(f'  Striive: content geladen via selector: {wait_sel}')
+                loaded = True
+                break
+            except Exception:
+                continue
+
+        if not loaded:
+            log.warning('  Striive: geen content-selector gevonden na 8s — HTML dump:')
+            # Log 1000 chars van de body voor diagnose
+            try:
+                body = page.locator('body').inner_text()
+                log.info(f'  Striive body tekst: {body[:500]}')
+            except Exception:
+                pass
+
+        time.sleep(2)
         items = _extract_results_from_page(page, label, pid,
                                            'https://striive.com',
                                            r'/nl/opdrachten/\d+')
@@ -788,7 +815,7 @@ def scrape_striive_auth(platform, results_list):
         for _ in range(3):
             try:
                 page.keyboard.press('End')
-                time.sleep(2)
+                time.sleep(3)
                 more = _extract_results_from_page(page, label, pid,
                                                   'https://striive.com',
                                                   r'/nl/opdrachten/\d+')
