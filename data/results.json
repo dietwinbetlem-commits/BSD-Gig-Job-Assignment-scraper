@@ -1,13 +1,13 @@
 {
-  "scraped_at": "2026-04-01T11:31:01.112021+00:00",
-  "scraped_at_nl": "01 April 2026 om 11:31",
-  "total_found": 61,
-  "total_relevant": 11,
-  "total_open": 2,
+  "scraped_at": "2026-04-01T12:04:26.055113+00:00",
+  "scraped_at_nl": "01 April 2026 om 12:04",
+  "total_found": 39,
+  "total_relevant": 15,
+  "total_open": 6,
   "total_unknown": 9,
   "total_closed": 0,
-  "total_filtered_out": 50,
-  "platforms_scraped": 15,
+  "total_filtered_out": 24,
+  "platforms_scraped": 8,
   "errors": [],
   "results": [
     {
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-04-01T11:27:44.836969+00:00",
+      "scraped_at": "2026-04-01T12:02:37.291785+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -42,8 +42,8 @@
       ]
     },
     {
-      "title": "Projectmanager ICT Library",
-      "url": "https://www.it-contracts.nl/vacature_Projectmanager_ICT_Library_287224/search/LAST%3A50/from/",
+      "title": "Chief Information Security Officer (CISO)",
+      "url": "https://www.it-contracts.nl/vacature_Chief_Information_Security_Officer_%28CISO%29_287199/search/management+servicemanager/from/0",
       "source": "IT-Contracts.nl",
       "platform_id": "itcontracts",
       "category": "itcontracts",
@@ -63,11 +63,135 @@
       ],
       "zzp_tier": 2,
       "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "492452f6879a",
-      "scraped_at": "2026-04-01T11:27:44.838462+00:00",
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "637644868455",
+      "scraped_at": "2026-04-01T12:02:37.292327+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "7 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "BCM Consultant *33014-1",
+      "url": "https://www.it-contracts.nl/vacature__BCM_Consultant_%2A33014-1_287229/search/LAST%3A50/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "fb7f9a8ce02a",
+      "scraped_at": "2026-04-01T12:02:37.292914+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Senior Information Security Officer",
+      "url": "https://www.it-contracts.nl/vacature_Senior_Information_Security_Officer_287225/search/LAST%3A50/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "c2ffe2dcdca6",
+      "scraped_at": "2026-04-01T12:02:37.293271+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Projectmanager ICT Library",
+      "url": "https://www.it-contracts.nl/vacature_Projectmanager_ICT_Library_287224/search/management+procesmanager/from/0",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "Managementrol + IT-synoniem",
+      "content_hash": "492452f6879a",
+      "scraped_at": "2026-04-01T12:02:39.606142+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Business Controller IT",
+      "url": "https://www.it-contracts.nl/vacature_Business_Controller_IT_287058/search/ITIL/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "357f901f41c3",
+      "scraped_at": "2026-04-01T12:02:44.250015+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "7 open-signalen",
       "sources": [
         "IT-Contracts.nl"
       ]
@@ -96,7 +220,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "659961223c6c",
-      "scraped_at": "2026-04-01T11:28:04.585228+00:00",
+      "scraped_at": "2026-04-01T12:02:57.292242+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -127,7 +251,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "0f83ec3627ea",
-      "scraped_at": "2026-04-01T11:28:04.589704+00:00",
+      "scraped_at": "2026-04-01T12:02:57.296339+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -158,7 +282,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "a993b1357393",
-      "scraped_at": "2026-04-01T11:28:04.594167+00:00",
+      "scraped_at": "2026-04-01T12:02:57.300507+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -189,7 +313,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-01T11:28:04.598607+00:00",
+      "scraped_at": "2026-04-01T12:02:57.304573+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -220,7 +344,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "35014a455713",
-      "scraped_at": "2026-04-01T11:28:04.607532+00:00",
+      "scraped_at": "2026-04-01T12:02:57.312735+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -251,7 +375,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "0316880b5013",
-      "scraped_at": "2026-04-01T11:28:04.625274+00:00",
+      "scraped_at": "2026-04-01T12:02:57.329015+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -282,7 +406,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "a5f51374a3c8",
-      "scraped_at": "2026-04-01T11:28:04.647470+00:00",
+      "scraped_at": "2026-04-01T12:02:57.349491+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -313,7 +437,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "6ab8d6adafce",
-      "scraped_at": "2026-04-01T11:28:04.665360+00:00",
+      "scraped_at": "2026-04-01T12:02:57.365845+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -344,7 +468,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "b5b8a5b6ce61",
-      "scraped_at": "2026-04-01T11:28:04.669830+00:00",
+      "scraped_at": "2026-04-01T12:02:57.369958+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -370,7 +494,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Chief Information Security Officer (CISO)",
+      "title": "Senior Applicatiebeheerder",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Teammanager Vergunningen Bovengrond",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Software Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -385,32 +519,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "BCM Consultant *33014-1",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Business consultant",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Data Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Information Security Officer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Sr. Expert Interne Beheersing Non IT",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -425,22 +539,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Managementassistent",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Senior Projectleider Implementatie Microsoft 365 Purview",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Testcoördinator OSIRIS",
+      "title": "Senior Managementassistent",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Business Controller IT",
+      "title": "Testcoördinator OSIRIS",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -488,121 +597,6 @@
       "title": "Hr procesmanagergemeente Eindhoven",
       "source": "Freep.nl",
       "reason": "Knock-out: \"hr procesmanager\""
-    },
-    {
-      "title": "CareerSpot®",
-      "source": "FlexSpot.io",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 24-02-2026",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 19-02-2026",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 19-12-2025",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 18-12-2025",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 21-11-2025",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 13-11-2025",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 29-10-2025",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 23-10-2025",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 07-10-2025",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 02-10-2025",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 26-03-2026",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 17-03-2026",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 13-02-2026",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 20-01-2026",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 29-12-2025",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 25-03-2026",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 27-02-2026",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 23-02-2026",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 11-02-2026",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 29-07-2025",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 15-05-2025",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 03-06-2025",
-      "source": "De Publieke Partner",
-      "reason": "Geen relevante managementrol in titel"
     }
   ]
 }
