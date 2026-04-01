@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-04-01T08:51:35.415228+00:00",
-  "scraped_at_nl": "01 April 2026 om 08:51",
-  "total_found": 38,
+  "scraped_at": "2026-04-01T10:06:13.614253+00:00",
+  "scraped_at_nl": "01 April 2026 om 10:06",
+  "total_found": 47,
   "total_relevant": 11,
   "total_open": 2,
   "total_unknown": 9,
   "total_closed": 0,
-  "total_filtered_out": 27,
+  "total_filtered_out": 36,
   "platforms_scraped": 15,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-04-01T08:48:41.837444+00:00",
+      "scraped_at": "2026-04-01T10:03:46.743732+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "492452f6879a",
-      "scraped_at": "2026-04-01T08:48:41.838817+00:00",
+      "scraped_at": "2026-04-01T10:03:46.745186+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -96,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "659961223c6c",
-      "scraped_at": "2026-04-01T08:49:02.175547+00:00",
+      "scraped_at": "2026-04-01T10:04:07.194290+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -127,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "0f83ec3627ea",
-      "scraped_at": "2026-04-01T08:49:02.180115+00:00",
+      "scraped_at": "2026-04-01T10:04:07.198797+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -158,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "a993b1357393",
-      "scraped_at": "2026-04-01T08:49:02.184683+00:00",
+      "scraped_at": "2026-04-01T10:04:07.203347+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -189,7 +189,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-01T08:49:02.189227+00:00",
+      "scraped_at": "2026-04-01T10:04:07.207801+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -220,7 +220,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "35014a455713",
-      "scraped_at": "2026-04-01T08:49:02.198315+00:00",
+      "scraped_at": "2026-04-01T10:04:07.216693+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -251,7 +251,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "0316880b5013",
-      "scraped_at": "2026-04-01T08:49:02.216438+00:00",
+      "scraped_at": "2026-04-01T10:04:07.234448+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -282,7 +282,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "a5f51374a3c8",
-      "scraped_at": "2026-04-01T08:49:02.239362+00:00",
+      "scraped_at": "2026-04-01T10:04:07.256619+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -313,7 +313,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "6ab8d6adafce",
-      "scraped_at": "2026-04-01T08:49:02.257676+00:00",
+      "scraped_at": "2026-04-01T10:04:07.274419+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -344,7 +344,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "b5b8a5b6ce61",
-      "scraped_at": "2026-04-01T08:49:02.262258+00:00",
+      "scraped_at": "2026-04-01T10:04:07.278861+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -487,6 +487,51 @@
     {
       "title": "CareerSpot®",
       "source": "FlexSpot.io",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Facebook",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "X (Twitter)",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "LinkedIn",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Expert Adreskwaliteit Burgerzaken Gemeente Haarlemmermeer Noord-Holland Detachering 86.00 - 96.00",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Secretaris Adviesraad Sociaal Domein Gemeente Gooise Meren Noord-Holland Freelance 70.00",
+      "source": "Jobhob.nl",
+      "reason": "Knock-out: \"sociaal domein\""
+    },
+    {
+      "title": "Afhandeling bezwaren WOZ en Training on the job Gemeente Purmerend Noord-Holland Detachering 95.00 Sluit over 5 dagen",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Juridisch Adviseur Natuur OD NHN Noord-Holland Detachering schaal 10 Sluit over 6 dagen",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Werkvoorbereider beheer openbare ruimte Avri Drenthe Detachering 75.00",
+      "source": "Jobhob.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Adviseur Klimaatadapatie Gemeente Altena Drenthe Detachering 100.00",
+      "source": "Jobhob.nl",
       "reason": "Geen relevante managementrol in titel"
     }
   ]
