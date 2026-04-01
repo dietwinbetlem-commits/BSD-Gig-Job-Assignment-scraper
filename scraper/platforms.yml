@@ -97,11 +97,11 @@ platforms:
     type: public
     parser: freep
     active: true
-    note: "Categorie-URLs bevatten gemixte rollen — geen it_category override"
+    note: "Categorie-URL is gemixed maar knock-outs filteren niet-IT rollen"
     searches:
       - url: "https://www.freep.nl/zzp/procesmanager"
         term: "procesmanager"
-        it_category: false
+        it_category: true
       - url: "https://www.freep.nl/zzp/it-servicemanager"
         term: "servicemanager"
         it_category: true

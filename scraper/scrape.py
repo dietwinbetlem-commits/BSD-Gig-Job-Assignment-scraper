@@ -484,23 +484,39 @@ def parse_publiekepartner(html, source, pid, url):
     results, seen = [], set()
     if not html: return results
     soup = BeautifulSoup(html, 'html.parser')
-    for link in soup.find_all('a', href=re.compile(r'(opdracht|bekijk)', re.I)):
+
+    # Verwijder navigatie/header/footer
+    for tag in soup.find_all(['nav', 'header', 'footer', 'aside']):
+        tag.decompose()
+
+    # Echte vacatures hebben een tarief of uren-aanduiding in de parent
+    # Navigatiecategorieën hebben die niet
+    for link in soup.find_all('a', href=re.compile(r'depubliekepartner\.nl.*opdracht|/opdracht/', re.I)):
         href = link.get('href', '')
         if not href.startswith('http'):
             href = urljoin('https://depubliekepartner.nl', href)
         if href in seen: continue
         seen.add(href)
         title = clean(link.get_text())
-        if len(title) < 8: continue
+        if len(title) < 10: continue
+
         parent = link.find_parent(['div', 'li', 'article'])
-        loc = tarief = org = ''
-        if parent:
-            text = parent.get_text()
-            loc = detect_location(text)
-            m = re.search(r'Tarief:\s*(\d+)', text)
-            if m: tarief = f"€{m.group(1)}/u"
-            m2 = re.search(r'Organisatie:\s*([^\n]+)', text)
-            if m2: org = clean(m2.group(1))
+        if not parent: continue
+
+        text = parent.get_text()
+
+        # Echte vacature heeft tarief of uren-info
+        has_meta = (re.search(r'tarief|per uur|uren|startdatum|deadline', text, re.I) or
+                    re.search(r'\d+\s*(uur|u/week)', text, re.I))
+        if not has_meta: continue
+
+        loc = detect_location(text)
+        tarief = ''
+        m = re.search(r'Tarief:\s*(\d+)', text)
+        if m: tarief = f"€{m.group(1)}/u"
+        m2 = re.search(r'Organisatie:\s*([^\n]+)', text)
+        org = clean(m2.group(1)) if m2 else ''
+
         results.append(make_result(title, href, source, pid, 'overheid',
                                    location=loc, tarief=tarief, opdrachtgever=org))
     log.info(f'  → {len(results)} items')
