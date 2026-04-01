@@ -184,11 +184,23 @@ platforms:
     type: public
     parser: publiekepartner
     active: true
+    note: "Gebruik zoek-URLs, niet categorie-overzichten"
     searches:
-      - url: "https://depubliekepartner.nl/rol/zzp-opdrachten-procesmanager/"
-        term: "procesmanager"
-      - url: "https://depubliekepartner.nl/rol/zzp-opdrachten-servicemanager/"
-        term: "servicemanager"
+      - url: "https://depubliekepartner.nl/?s=procesmanager+ITSM"
+        term: "procesmanager ITSM"
+        it_category: true
+      - url: "https://depubliekepartner.nl/?s=servicemanager+IT"
+        term: "servicemanager IT"
+        it_category: true
+      - url: "https://depubliekepartner.nl/?s=service+delivery+manager"
+        term: "service delivery manager"
+        it_category: true
+      - url: "https://depubliekepartner.nl/?s=SIAM"
+        term: "SIAM"
+        it_category: true
+      - url: "https://depubliekepartner.nl/?s=ITSM"
+        term: "ITSM"
+        it_category: true
 
   # ── BUREAUS ──────────────────────────────────────────────────
 

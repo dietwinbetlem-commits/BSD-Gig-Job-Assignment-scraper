@@ -485,36 +485,34 @@ def parse_publiekepartner(html, source, pid, url):
     if not html: return results
     soup = BeautifulSoup(html, 'html.parser')
 
-    # Verwijder navigatie/header/footer
     for tag in soup.find_all(['nav', 'header', 'footer', 'aside']):
         tag.decompose()
 
-    # Echte vacatures hebben een tarief of uren-aanduiding in de parent
-    # Navigatiecategorieën hebben die niet
-    for link in soup.find_all('a', href=re.compile(r'depubliekepartner\.nl.*opdracht|/opdracht/', re.I)):
+    # Zoek alle links naar individuele opdrachten
+    # Individuele opdrachten hebben slug-URLs (geen /categorie/, /rol/, /pagina/)
+    skip_patterns = re.compile(r'/(categorie|rol|pagina|tag|author|feed|wp-|login)/', re.I)
+
+    for link in soup.find_all('a', href=re.compile(r'depubliekepartner\.nl/[a-z]', re.I)):
         href = link.get('href', '')
         if not href.startswith('http'):
             href = urljoin('https://depubliekepartner.nl', href)
         if href in seen: continue
+        if skip_patterns.search(href): continue
         seen.add(href)
+
         title = clean(link.get_text())
         if len(title) < 10: continue
+        # Filter generieke teksten
+        if any(x in title.lower() for x in ['bekijk opdracht', 'lees meer', 'volgende', 'vorige', 'home']):
+            continue
 
-        parent = link.find_parent(['div', 'li', 'article'])
-        if not parent: continue
-
-        text = parent.get_text()
-
-        # Echte vacature heeft tarief of uren-info
-        has_meta = (re.search(r'tarief|per uur|uren|startdatum|deadline', text, re.I) or
-                    re.search(r'\d+\s*(uur|u/week)', text, re.I))
-        if not has_meta: continue
-
+        parent = link.find_parent(['div', 'li', 'article', 'h2', 'h3'])
+        text = parent.get_text() if parent else title
         loc = detect_location(text)
         tarief = ''
-        m = re.search(r'Tarief:\s*(\d+)', text)
+        m = re.search(r'[Tt]arief:?\s*(\d+)', text)
         if m: tarief = f"€{m.group(1)}/u"
-        m2 = re.search(r'Organisatie:\s*([^\n]+)', text)
+        m2 = re.search(r'[Oo]rganisatie:?\s*([^\n·|]+)', text)
         org = clean(m2.group(1)) if m2 else ''
 
         results.append(make_result(title, href, source, pid, 'overheid',
