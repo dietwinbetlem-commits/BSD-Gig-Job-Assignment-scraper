@@ -814,60 +814,88 @@ def scrape_striive_auth(platform, results_list):
         except Exception:
             log.warning('  Striive: geen opdracht-links in DOM na 10s')
 
-        # Gebruik page.evaluate() om JavaScript-gerenderde links te vangen
-        # Striive gebruikt onClick handlers, geen gewone href links
-        try:
-            assignments = page.evaluate('''() => {
-                const results = [];
-                // Zoek alle elementen met opdracht-tekst in de buurt van een link
-                const allLinks = document.querySelectorAll('a[href]');
-                allLinks.forEach(a => {
-                    const href = a.getAttribute('href') || '';
-                    if (href.includes('/opdrachten/') || href.includes('/assignment/')) {
-                        const title = a.innerText.trim() || 
-                                      a.closest('[class]')?.querySelector('h2,h3,h4,strong')?.innerText.trim() || '';
-                        if (title.length > 5) {
-                            results.push({href: href, title: title});
-                        }
-                    }
-                });
-                
-                // Fallback: zoek clickable cards met titels
-                if (results.length === 0) {
-                    const cards = document.querySelectorAll('[class*="card"], [class*="Card"], [class*="assignment"], [class*="Assignment"], [class*="job"], [class*="Job"]');
-                    cards.forEach(card => {
-                        const link = card.querySelector('a[href]');
-                        const title = card.querySelector('h2,h3,h4,strong')?.innerText.trim() || '';
-                        if (link && title.length > 5) {
-                            results.push({href: link.getAttribute('href'), title: title});
-                        }
-                    });
-                }
-                return results;
-            }''')
-            log.info(f'  Striive: {len(assignments)} assignments via evaluate()')
-            for a in assignments[:3]:
-                log.info(f'    {a["href"]} | {a["title"][:40]}')
-        except Exception as e:
-            log.warning(f'  Striive evaluate() fout: {e}')
-            assignments = []
+        # Striive gebruikt React Router zonder href links.
+        # Onderschep de API response die de opdrachten levert.
+        api_data = []
 
-        seen = set()
-        for a in assignments:
+        def handle_response(response):
             try:
-                href = a.get('href', '')
-                title = a.get('title', '')
-                if not href or not title or len(title) < 8: continue
-                if not href.startswith('http'):
-                    href = 'https://striive.com' + href
-                if href in seen: continue
-                seen.add(href)
-                results_list.append(make_result(
-                    title, href, label, pid, 'aggregator',
-                    it_category=True
-                ))
+                url = response.url
+                # Zoek JSON responses van de Striive API
+                if ('api' in url or 'assignment' in url or 'opdracht' in url or
+                        'graphql' in url or 'search' in url) and response.status == 200:
+                    ct = response.headers.get('content-type', '')
+                    if 'json' in ct:
+                        data = response.json()
+                        log.info(f'  Striive API: {url[:80]} → {str(data)[:100]}')
+                        api_data.append({'url': url, 'data': data})
+            except Exception:
+                pass
+
+        page.on('response', handle_response)
+
+        # Herlaad de pagina zodat we alle API calls opvangen
+        log.info('  Striive: herlaad pagina voor API interceptie')
+        page.goto('https://striive.com/nl/opdrachten', timeout=20000)
+        page.wait_for_load_state('networkidle', timeout=15000)
+        time.sleep(3)
+
+        # Klik Aanbevolen tab opnieuw
+        for tab_sel in ['button:has-text("Aanbevolen")', 'a:has-text("Aanbevolen")']:
+            try:
+                if page.locator(tab_sel).count() > 0:
+                    page.click(tab_sel)
+                    time.sleep(4)
+                    log.info(f'  Striive: Aanbevolen tab geklikt (herlaad)')
+                    break
             except Exception:
                 continue
+
+        log.info(f'  Striive: {len(api_data)} API responses onderschept')
+
+        seen = set()
+        for entry in api_data:
+            data = entry['data']
+            # Probeer assignments uit de JSON te halen
+            items_list = []
+            if isinstance(data, list):
+                items_list = data
+            elif isinstance(data, dict):
+                for key in ['data', 'assignments', 'results', 'items', 'edges', 'nodes']:
+                    if key in data:
+                        val = data[key]
+                        if isinstance(val, list):
+                            items_list = val
+                            break
+                        elif isinstance(val, dict) and 'edges' in val:
+                            items_list = [e.get('node', e) for e in val['edges']]
+                            break
+
+            for item in items_list:
+                if not isinstance(item, dict): continue
+                # Haal titel en URL uit het item
+                title = (item.get('title') or item.get('name') or
+                         item.get('function') or item.get('functie') or '')
+                slug  = (item.get('slug') or item.get('id') or
+                         item.get('assignmentId') or '')
+                url_field = item.get('url') or item.get('link') or ''
+                if url_field:
+                    full_url = url_field if url_field.startswith('http') else f'https://striive.com{url_field}'
+                elif slug:
+                    full_url = f'https://striive.com/nl/opdrachten/{slug}'
+                else:
+                    continue
+                if not title or len(title) < 4 or full_url in seen:
+                    continue
+                seen.add(full_url)
+                org = (item.get('client') or item.get('company') or
+                       item.get('opdrachtgever') or item.get('organization') or '')
+                loc = detect_location(str(item))
+                results_list.append(make_result(
+                    clean(title), full_url, label, pid, 'aggregator',
+                    location=loc, opdrachtgever=clean(str(org)),
+                    it_category=True
+                ))
 
         log.info(f'  → {sum(1 for r in results_list if r["platform_id"] == pid)} items van Striive')
 
