@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-04-01T12:51:12.043413+00:00",
-  "scraped_at_nl": "01 April 2026 om 12:51",
-  "total_found": 39,
-  "total_relevant": 6,
-  "total_open": 6,
-  "total_unknown": 0,
+  "scraped_at": "2026-04-01T15:41:37.258940+00:00",
+  "scraped_at_nl": "01 April 2026 om 15:41",
+  "total_found": 40,
+  "total_relevant": 8,
+  "total_open": 7,
+  "total_unknown": 1,
   "total_closed": 0,
-  "total_filtered_out": 33,
+  "total_filtered_out": 32,
   "platforms_scraped": 8,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-04-01T12:49:38.544733+00:00",
+      "scraped_at": "2026-04-01T15:39:58.216190+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,9 +65,40 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "637644868455",
-      "scraped_at": "2026-04-01T12:49:38.545363+00:00",
+      "scraped_at": "2026-04-01T15:39:58.216759+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager Online Dienstverlening",
+      "url": "https://www.it-contracts.nl/vacature_Procesmanager_Online_Dienstverlening_287235/search/LAST%3A50/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT platform-categorie + managementrol",
+      "content_hash": "57a8d6121bc8",
+      "scraped_at": "2026-04-01T15:39:58.216872+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "6 open-signalen",
       "sources": [
         "IT-Contracts.nl"
       ]
@@ -96,38 +127,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "fb7f9a8ce02a",
-      "scraped_at": "2026-04-01T12:49:38.546027+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
-    },
-    {
-      "title": "Senior Information Security Officer",
-      "url": "https://www.it-contracts.nl/vacature_Senior_Information_Security_Officer_287225/search/LAST%3A50/from/",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT-specifieke managementrol",
-      "content_hash": "c2ffe2dcdca6",
-      "scraped_at": "2026-04-01T12:49:38.546464+00:00",
+      "scraped_at": "2026-04-01T15:39:58.217468+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -136,7 +136,7 @@
     },
     {
       "title": "Projectmanager ICT Library",
-      "url": "https://www.it-contracts.nl/vacature_Projectmanager_ICT_Library_287224/search/management+procesmanager/from/0",
+      "url": "https://www.it-contracts.nl/vacature_Projectmanager_ICT_Library_287224/search/service+delivery+manager/from/",
       "source": "IT-Contracts.nl",
       "platform_id": "itcontracts",
       "category": "itcontracts",
@@ -156,9 +156,9 @@
       ],
       "zzp_tier": 2,
       "filtered_in": true,
-      "filter_reason": "Managementrol + IT-synoniem",
+      "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "492452f6879a",
-      "scraped_at": "2026-04-01T12:49:40.910712+00:00",
+      "scraped_at": "2026-04-01T15:40:02.912833+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -189,11 +189,73 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "357f901f41c3",
-      "scraped_at": "2026-04-01T12:49:45.713202+00:00",
+      "scraped_at": "2026-04-01T15:40:05.138434+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
         "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Senior Information Security Officer",
+      "url": "https://www.it-contracts.nl/vacature_Senior_Information_Security_Officer_287225/search/ITSM+consultant/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "c2ffe2dcdca6",
+      "scraped_at": "2026-04-01T15:40:07.398583+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "ProcesmanagerLogius",
+      "url": "https://www.freep.nl/opdracht/procesmanager-23",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "Managementrol + IT-synoniem",
+      "content_hash": "a3fddf3fce2b",
+      "scraped_at": "2026-04-01T15:40:17.496137+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
+      "sources": [
+        "Freep.nl"
       ]
     }
   ],
@@ -293,11 +355,6 @@
       "title": "Procesmanager gripWaterschap Vechtstromen",
       "source": "Freep.nl",
       "reason": "Knock-out: \"waterschap\""
-    },
-    {
-      "title": "ProcesmanagerLogius",
-      "source": "Freep.nl",
-      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Procesmanager transformatie recreatiewoningenDe Ronde Venen",
