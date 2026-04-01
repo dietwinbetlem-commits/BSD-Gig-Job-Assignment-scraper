@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-04-01T18:34:43.749901+00:00",
-  "scraped_at_nl": "01 April 2026 om 18:34",
+  "scraped_at": "2026-04-01T18:49:47.498835+00:00",
+  "scraped_at_nl": "01 April 2026 om 18:49",
   "total_found": 41,
   "total_relevant": 8,
   "total_open": 7,
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-04-01T18:33:06.970519+00:00",
+      "scraped_at": "2026-04-01T18:48:31.516556+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "637644868455",
-      "scraped_at": "2026-04-01T18:33:06.971109+00:00",
+      "scraped_at": "2026-04-01T18:48:31.517113+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
@@ -96,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "57a8d6121bc8",
-      "scraped_at": "2026-04-01T18:33:06.971261+00:00",
+      "scraped_at": "2026-04-01T18:48:31.517226+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -127,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "fb7f9a8ce02a",
-      "scraped_at": "2026-04-01T18:33:06.971898+00:00",
+      "scraped_at": "2026-04-01T18:48:31.517750+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -158,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "492452f6879a",
-      "scraped_at": "2026-04-01T18:33:11.693049+00:00",
+      "scraped_at": "2026-04-01T18:48:36.295504+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -189,7 +189,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "357f901f41c3",
-      "scraped_at": "2026-04-01T18:33:13.956485+00:00",
+      "scraped_at": "2026-04-01T18:48:38.582522+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
@@ -220,7 +220,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "c2ffe2dcdca6",
-      "scraped_at": "2026-04-01T18:33:16.213627+00:00",
+      "scraped_at": "2026-04-01T18:48:40.910018+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -251,7 +251,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-01T18:33:26.507810+00:00",
+      "scraped_at": "2026-04-01T18:48:52.376434+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
