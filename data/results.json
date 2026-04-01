@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-04-01T17:02:31.899682+00:00",
-  "scraped_at_nl": "01 April 2026 om 17:02",
-  "total_found": 67,
+  "scraped_at": "2026-04-01T18:03:43.887021+00:00",
+  "scraped_at_nl": "01 April 2026 om 18:03",
+  "total_found": 42,
   "total_relevant": 8,
   "total_open": 7,
   "total_unknown": 1,
   "total_closed": 0,
-  "total_filtered_out": 59,
+  "total_filtered_out": 34,
   "platforms_scraped": 8,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-04-01T17:01:21.939384+00:00",
+      "scraped_at": "2026-04-01T18:02:33.428926+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "637644868455",
-      "scraped_at": "2026-04-01T17:01:21.940001+00:00",
+      "scraped_at": "2026-04-01T18:02:33.429498+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
@@ -96,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "57a8d6121bc8",
-      "scraped_at": "2026-04-01T17:01:21.940175+00:00",
+      "scraped_at": "2026-04-01T18:02:33.429626+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -127,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "fb7f9a8ce02a",
-      "scraped_at": "2026-04-01T17:01:21.940821+00:00",
+      "scraped_at": "2026-04-01T18:02:33.430266+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -158,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "492452f6879a",
-      "scraped_at": "2026-04-01T17:01:26.607531+00:00",
+      "scraped_at": "2026-04-01T18:02:38.173433+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -189,7 +189,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "357f901f41c3",
-      "scraped_at": "2026-04-01T17:01:28.833972+00:00",
+      "scraped_at": "2026-04-01T18:02:40.430391+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
@@ -220,7 +220,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "c2ffe2dcdca6",
-      "scraped_at": "2026-04-01T17:01:31.071360+00:00",
+      "scraped_at": "2026-04-01T18:02:42.708159+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -251,7 +251,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-01T17:01:41.296437+00:00",
+      "scraped_at": "2026-04-01T18:02:53.156057+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -262,132 +262,7 @@
   "closed_debug": [],
   "filtered_out_debug": [
     {
-      "title": "Striive Logo",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Zelfstandig professionals",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Hoe werkt het?",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Vind opdrachten",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Contract onderbrengen",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Onze services",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Leveranciers",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "WTTA en SNA-certicifering",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Opdrachtgevers",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Inloggen",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Over Striive",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Nieuwsbrief",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Mijn Striive",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Hoe werkt striive",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Freelance opdrachten Meer info",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "ZZP opdrachten Meer info",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Interim opdrachten Meer info",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Freelance platform",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Professional Services voorwaarden",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Partner Services voorwaarden",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "023 568 56 30",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "support@striive.com",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Privacy Statement",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Cookie statement",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Security Policy",
-      "source": "Striive (HeadFirst)",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Gebruikersvoorwaarden",
       "source": "Striive (HeadFirst)",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -510,6 +385,51 @@
       "title": "Procesmanager srbt-woontafelGemeente Breda",
       "source": "Freep.nl",
       "reason": "Knock-out: \"woontafel\""
+    },
+    {
+      "title": "Interim procesmanager vervoerGemeente Lochem",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "Strategisch procesmanager mobiliteitshubGemeente Zwolle",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"mobiliteitshu\""
+    },
+    {
+      "title": "Senior procesmanager governance natuurbrandpreventieProvincie Utrecht",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"brandpreventie\""
+    },
+    {
+      "title": "Procesmanager/projectleider migratieNoaberkracht Dinkelland Tubbergen",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "Procesmanager campus & facilitiesTechnische Universiteit Eindhoven",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"campus & facilit\""
+    },
+    {
+      "title": "Senior procesmanager strategisch bosbeleidProvincie Utrecht",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"bosbele\""
+    },
+    {
+      "title": "Hr procesmanagergemeente Eindhoven",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"hr procesmanager\""
+    },
+    {
+      "title": "Procesmanager migratieNoaberkracht Dinkelland Tubbergen",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "ProcesmanagerMinisterie van Sociale Zaken en Werkgelegenheid (SZW)",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"sociale zaken\""
     }
   ]
 }
