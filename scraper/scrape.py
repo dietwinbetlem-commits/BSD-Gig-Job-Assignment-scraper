@@ -818,6 +818,22 @@ def scrape_striive_auth(platform, results_list):
         links = page.query_selector_all('a[href*="/nl/opdrachten/"]')
         log.info(f'  Striive: {len(links)} links gevonden in DOM')
 
+        # Als 0 of weinig links: log alle unieke href-patronen voor diagnose
+        if len(links) < 5:
+            all_links = page.query_selector_all('a[href]')
+            hrefs = set()
+            for lnk in all_links:
+                try:
+                    h = lnk.get_attribute('href') or ''
+                    if h and len(h) > 5:
+                        hrefs.add(h[:80])
+                except Exception:
+                    continue
+            log.info(f'  Striive: alle unieke hrefs ({len(hrefs)}):')
+            for h in sorted(hrefs)[:30]:
+                log.info(f'    {h}')
+            links = all_links  # Probeer alle links
+
         seen = set()
         for link in links:
             try:
