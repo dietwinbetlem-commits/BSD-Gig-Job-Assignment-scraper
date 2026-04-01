@@ -814,56 +814,62 @@ def scrape_striive_auth(platform, results_list):
         except Exception:
             log.warning('  Striive: geen opdracht-links in DOM na 10s')
 
-        # Haal links direct uit de live DOM via Playwright
-        links = page.query_selector_all('a[href*="/nl/opdrachten/"]')
-        log.info(f'  Striive: {len(links)} links gevonden in DOM')
-
-        # Als 0 of weinig links: log alle unieke href-patronen voor diagnose
-        if len(links) < 5:
-            all_links = page.query_selector_all('a[href]')
-            hrefs = set()
-            for lnk in all_links:
-                try:
-                    h = lnk.get_attribute('href') or ''
-                    if h and len(h) > 5:
-                        hrefs.add(h[:80])
-                except Exception:
-                    continue
-            log.info(f'  Striive: alle unieke hrefs ({len(hrefs)}):')
-            for h in sorted(hrefs)[:30]:
-                log.info(f'    {h}')
-            links = all_links  # Probeer alle links
+        # Gebruik page.evaluate() om JavaScript-gerenderde links te vangen
+        # Striive gebruikt onClick handlers, geen gewone href links
+        try:
+            assignments = page.evaluate('''() => {
+                const results = [];
+                // Zoek alle elementen met opdracht-tekst in de buurt van een link
+                const allLinks = document.querySelectorAll('a[href]');
+                allLinks.forEach(a => {
+                    const href = a.getAttribute('href') || '';
+                    if (href.includes('/opdrachten/') || href.includes('/assignment/')) {
+                        const title = a.innerText.trim() || 
+                                      a.closest('[class]')?.querySelector('h2,h3,h4,strong')?.innerText.trim() || '';
+                        if (title.length > 5) {
+                            results.push({href: href, title: title});
+                        }
+                    }
+                });
+                
+                // Fallback: zoek clickable cards met titels
+                if (results.length === 0) {
+                    const cards = document.querySelectorAll('[class*="card"], [class*="Card"], [class*="assignment"], [class*="Assignment"], [class*="job"], [class*="Job"]');
+                    cards.forEach(card => {
+                        const link = card.querySelector('a[href]');
+                        const title = card.querySelector('h2,h3,h4,strong')?.innerText.trim() || '';
+                        if (link && title.length > 5) {
+                            results.push({href: link.getAttribute('href'), title: title});
+                        }
+                    });
+                }
+                return results;
+            }''')
+            log.info(f'  Striive: {len(assignments)} assignments via evaluate()')
+            for a in assignments[:3]:
+                log.info(f'    {a["href"]} | {a["title"][:40]}')
+        except Exception as e:
+            log.warning(f'  Striive evaluate() fout: {e}')
+            assignments = []
 
         seen = set()
-        for link in links:
+        for a in assignments:
             try:
-                href = link.get_attribute('href') or ''
+                href = a.get('href', '')
+                title = a.get('title', '')
+                if not href or not title or len(title) < 8: continue
                 if not href.startswith('http'):
                     href = 'https://striive.com' + href
                 if href in seen: continue
                 seen.add(href)
-
-                # Zoek titel in parent element
-                parent = link.query_selector('xpath=../..')
-                title = ''
-                if parent:
-                    h_el = parent.query_selector('h2, h3, h4, strong')
-                    title = clean(h_el.inner_text()) if h_el else clean(link.inner_text())
-                else:
-                    title = clean(link.inner_text())
-
-                if len(title) < 8: continue
-
-                text = parent.inner_text() if parent else title
-                loc = detect_location(text)
                 results_list.append(make_result(
                     title, href, label, pid, 'aggregator',
-                    location=loc, it_category=True
+                    it_category=True
                 ))
             except Exception:
                 continue
 
-        log.info(f'  → {len([r for r in results_list if r["platform_id"] == pid])} items van Striive')
+        log.info(f'  → {sum(1 for r in results_list if r["platform_id"] == pid)} items van Striive')
 
         log.info(f'  → Striive totaal: {sum(1 for r in results_list if r["platform_id"] == pid)}')
 
