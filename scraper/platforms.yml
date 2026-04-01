@@ -93,7 +93,7 @@ platforms:
   searches:
   - url: https://www.freep.nl/zzp/procesmanager
     term: procesmanager
-    it_category: true
+    it_category: false
   - url: https://www.freep.nl/zzp/it-servicemanager
     term: servicemanager
     it_category: true

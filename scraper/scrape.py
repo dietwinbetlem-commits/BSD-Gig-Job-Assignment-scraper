@@ -87,16 +87,25 @@ IT_CONTEXT_SIGNALS = [
 ]
 
 KNOCKOUT_TERMS = [
+    # Bouw/ruimte/infra
     'woningbouw', 'wonen', 'vastgoed', 'ruimtelijke ordening',
-    'civiel', 'infra project',
-    'jeugd', 'zorg', 'welzijn', 'sociaal domein',
+    'civiel', 'infra project', 'stationsontwikkeling',
+    # Zorg/sociaal
+    'jeugd', 'zorg', 'welzijn', 'sociaal domein', 'sociale zaken',
+    'reinigingsbedrijf', 'schoonmaak',
+    # HR/inkoop/financieel
     'inkoop procesmanager', 'logistiek procesmanager',
     'hr procesmanager', 'personeelsmanager',
     'financieel procesmanager', 'financiele processen',
     'communicatie procesmanager',
+    # Transport/mobiliteit/natuur
     'stikstof', 'woontafel', 'mobiliteitshu', 'bosbele',
     'recreatiewoning', 'campus & facilit', 'vervoer gemeente',
     'brandpreventie', 'brabantse ontwikkel',
+    # Waterschap — altijd civiel/natuur domein
+    'waterschap',
+    # Grip op... (overheidsterm voor beleidsprocessen)
+    'procesmanager grip',
 ]
 
 # ZZP-detectie signalen
