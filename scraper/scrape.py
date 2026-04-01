@@ -814,88 +814,32 @@ def scrape_striive_auth(platform, results_list):
         except Exception:
             log.warning('  Striive: geen opdracht-links in DOM na 10s')
 
-        # Striive gebruikt React Router zonder href links.
-        # Onderschep de API response die de opdrachten levert.
-        api_data = []
-
-        def handle_response(response):
-            try:
-                url = response.url
-                # Zoek JSON responses van de Striive API
-                if ('api' in url or 'assignment' in url or 'opdracht' in url or
-                        'graphql' in url or 'search' in url) and response.status == 200:
-                    ct = response.headers.get('content-type', '')
-                    if 'json' in ct:
-                        data = response.json()
-                        log.info(f'  Striive API: {url[:80]} → {str(data)[:100]}')
-                        api_data.append({'url': url, 'data': data})
-            except Exception:
-                pass
-
-        page.on('response', handle_response)
-
-        # Herlaad de pagina zodat we alle API calls opvangen
-        log.info('  Striive: herlaad pagina voor API interceptie')
-        page.goto('https://striive.com/nl/opdrachten', timeout=20000)
-        page.wait_for_load_state('networkidle', timeout=15000)
-        time.sleep(3)
-
-        # Klik Aanbevolen tab opnieuw
-        for tab_sel in ['button:has-text("Aanbevolen")', 'a:has-text("Aanbevolen")']:
-            try:
-                if page.locator(tab_sel).count() > 0:
-                    page.click(tab_sel)
-                    time.sleep(4)
-                    log.info(f'  Striive: Aanbevolen tab geklikt (herlaad)')
-                    break
-            except Exception:
-                continue
-
-        log.info(f'  Striive: {len(api_data)} API responses onderschept')
-
+        # Striive gebruikt Next.js SSR - data zit in __NEXT_DATA__ script tag
+        log.info('  Striive: extraheer uit Next.js __NEXT_DATA__')
         seen = set()
-        for entry in api_data:
-            data = entry['data']
-            # Probeer assignments uit de JSON te halen
-            items_list = []
-            if isinstance(data, list):
-                items_list = data
-            elif isinstance(data, dict):
-                for key in ['data', 'assignments', 'results', 'items', 'edges', 'nodes']:
-                    if key in data:
-                        val = data[key]
-                        if isinstance(val, list):
-                            items_list = val
-                            break
-                        elif isinstance(val, dict) and 'edges' in val:
-                            items_list = [e.get('node', e) for e in val['edges']]
-                            break
 
-            for item in items_list:
-                if not isinstance(item, dict): continue
-                # Haal titel en URL uit het item
-                title = (item.get('title') or item.get('name') or
-                         item.get('function') or item.get('functie') or '')
-                slug  = (item.get('slug') or item.get('id') or
-                         item.get('assignmentId') or '')
-                url_field = item.get('url') or item.get('link') or ''
-                if url_field:
-                    full_url = url_field if url_field.startswith('http') else f'https://striive.com{url_field}'
-                elif slug:
-                    full_url = f'https://striive.com/nl/opdrachten/{slug}'
-                else:
-                    continue
-                if not title or len(title) < 4 or full_url in seen:
-                    continue
-                seen.add(full_url)
-                org = (item.get('client') or item.get('company') or
-                       item.get('opdrachtgever') or item.get('organization') or '')
-                loc = detect_location(str(item))
-                results_list.append(make_result(
-                    clean(title), full_url, label, pid, 'aggregator',
-                    location=loc, opdrachtgever=clean(str(org)),
-                    it_category=True
-                ))
+        try:
+            next_data = page.evaluate('''() => {
+                const el = document.getElementById('__NEXT_DATA__');
+                if (el) return JSON.parse(el.textContent);
+                // Fallback: zoek in alle script tags
+                for (const s of document.querySelectorAll('script[type="application/json"]')) {
+                    try { return JSON.parse(s.textContent); } catch(e) {}
+                }
+                return null;
+            }''')
+
+            if next_data:
+                log.info(f'  Striive: __NEXT_DATA__ gevonden, top-level keys: {list(next_data.keys())[:10]}')
+                # Dump de structuur voor diagnose
+                import json as _json
+                log.info(f'  Striive data preview: {_json.dumps(next_data, default=str)[:500]}')
+            else:
+                log.warning('  Striive: geen __NEXT_DATA__ gevonden')
+
+        except Exception as e:
+            log.warning(f'  Striive __NEXT_DATA__ fout: {e}')
+            next_data = None
 
         log.info(f'  → {sum(1 for r in results_list if r["platform_id"] == pid)} items van Striive')
 
