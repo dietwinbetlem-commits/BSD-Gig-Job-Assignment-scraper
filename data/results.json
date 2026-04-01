@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-03-31T18:48:04.756597+00:00",
-  "scraped_at_nl": "31 March 2026 om 18:48",
-  "total_found": 59,
+  "scraped_at": "2026-04-01T07:38:31.366213+00:00",
+  "scraped_at_nl": "01 April 2026 om 07:38",
+  "total_found": 50,
   "total_relevant": 2,
   "total_open": 2,
   "total_unknown": 0,
   "total_closed": 0,
-  "total_filtered_out": 57,
+  "total_filtered_out": 48,
   "platforms_scraped": 15,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-03-31T18:45:39.618486+00:00",
+      "scraped_at": "2026-04-01T07:35:47.232860+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "492452f6879a",
-      "scraped_at": "2026-03-31T18:45:39.619854+00:00",
+      "scraped_at": "2026-04-01T07:35:47.234259+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -256,51 +256,6 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Facebook",
-      "source": "Jobhob.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "X (Twitter)",
-      "source": "Jobhob.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "LinkedIn",
-      "source": "Jobhob.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Verkeerskundige Gemeente Zwartewaterland Overijssel Detachering 115.00 Sluit over 6 dagen",
-      "source": "Jobhob.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Deelprojectleider Netcongestie Provincie Gelderland Drenthe Detachering 100.00 - 120.00",
-      "source": "Jobhob.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Manager gebiedsontwikkeling Gemeente Súdwest-Fryslân Friesland Detachering 150.00",
-      "source": "Jobhob.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Low-code developer Gemeente Amsterdam Noord-Holland Detachering",
-      "source": "Jobhob.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Verpleegkundige bij Spaarne Gasthuis Spaarne Gasthuis Noord-Holland Detachering FWG 4",
-      "source": "Jobhob.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Ok assistent – Spaarne Gasthuis (Haarlem & Hoofddorp) detachering Spaarne Gasthuis Noord-Holland Freelance FWG 5",
-      "source": "Jobhob.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Beleid en bestuurlijke zaken",
       "source": "De Publieke Partner",
       "reason": "Geen relevante managementrol in titel"
@@ -324,6 +279,41 @@
       "title": "Infrastructuur en Civiele Techniek",
       "source": "De Publieke Partner",
       "reason": "Knock-out: \"civiel\""
+    },
+    {
+      "title": "Juridisch en Regelgeving",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Onderwijs en Opleiding",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Openbare Orde en Veiligheid",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Project en Programmamanagement",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Ruimtelijke Ordening en Milieu",
+      "source": "De Publieke Partner",
+      "reason": "Knock-out: \"ruimtelijke ordening\""
+    },
+    {
+      "title": "Sociaal Domein en Maatschappelijke Ontwikkeling",
+      "source": "De Publieke Partner",
+      "reason": "Knock-out: \"sociaal domein\""
+    },
+    {
+      "title": "Inhuur Opdrachten",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
     }
   ]
 }
