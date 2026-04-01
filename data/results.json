@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-04-01T12:04:26.055113+00:00",
-  "scraped_at_nl": "01 April 2026 om 12:04",
+  "scraped_at": "2026-04-01T12:51:12.043413+00:00",
+  "scraped_at_nl": "01 April 2026 om 12:51",
   "total_found": 39,
-  "total_relevant": 15,
+  "total_relevant": 6,
   "total_open": 6,
-  "total_unknown": 9,
+  "total_unknown": 0,
   "total_closed": 0,
-  "total_filtered_out": 24,
+  "total_filtered_out": 33,
   "platforms_scraped": 8,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-04-01T12:02:37.291785+00:00",
+      "scraped_at": "2026-04-01T12:49:38.544733+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "637644868455",
-      "scraped_at": "2026-04-01T12:02:37.292327+00:00",
+      "scraped_at": "2026-04-01T12:49:38.545363+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
@@ -96,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "fb7f9a8ce02a",
-      "scraped_at": "2026-04-01T12:02:37.292914+00:00",
+      "scraped_at": "2026-04-01T12:49:38.546027+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -127,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "c2ffe2dcdca6",
-      "scraped_at": "2026-04-01T12:02:37.293271+00:00",
+      "scraped_at": "2026-04-01T12:49:38.546464+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -158,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "492452f6879a",
-      "scraped_at": "2026-04-01T12:02:39.606142+00:00",
+      "scraped_at": "2026-04-01T12:49:40.910712+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -189,290 +189,11 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "357f901f41c3",
-      "scraped_at": "2026-04-01T12:02:44.250015+00:00",
+      "scraped_at": "2026-04-01T12:49:45.713202+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
         "IT-Contracts.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager stationsontwikkelingGemeente Culemborg",
-      "url": "https://www.freep.nl/opdracht/procesmanager-stationsontwikkeling",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "Culemborg",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "659961223c6c",
-      "scraped_at": "2026-04-01T12:02:57.292242+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "ProcesmanagerWaterschap Rijn en IJssel",
-      "url": "https://www.freep.nl/opdracht/procesmanager-24",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "0f83ec3627ea",
-      "scraped_at": "2026-04-01T12:02:57.296339+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager gripWaterschap Vechtstromen",
-      "url": "https://www.freep.nl/opdracht/procesmanager-grip",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "a993b1357393",
-      "scraped_at": "2026-04-01T12:02:57.300507+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "ProcesmanagerLogius",
-      "url": "https://www.freep.nl/opdracht/procesmanager-23",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-01T12:02:57.304573+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager borReinigingsbedrijf Midden Nederland",
-      "url": "https://www.freep.nl/opdracht/procesmanager-bor",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "Ede",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "35014a455713",
-      "scraped_at": "2026-04-01T12:02:57.312735+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Interim procesmanager vervoerGemeente Lochem",
-      "url": "https://www.freep.nl/opdracht/interim-procesmanager-vervoer",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "0316880b5013",
-      "scraped_at": "2026-04-01T12:02:57.329015+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager/projectleider migratieNoaberkracht Dinkelland Tubbergen",
-      "url": "https://www.freep.nl/opdracht/procesmanagerprojectleider-migratie",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "a5f51374a3c8",
-      "scraped_at": "2026-04-01T12:02:57.349491+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "Procesmanager migratieNoaberkracht Dinkelland Tubbergen",
-      "url": "https://www.freep.nl/opdracht/procesmanager-migratie",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "6ab8d6adafce",
-      "scraped_at": "2026-04-01T12:02:57.365845+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
-      ]
-    },
-    {
-      "title": "ProcesmanagerMinisterie van Sociale Zaken en Werkgelegenheid (SZW)",
-      "url": "https://www.freep.nl/opdracht/procesmanager-20",
-      "source": "Freep.nl",
-      "platform_id": "freep",
-      "category": "zzp",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "b5b8a5b6ce61",
-      "scraped_at": "2026-04-01T12:02:57.369958+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: freep.nl",
-      "sources": [
-        "Freep.nl"
       ]
     }
   ],
@@ -559,9 +280,34 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Procesmanager stationsontwikkelingGemeente Culemborg",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"stationsontwikkeling\""
+    },
+    {
+      "title": "ProcesmanagerWaterschap Rijn en IJssel",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"waterschap\""
+    },
+    {
+      "title": "Procesmanager gripWaterschap Vechtstromen",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"waterschap\""
+    },
+    {
+      "title": "ProcesmanagerLogius",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
       "title": "Procesmanager transformatie recreatiewoningenDe Ronde Venen",
       "source": "Freep.nl",
       "reason": "Knock-out: \"recreatiewoning\""
+    },
+    {
+      "title": "Procesmanager borReinigingsbedrijf Midden Nederland",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"reinigingsbedrijf\""
     },
     {
       "title": "Procesmanager uitvoering brabantse ontwikkelaanpak stikstofProvincie Noord-Brabant",
@@ -574,6 +320,11 @@
       "reason": "Knock-out: \"woontafel\""
     },
     {
+      "title": "Interim procesmanager vervoerGemeente Lochem",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
       "title": "Strategisch procesmanager mobiliteitshubGemeente Zwolle",
       "source": "Freep.nl",
       "reason": "Knock-out: \"mobiliteitshu\""
@@ -582,6 +333,11 @@
       "title": "Senior procesmanager governance natuurbrandpreventieProvincie Utrecht",
       "source": "Freep.nl",
       "reason": "Knock-out: \"brandpreventie\""
+    },
+    {
+      "title": "Procesmanager/projectleider migratieNoaberkracht Dinkelland Tubbergen",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Procesmanager campus & facilitiesTechnische Universiteit Eindhoven",
@@ -597,6 +353,16 @@
       "title": "Hr procesmanagergemeente Eindhoven",
       "source": "Freep.nl",
       "reason": "Knock-out: \"hr procesmanager\""
+    },
+    {
+      "title": "Procesmanager migratieNoaberkracht Dinkelland Tubbergen",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "ProcesmanagerMinisterie van Sociale Zaken en Werkgelegenheid (SZW)",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"sociale zaken\""
     }
   ]
 }
