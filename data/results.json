@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-04-01T10:06:13.614253+00:00",
-  "scraped_at_nl": "01 April 2026 om 10:06",
-  "total_found": 47,
+  "scraped_at": "2026-04-01T11:31:01.112021+00:00",
+  "scraped_at_nl": "01 April 2026 om 11:31",
+  "total_found": 61,
   "total_relevant": 11,
   "total_open": 2,
   "total_unknown": 9,
   "total_closed": 0,
-  "total_filtered_out": 36,
+  "total_filtered_out": 50,
   "platforms_scraped": 15,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-04-01T10:03:46.743732+00:00",
+      "scraped_at": "2026-04-01T11:27:44.836969+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "492452f6879a",
-      "scraped_at": "2026-04-01T10:03:46.745186+00:00",
+      "scraped_at": "2026-04-01T11:27:44.838462+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -96,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "659961223c6c",
-      "scraped_at": "2026-04-01T10:04:07.194290+00:00",
+      "scraped_at": "2026-04-01T11:28:04.585228+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -127,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "0f83ec3627ea",
-      "scraped_at": "2026-04-01T10:04:07.198797+00:00",
+      "scraped_at": "2026-04-01T11:28:04.589704+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -158,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "a993b1357393",
-      "scraped_at": "2026-04-01T10:04:07.203347+00:00",
+      "scraped_at": "2026-04-01T11:28:04.594167+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -189,7 +189,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-01T10:04:07.207801+00:00",
+      "scraped_at": "2026-04-01T11:28:04.598607+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -220,7 +220,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "35014a455713",
-      "scraped_at": "2026-04-01T10:04:07.216693+00:00",
+      "scraped_at": "2026-04-01T11:28:04.607532+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -251,7 +251,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "0316880b5013",
-      "scraped_at": "2026-04-01T10:04:07.234448+00:00",
+      "scraped_at": "2026-04-01T11:28:04.625274+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -282,7 +282,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "a5f51374a3c8",
-      "scraped_at": "2026-04-01T10:04:07.256619+00:00",
+      "scraped_at": "2026-04-01T11:28:04.647470+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -313,7 +313,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "6ab8d6adafce",
-      "scraped_at": "2026-04-01T10:04:07.274419+00:00",
+      "scraped_at": "2026-04-01T11:28:04.665360+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -344,7 +344,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "b5b8a5b6ce61",
-      "scraped_at": "2026-04-01T10:04:07.278861+00:00",
+      "scraped_at": "2026-04-01T11:28:04.669830+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -371,6 +371,11 @@
     },
     {
       "title": "Chief Information Security Officer (CISO)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Business Analist IV",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -490,48 +495,113 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Facebook",
-      "source": "Jobhob.nl",
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 24-02-2026",
+      "source": "De Publieke Partner",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "X (Twitter)",
-      "source": "Jobhob.nl",
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 19-02-2026",
+      "source": "De Publieke Partner",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "LinkedIn",
-      "source": "Jobhob.nl",
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 19-12-2025",
+      "source": "De Publieke Partner",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Expert Adreskwaliteit Burgerzaken Gemeente Haarlemmermeer Noord-Holland Detachering 86.00 - 96.00",
-      "source": "Jobhob.nl",
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 18-12-2025",
+      "source": "De Publieke Partner",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Secretaris Adviesraad Sociaal Domein Gemeente Gooise Meren Noord-Holland Freelance 70.00",
-      "source": "Jobhob.nl",
-      "reason": "Knock-out: \"sociaal domein\""
-    },
-    {
-      "title": "Afhandeling bezwaren WOZ en Training on the job Gemeente Purmerend Noord-Holland Detachering 95.00 Sluit over 5 dagen",
-      "source": "Jobhob.nl",
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 21-11-2025",
+      "source": "De Publieke Partner",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Juridisch Adviseur Natuur OD NHN Noord-Holland Detachering schaal 10 Sluit over 6 dagen",
-      "source": "Jobhob.nl",
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 13-11-2025",
+      "source": "De Publieke Partner",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Werkvoorbereider beheer openbare ruimte Avri Drenthe Detachering 75.00",
-      "source": "Jobhob.nl",
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 29-10-2025",
+      "source": "De Publieke Partner",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Adviseur Klimaatadapatie Gemeente Altena Drenthe Detachering 100.00",
-      "source": "Jobhob.nl",
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 23-10-2025",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 07-10-2025",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 02-10-2025",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 26-03-2026",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 17-03-2026",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 13-02-2026",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 20-01-2026",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 29-12-2025",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 25-03-2026",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 27-02-2026",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 23-02-2026",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 11-02-2026",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 29-07-2025",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 15-05-2025",
+      "source": "De Publieke Partner",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "De nieuwste ZZP | Freelance | Interim opdrachten – 03-06-2025",
+      "source": "De Publieke Partner",
       "reason": "Geen relevante managementrol in titel"
     }
   ]
