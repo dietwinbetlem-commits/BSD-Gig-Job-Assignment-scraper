@@ -46,8 +46,14 @@ jobs:
         run: python scraper/scrape.py
         env:
           PYTHONUNBUFFERED: '1'
-          LINKEDIN_EMAIL:    ${{ secrets.LINKEDIN_EMAIL }}
-          LINKEDIN_PASSWORD: ${{ secrets.LINKEDIN_PASSWORD }}
+          LINKEDIN_EMAIL:       ${{ secrets.LINKEDIN_EMAIL }}
+          LINKEDIN_PASSWORD:    ${{ secrets.LINKEDIN_PASSWORD }}
+          STRIVE_EMAIL:         ${{ secrets.STRIVE_EMAIL }}
+          STRIVE_PASSWORD:      ${{ secrets.STRIVE_PASSWORD }}
+          FREELANCENL_EMAIL:    ${{ secrets.FREELANCENL_EMAIL }}
+          FREELANCENL_PASSWORD: ${{ secrets.FREELANCENL_PASSWORD }}
+          FUNLE_EMAIL:          ${{ secrets.FUNLE_EMAIL }}
+          FUNLE_PASSWORD:       ${{ secrets.FUNLE_PASSWORD }}
 
       - name: Controleer of er iets veranderd is
         id: diff
