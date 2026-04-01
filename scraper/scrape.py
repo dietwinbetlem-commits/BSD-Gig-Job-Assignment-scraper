@@ -84,6 +84,9 @@ IT_CONTEXT_SIGNALS = [
     'iso 27001', 'nen 7510', 'cism', 'ciso',
     'service integratie', 'service integration', 'service delivery',
     'servicemanager', 'service management',
+    # Bekende IT-overheidsorganisaties
+    'logius', 'dictu', 'ictu', 'p-direkt', 'rijksdienst voor identiteitsgegevens',
+    'belastingdienst ict', 'belastingdienst - ict',
 ]
 
 KNOCKOUT_TERMS = [
@@ -509,12 +512,18 @@ def parse_publiekepartner(html, source, pid, url):
         re.I
     )
 
-    for link in soup.find_all('a', href=re.compile(r'depubliekepartner\.nl/[a-z]', re.I)):
+    # Zoek alle links — zowel absolute als relatieve URLs naar opdrachten
+    for link in soup.find_all('a', href=True):
         href = link.get('href', '')
-        if not href.startswith('http'):
-            href = urljoin('https://depubliekepartner.nl', href)
+        # Maak relatieve links absoluut
+        if href.startswith('/'):
+            href = 'https://depubliekepartner.nl' + href
+        if not href.startswith('https://depubliekepartner.nl/'):
+            continue
         if href in seen: continue
         if skip_patterns.search(href): continue
+        # Skip URLs met query strings (zoekpagina's, filters)
+        if '?' in href: continue
         seen.add(href)
 
         title = clean(link.get_text())
