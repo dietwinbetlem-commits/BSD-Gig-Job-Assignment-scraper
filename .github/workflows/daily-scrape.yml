@@ -45,7 +45,8 @@ jobs:
       - name: Scraper uitvoeren
         run: python scraper/scrape.py
         env:
-          PYTHONUNBUFFERED: '1'
+          PYTHONUNBUFFERED: "1"
+          TZ: Europe/Amsterdam
           LINKEDIN_EMAIL:       ${{ secrets.LINKEDIN_EMAIL }}
           LINKEDIN_PASSWORD:    ${{ secrets.LINKEDIN_PASSWORD }}
           STRIVE_EMAIL:         ${{ secrets.STRIVE_EMAIL }}

@@ -13,6 +13,11 @@ Verbeteringen:
 import os, re, sys, json, time, hashlib, logging, requests, yaml
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone
+try:
+    import pytz
+    TZ_CET = pytz.timezone("Europe/Amsterdam")
+except ImportError:
+    TZ_CET = None
 from urllib.parse import urljoin, urlparse, quote_plus
 
 # ── LOGGING ───────────────────────────────────────────────────────────────────
@@ -1240,7 +1245,7 @@ def run():
 
     output = {
         'scraped_at':         datetime.now(timezone.utc).isoformat(),
-        'scraped_at_nl':      datetime.now().strftime('%d %B %Y om %H:%M'),
+        'scraped_at_nl':      datetime.now(TZ_CET).strftime('%d %B %Y om %H:%M CET') if TZ_CET else datetime.now().strftime('%d %B %Y om %H:%M'),
         'total_found':        len(all_results),
         'total_relevant':     len(relevant),
         'total_open':         open_n,
