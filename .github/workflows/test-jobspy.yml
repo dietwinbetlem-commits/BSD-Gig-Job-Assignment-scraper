@@ -1,0 +1,17 @@
+name: JobSpy Test (tijdelijk)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.4.0
+        with:
+          python-version: '3.11'
+      - run: pip install python-jobspy
+      - name: Test JobSpy NL
+        run: python scraper/test_jobspy.py
