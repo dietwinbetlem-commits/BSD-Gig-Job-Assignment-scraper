@@ -1,0 +1,27 @@
+name: Freelance.nl Login Test (tijdelijk)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.4.0
+        with:
+          python-version: '3.11'
+      - name: Installeer dependencies
+        run: pip install playwright
+      - name: Installeer Chromium
+        run: |
+          python -m playwright install chromium
+          sudo apt-get install -y libglib2.0-0 libnss3 libnspr4 libdbus-1-3 \
+            libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libxkbcommon0 \
+            libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libasound2t64 || true
+      - name: Test Freelance.nl login
+        run: python scraper/test_freelancenl.py
+        env:
+          FREELANCENL_EMAIL:    ${{ secrets.FREELANCENL_EMAIL }}
+          FREELANCENL_PASSWORD: ${{ secrets.FREELANCENL_PASSWORD }}
