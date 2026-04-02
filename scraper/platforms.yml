@@ -4,8 +4,8 @@ platforms:
   category: aggregator
   type: authenticated
   parser: funle_auth
-  active: true
-  note: Scrapt 200+ bronnen incl. HeadFirst/Circle8. Login voor gefilterde resultaten.
+  active: false
+  note: 'Uitgeschakeld: Angular SPA met private API, publieke endpoints geven 404'
   credentials:
     username_secret: FUNLE_EMAIL
     password_secret: FUNLE_PASSWORD
