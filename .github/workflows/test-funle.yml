@@ -1,0 +1,17 @@
+name: Funle API Test (tijdelijk)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.4.0
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Test Funle API
+        run: python scraper/test_funle.py
