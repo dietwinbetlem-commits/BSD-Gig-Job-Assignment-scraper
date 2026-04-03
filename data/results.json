@@ -1,13 +1,13 @@
 {
-  "scraped_at": "2026-04-02T08:17:06.656514+00:00",
-  "scraped_at_nl": "02 April 2026 om 08:17",
-  "total_found": 41,
-  "total_relevant": 8,
-  "total_open": 7,
+  "scraped_at": "2026-04-03T08:10:10.172414+00:00",
+  "scraped_at_nl": "03 April 2026 om 10:10 CET",
+  "total_found": 46,
+  "total_relevant": 9,
+  "total_open": 8,
   "total_unknown": 1,
   "total_closed": 0,
-  "total_filtered_out": 33,
-  "platforms_scraped": 7,
+  "total_filtered_out": 37,
+  "platforms_scraped": 6,
   "errors": [],
   "results": [
     {
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-04-02T08:15:53.464082+00:00",
+      "scraped_at": "2026-04-03T08:08:56.925174+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -42,8 +42,8 @@
       ]
     },
     {
-      "title": "Chief Information Security Officer (CISO)",
-      "url": "https://www.it-contracts.nl/vacature_Chief_Information_Security_Officer_%28CISO%29_287199/search/management+servicemanager/from/0",
+      "title": "Adviseur / Regievoerder Leveranciersmanagement CBW",
+      "url": "https://www.it-contracts.nl/vacature_Adviseur__Regievoerder_Leveranciersmanagement_CBW_287240/search/management+servicemanager/from/0",
       "source": "IT-Contracts.nl",
       "platform_id": "itcontracts",
       "category": "itcontracts",
@@ -64,10 +64,10 @@
       "zzp_tier": 2,
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
-      "content_hash": "637644868455",
-      "scraped_at": "2026-04-02T08:15:53.464700+00:00",
+      "content_hash": "451c5fd65075",
+      "scraped_at": "2026-04-03T08:08:56.925626+00:00",
       "vacancy_status": "open",
-      "vacancy_status_reason": "7 open-signalen",
+      "vacancy_status_reason": "6 open-signalen",
       "sources": [
         "IT-Contracts.nl"
       ]
@@ -96,38 +96,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "57a8d6121bc8",
-      "scraped_at": "2026-04-02T08:15:53.464837+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
-    },
-    {
-      "title": "BCM Consultant *33014-1",
-      "url": "https://www.it-contracts.nl/vacature__BCM_Consultant_%2A33014-1_287229/search/LAST%3A50/from/",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT-specifieke managementrol",
-      "content_hash": "fb7f9a8ce02a",
-      "scraped_at": "2026-04-02T08:15:53.465488+00:00",
+      "scraped_at": "2026-04-03T08:08:56.926752+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -158,9 +127,40 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "492452f6879a",
-      "scraped_at": "2026-04-02T08:15:58.327780+00:00",
+      "scraped_at": "2026-04-03T08:09:01.646180+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Chief Information Security Officer (CISO)",
+      "url": "https://www.it-contracts.nl/vacature_Chief_Information_Security_Officer_%28CISO%29_287199/search/service+delivery+manager/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "637644868455",
+      "scraped_at": "2026-04-03T08:09:01.647559+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "7 open-signalen",
       "sources": [
         "IT-Contracts.nl"
       ]
@@ -189,9 +189,40 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "357f901f41c3",
-      "scraped_at": "2026-04-02T08:16:00.633249+00:00",
+      "scraped_at": "2026-04-03T08:09:03.915655+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "BCM Consultant *33014-1",
+      "url": "https://www.it-contracts.nl/vacature__BCM_Consultant_%2A33014-1_287229/search/ITSM+consultant/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "fb7f9a8ce02a",
+      "scraped_at": "2026-04-03T08:09:06.207663+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "6 open-signalen",
       "sources": [
         "IT-Contracts.nl"
       ]
@@ -220,7 +251,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "c2ffe2dcdca6",
-      "scraped_at": "2026-04-02T08:16:02.974662+00:00",
+      "scraped_at": "2026-04-03T08:09:06.208067+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -251,7 +282,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-02T08:16:13.967639+00:00",
+      "scraped_at": "2026-04-03T08:09:16.379525+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -261,6 +292,76 @@
   ],
   "closed_debug": [],
   "filtered_out_debug": [
+    {
+      "title": "Implementatie Consultant ServiceNow",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Projectleider",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Test & Acceptatie Manager",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "IV Expert",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Adviseur / Regievoerder Leveranciersmanage...",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Systeembeheerder / Infrastructure E...",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Functioneelbeheerder Copilot",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Cyber Security Engineer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Applicatiebeheerder",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Meerinzicht Recordmanager",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Teammanager Vergunningen Bovengrond",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Projectleider Implementatie Microsoft 365 Purview",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Software Architect",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Cyber Security Specialist",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
     {
       "title": "DevOps Engineer Haven+ en Common Ground",
       "source": "IT-Contracts.nl",
@@ -277,62 +378,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Applicatiebeheerder",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Teammanager Vergunningen Bovengrond",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Software Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Business Analist IV",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Cyber Security Specialist",
+      "title": "Testcoördinator OSIRIS",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Business consultant",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Data Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Projectmanager",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen IT-synoniem bij rol"
-    },
-    {
-      "title": "Meerinzicht Recordmanager",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Projectleider Implementatie Microsoft 365 Purview",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Managementassistent",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Testcoördinator OSIRIS",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
