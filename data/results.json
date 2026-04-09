@@ -1,9 +1,9 @@
 {
-  "scraped_at": "2026-04-08T08:46:57.924550+00:00",
-  "scraped_at_nl": "08 April 2026 om 10:46 CET",
-  "total_found": 44,
-  "total_relevant": 9,
-  "total_open": 8,
+  "scraped_at": "2026-04-09T08:56:46.431768+00:00",
+  "scraped_at_nl": "09 April 2026 om 10:56 CET",
+  "total_found": 45,
+  "total_relevant": 10,
+  "total_open": 9,
   "total_unknown": 1,
   "total_closed": 0,
   "total_filtered_out": 35,
@@ -34,7 +34,38 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-04-08T08:45:44.555047+00:00",
+      "scraped_at": "2026-04-09T08:55:26.658043+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Kwartiermaker Business Control",
+      "url": "https://www.it-contracts.nl/vacature_Kwartiermaker_Business_Control_287263/search/LAST%3A50/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT platform-categorie + managementrol",
+      "content_hash": "0567eb34889b",
+      "scraped_at": "2026-04-09T08:55:26.658811+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "31ad1f55c869",
-      "scraped_at": "2026-04-08T08:45:44.555737+00:00",
+      "scraped_at": "2026-04-09T08:55:26.659391+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -96,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "1d245eea28ea",
-      "scraped_at": "2026-04-08T08:45:44.555835+00:00",
+      "scraped_at": "2026-04-09T08:55:26.659486+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -127,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "a6a447bff35b",
-      "scraped_at": "2026-04-08T08:45:44.555944+00:00",
+      "scraped_at": "2026-04-09T08:55:26.659594+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -158,7 +189,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "2a0fcb1ba582",
-      "scraped_at": "2026-04-08T08:45:46.863954+00:00",
+      "scraped_at": "2026-04-09T08:55:28.979344+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -167,7 +198,7 @@
     },
     {
       "title": "Projectmanager ICT Library",
-      "url": "https://www.it-contracts.nl/vacature_Projectmanager_ICT_Library_287224/search/service+delivery+manager/from/",
+      "url": "https://www.it-contracts.nl/vacature_Projectmanager_ICT_Library_287224/search/management+procesmanager/from/0",
       "source": "IT-Contracts.nl",
       "platform_id": "itcontracts",
       "category": "itcontracts",
@@ -187,9 +218,9 @@
       ],
       "zzp_tier": 2,
       "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
+      "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "492452f6879a",
-      "scraped_at": "2026-04-08T08:45:49.330682+00:00",
+      "scraped_at": "2026-04-09T08:55:28.979590+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -220,7 +251,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "451c5fd65075",
-      "scraped_at": "2026-04-08T08:45:49.330904+00:00",
+      "scraped_at": "2026-04-09T08:55:31.421287+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -251,7 +282,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "357f901f41c3",
-      "scraped_at": "2026-04-08T08:45:51.608073+00:00",
+      "scraped_at": "2026-04-09T08:55:33.706273+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
@@ -282,7 +313,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-08T08:46:04.612210+00:00",
+      "scraped_at": "2026-04-09T08:55:46.445605+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -298,6 +329,11 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "IAM / PAM beheerder",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Senior Infrastructuur Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -308,34 +344,29 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "GIS-FME Applicatie Specialist",
+      "title": "Projectsecretaris IZA",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectmanagement ondersteuner *A0326807",
+      "title": "(Senior) Programma Business Analist",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Security Engineer Loadbalancing",
+      "title": "Tableau ontwikkelaar en (beheer)ondersteuner",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Data Scientist",
+      "title": "Senior testmedewerker (en projectmedewerker)",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Beheerder ICT",
+      "title": "BI Expert",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Procesmanager Online Dienstverlening",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Programmamanager Informatiehuishouding op Orde",
@@ -343,17 +374,17 @@
       "reason": "Geen IT-synoniem bij rol"
     },
     {
-      "title": "Test & Acceptatie Manager",
+      "title": "Projectmanagement ondersteuner *A0326807",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Teammanager Vergunningen Bovengrond",
+      "title": "GIS-FME Applicatie Specialist",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectleider",
+      "title": "Beheerder ICT",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
