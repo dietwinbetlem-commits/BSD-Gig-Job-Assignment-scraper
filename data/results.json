@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-04-10T08:58:38.097280+00:00",
-  "scraped_at_nl": "10 April 2026 om 10:58 CET",
-  "total_found": 44,
-  "total_relevant": 7,
-  "total_open": 6,
+  "scraped_at": "2026-04-13T10:59:36.059989+00:00",
+  "scraped_at_nl": "13 April 2026 om 12:59 CET",
+  "total_found": 41,
+  "total_relevant": 6,
+  "total_open": 5,
   "total_unknown": 1,
   "total_closed": 0,
-  "total_filtered_out": 37,
+  "total_filtered_out": 35,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-04-10T08:56:57.366844+00:00",
+      "scraped_at": "2026-04-13T10:58:20.751186+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "ce90e47af588",
-      "scraped_at": "2026-04-10T08:56:57.367511+00:00",
+      "scraped_at": "2026-04-13T10:58:20.751933+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -96,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "0567eb34889b",
-      "scraped_at": "2026-04-10T08:56:57.368258+00:00",
+      "scraped_at": "2026-04-13T10:58:20.752631+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -127,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "2a0fcb1ba582",
-      "scraped_at": "2026-04-10T08:56:59.692025+00:00",
+      "scraped_at": "2026-04-13T10:58:23.085625+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -158,40 +158,9 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "492452f6879a",
-      "scraped_at": "2026-04-10T08:56:59.692271+00:00",
+      "scraped_at": "2026-04-13T10:58:23.085845+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
-    },
-    {
-      "title": "Business Controller IT",
-      "url": "https://www.it-contracts.nl/vacature_Business_Controller_IT_287058/search/ITIL/from/",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT-specifieke managementrol",
-      "content_hash": "357f901f41c3",
-      "scraped_at": "2026-04-10T08:57:04.478388+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "7 open-signalen",
       "sources": [
         "IT-Contracts.nl"
       ]
@@ -220,7 +189,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-10T08:57:17.105040+00:00",
+      "scraped_at": "2026-04-13T10:58:41.345661+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -251,6 +220,11 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Data engineer/Senior Specialist Data & Con...",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Game Developer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -271,11 +245,6 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "IAM / PAM beheerder",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Programmamanager Informatiehuishouding op Orde",
       "source": "IT-Contracts.nl",
       "reason": "Geen IT-synoniem bij rol"
@@ -286,7 +255,7 @@
       "reason": "Geen IT-synoniem bij rol"
     },
     {
-      "title": "Senior Infrastructuur Architect",
+      "title": "IAM / PAM beheerder",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -311,17 +280,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Beheerder ICT",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Senior Software Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Microsoft 365 Purview Specialist",
+      "title": "Programma Coördinator AI Act",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -331,7 +295,7 @@
       "reason": "Geen IT-synoniem bij rol"
     },
     {
-      "title": "Zeer ervaren senior vergunningverlener / procesmanager - gemeente Utrecht max € 115 per uur Utrecht 36 uur per week",
+      "title": "Zeer ervaren senior vergunningverlener / procesmanagergemeente Utrecht",
       "source": "Freep.nl",
       "reason": "Geen IT-synoniem bij rol"
     },
@@ -409,11 +373,6 @@
       "title": "Senior procesmanager strategisch bosbeleidProvincie Utrecht",
       "source": "Freep.nl",
       "reason": "Knock-out: \"bosbele\""
-    },
-    {
-      "title": "Hr procesmanagergemeente Eindhoven",
-      "source": "Freep.nl",
-      "reason": "Knock-out: \"hr procesmanager\""
     }
   ]
 }
