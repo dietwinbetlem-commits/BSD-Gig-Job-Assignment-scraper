@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-04-13T10:59:36.059989+00:00",
-  "scraped_at_nl": "13 April 2026 om 12:59 CET",
-  "total_found": 41,
-  "total_relevant": 6,
-  "total_open": 5,
+  "scraped_at": "2026-04-14T06:25:07.962150+00:00",
+  "scraped_at_nl": "14 April 2026 om 08:25 CET",
+  "total_found": 42,
+  "total_relevant": 5,
+  "total_open": 4,
   "total_unknown": 1,
   "total_closed": 0,
-  "total_filtered_out": 35,
+  "total_filtered_out": 37,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "7eccd3ab83fe",
-      "scraped_at": "2026-04-13T10:58:20.751186+00:00",
+      "scraped_at": "2026-04-14T06:24:02.195189+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,38 +65,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "ce90e47af588",
-      "scraped_at": "2026-04-13T10:58:20.751933+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
-    },
-    {
-      "title": "Kwartiermaker Business Control",
-      "url": "https://www.it-contracts.nl/vacature_Kwartiermaker_Business_Control_287263/search/LAST%3A50/from/",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "0567eb34889b",
-      "scraped_at": "2026-04-13T10:58:20.752631+00:00",
+      "scraped_at": "2026-04-14T06:24:02.196149+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -127,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "2a0fcb1ba582",
-      "scraped_at": "2026-04-13T10:58:23.085625+00:00",
+      "scraped_at": "2026-04-14T06:24:04.504323+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -158,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "492452f6879a",
-      "scraped_at": "2026-04-13T10:58:23.085845+00:00",
+      "scraped_at": "2026-04-14T06:24:04.504563+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -189,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-13T10:58:41.345661+00:00",
+      "scraped_at": "2026-04-14T06:24:21.771812+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -220,6 +189,16 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Specialist Besparingsmotor",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Solution Architect",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Data engineer/Senior Specialist Data & Con...",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -236,11 +215,6 @@
     },
     {
       "title": "Senior Architect Uitgestegen systemen",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Projectsecretaris IZA",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -288,6 +262,11 @@
       "title": "Programma Coördinator AI Act",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Kwartiermaker Business Control",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Procesmanager / specialist beleidsvorming - Samenwerkingsorganisatie De Wolden Hoogeveen geen max tarief Drenthe 32 uur per week",
