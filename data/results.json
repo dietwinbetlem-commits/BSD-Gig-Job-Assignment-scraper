@@ -1,46 +1,15 @@
 {
-  "scraped_at": "2026-04-16T06:27:36.222208+00:00",
-  "scraped_at_nl": "16 April 2026 om 08:27 CET",
-  "total_found": 36,
-  "total_relevant": 2,
-  "total_open": 1,
+  "scraped_at": "2026-04-17T06:29:08.787429+00:00",
+  "scraped_at_nl": "17 April 2026 om 08:29 CET",
+  "total_found": 34,
+  "total_relevant": 1,
+  "total_open": 0,
   "total_unknown": 1,
   "total_closed": 0,
-  "total_filtered_out": 34,
+  "total_filtered_out": 33,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
-    {
-      "title": "Programmamanager ICT",
-      "url": "https://www.it-contracts.nl/vacature_Programmamanager_ICT_287244/search/management+procesmanager/from/0",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Managementrol + IT-synoniem",
-      "content_hash": "2a0fcb1ba582",
-      "scraped_at": "2026-04-16T06:26:37.511105+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
-    },
     {
       "title": "ProcesmanagerLogius",
       "url": "https://www.freep.nl/opdracht/procesmanager-23",
@@ -65,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-16T06:26:54.640814+00:00",
+      "scraped_at": "2026-04-17T06:27:58.599473+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -76,12 +45,12 @@
   "closed_debug": [],
   "filtered_out_debug": [
     {
-      "title": "Technisch Consultant ServiceNow",
+      "title": "Cloud Security Engineer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Implementatie Consultant ServiceNow",
+      "title": "Strategisch Infrastructuur Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -101,32 +70,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Business Controller Gebieden",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Data Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "TypeScript / NodeJS Developer - Integratie...",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "System Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Package Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Sr. Software Ontwikkelaar",
+      "title": "Third Party Risk Specialist",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -136,9 +80,34 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Senior Software Architect",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Scrummaster team HIP",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Scrummaster team BBV",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Business Controller Gebieden",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Programmamanager Informatieveiligheid",
       "source": "IT-Contracts.nl",
       "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "Package Engineer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "IAM / PAM beheerder",
@@ -147,11 +116,6 @@
     },
     {
       "title": "Senior IBM Maximo Technical Consultant",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Projectleider Implementatie DMS",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
