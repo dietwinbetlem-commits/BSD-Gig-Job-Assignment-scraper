@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-04-17T06:29:08.787429+00:00",
-  "scraped_at_nl": "17 April 2026 om 08:29 CET",
-  "total_found": 34,
+  "scraped_at": "2026-04-20T07:09:48.145802+00:00",
+  "scraped_at_nl": "20 April 2026 om 09:09 CET",
+  "total_found": 36,
   "total_relevant": 1,
   "total_open": 0,
   "total_unknown": 1,
   "total_closed": 0,
-  "total_filtered_out": 33,
+  "total_filtered_out": 35,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-17T06:27:58.599473+00:00",
+      "scraped_at": "2026-04-20T07:09:08.274701+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -44,6 +44,11 @@
   ],
   "closed_debug": [],
   "filtered_out_debug": [
+    {
+      "title": "Projectondersteuner/Adviseur Readiness (Logistics)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
     {
       "title": "Cloud Security Engineer",
       "source": "IT-Contracts.nl",
@@ -65,37 +70,47 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Implementatiemanager Testomgeving RET IP x PT",
+      "title": "Senior Contractmanager Inkoop",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Operational software and hardware beheerder",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Specialist Informatiemanagement",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Data en Technisch Architectuur specialist",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Release Train Engineer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "PMO Business Support Proces & Implementatie",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Projectondersteuner/Adviseur Readiness (Lo...",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Solution Architect beeldspraak",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Third Party Risk Specialist",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Solution Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Software Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Scrummaster team HIP",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Scrummaster team BBV",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Business Controller Gebieden",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -125,7 +140,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Procesmanager / specialist beleidsvorming - Samenwerkingsorganisatie De Wolden Hoogeveen geen max tarief Drenthe 32 uur per week",
+      "title": "Procesmanager / specialist beleidsvormingSamenwerkingsorganisatie De Wolden Hoogeveen",
       "source": "Freep.nl",
       "reason": "Geen IT-synoniem bij rol"
     },
@@ -203,11 +218,6 @@
       "title": "Procesmanager campus & facilitiesTechnische Universiteit Eindhoven",
       "source": "Freep.nl",
       "reason": "Knock-out: \"campus & facilit\""
-    },
-    {
-      "title": "Senior procesmanager strategisch bosbeleidProvincie Utrecht",
-      "source": "Freep.nl",
-      "reason": "Knock-out: \"bosbele\""
     }
   ]
 }
