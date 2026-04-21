@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-04-20T07:09:48.145802+00:00",
-  "scraped_at_nl": "20 April 2026 om 09:09 CET",
+  "scraped_at": "2026-04-21T06:28:41.535144+00:00",
+  "scraped_at_nl": "21 April 2026 om 08:28 CET",
   "total_found": 36,
   "total_relevant": 1,
   "total_open": 0,
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-20T07:09:08.274701+00:00",
+      "scraped_at": "2026-04-21T06:27:57.482412+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -44,6 +44,11 @@
   ],
   "closed_debug": [],
   "filtered_out_debug": [
+    {
+      "title": "Senior kennismanager/adviseur",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
     {
       "title": "Projectondersteuner/Adviseur Readiness (Logistics)",
       "source": "IT-Contracts.nl",
@@ -65,7 +70,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "TypeScript / NodeJS Developer - Integratieplatform",
+      "title": "Senior Functioneel beheerder",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Manager CIO-office",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Functioneel beheerder",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -100,9 +115,9 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectondersteuner/Adviseur Readiness (Lo...",
+      "title": "Programmamanager Informatieveiligheid",
       "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
+      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Solution Architect beeldspraak",
@@ -110,22 +125,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Third Party Risk Specialist",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Programmamanager Informatieveiligheid",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen IT-synoniem bij rol"
-    },
-    {
-      "title": "Package Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "IAM / PAM beheerder",
+      "title": "TypeScript / NodeJS Developer - Integratieplatform",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
