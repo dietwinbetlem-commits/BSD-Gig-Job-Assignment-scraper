@@ -1,15 +1,108 @@
 {
-  "scraped_at": "2026-04-21T06:28:41.535144+00:00",
-  "scraped_at_nl": "21 April 2026 om 08:28 CET",
-  "total_found": 36,
-  "total_relevant": 1,
-  "total_open": 0,
+  "scraped_at": "2026-04-22T06:29:03.866416+00:00",
+  "scraped_at_nl": "22 April 2026 om 08:29 CET",
+  "total_found": 38,
+  "total_relevant": 4,
+  "total_open": 3,
   "total_unknown": 1,
   "total_closed": 0,
-  "total_filtered_out": 35,
+  "total_filtered_out": 34,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
+    {
+      "title": "IT Procesmanager",
+      "url": "https://www.it-contracts.nl/vacature_IT_Procesmanager__287311/search/management+servicemanager/from/0",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT platform-categorie + managementrol",
+      "content_hash": "0e43b2553f6a",
+      "scraped_at": "2026-04-22T06:27:55.476511+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "7 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Information Security Officer (ISO *S12A042...",
+      "url": "https://www.it-contracts.nl/vacature_Information_Security_Officer_%28ISO_%2AS12A0422052_287310/search/LAST%3A50/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "1880b4a0c923",
+      "scraped_at": "2026-04-22T06:27:55.477287+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Information Security Officer (ISO *S12A0422052",
+      "url": "https://www.it-contracts.nl/vacature_Information_Security_Officer_%28ISO_%2AS12A0422052_287310/search/ITSM+consultant/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "c7a705333868",
+      "scraped_at": "2026-04-22T06:28:04.915680+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
     {
       "title": "ProcesmanagerLogius",
       "url": "https://www.freep.nl/opdracht/procesmanager-23",
@@ -34,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-21T06:27:57.482412+00:00",
+      "scraped_at": "2026-04-22T06:28:16.248440+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,7 +158,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior UX Designer",
+      "title": "Systeem Beheerder Linux",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Devops Automation Engineer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Data Engineer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -90,17 +193,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "PMO Business Support Proces & Implementatie",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior UX Designer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Operational software and hardware beheerder",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Specialist Informatiemanagement",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Data en Technisch Architectuur specialist",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -110,27 +213,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "PMO Business Support Proces & Implementatie",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Programmamanager Informatieveiligheid",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen IT-synoniem bij rol"
-    },
-    {
       "title": "Solution Architect beeldspraak",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "TypeScript / NodeJS Developer - Integratieplatform",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior IBM Maximo Technical Consultant",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
