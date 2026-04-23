@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-04-22T06:29:03.866416+00:00",
-  "scraped_at_nl": "22 April 2026 om 08:29 CET",
-  "total_found": 38,
-  "total_relevant": 4,
-  "total_open": 3,
+  "scraped_at": "2026-04-23T06:32:44.746449+00:00",
+  "scraped_at_nl": "23 April 2026 om 08:32 CET",
+  "total_found": 48,
+  "total_relevant": 5,
+  "total_open": 4,
   "total_unknown": 1,
   "total_closed": 0,
-  "total_filtered_out": 34,
+  "total_filtered_out": 43,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "0e43b2553f6a",
-      "scraped_at": "2026-04-22T06:27:55.476511+00:00",
+      "scraped_at": "2026-04-23T06:30:29.053833+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
@@ -42,8 +42,8 @@
       ]
     },
     {
-      "title": "Information Security Officer (ISO *S12A042...",
-      "url": "https://www.it-contracts.nl/vacature_Information_Security_Officer_%28ISO_%2AS12A0422052_287310/search/LAST%3A50/from/",
+      "title": "Projectmanager",
+      "url": "https://www.it-contracts.nl/vacature_Projectmanager_287321/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
       "platform_id": "itcontracts",
       "category": "itcontracts",
@@ -63,11 +63,42 @@
       ],
       "zzp_tier": 2,
       "filtered_in": true,
-      "filter_reason": "IT-specifieke managementrol",
-      "content_hash": "1880b4a0c923",
-      "scraped_at": "2026-04-22T06:27:55.477287+00:00",
+      "filter_reason": "IT platform-categorie + managementrol",
+      "content_hash": "86e61e4df7cb",
+      "scraped_at": "2026-04-23T06:30:29.054342+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Projectmanager Professionalisering HR- en Finance-systemen",
+      "url": "https://www.it-contracts.nl/vacature_Projectmanager_Professionalisering_HR-_en_Finance-systemen_287312/search/management+procesmanager/from/0",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "Managementrol + IT-synoniem",
+      "content_hash": "1006ac31d372",
+      "scraped_at": "2026-04-23T06:30:31.387686+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "7 open-signalen",
       "sources": [
         "IT-Contracts.nl"
       ]
@@ -96,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "c7a705333868",
-      "scraped_at": "2026-04-22T06:28:04.915680+00:00",
+      "scraped_at": "2026-04-23T06:30:38.414189+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -127,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-22T06:28:16.248440+00:00",
+      "scraped_at": "2026-04-23T06:30:48.788677+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -138,12 +169,72 @@
   "closed_debug": [],
   "filtered_out_debug": [
     {
+      "title": "Software Engineer – Devloop Team (Agentic SDLC)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "(Junior) product manager",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Netwerkbeheerder",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Senior kennismanager/adviseur",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectondersteuner/Adviseur Readiness (Logistics)",
+      "title": "Solution Architect PAM",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Solution Architect IAM",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "SAP Specialist Systeem Logistiek (Onderhoud)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "End user computing/Werkplek specialist",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Software Engineer – Devloop Team (Agenti...",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "PMO Common Ground",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Informatieanalist/Gegevensarchitect",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Informatie- en Procesanalist",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Manager CIO-office",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Contractmanager Inkoop",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -153,7 +244,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Strategisch Infrastructuur Architect",
+      "title": "Projectondersteuner/Adviseur Readiness (Logistics)",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -168,47 +259,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Data Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Functioneel beheerder",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Manager CIO-office",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Functioneel beheerder",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Contractmanager Inkoop",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "PMO Business Support Proces & Implementatie",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior UX Designer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Operational software and hardware beheerder",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Release Train Engineer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "PMO Business Support Proces & Implementatie",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -223,9 +284,24 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Senior Functioneel beheerder",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Functioneel beheerder",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Specialist Besparingsmotor",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Procesmanager senior - Gemeente Amsterdam max € 120 per uur Noord-Holland 36 uur per week",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Procesmanager / specialist beleidsvormingSamenwerkingsorganisatie De Wolden Hoogeveen",
