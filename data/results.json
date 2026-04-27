@@ -1,18 +1,18 @@
 {
-  "scraped_at": "2026-04-24T06:57:55.659999+00:00",
-  "scraped_at_nl": "24 April 2026 om 08:57 CET",
-  "total_found": 48,
+  "scraped_at": "2026-04-27T07:29:50.171518+00:00",
+  "scraped_at_nl": "27 April 2026 om 09:29 CET",
+  "total_found": 44,
   "total_relevant": 4,
   "total_open": 3,
   "total_unknown": 1,
   "total_closed": 0,
-  "total_filtered_out": 44,
+  "total_filtered_out": 40,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
     {
-      "title": "IT Procesmanager",
-      "url": "https://www.it-contracts.nl/vacature_IT_Procesmanager__287311/search/management+procesmanager/from/0",
+      "title": "Business Change Manager",
+      "url": "https://www.it-contracts.nl/vacature_Business_Change_Manager_287333/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
       "platform_id": "itcontracts",
       "category": "itcontracts",
@@ -32,11 +32,11 @@
       ],
       "zzp_tier": 2,
       "filtered_in": true,
-      "filter_reason": "Managementrol + IT-synoniem",
-      "content_hash": "0e43b2553f6a",
-      "scraped_at": "2026-04-24T06:56:58.337800+00:00",
+      "filter_reason": "IT platform-categorie + managementrol",
+      "content_hash": "e8798ce558e4",
+      "scraped_at": "2026-04-27T07:28:21.835038+00:00",
       "vacancy_status": "open",
-      "vacancy_status_reason": "7 open-signalen",
+      "vacancy_status_reason": "6 open-signalen",
       "sources": [
         "IT-Contracts.nl"
       ]
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "86e61e4df7cb",
-      "scraped_at": "2026-04-24T06:57:00.793761+00:00",
+      "scraped_at": "2026-04-27T07:28:26.639988+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -96,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "c7a705333868",
-      "scraped_at": "2026-04-24T06:57:05.338438+00:00",
+      "scraped_at": "2026-04-27T07:28:31.233047+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -127,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-24T06:57:15.398712+00:00",
+      "scraped_at": "2026-04-27T07:28:42.095332+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -159,6 +159,16 @@
     },
     {
       "title": "Senior Netwerkbeheerder",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Projectleider",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Kubernetes Devops Engineer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -198,27 +208,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Solution Architect PAM",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Senior kennismanager/adviseur",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Manager CIO-office",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Contractmanager Inkoop",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Projectondersteuner/Adviseur Readiness (Logistics)",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -238,17 +233,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Operational software and hardware beheerder",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Release Train Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "PMO Business Support Proces & Implementatie",
+      "title": "TypeScript / NodeJS Developer - Integratieplatform",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -264,11 +249,6 @@
     },
     {
       "title": "Specialist Besparingsmotor",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Solution Architect beeldspraak",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
