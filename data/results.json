@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-04-27T07:29:50.171518+00:00",
-  "scraped_at_nl": "27 April 2026 om 09:29 CET",
-  "total_found": 44,
-  "total_relevant": 4,
-  "total_open": 3,
+  "scraped_at": "2026-04-28T07:26:33.223414+00:00",
+  "scraped_at_nl": "28 April 2026 om 09:26 CET",
+  "total_found": 41,
+  "total_relevant": 3,
+  "total_open": 2,
   "total_unknown": 1,
   "total_closed": 0,
-  "total_filtered_out": 40,
+  "total_filtered_out": 38,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,38 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "e8798ce558e4",
-      "scraped_at": "2026-04-27T07:28:21.835038+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
-    },
-    {
-      "title": "Projectmanager",
-      "url": "https://www.it-contracts.nl/vacature_Projectmanager_287321/search/service+delivery+manager/from/",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "86e61e4df7cb",
-      "scraped_at": "2026-04-27T07:28:26.639988+00:00",
+      "scraped_at": "2026-04-28T07:25:25.113527+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -96,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "c7a705333868",
-      "scraped_at": "2026-04-27T07:28:31.233047+00:00",
+      "scraped_at": "2026-04-28T07:25:34.396256+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -127,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-27T07:28:42.095332+00:00",
+      "scraped_at": "2026-04-28T07:25:44.781051+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -208,12 +177,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior kennismanager/adviseur",
+      "title": "Projectmanager",
       "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
+      "reason": "Geen IT-synoniem bij rol"
     },
     {
-      "title": "Manager CIO-office",
+      "title": "Informatie- en Procesanalist",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -238,17 +207,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Functioneel beheerder",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Functioneel beheerder",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Specialist Besparingsmotor",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
