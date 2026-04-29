@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-04-28T07:26:33.223414+00:00",
-  "scraped_at_nl": "28 April 2026 om 09:26 CET",
-  "total_found": 41,
+  "scraped_at": "2026-04-29T07:15:36.172312+00:00",
+  "scraped_at_nl": "29 April 2026 om 09:15 CET",
+  "total_found": 43,
   "total_relevant": 3,
-  "total_open": 2,
-  "total_unknown": 1,
+  "total_open": 1,
+  "total_unknown": 2,
   "total_closed": 0,
-  "total_filtered_out": 38,
+  "total_filtered_out": 40,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "e8798ce558e4",
-      "scraped_at": "2026-04-28T07:25:25.113527+00:00",
+      "scraped_at": "2026-04-29T07:14:31.784870+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -42,17 +42,17 @@
       ]
     },
     {
-      "title": "Information Security Officer (ISO *S12A0422052",
-      "url": "https://www.it-contracts.nl/vacature_Information_Security_Officer_%28ISO_%2AS12A0422052_287310/search/ITSM+consultant/from/",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
+      "title": "Procesmanager Security - Het Centraal Justitieel Incassobureau (CJIB) geen max tarief Friesland 36 uur per week",
+      "url": "https://www.freep.nl/opdracht/procesmanager-security",
+      "source": "Freep.nl",
+      "platform_id": "freep",
+      "category": "zzp",
       "location": "",
       "opdrachtgever": "",
       "description": "",
       "tarief": "",
       "duration": "",
-      "hours": "",
+      "hours": "20u/wk",
       "published": "",
       "startdatum": "",
       "contract": [
@@ -63,13 +63,13 @@
       ],
       "zzp_tier": 2,
       "filtered_in": true,
-      "filter_reason": "IT-specifieke managementrol",
-      "content_hash": "c7a705333868",
-      "scraped_at": "2026-04-28T07:25:34.396256+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
+      "filter_reason": "Managementrol + IT-synoniem",
+      "content_hash": "69fa04b48d16",
+      "scraped_at": "2026-04-29T07:14:51.526050+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
-        "IT-Contracts.nl"
+        "Freep.nl"
       ]
     },
     {
@@ -96,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-28T07:25:44.781051+00:00",
+      "scraped_at": "2026-04-29T07:14:51.565064+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -132,6 +132,21 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Privacy Officer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Functioneel Beheerder Microsoft Fabric",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Cloud Security Consultant",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Projectleider",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -162,16 +177,6 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Devops engineer - IHP 013",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Functioneel Specialist ERPx",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "IT manager SSO",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -197,11 +202,6 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Devops Automation Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "TypeScript / NodeJS Developer - Integratieplatform",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -210,6 +210,16 @@
       "title": "Functioneel beheerder",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Devops engineer - IHP 013",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Procesmanager grondwater - Hoogheemraadschap De Stichtse Rijnlanden max € 110 per uur Utrecht 20 uur per week",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Procesmanager senior - Gemeente Amsterdam max € 120 per uur Noord-Holland 36 uur per week",
