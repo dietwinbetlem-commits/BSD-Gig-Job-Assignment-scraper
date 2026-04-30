@@ -1,18 +1,18 @@
 {
-  "scraped_at": "2026-04-29T07:15:36.172312+00:00",
-  "scraped_at_nl": "29 April 2026 om 09:15 CET",
-  "total_found": 43,
+  "scraped_at": "2026-04-30T07:23:29.310347+00:00",
+  "scraped_at_nl": "30 April 2026 om 09:23 CET",
+  "total_found": 41,
   "total_relevant": 3,
   "total_open": 1,
   "total_unknown": 2,
   "total_closed": 0,
-  "total_filtered_out": 40,
+  "total_filtered_out": 38,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
     {
-      "title": "Business Change Manager",
-      "url": "https://www.it-contracts.nl/vacature_Business_Change_Manager_287333/search/LAST%3A50/from/",
+      "title": "Projectmanager Informatiehuishouding",
+      "url": "https://www.it-contracts.nl/vacature_Projectmanager_Informatiehuishouding_287340/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
       "platform_id": "itcontracts",
       "category": "itcontracts",
@@ -33,8 +33,8 @@
       "zzp_tier": 2,
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "e8798ce558e4",
-      "scraped_at": "2026-04-29T07:14:31.784870+00:00",
+      "content_hash": "d00d10f0dd63",
+      "scraped_at": "2026-04-30T07:22:21.747820+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "69fa04b48d16",
-      "scraped_at": "2026-04-29T07:14:51.526050+00:00",
+      "scraped_at": "2026-04-30T07:22:41.381345+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -96,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-29T07:14:51.565064+00:00",
+      "scraped_at": "2026-04-30T07:22:41.416282+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -112,22 +112,22 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Solution Architect",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Azure Software Engineer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Software Engineer – Devloop Team (Agentic SDLC)",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "(Junior) product manager",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Senior Netwerkbeheerder",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "TypeScript / NodeJS Developer - Integratieplatform",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -153,11 +153,6 @@
     },
     {
       "title": "Kubernetes Devops Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Cybersecurity Reporting Specialist",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -198,11 +193,6 @@
     },
     {
       "title": "Systeem Beheerder Linux",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "TypeScript / NodeJS Developer - Integratieplatform",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
