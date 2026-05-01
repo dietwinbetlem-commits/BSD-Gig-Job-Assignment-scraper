@@ -1,46 +1,15 @@
 {
-  "scraped_at": "2026-04-30T07:23:29.310347+00:00",
-  "scraped_at_nl": "30 April 2026 om 09:23 CET",
-  "total_found": 41,
-  "total_relevant": 3,
-  "total_open": 1,
+  "scraped_at": "2026-05-01T07:22:54.849829+00:00",
+  "scraped_at_nl": "01 May 2026 om 09:22 CET",
+  "total_found": 40,
+  "total_relevant": 2,
+  "total_open": 0,
   "total_unknown": 2,
   "total_closed": 0,
   "total_filtered_out": 38,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
-    {
-      "title": "Projectmanager Informatiehuishouding",
-      "url": "https://www.it-contracts.nl/vacature_Projectmanager_Informatiehuishouding_287340/search/LAST%3A50/from/",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "d00d10f0dd63",
-      "scraped_at": "2026-04-30T07:22:21.747820+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
-    },
     {
       "title": "Procesmanager Security - Het Centraal Justitieel Incassobureau (CJIB) geen max tarief Friesland 36 uur per week",
       "url": "https://www.freep.nl/opdracht/procesmanager-security",
@@ -65,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "69fa04b48d16",
-      "scraped_at": "2026-04-30T07:22:41.381345+00:00",
+      "scraped_at": "2026-05-01T07:21:39.519440+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -96,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-04-30T07:22:41.416282+00:00",
+      "scraped_at": "2026-05-01T07:21:39.547410+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -107,17 +76,7 @@
   "closed_debug": [],
   "filtered_out_debug": [
     {
-      "title": "ITCC Technisch Consultant ServiceNow BasisIV",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Solution Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Azure Software Engineer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -132,42 +91,52 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Privacy Officer",
+      "title": "Back end developer IoT Development",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Functioneel Beheerder Microsoft Fabric",
+      "title": "Projectleider Implementatie Oracle Fusion",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Cloud Security Consultant",
+      "title": "Business- & Implementatie Consultant EO",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectleider",
+      "title": "Package Engineer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Kubernetes Devops Engineer",
+      "title": "Projectleider Organisatiebrede Bedrijfsapp...",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Functioneel Beheerder Burgerzaken",
+      "title": "Informatiemanager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "DevOps engineer IHP-015",
+      "title": "Tactisch Regisseur Bronregistraties",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Business Tester",
+      "title": "Business Analist Digital Decade",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Contractmanager IT",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Solution Architect IHD-00000414",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -177,12 +146,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Projectmanager Informatiehuishouding",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
       "title": "Projectmanager",
       "source": "IT-Contracts.nl",
       "reason": "Geen IT-synoniem bij rol"
     },
     {
-      "title": "Informatie- en Procesanalist",
+      "title": "Projectleider",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -192,17 +166,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Systeem Beheerder Linux",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Functioneel beheerder",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Devops engineer - IHP 013",
+      "title": "Cloud Security Consultant",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
