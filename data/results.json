@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-05-01T07:22:54.849829+00:00",
-  "scraped_at_nl": "01 May 2026 om 09:22 CET",
-  "total_found": 40,
+  "scraped_at": "2026-05-04T07:42:56.183240+00:00",
+  "scraped_at_nl": "04 May 2026 om 09:42 CET",
+  "total_found": 46,
   "total_relevant": 2,
   "total_open": 0,
   "total_unknown": 2,
   "total_closed": 0,
-  "total_filtered_out": 38,
+  "total_filtered_out": 44,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "69fa04b48d16",
-      "scraped_at": "2026-05-01T07:21:39.519440+00:00",
+      "scraped_at": "2026-05-04T07:41:46.406559+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-01T07:21:39.547410+00:00",
+      "scraped_at": "2026-05-04T07:41:46.444718+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -75,6 +75,11 @@
   ],
   "closed_debug": [],
   "filtered_out_debug": [
+    {
+      "title": "Privacy Technologist",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
     {
       "title": "Solution Architect",
       "source": "IT-Contracts.nl",
@@ -91,42 +96,47 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Back end developer IoT Development",
+      "title": "Senior Linux Ontwerper",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectleider Implementatie Oracle Fusion",
+      "title": "FOXTROT Sr Business analist",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Business- & Implementatie Consultant EO",
+      "title": "Administratief Medewerker - Front office i...",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Package Engineer",
+      "title": "Devops Infrastructuur Engineer *200415430",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectleider Organisatiebrede Bedrijfsapp...",
+      "title": "Java Developer * 200415387",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Informatiemanager",
+      "title": "Senior Mendix Lead Developer Transformatie",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Tactisch Regisseur Bronregistraties",
+      "title": "Mendix Lead Developer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Business Analist Digital Decade",
+      "title": "Medior Mendix Developer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Wifi specialist",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -136,12 +146,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Solution Architect IHD-00000414",
+      "title": "IT manager SSO",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "IT manager SSO",
+      "title": "Informatiemanager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -156,7 +166,17 @@
       "reason": "Geen IT-synoniem bij rol"
     },
     {
-      "title": "Projectleider",
+      "title": "Teamcenter Consultant",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "(Senior) Business Analist",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Package Engineer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -171,7 +191,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Business- & Implementatie Consultant EO",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Cloud Security Consultant",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Solution Architect IHD-00000414",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
