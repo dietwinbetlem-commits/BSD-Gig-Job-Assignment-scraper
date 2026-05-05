@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-05-04T07:42:56.183240+00:00",
-  "scraped_at_nl": "04 May 2026 om 09:42 CET",
-  "total_found": 46,
+  "scraped_at": "2026-05-05T07:11:19.969293+00:00",
+  "scraped_at_nl": "05 May 2026 om 09:11 CET",
+  "total_found": 48,
   "total_relevant": 2,
   "total_open": 0,
   "total_unknown": 2,
   "total_closed": 0,
-  "total_filtered_out": 44,
+  "total_filtered_out": 46,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "69fa04b48d16",
-      "scraped_at": "2026-05-04T07:41:46.406559+00:00",
+      "scraped_at": "2026-05-05T07:10:10.681839+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-04T07:41:46.444718+00:00",
+      "scraped_at": "2026-05-05T07:10:10.720829+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -76,67 +76,62 @@
   "closed_debug": [],
   "filtered_out_debug": [
     {
-      "title": "Privacy Technologist",
+      "title": "DevOps Engineer PAAS Windows",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Solution Architect",
+      "title": "Lead IAM Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Netwerkbeheerder",
+      "title": "DevOps Developer Azure Space Software Development Team",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "TypeScript / NodeJS Developer - Integratieplatform",
+      "title": "Functioneel beheerder vakbekwaam",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Linux Ontwerper",
+      "title": "Systeembeheer - Beheerder infrastructuur Werkplekdiensten",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "FOXTROT Sr Business analist",
+      "title": "Senior Programmeur Java *200415499",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Administratief Medewerker - Front office i...",
+      "title": "IV Expert",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Devops Infrastructuur Engineer *200415430",
+      "title": "Productverantwoordelijke",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Java Developer * 200415387",
+      "title": "Functioneel beheerder senior",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Mendix Lead Developer Transformatie",
+      "title": "IT Projectleider PVS zakelijk (Product Ver...",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Mendix Lead Developer",
+      "title": "DevOps Developer Azure Space Software Deve...",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Medior Mendix Developer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Wifi specialist",
+      "title": "Systeembeheer - Beheerder infrastructuur W...",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -166,27 +161,42 @@
       "reason": "Geen IT-synoniem bij rol"
     },
     {
+      "title": "IT Projectleider PVS zakelijk (Product Verkoop Systeem Zakelijk)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Privacy Technologist",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Linux Ontwerper",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "FOXTROT Sr Business analist",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Mendix Lead Developer Transformatie",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Mendix Lead Developer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Medior Mendix Developer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Teamcenter Consultant",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "(Senior) Business Analist",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Package Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "SAP Specialist Systeem Logistiek (Onderhoud)",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Functioneel beheerder",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -201,7 +211,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Solution Architect IHD-00000414",
+      "title": "Package Engineer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
