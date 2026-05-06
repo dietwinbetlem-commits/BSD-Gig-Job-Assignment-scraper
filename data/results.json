@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-05-05T07:11:19.969293+00:00",
-  "scraped_at_nl": "05 May 2026 om 09:11 CET",
+  "scraped_at": "2026-05-06T07:32:25.482461+00:00",
+  "scraped_at_nl": "06 May 2026 om 09:32 CET",
   "total_found": 48,
   "total_relevant": 2,
   "total_open": 0,
@@ -21,7 +21,7 @@
       "description": "",
       "tarief": "",
       "duration": "",
-      "hours": "20u/wk",
+      "hours": "32u/wk",
       "published": "",
       "startdatum": "",
       "contract": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "69fa04b48d16",
-      "scraped_at": "2026-05-05T07:10:10.681839+00:00",
+      "scraped_at": "2026-05-06T07:29:42.979468+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-05T07:10:10.720829+00:00",
+      "scraped_at": "2026-05-06T07:29:43.018365+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -101,6 +101,16 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Business Informatie Analist HR",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Business Informatie Analist Source to Pay",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Senior Programmeur Java *200415499",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -127,11 +137,6 @@
     },
     {
       "title": "DevOps Developer Azure Space Software Deve...",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Systeembeheer - Beheerder infrastructuur W...",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -191,11 +196,6 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Medior Mendix Developer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Teamcenter Consultant",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -206,14 +206,14 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Cloud Security Consultant",
+      "title": "Medior Mendix Developer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Package Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
+      "title": "Procesmanager - Vitens N.V. max € 100 per uur Overijssel 32 uur per week",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Procesmanager grondwater - Hoogheemraadschap De Stichtse Rijnlanden max € 110 per uur Utrecht 20 uur per week",
