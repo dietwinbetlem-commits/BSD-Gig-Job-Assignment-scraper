@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-05-06T07:32:25.482461+00:00",
-  "scraped_at_nl": "06 May 2026 om 09:32 CET",
-  "total_found": 48,
+  "scraped_at": "2026-05-07T07:38:16.925659+00:00",
+  "scraped_at_nl": "07 May 2026 om 09:38 CET",
+  "total_found": 49,
   "total_relevant": 2,
   "total_open": 0,
   "total_unknown": 2,
   "total_closed": 0,
-  "total_filtered_out": 46,
+  "total_filtered_out": 47,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "69fa04b48d16",
-      "scraped_at": "2026-05-06T07:29:42.979468+00:00",
+      "scraped_at": "2026-05-07T07:36:49.804894+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-06T07:29:43.018365+00:00",
+      "scraped_at": "2026-05-07T07:36:49.844015+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -75,6 +75,16 @@
   ],
   "closed_debug": [],
   "filtered_out_debug": [
+    {
+      "title": "Regie-architect Applicaties",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Lead Test Automation Engineer *33133-1",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
     {
       "title": "DevOps Engineer PAAS Windows",
       "source": "IT-Contracts.nl",
@@ -91,12 +101,22 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Functioneel beheerder vakbekwaam",
+      "title": "Netwerkspecialist Automation",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Systeembeheer - Beheerder infrastructuur Werkplekdiensten",
+      "title": "Programmacoördinator/ Scrum Master",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Projectleider/Product owner",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Scrum Master B",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -116,37 +136,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "IV Expert",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Productverantwoordelijke",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Functioneel beheerder senior",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "IT Projectleider PVS zakelijk (Product Ver...",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "DevOps Developer Azure Space Software Deve...",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Senior Contractmanager IT",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "IT manager SSO",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -156,17 +146,27 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectmanager Informatiehuishouding",
+      "title": "Productverantwoordelijke",
       "source": "IT-Contracts.nl",
-      "reason": "Geen IT-synoniem bij rol"
+      "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectmanager",
+      "title": "Systeembeheer - Beheerder infrastructuur Werkplekdiensten",
       "source": "IT-Contracts.nl",
-      "reason": "Geen IT-synoniem bij rol"
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "IV Expert",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "IT Projectleider PVS zakelijk (Product Verkoop Systeem Zakelijk)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Functioneel beheerder vakbekwaam",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -192,6 +192,11 @@
     },
     {
       "title": "Mendix Lead Developer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Functioneel beheerder senior",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
