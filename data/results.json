@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-05-07T07:38:16.925659+00:00",
-  "scraped_at_nl": "07 May 2026 om 09:38 CET",
-  "total_found": 49,
+  "scraped_at": "2026-05-08T06:28:11.189221+00:00",
+  "scraped_at_nl": "08 May 2026 om 08:28 CET",
+  "total_found": 50,
   "total_relevant": 2,
   "total_open": 0,
   "total_unknown": 2,
   "total_closed": 0,
-  "total_filtered_out": 47,
+  "total_filtered_out": 48,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "69fa04b48d16",
-      "scraped_at": "2026-05-07T07:36:49.804894+00:00",
+      "scraped_at": "2026-05-08T06:26:40.273087+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-07T07:36:49.844015+00:00",
+      "scraped_at": "2026-05-08T06:26:40.312820+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -76,7 +76,72 @@
   "closed_debug": [],
   "filtered_out_debug": [
     {
+      "title": "Medewerker Servicedesk",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Medewerker Servicedesk Laptop uitgifte",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Regisseur Standaarden & Specificaties – Gemeentelijk Afs...",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Projectleider Processen",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Regie-architect Applicaties",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Systeemimplementatiemanager",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Endpoints Specialist",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Regisseur Standaarden & Specificaties – ...",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Requirements Analist Informatieproducten",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Coördinator Datakwaliteit",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Capaciteitsplanner Dienstverlening",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Functioneel Beheer *2026-054",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Informatiemanager",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "DevOps Developer Azure Space Software Development Team",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -91,17 +156,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Lead IAM Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "DevOps Developer Azure Space Software Development Team",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Netwerkspecialist Automation",
+      "title": "Systeembeheer - Beheerder infrastructuur Werkplekdiensten",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -111,52 +166,22 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectleider/Product owner",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Scrum Master B",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Business Informatie Analist HR",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Business Informatie Analist Source to Pay",
+      "title": "IV Expert",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Programmeur Java *200415499",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Contractmanager IT",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Informatiemanager",
+      "title": "Lead IAM Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Productverantwoordelijke",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Systeembeheer - Beheerder infrastructuur Werkplekdiensten",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "IV Expert",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -171,31 +196,6 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Privacy Technologist",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Linux Ontwerper",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "FOXTROT Sr Business analist",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Mendix Lead Developer Transformatie",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Mendix Lead Developer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Functioneel beheerder senior",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -206,12 +206,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Business- & Implementatie Consultant EO",
+      "title": "Business Informatie Analist Source to Pay",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Medior Mendix Developer",
+      "title": "FOXTROT Sr Business analist",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Linux Ontwerper",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
