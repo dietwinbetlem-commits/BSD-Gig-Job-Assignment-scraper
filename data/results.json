@@ -1,15 +1,77 @@
 {
-  "scraped_at": "2026-05-08T06:28:11.189221+00:00",
-  "scraped_at_nl": "08 May 2026 om 08:28 CET",
-  "total_found": 50,
-  "total_relevant": 2,
-  "total_open": 0,
+  "scraped_at": "2026-05-11T08:20:57.687823+00:00",
+  "scraped_at_nl": "11 May 2026 om 10:20 CET",
+  "total_found": 48,
+  "total_relevant": 5,
+  "total_open": 2,
   "total_unknown": 2,
-  "total_closed": 0,
-  "total_filtered_out": 48,
+  "total_closed": 1,
+  "total_filtered_out": 43,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
+    {
+      "title": "ITIL Change manager *33120",
+      "url": "https://www.it-contracts.nl/vacature_ITIL_Change_manager_%2A33120_287394/search/management+servicemanager/from/0",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "87af1705f012",
+      "scraped_at": "2026-05-11T08:19:23.681751+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Senior Projectmanager VGP",
+      "url": "https://www.it-contracts.nl/vacature_Senior_Projectmanager_VGP_287391/search/LAST%3A50/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT platform-categorie + managementrol",
+      "content_hash": "37d4e8bd033d",
+      "scraped_at": "2026-05-11T08:19:23.682459+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "7 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
     {
       "title": "Procesmanager Security - Het Centraal Justitieel Incassobureau (CJIB) geen max tarief Friesland 36 uur per week",
       "url": "https://www.freep.nl/opdracht/procesmanager-security",
@@ -34,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "69fa04b48d16",
-      "scraped_at": "2026-05-08T06:26:40.273087+00:00",
+      "scraped_at": "2026-05-11T08:19:43.544484+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-08T06:26:40.312820+00:00",
+      "scraped_at": "2026-05-11T08:19:43.581402+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -73,7 +135,12 @@
       ]
     }
   ],
-  "closed_debug": [],
+  "closed_debug": [
+    {
+      "title": "Projectmanager *200415541",
+      "reason": "\"verlopen\""
+    }
+  ],
   "filtered_out_debug": [
     {
       "title": "Medewerker Servicedesk",
@@ -96,7 +163,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Regie-architect Applicaties",
+      "title": "Systeemarchitectuur *2026-056",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -121,27 +188,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Coördinator Datakwaliteit",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Capaciteitsplanner Dienstverlening",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Functioneel Beheer *2026-054",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Informatiemanager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "DevOps Developer Azure Space Software Development Team",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Regie-architect Applicaties",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -161,17 +218,22 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Capaciteitsplanner Dienstverlening",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Functioneel Beheer *2026-054",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Programmacoördinator/ Scrum Master",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Business Informatie Analist HR",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "IV Expert",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -186,22 +248,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "IT Projectleider PVS zakelijk (Product Verkoop Systeem Zakelijk)",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Functioneel beheerder vakbekwaam",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Functioneel beheerder senior",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Teamcenter Consultant",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -211,12 +258,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "FOXTROT Sr Business analist",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Linux Ontwerper",
+      "title": "IT Projectleider PVS zakelijk (Product Verkoop Systeem Zakelijk)",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
