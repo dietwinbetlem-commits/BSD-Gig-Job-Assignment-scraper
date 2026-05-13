@@ -1,18 +1,18 @@
 {
-  "scraped_at": "2026-05-12T07:37:17.810271+00:00",
-  "scraped_at_nl": "12 May 2026 om 09:37 CET",
-  "total_found": 47,
-  "total_relevant": 4,
-  "total_open": 2,
+  "scraped_at": "2026-05-13T07:45:41.361132+00:00",
+  "scraped_at_nl": "13 May 2026 om 09:45 CET",
+  "total_found": 49,
+  "total_relevant": 5,
+  "total_open": 3,
   "total_unknown": 2,
   "total_closed": 0,
-  "total_filtered_out": 43,
+  "total_filtered_out": 44,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
     {
-      "title": "Projectmanager Implementatie, migratie en ...",
-      "url": "https://www.it-contracts.nl/vacature_Projectmanager_Implementatie%2C_migratie_en_schoning_287395/search/LAST%3A50/from/",
+      "title": "Information Security Officer",
+      "url": "https://www.it-contracts.nl/vacature_Information_Security_Officer_287407/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
       "platform_id": "itcontracts",
       "category": "itcontracts",
@@ -32,18 +32,18 @@
       ],
       "zzp_tier": 2,
       "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "9d8936fc7123",
-      "scraped_at": "2026-05-12T07:35:44.183529+00:00",
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "0f812b777822",
+      "scraped_at": "2026-05-13T07:43:39.462151+00:00",
       "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
+      "vacancy_status_reason": "5 open-signalen",
       "sources": [
         "IT-Contracts.nl"
       ]
     },
     {
       "title": "ITIL Change manager *33120",
-      "url": "https://www.it-contracts.nl/vacature_ITIL_Change_manager_%2A33120_287394/search/LAST%3A50/from/",
+      "url": "https://www.it-contracts.nl/vacature_ITIL_Change_manager_%2A33120_287394/search/management+procesmanager/from/0",
       "source": "IT-Contracts.nl",
       "platform_id": "itcontracts",
       "category": "itcontracts",
@@ -65,9 +65,40 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "87af1705f012",
-      "scraped_at": "2026-05-12T07:35:44.183609+00:00",
+      "scraped_at": "2026-05-13T07:43:41.797858+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Senior Projectmanager VGP",
+      "url": "https://www.it-contracts.nl/vacature_Senior_Projectmanager_VGP_287391/search/service+delivery+manager/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT platform-categorie + managementrol",
+      "content_hash": "37d4e8bd033d",
+      "scraped_at": "2026-05-13T07:43:44.275208+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "7 open-signalen",
       "sources": [
         "IT-Contracts.nl"
       ]
@@ -96,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "69fa04b48d16",
-      "scraped_at": "2026-05-12T07:36:04.442473+00:00",
+      "scraped_at": "2026-05-13T07:43:59.583642+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -127,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-12T07:36:04.487208+00:00",
+      "scraped_at": "2026-05-13T07:43:59.628650+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -138,12 +169,17 @@
   "closed_debug": [],
   "filtered_out_debug": [
     {
-      "title": "Medewerker Servicedesk",
+      "title": "Product owner team netwerken",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Medewerker Servicedesk Laptop uitgifte",
+      "title": "IAM beheerder",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "UX designer *200415861",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -158,32 +194,32 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Exchange en-of Teams beheerder",
+      "title": "Prime Link Security Engineer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "lead klantonderzoeker *200415853",
+      "title": "Testconsultant",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "TRANS OpenVPN-NL Security Engineer",
+      "title": "Informatieanalist *A0520736",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "RAD|Mendix Advanced Business Engineer Senior",
+      "title": "Business Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Solution Architect",
+      "title": "Vormgever",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Systeemarchitectuur *2026-056",
+      "title": "ICT Operationeel Manager IAM-Bouwsteen",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -199,11 +235,6 @@
     },
     {
       "title": "Projectmanager *200415541",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen IT-synoniem bij rol"
-    },
-    {
-      "title": "Senior Projectmanager VGP",
       "source": "IT-Contracts.nl",
       "reason": "Geen IT-synoniem bij rol"
     },
@@ -228,7 +259,22 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Capaciteitsplanner Dienstverlening",
+      "title": "Sectiehoofd",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "lead klantonderzoeker *200415853",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Solution Architect",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Exchange en-of Teams beheerder",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -238,22 +284,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Programmacoördinator/ Scrum Master",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Business Informatie Analist HR",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Functioneel beheerder senior",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Business Informatie Analist Source to Pay",
+      "title": "RAD|Mendix Advanced Business Engineer Senior",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Capaciteitsplanner Dienstverlening",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -268,17 +309,17 @@
       "reason": "Geen IT-synoniem bij rol"
     },
     {
-      "title": "Procesmanager senior - Gemeente Amsterdam max € 120 per uur Noord-Holland 36 uur per week",
-      "source": "Freep.nl",
-      "reason": "Geen IT-synoniem bij rol"
-    },
-    {
       "title": "ProcesmanagerVitens N.V.",
       "source": "Freep.nl",
       "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Procesmanager grondwaterHoogheemraadschap De Stichtse Rijnlanden",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "Procesmanager seniorGemeente Amsterdam",
       "source": "Freep.nl",
       "reason": "Geen IT-synoniem bij rol"
     },
@@ -346,11 +387,6 @@
       "title": "Strategisch procesmanager mobiliteitshubGemeente Zwolle",
       "source": "Freep.nl",
       "reason": "Knock-out: \"mobiliteitshu\""
-    },
-    {
-      "title": "Senior procesmanager governance natuurbrandpreventieProvincie Utrecht",
-      "source": "Freep.nl",
-      "reason": "Knock-out: \"brandpreventie\""
     }
   ]
 }
