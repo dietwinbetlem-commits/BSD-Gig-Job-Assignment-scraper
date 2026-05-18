@@ -1,49 +1,18 @@
 {
-  "scraped_at": "2026-05-14T07:38:17.486529+00:00",
-  "scraped_at_nl": "14 May 2026 om 09:38 CET",
-  "total_found": 53,
-  "total_relevant": 5,
+  "scraped_at": "2026-05-18T08:41:13.827155+00:00",
+  "scraped_at_nl": "18 May 2026 om 10:41 CET",
+  "total_found": 50,
+  "total_relevant": 4,
   "total_open": 2,
   "total_unknown": 2,
-  "total_closed": 1,
-  "total_filtered_out": 48,
+  "total_closed": 0,
+  "total_filtered_out": 46,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
     {
-      "title": "ITIL Change manager *33120",
-      "url": "https://www.it-contracts.nl/vacature_ITIL_Change_manager_%2A33120_287394/search/management+procesmanager/from/0",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT-specifieke managementrol",
-      "content_hash": "87af1705f012",
-      "scraped_at": "2026-05-14T07:36:18.696311+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
-    },
-    {
-      "title": "Senior Projectmanager VGP",
-      "url": "https://www.it-contracts.nl/vacature_Senior_Projectmanager_VGP_287391/search/service+delivery+manager/from/",
+      "title": "Projectmanager",
+      "url": "https://www.it-contracts.nl/vacature_Projectmanager_287430/search/LAST%3A50/from/",
       "source": "IT-Contracts.nl",
       "platform_id": "itcontracts",
       "category": "itcontracts",
@@ -64,16 +33,47 @@
       "zzp_tier": 2,
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
-      "content_hash": "37d4e8bd033d",
-      "scraped_at": "2026-05-14T07:36:21.168663+00:00",
+      "content_hash": "86e61e4df7cb",
+      "scraped_at": "2026-05-18T08:39:36.721284+00:00",
       "vacancy_status": "open",
-      "vacancy_status_reason": "7 open-signalen",
+      "vacancy_status_reason": "6 open-signalen",
       "sources": [
         "IT-Contracts.nl"
       ]
     },
     {
-      "title": "Procesmanager Security - Het Centraal Justitieel Incassobureau (CJIB) geen max tarief Friesland 36 uur per week",
+      "title": "Projectmanager Implementatie, migratie en schoning",
+      "url": "https://www.it-contracts.nl/vacature_Projectmanager_Implementatie%2C_migratie_en_schoning_287395/search/service+delivery+manager/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT platform-categorie + managementrol",
+      "content_hash": "72c2e40298ec",
+      "scraped_at": "2026-05-18T08:39:41.635820+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Procesmanager SecurityHet Centraal Justitieel Incassobureau (CJIB)",
       "url": "https://www.freep.nl/opdracht/procesmanager-security",
       "source": "Freep.nl",
       "platform_id": "freep",
@@ -83,7 +83,7 @@
       "description": "",
       "tarief": "",
       "duration": "",
-      "hours": "36u/wk",
+      "hours": "",
       "published": "",
       "startdatum": "",
       "contract": [
@@ -95,8 +95,8 @@
       "zzp_tier": 2,
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
-      "content_hash": "69fa04b48d16",
-      "scraped_at": "2026-05-14T07:36:36.503744+00:00",
+      "content_hash": "812bbb84d019",
+      "scraped_at": "2026-05-18T08:39:57.497399+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -127,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-14T07:36:36.550850+00:00",
+      "scraped_at": "2026-05-18T08:39:57.538436+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -135,13 +135,13 @@
       ]
     }
   ],
-  "closed_debug": [
-    {
-      "title": "Projectmanager *200415541",
-      "reason": "\"verlopen\""
-    }
-  ],
+  "closed_debug": [],
   "filtered_out_debug": [
+    {
+      "title": "Changemanager *200415908",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
     {
       "title": "Projectleider Processen Programma ROOS",
       "source": "IT-Contracts.nl",
@@ -163,7 +163,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "IAM beheerder",
+      "title": "Projectleider CM 3.0 - IHP-043",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Data Engineer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Vendormanager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -183,31 +193,6 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "DevOps Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Adoptiearchitect Business Implementatie",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Technical Security Officer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Strategisch Adviseur IV",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "VMS Applicatie Specialist Milestone Xprotect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Projectleider Processen",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -218,17 +203,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectmanager Implementatie, migratie en schoning",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen IT-synoniem bij rol"
-    },
-    {
       "title": "Systeemimplementatiemanager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Informatiemanager",
+      "title": "IAM beheerder",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -248,7 +228,22 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Adoptiearchitect Business Implementatie",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Strategisch Adviseur IV",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Businessconsultant Training en Business Implementatie",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "IT Infra Engineer (Microsoft)",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -259,11 +254,6 @@
     },
     {
       "title": "Exchange en-of Teams beheerder",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Functioneel Beheer *2026-054",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -288,7 +278,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "IT Infra Engineer (Microsoft)",
+      "title": "Technical Security Officer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -298,7 +288,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Procesmanager - gemeente Eindhoven max € 120 per uur Noord-Brabant 36 uur per week",
+      "title": "Procesmanagergemeente Eindhoven",
       "source": "Freep.nl",
       "reason": "Geen IT-synoniem bij rol"
     },
@@ -376,11 +366,6 @@
       "title": "Interim procesmanager vervoerGemeente Lochem",
       "source": "Freep.nl",
       "reason": "Geen IT-synoniem bij rol"
-    },
-    {
-      "title": "Strategisch procesmanager mobiliteitshubGemeente Zwolle",
-      "source": "Freep.nl",
-      "reason": "Knock-out: \"mobiliteitshu\""
     }
   ]
 }
