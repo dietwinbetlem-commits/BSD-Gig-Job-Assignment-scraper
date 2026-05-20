@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-05-19T08:20:59.621498+00:00",
-  "scraped_at_nl": "19 May 2026 om 10:20 CET",
-  "total_found": 48,
+  "scraped_at": "2026-05-20T08:20:21.486535+00:00",
+  "scraped_at_nl": "20 May 2026 om 10:20 CET",
+  "total_found": 51,
   "total_relevant": 2,
   "total_open": 0,
   "total_unknown": 2,
   "total_closed": 0,
-  "total_filtered_out": 46,
+  "total_filtered_out": 49,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "812bbb84d019",
-      "scraped_at": "2026-05-19T08:19:47.772686+00:00",
+      "scraped_at": "2026-05-20T08:19:14.480162+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-19T08:19:47.813869+00:00",
+      "scraped_at": "2026-05-20T08:19:14.521129+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -75,6 +75,21 @@
   ],
   "closed_debug": [],
   "filtered_out_debug": [
+    {
+      "title": "Business Consultant/Scrum Master ServiceNow I&V",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Testmanagement (Senior) *200416227",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Teammanager / Teamleider",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
     {
       "title": "Netwerk Engineer – E-Zorg *33197",
       "source": "IT-Contracts.nl",
@@ -86,17 +101,32 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Tester - Team HODOR",
+      "title": "Business Consultant/Scrum Master ServiceNo...",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Changemanager *200415908",
+      "title": "Medewerker Inkoop Administratie",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectleider Processen Programma ROOS",
+      "title": "Privacy Officer/Functionaris IHP026",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Functioneel Beheerder Interne ICT (2fte)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Systeembeheer SAP",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Ontwikkelaar .Net",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -111,27 +141,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Full Stack Developer DevOps (2 FTE)",
+      "title": "Projectleider Processen Programma ROOS",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Project Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Product Owner Interne ICT-dienstverlening",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Netapp Administrator Storage",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Projectleider ICT",
+      "title": "Changemanager *200415908",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -156,22 +171,32 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Product owner team netwerken",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "IAM beheerder",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Sr. Analyst",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Regisseur Standaarden & Specificaties – Gemeentelijk Afs...",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Full Stack Developer DevOps (2 FTE)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Project Architect",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Projectleider ICT",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Tester - Team HODOR",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -186,7 +211,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Strategisch Adviseur IV",
+      "title": "Netapp Administrator Storage",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -197,11 +222,6 @@
     },
     {
       "title": "Businessconsultant Training en Business Implementatie",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Testconsultant",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -217,11 +237,6 @@
     },
     {
       "title": "IT Infra Engineer (Microsoft)",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Technical Security Officer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
