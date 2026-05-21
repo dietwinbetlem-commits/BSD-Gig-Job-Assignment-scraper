@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-05-20T08:20:21.486535+00:00",
-  "scraped_at_nl": "20 May 2026 om 10:20 CET",
-  "total_found": 51,
+  "scraped_at": "2026-05-21T08:27:31.658014+00:00",
+  "scraped_at_nl": "21 May 2026 om 10:27 CET",
+  "total_found": 44,
   "total_relevant": 2,
   "total_open": 0,
   "total_unknown": 2,
   "total_closed": 0,
-  "total_filtered_out": 49,
+  "total_filtered_out": 42,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "812bbb84d019",
-      "scraped_at": "2026-05-20T08:19:14.480162+00:00",
+      "scraped_at": "2026-05-21T08:25:56.888552+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-20T08:19:14.521129+00:00",
+      "scraped_at": "2026-05-21T08:25:56.926847+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -76,72 +76,57 @@
   "closed_debug": [],
   "filtered_out_debug": [
     {
+      "title": "Technisch Consultant ServiceNow",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Business Consultant/Scrum Master ServiceNow I&V",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Testmanagement (Senior) *200416227",
+      "title": "Medior Enterprise Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Teammanager / Teamleider",
+      "title": "Senior Back-End Developer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Netwerk Engineer – E-Zorg *33197",
-      "source": "IT-Contracts.nl",
-      "reason": "Knock-out: \"zorg\""
-    },
-    {
-      "title": "Security Management *2026-061",
+      "title": "Senior Front-End Developer (Angular)",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Business Consultant/Scrum Master ServiceNo...",
+      "title": "ABAP consultant SAP *200416324",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Medewerker Inkoop Administratie",
+      "title": "Senior Enterprise Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Privacy Officer/Functionaris IHP026",
+      "title": "Senior test manager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Functioneel Beheerder Interne ICT (2fte)",
+      "title": "Senior Bussinesanalist",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Systeembeheer SAP",
+      "title": "Senior DevOps Engineer Planon",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Ontwikkelaar .Net",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Security Engineer PSD Crypto",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Informatie Modelleur (met Projectleider kw...",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Projectleider Processen Programma ROOS",
+      "title": "Security Specialist (2FTE) *200416216",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -156,7 +141,7 @@
       "reason": "Geen IT-synoniem bij rol"
     },
     {
-      "title": "Systeemimplementatiemanager",
+      "title": "Teammanager / Teamleider",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -166,7 +151,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Medior Network Engineer WAN IP",
+      "title": "Senior .NET Developer IRMA",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Testmanagement (Senior) *200416227",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Security Management *2026-061",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -176,9 +171,14 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Regisseur Standaarden & Specificaties – Gemeentelijk Afs...",
+      "title": "Security Engineer PSD Crypto",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Netwerk Engineer – E-Zorg *33197",
+      "source": "IT-Contracts.nl",
+      "reason": "Knock-out: \"zorg\""
     },
     {
       "title": "Full Stack Developer DevOps (2 FTE)",
@@ -191,32 +191,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectleider ICT",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Tester - Team HODOR",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Medior Technisch Applicatiebeheerder WAN/LAN",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Adoptiearchitect Business Implementatie",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Netapp Administrator Storage",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Functioneel Beheerder CRM Onetrust",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -226,17 +201,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Projectleider CM 3.0 - IHP-043",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Capaciteitsplanner Dienstverlening",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "IT Infra Engineer (Microsoft)",
+      "title": "Adoptiearchitect Business Implementatie",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
