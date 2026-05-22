@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-05-21T08:27:31.658014+00:00",
-  "scraped_at_nl": "21 May 2026 om 10:27 CET",
-  "total_found": 44,
+  "scraped_at": "2026-05-22T08:17:21.460387+00:00",
+  "scraped_at_nl": "22 May 2026 om 10:17 CET",
+  "total_found": 45,
   "total_relevant": 2,
   "total_open": 0,
   "total_unknown": 2,
   "total_closed": 0,
-  "total_filtered_out": 42,
+  "total_filtered_out": 43,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "812bbb84d019",
-      "scraped_at": "2026-05-21T08:25:56.888552+00:00",
+      "scraped_at": "2026-05-22T08:16:12.661593+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-21T08:25:56.926847+00:00",
+      "scraped_at": "2026-05-22T08:16:12.702150+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -86,6 +86,11 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Solution / Systems / Platform Architect",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Medior Enterprise Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -96,7 +101,32 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Front-End Developer (Angular)",
+      "title": "Senior Design Engineer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Backend Developer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Project Management Officer *200416380",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Project management officer *200416367",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "DevOps Engineer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Informatiemanager IMDB",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -106,27 +136,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Enterprise Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Senior test manager",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Bussinesanalist",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior DevOps Engineer Planon",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Security Specialist (2FTE) *200416216",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -146,7 +156,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Vendormanager",
+      "title": "Senior Front-End Developer (Angular)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Enterprise Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -161,17 +176,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Security Management *2026-061",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Sr. Analyst",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Security Engineer PSD Crypto",
+      "title": "Senior DevOps Engineer Planon",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -179,16 +189,6 @@
       "title": "Netwerk Engineer – E-Zorg *33197",
       "source": "IT-Contracts.nl",
       "reason": "Knock-out: \"zorg\""
-    },
-    {
-      "title": "Full Stack Developer DevOps (2 FTE)",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Project Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Netapp Administrator Storage",
@@ -202,6 +202,11 @@
     },
     {
       "title": "Adoptiearchitect Business Implementatie",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Security Engineer PSD Crypto",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
