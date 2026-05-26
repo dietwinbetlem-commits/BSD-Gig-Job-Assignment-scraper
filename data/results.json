@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-05-25T08:51:01.604382+00:00",
-  "scraped_at_nl": "25 May 2026 om 10:51 CET",
-  "total_found": 46,
+  "scraped_at": "2026-05-26T08:26:22.649703+00:00",
+  "scraped_at_nl": "26 May 2026 om 10:26 CET",
+  "total_found": 44,
   "total_relevant": 2,
   "total_open": 0,
   "total_unknown": 2,
   "total_closed": 0,
-  "total_filtered_out": 44,
+  "total_filtered_out": 42,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "812bbb84d019",
-      "scraped_at": "2026-05-25T08:49:25.597846+00:00",
+      "scraped_at": "2026-05-26T08:25:37.705344+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-25T08:49:25.639578+00:00",
+      "scraped_at": "2026-05-26T08:25:37.745386+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -171,17 +171,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior .NET Developer IRMA",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Testmanagement (Senior) *200416227",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Sr. Analyst",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -196,7 +186,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Netapp Administrator Storage",
+      "title": "Full Stack Developer DevOps (2 FTE)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Adoptiearchitect Business Implementatie",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -207,11 +202,6 @@
     },
     {
       "title": "Businessconsultant Training en Business Implementatie",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Adoptiearchitect Business Implementatie",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
