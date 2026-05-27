@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-05-26T08:26:22.649703+00:00",
-  "scraped_at_nl": "26 May 2026 om 10:26 CET",
-  "total_found": 44,
-  "total_relevant": 2,
+  "scraped_at": "2026-05-27T08:34:52.966280+00:00",
+  "scraped_at_nl": "27 May 2026 om 10:34 CET",
+  "total_found": 48,
+  "total_relevant": 3,
   "total_open": 0,
-  "total_unknown": 2,
+  "total_unknown": 3,
   "total_closed": 0,
-  "total_filtered_out": 42,
+  "total_filtered_out": 45,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "812bbb84d019",
-      "scraped_at": "2026-05-26T08:25:37.705344+00:00",
+      "scraped_at": "2026-05-27T08:33:17.651755+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,11 +65,42 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-26T08:25:37.745386+00:00",
+      "scraped_at": "2026-05-27T08:33:17.690190+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
         "Freep.nl"
+      ]
+    },
+    {
+      "title": "Juridisch Kwaliteitsmedewerker",
+      "url": "https://depubliekepartner.nl/juridisch-kwaliteitsmedewerker-16/",
+      "source": "De Publieke Partner",
+      "platform_id": "publiekepartner",
+      "category": "overheid",
+      "location": "Ede",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "13cc2cf13974",
+      "scraped_at": "2026-05-27T08:33:45.498192+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: depubliekepartner.nl",
+      "sources": [
+        "De Publieke Partner"
       ]
     }
   ],
@@ -101,7 +132,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Full Stack Developers 2FTE",
+      "title": "Expert Logische Toegangsbeveiliging",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Implementatieadviseur Cbw",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Project Management Officer - IHD-00...",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -136,11 +177,6 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Project management officer *200416367",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Informatiemanager IMDB",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -154,6 +190,11 @@
       "title": "Projectmanager",
       "source": "IT-Contracts.nl",
       "reason": "Geen IT-synoniem bij rol"
+    },
+    {
+      "title": "Senior Project Management Officer - IHD-00000606",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
     },
     {
       "title": "Senior Back-End Developer",
@@ -171,7 +212,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Testmanagement (Senior) *200416227",
+      "title": "Project management officer *200416367",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -204,6 +245,11 @@
       "title": "Businessconsultant Training en Business Implementatie",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Procesmanager - Omgevingsdienst Noordzeekanaalgebied max € 120 per uur Noord-Holland 36 uur per week",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Procesmanagergemeente Eindhoven",
