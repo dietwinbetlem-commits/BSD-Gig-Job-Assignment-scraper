@@ -1,15 +1,77 @@
 {
-  "scraped_at": "2026-05-27T08:34:52.966280+00:00",
-  "scraped_at_nl": "27 May 2026 om 10:34 CET",
-  "total_found": 48,
-  "total_relevant": 3,
-  "total_open": 0,
+  "scraped_at": "2026-05-28T08:39:02.765888+00:00",
+  "scraped_at_nl": "28 May 2026 om 10:39 CET",
+  "total_found": 44,
+  "total_relevant": 5,
+  "total_open": 2,
   "total_unknown": 3,
   "total_closed": 0,
-  "total_filtered_out": 45,
+  "total_filtered_out": 39,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
+    {
+      "title": "Senior projectmanager",
+      "url": "https://www.it-contracts.nl/vacature_Senior_projectmanager__287482/search/LAST%3A50/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT platform-categorie + managementrol",
+      "content_hash": "14c24f46362e",
+      "scraped_at": "2026-05-28T08:36:45.201727+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "7 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
+    {
+      "title": "Projectmanager IT Implementatie Project",
+      "url": "https://www.it-contracts.nl/vacature_Projectmanager_IT_Implementatie_Project_287481/search/LAST%3A50/from/",
+      "source": "IT-Contracts.nl",
+      "platform_id": "itcontracts",
+      "category": "itcontracts",
+      "location": "",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT platform-categorie + managementrol",
+      "content_hash": "de75d8037c39",
+      "scraped_at": "2026-05-28T08:36:45.201828+00:00",
+      "vacancy_status": "open",
+      "vacancy_status_reason": "6 open-signalen",
+      "sources": [
+        "IT-Contracts.nl"
+      ]
+    },
     {
       "title": "Procesmanager SecurityHet Centraal Justitieel Incassobureau (CJIB)",
       "url": "https://www.freep.nl/opdracht/procesmanager-security",
@@ -34,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "812bbb84d019",
-      "scraped_at": "2026-05-27T08:33:17.651755+00:00",
+      "scraped_at": "2026-05-28T08:37:04.392159+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-27T08:33:17.690190+00:00",
+      "scraped_at": "2026-05-28T08:37:04.430352+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -96,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "13cc2cf13974",
-      "scraped_at": "2026-05-27T08:33:45.498192+00:00",
+      "scraped_at": "2026-05-28T08:37:51.880451+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: depubliekepartner.nl",
       "sources": [
@@ -127,7 +189,22 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Medior Enterprise Architect",
+      "title": "Senior Front-End Developer (Angular)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Controle Expert",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Systeembeheer 2fte",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Business Architect Digitale Overheid",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -147,42 +224,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Platform Beheerder",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Security Tester/Test Manager",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Teamcenter Consultant",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Design Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Backend Developer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Project Management Officer *200416380",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Informatiemanager IMDB",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior test manager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -197,17 +239,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Back-End Developer",
+      "title": "Senior Design Engineer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Front-End Developer (Angular)",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Enterprise Architect",
+      "title": "Project Management Officer *200416380",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -218,11 +255,6 @@
     },
     {
       "title": "DevOps Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior DevOps Engineer Planon",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -242,9 +274,9 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Businessconsultant Training en Business Implementatie",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
+      "title": "Procesmanager woningbouwrealisatie - Provincie Noord-Brabant max € 106 per uur Noord-Brabant 36 uur per week",
+      "source": "Freep.nl",
+      "reason": "Knock-out: \"woningbouw\""
     },
     {
       "title": "Procesmanager - Omgevingsdienst Noordzeekanaalgebied max € 120 per uur Noord-Holland 36 uur per week",
