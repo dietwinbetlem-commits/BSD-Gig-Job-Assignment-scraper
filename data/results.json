@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-05-28T08:39:02.765888+00:00",
-  "scraped_at_nl": "28 May 2026 om 10:39 CET",
-  "total_found": 44,
+  "scraped_at": "2026-05-29T08:37:40.617515+00:00",
+  "scraped_at_nl": "29 May 2026 om 10:37 CET",
+  "total_found": 45,
   "total_relevant": 5,
   "total_open": 2,
   "total_unknown": 3,
   "total_closed": 0,
-  "total_filtered_out": 39,
+  "total_filtered_out": 40,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "IT platform-categorie + managementrol",
       "content_hash": "14c24f46362e",
-      "scraped_at": "2026-05-28T08:36:45.201727+00:00",
+      "scraped_at": "2026-05-29T08:35:41.057800+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "7 open-signalen",
       "sources": [
@@ -43,7 +43,7 @@
     },
     {
       "title": "Projectmanager IT Implementatie Project",
-      "url": "https://www.it-contracts.nl/vacature_Projectmanager_IT_Implementatie_Project_287481/search/LAST%3A50/from/",
+      "url": "https://www.it-contracts.nl/vacature_Projectmanager_IT_Implementatie_Project_287481/search/management+procesmanager/from/0",
       "source": "IT-Contracts.nl",
       "platform_id": "itcontracts",
       "category": "itcontracts",
@@ -63,9 +63,9 @@
       ],
       "zzp_tier": 2,
       "filtered_in": true,
-      "filter_reason": "IT platform-categorie + managementrol",
+      "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "de75d8037c39",
-      "scraped_at": "2026-05-28T08:36:45.201828+00:00",
+      "scraped_at": "2026-05-29T08:35:43.349560+00:00",
       "vacancy_status": "open",
       "vacancy_status_reason": "6 open-signalen",
       "sources": [
@@ -96,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "812bbb84d019",
-      "scraped_at": "2026-05-28T08:37:04.392159+00:00",
+      "scraped_at": "2026-05-29T08:36:00.993156+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -127,7 +127,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-05-28T08:37:04.430352+00:00",
+      "scraped_at": "2026-05-29T08:36:01.031811+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -158,7 +158,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "13cc2cf13974",
-      "scraped_at": "2026-05-28T08:37:51.880451+00:00",
+      "scraped_at": "2026-05-29T08:36:29.905603+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: depubliekepartner.nl",
       "sources": [
@@ -179,17 +179,37 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Security Management *2026-061",
+      "title": "(Junior) product manager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Solution / Systems / Platform Architect",
+      "title": "DevOps Engineer integratie",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Front-End Developer (Angular)",
+      "title": "Senior Beheerder (vmware/automation Specialist)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Inkoper IT",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "IT/Werkplek Architect",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Beheerder (vmware/automation Specia...",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Privacy Officer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -209,29 +229,9 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Expert Logische Toegangsbeveiliging",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Implementatieadviseur Cbw",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Project Management Officer - IHD-00...",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Security Tester/Test Manager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Projectmanager",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Senior Project Management Officer - IHD-00000606",
@@ -239,17 +239,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Design Engineer",
+      "title": "Security Management *2026-061",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Project Management Officer *200416380",
+      "title": "Solution / Systems / Platform Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Project management officer *200416367",
+      "title": "Senior Front-End Developer (Angular)",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -272,6 +272,11 @@
       "title": "ABAP consultant SAP *200416324",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Procesmanager krw - Provincie Utrecht geen max tarief Utrecht 36 uur per week",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "Procesmanager woningbouwrealisatie - Provincie Noord-Brabant max € 106 per uur Noord-Brabant 36 uur per week",
