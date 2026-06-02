@@ -1,46 +1,15 @@
 {
-  "scraped_at": "2026-06-01T10:11:11.886352+00:00",
-  "scraped_at_nl": "01 June 2026 om 12:11 CET",
-  "total_found": 44,
-  "total_relevant": 4,
-  "total_open": 1,
+  "scraped_at": "2026-06-02T09:01:26.310578+00:00",
+  "scraped_at_nl": "02 June 2026 om 11:01 CET",
+  "total_found": 42,
+  "total_relevant": 3,
+  "total_open": 0,
   "total_unknown": 3,
   "total_closed": 0,
-  "total_filtered_out": 40,
+  "total_filtered_out": 39,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
-    {
-      "title": "Projectmanager IT Implementatie Project",
-      "url": "https://www.it-contracts.nl/vacature_Projectmanager_IT_Implementatie_Project_287481/search/management+procesmanager/from/0",
-      "source": "IT-Contracts.nl",
-      "platform_id": "itcontracts",
-      "category": "itcontracts",
-      "location": "",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "Managementrol + IT-synoniem",
-      "content_hash": "de75d8037c39",
-      "scraped_at": "2026-06-01T10:09:15.438630+00:00",
-      "vacancy_status": "open",
-      "vacancy_status_reason": "6 open-signalen",
-      "sources": [
-        "IT-Contracts.nl"
-      ]
-    },
     {
       "title": "Procesmanager SecurityHet Centraal Justitieel Incassobureau (CJIB)",
       "url": "https://www.freep.nl/opdracht/procesmanager-security",
@@ -65,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "812bbb84d019",
-      "scraped_at": "2026-06-01T10:09:33.246110+00:00",
+      "scraped_at": "2026-06-02T09:00:13.712869+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -96,7 +65,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-06-01T10:09:33.286667+00:00",
+      "scraped_at": "2026-06-02T09:00:13.734156+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -127,7 +96,7 @@
       "filtered_in": true,
       "filter_reason": "IT-specifieke managementrol",
       "content_hash": "13cc2cf13974",
-      "scraped_at": "2026-06-01T10:10:02.701251+00:00",
+      "scraped_at": "2026-06-02T09:00:46.302450+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: depubliekepartner.nl",
       "sources": [
@@ -148,6 +117,11 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Technische Scrummaster",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "(Junior) product manager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -158,7 +132,27 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Beheerder (vmware/automation Specialist)",
+      "title": "Netapp Administrator Storage",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Informatiemanager en Coördinator",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Ontwerper Netwerk Automation",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "K2/Sharepoint-Nintex Developer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Cloud Engineer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -168,47 +162,7 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Communicatie Professional Implementatie De...",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Solution Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Inkoper IT",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "IT/Werkplek Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Beheerder (vmware/automation Specia...",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Privacy Officer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Controle Expert",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior projectmanager",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen IT-synoniem bij rol"
-    },
-    {
-      "title": "Communicatie Professional Implementatie DefDoc",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -218,12 +172,22 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Senior Beheerder (vmware/automation Specialist)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Solution / Systems / Platform Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Front-End Developer (Angular)",
+      "title": "Inkoper IT",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Privacy Officer",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -253,7 +217,7 @@
       "reason": "Knock-out: \"woningbouw\""
     },
     {
-      "title": "Procesmanager - Omgevingsdienst Noordzeekanaalgebied max € 120 per uur Noord-Holland 36 uur per week",
+      "title": "ProcesmanagerOmgevingsdienst Noordzeekanaalgebied",
       "source": "Freep.nl",
       "reason": "Geen IT-synoniem bij rol"
     },
