@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-06-02T09:01:26.310578+00:00",
-  "scraped_at_nl": "02 June 2026 om 11:01 CET",
-  "total_found": 42,
-  "total_relevant": 3,
+  "scraped_at": "2026-06-03T09:22:41.870076+00:00",
+  "scraped_at_nl": "03 June 2026 om 11:22 CET",
+  "total_found": 46,
+  "total_relevant": 2,
   "total_open": 0,
-  "total_unknown": 3,
+  "total_unknown": 2,
   "total_closed": 0,
-  "total_filtered_out": 39,
+  "total_filtered_out": 44,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "812bbb84d019",
-      "scraped_at": "2026-06-02T09:00:13.712869+00:00",
+      "scraped_at": "2026-06-03T09:19:58.844047+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,42 +65,11 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-06-02T09:00:13.734156+00:00",
+      "scraped_at": "2026-06-03T09:19:58.884694+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
         "Freep.nl"
-      ]
-    },
-    {
-      "title": "Juridisch Kwaliteitsmedewerker",
-      "url": "https://depubliekepartner.nl/juridisch-kwaliteitsmedewerker-16/",
-      "source": "De Publieke Partner",
-      "platform_id": "publiekepartner",
-      "category": "overheid",
-      "location": "Ede",
-      "opdrachtgever": "",
-      "description": "",
-      "tarief": "",
-      "duration": "",
-      "hours": "",
-      "published": "",
-      "startdatum": "",
-      "contract": [
-        "zzp"
-      ],
-      "work": [
-        "hybrid"
-      ],
-      "zzp_tier": 2,
-      "filtered_in": true,
-      "filter_reason": "IT-specifieke managementrol",
-      "content_hash": "13cc2cf13974",
-      "scraped_at": "2026-06-02T09:00:46.302450+00:00",
-      "vacancy_status": "unknown",
-      "vacancy_status_reason": "Overgeslagen: depubliekepartner.nl",
-      "sources": [
-        "De Publieke Partner"
       ]
     }
   ],
@@ -117,17 +86,42 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Opser Team Victor",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Ontwikkelaar team Tango",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Technische Scrummaster",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "(Junior) product manager",
+      "title": "Adviseur Civision",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "DevOps Engineer integratie",
+      "title": "Regionaal Transitieadviseur Common Ground ...",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Linux Infrastructure Security & DevOps En...",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Data Scientist - AI Agent Engineer (AI Squad)",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Compliance Officer Privacy en Security",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -142,32 +136,17 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Senior Ontwerper Netwerk Automation",
+      "title": "Regionaal Transitieadviseur Common Ground (met dienstverlening...",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "K2/Sharepoint-Nintex Developer",
+      "title": "(Junior) product manager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Cloud Engineer",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Business Analist",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Solution Architect",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Project Management Officer - IHD-00000606",
+      "title": "Regionaal Transitieadviseur Common Ground (met techniek en arc...",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -178,6 +157,21 @@
     },
     {
       "title": "Solution / Systems / Platform Architect",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Senior Ontwerper Netwerk Automation",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "K2/Sharepoint-Nintex Developer",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "DevOps Engineer integratie",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
