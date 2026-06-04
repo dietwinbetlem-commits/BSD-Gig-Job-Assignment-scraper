@@ -1,12 +1,12 @@
 {
-  "scraped_at": "2026-06-03T09:22:41.870076+00:00",
-  "scraped_at_nl": "03 June 2026 om 11:22 CET",
-  "total_found": 46,
-  "total_relevant": 2,
+  "scraped_at": "2026-06-04T08:44:11.312087+00:00",
+  "scraped_at_nl": "04 June 2026 om 10:44 CET",
+  "total_found": 43,
+  "total_relevant": 3,
   "total_open": 0,
-  "total_unknown": 2,
+  "total_unknown": 3,
   "total_closed": 0,
-  "total_filtered_out": 44,
+  "total_filtered_out": 40,
   "platforms_scraped": 6,
   "errors": [],
   "results": [
@@ -34,7 +34,7 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "812bbb84d019",
-      "scraped_at": "2026-06-03T09:19:58.844047+00:00",
+      "scraped_at": "2026-06-04T08:42:33.477334+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
@@ -65,23 +65,54 @@
       "filtered_in": true,
       "filter_reason": "Managementrol + IT-synoniem",
       "content_hash": "a3fddf3fce2b",
-      "scraped_at": "2026-06-03T09:19:58.884694+00:00",
+      "scraped_at": "2026-06-04T08:42:33.516094+00:00",
       "vacancy_status": "unknown",
       "vacancy_status_reason": "Overgeslagen: freep.nl",
       "sources": [
         "Freep.nl"
+      ]
+    },
+    {
+      "title": "Juridisch Kwaliteitsmedewerker",
+      "url": "https://depubliekepartner.nl/juridisch-kwaliteitsmedewerker-16/",
+      "source": "De Publieke Partner",
+      "platform_id": "publiekepartner",
+      "category": "overheid",
+      "location": "Ede",
+      "opdrachtgever": "",
+      "description": "",
+      "tarief": "",
+      "duration": "",
+      "hours": "",
+      "published": "",
+      "startdatum": "",
+      "contract": [
+        "zzp"
+      ],
+      "work": [
+        "hybrid"
+      ],
+      "zzp_tier": 2,
+      "filtered_in": true,
+      "filter_reason": "IT-specifieke managementrol",
+      "content_hash": "13cc2cf13974",
+      "scraped_at": "2026-06-04T08:43:03.866388+00:00",
+      "vacancy_status": "unknown",
+      "vacancy_status_reason": "Overgeslagen: depubliekepartner.nl",
+      "sources": [
+        "De Publieke Partner"
       ]
     }
   ],
   "closed_debug": [],
   "filtered_out_debug": [
     {
-      "title": "Technisch Consultant ServiceNow",
+      "title": "Ontwerper Linux (2 FTE)",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Business Consultant/Scrum Master ServiceNow I&V",
+      "title": "Regionaal Transitieadviseur Common Ground (met open source en ...",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -101,7 +132,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Adviseur Civision",
+      "title": "Afdelingsmanager IT/Ledenbediening",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
+      "title": "Beveiligingsfunctionaris",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -111,27 +147,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Adviseur Civision",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Linux Infrastructure Security & DevOps En...",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Data Scientist - AI Agent Engineer (AI Squad)",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Compliance Officer Privacy en Security",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Netapp Administrator Storage",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Informatiemanager en Coördinator",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -141,22 +162,22 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Senior Informatiemanager en Coördinator",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "(Junior) product manager",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
+      "title": "Regionaal Transitieadviseur Common Ground (met organisatie en ...",
+      "source": "IT-Contracts.nl",
+      "reason": "Geen relevante managementrol in titel"
+    },
+    {
       "title": "Regionaal Transitieadviseur Common Ground (met techniek en arc...",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Senior Beheerder (vmware/automation Specialist)",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
-      "title": "Solution / Systems / Platform Architect",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -171,11 +192,6 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "DevOps Engineer integratie",
-      "source": "IT-Contracts.nl",
-      "reason": "Geen relevante managementrol in titel"
-    },
-    {
       "title": "Inkoper IT",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
@@ -186,12 +202,12 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "DevOps Engineer",
+      "title": "Full Stack Developer DevOps (2 FTE)",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Full Stack Developer DevOps (2 FTE)",
+      "title": "Netapp Administrator Storage",
       "source": "IT-Contracts.nl",
       "reason": "Geen relevante managementrol in titel"
     },
@@ -201,14 +217,14 @@
       "reason": "Geen relevante managementrol in titel"
     },
     {
-      "title": "Procesmanager krw - Provincie Utrecht geen max tarief Utrecht 36 uur per week",
-      "source": "Freep.nl",
-      "reason": "Geen IT-synoniem bij rol"
-    },
-    {
       "title": "Procesmanager woningbouwrealisatie - Provincie Noord-Brabant max € 106 per uur Noord-Brabant 36 uur per week",
       "source": "Freep.nl",
       "reason": "Knock-out: \"woningbouw\""
+    },
+    {
+      "title": "Procesmanager krwProvincie Utrecht",
+      "source": "Freep.nl",
+      "reason": "Geen IT-synoniem bij rol"
     },
     {
       "title": "ProcesmanagerOmgevingsdienst Noordzeekanaalgebied",
@@ -289,11 +305,6 @@
       "title": "Procesmanager srbt-woontafelGemeente Breda",
       "source": "Freep.nl",
       "reason": "Knock-out: \"woontafel\""
-    },
-    {
-      "title": "Interim procesmanager vervoerGemeente Lochem",
-      "source": "Freep.nl",
-      "reason": "Geen IT-synoniem bij rol"
     }
   ]
 }
